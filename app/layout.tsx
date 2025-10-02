@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navigation from "../components/Navigation";
-import Footer from "../components/Footer";
+import Header from "@/components/header";
+import Footer from "@/components/_footer";
 
 export const metadata: Metadata = {
   title: "Kimberly Nguyen Photography - Wedding & Portrait Photographer",
@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        <Navigation />
+        <Header />
         <main className="pt-16">
           {children}
         </main>

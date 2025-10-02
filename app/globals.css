@@ -2,12 +2,13 @@
 
 :root {
   --background: #fefefe;
-  --foreground: #2c3e2d;
-  --sage: #8faa8b;
-  --forest: #4a6741;
-  --cream: #f8f6f0;
-  --stone: #9d9d9c;
+  --foreground: #3a4f3b;
+  --sage: #a8c5a4;
+  --forest: #5a7457;
+  --cream: #f9f7f4;
+  --stone: #7c7c7b;
   --charcoal: #3d3d3d;
+  --accent: #d4a574;
 }
 
 @theme inline {
@@ -18,15 +19,9 @@
   --color-cream: var(--cream);
   --color-stone: var(--stone);
   --color-charcoal: var(--charcoal);
+  --color-accent: var(--accent);
   --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1a1a1a;
-    --foreground: #ededed;
-  }
 }
 
 body {
