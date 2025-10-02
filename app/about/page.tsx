@@ -1,9 +1,9 @@
-import HeroSection from "@/components/about/hero-section";
-import StorySection from "@/components/about/story-section";
-import ValuesSection from "@/components/about/values-section";
-import BehindTheScenes from "@/components/about/behind-the-scenes";
-import VideoSection from "@/components/about/video-section";
-import CallToAction from "@/components/about/call-to-action";
+import HeroSection from "@/app/about/components/hero-section";
+import StorySection from "@/app/about/components/story-section";
+import ValuesSection from "@/app/about/components/values-section";
+import BehindTheScenes from "@/app/about/components/behind-the-scenes";
+import VideoSection from "@/app/about/components/video-section";
+import CallToAction from "@/app/about/components/call-to-action";
 
 export const metadata = {
   title: "About Kimberly - Kimberly Nguyen Photography",

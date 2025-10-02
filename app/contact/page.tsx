@@ -1,7 +1,7 @@
-import HeroSection from "@/components/contact/hero-section";
-import ContactForm from "@/components/contact/contact-form";
-import Testimonials from "@/components/contact/testimonials";
-import FaqSection from "@/components/contact/faq-section";
+import HeroSection from "@/app/contact/components/hero-section";
+import ContactForm from "@/app/contact/components/contact-form";
+import Testimonials from "@/app/contact/components/testimonials";
+import FaqSection from "@/app/contact/components/faq-section";
 
 export default function Contact() {
   return (

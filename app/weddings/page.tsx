@@ -1,10 +1,10 @@
-import HeroSection from "@/components/weddings/hero-section";
-import ExperienceBreakdown from "@/components/weddings/experience-breakdown";
-import PortfolioGallery from "@/components/weddings/portfolio-gallery";
-import ServicesBreakdown from "@/components/weddings/services-breakdown";
-import ElopementsAndEngagements from "@/components/weddings/elopements-and-engagements";
-import Testimonials from "@/components/weddings/testimonials";
-import CallToAction from "@/components/weddings/call-to-action";
+import HeroSection from "@/app/weddings/components/hero-section";
+import ExperienceBreakdown from "@/app/weddings/components/experience-breakdown";
+import PortfolioGallery from "@/app/weddings/components/portfolio-gallery";
+import ServicesBreakdown from "@/app/weddings/components/services-breakdown";
+import ElopementsAndEngagements from "@/app/weddings/components/elopements-and-engagements";
+import Testimonials from "@/app/weddings/components/testimonials";
+import CallToAction from "@/app/weddings/components/call-to-action";
 
 export const metadata = {
   title: "Wedding Photography - Kimberly Nguyen Photography",
