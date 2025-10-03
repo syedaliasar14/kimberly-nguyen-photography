@@ -13,19 +13,19 @@ export default function BehindTheScenes() {
             </div>
           </div>
           <div>
-            <h3 className="font-serif text-2xl text-primary mb-6">My Process</h3>
+            <h3 className="font-serif text-2xl text-primary mb-6 font-semibold">My Process</h3>
             <div className="space-y-6">
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed font-accent">
                 I believe the best wedding photography happens when couples feel completely 
                 comfortable and natural. That's why I spend time getting to know you before 
                 your wedding day—understanding your story, your vision, and what matters most to you.
               </p>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed font-accent">
                 On your wedding day, I blend into the background, documenting moments as they 
                 happen while providing gentle guidance when needed. My goal is for you to forget 
                 I'm there, so you can be fully present with each other and your loved ones.
               </p>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed font-accent">
                 After your wedding, I carefully curate and edit your images, ensuring each photo 
                 reflects the beauty and emotion of your day with my signature bright, clean aesthetic.
               </p>

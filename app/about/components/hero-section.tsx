@@ -17,7 +17,7 @@ export default function HeroSection() {
             </p>
             <Link
               href="/contact"
-              className="inline-block bg-primary text-cream px-8 py-4 rounded-full hover:bg-accent transition-colors text-lg font-medium"
+              className="inline-block bg-primary text-primary-foreground px-8 py-4 rounded-full hover:bg-accent transition-all duration-300 text-lg font-accent font-semibold"
             >
               Let's Connect
             </Link>
