@@ -9,22 +9,22 @@ export default function PortfolioGallery() {
   ];
 
   return (
-    <section className="py-20 bg-cream">
+    <section className="py-20 bg-secondary">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-serif text-3xl sm:text-4xl text-center text-forest mb-16">
+        <h2 className="font-serif text-3xl sm:text-4xl text-center text-primary mb-16 font-bold tracking-tight">
           Recent Weddings
         </h2>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {weddings.map((wedding, index) => (
             <div key={index} className="group cursor-pointer">
-              <div className="aspect-[4/3] bg-sage/10 rounded-lg overflow-hidden mb-4 group-hover:bg-sage/20 transition-colors">
-                <div className="w-full h-full flex items-center justify-center text-sage">
-                  <p className="text-center px-4">{wedding.title}</p>
+              <div className="aspect-[4/3] bg-accent/10 rounded-lg overflow-hidden mb-4 group-hover:bg-accent/20 transition-colors">
+                <div className="w-full h-full flex items-center justify-center text-accent">
+                  <p className="text-center px-4 font-accent font-medium">{wedding.title}</p>
                 </div>
               </div>
-              <h3 className="font-serif text-lg text-forest mb-2">{wedding.title}</h3>
-              <p className="text-stone text-sm">{wedding.description}</p>
+              <h3 className="font-serif text-lg text-primary mb-2 font-semibold">{wedding.title}</h3>
+              <p className="text-muted-foreground text-sm font-accent">{wedding.description}</p>
             </div>
           ))}
         </div>

@@ -35,21 +35,21 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <section className="min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-cream to-background">
+      <section className="min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-secondary to-background">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="w-20 h-20 bg-sage/20 rounded-full flex items-center justify-center mx-auto mb-8">
-            <svg className="w-10 h-10 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="w-20 h-20 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-8">
+            <svg className="w-10 h-10 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h1 className="font-serif text-4xl sm:text-5xl text-forest mb-6">Thank You!</h1>
-          <p className="text-xl text-stone mb-8 leading-relaxed">
+          <h1 className="font-serif text-4xl sm:text-5xl text-primary mb-6">Thank You!</h1>
+          <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
             I've received your inquiry and I'm so excited to learn about your wedding plans! 
             I'll be in touch within 24-48 hours to schedule our consultation.
           </p>
-          <p className="text-stone">
+          <p className="text-muted-foreground font-accent">
             In the meantime, feel free to follow along on{' '}
-            <a href="https://instagram.com" className="text-sage hover:text-forest transition-colors">
+            <a href="https://instagram.com" className="text-accent hover:text-primary transition-colors">
               Instagram
             </a>{' '}
             to see the latest work.
@@ -64,37 +64,37 @@ export default function ContactForm() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-16">
           <div>
-            <h2 className="font-serif text-3xl text-forest mb-8">Get In Touch</h2>
+            <h2 className="font-serif text-3xl text-primary mb-8 font-bold tracking-tight">Get In Touch</h2>
             <div className="space-y-6">
               <div>
-                <h3 className="font-semibold text-forest mb-2">Email</h3>
+                <h3 className="font-semibold text-primary mb-2">Email</h3>
                 <a 
                   href="mailto:hello@kimberlynguyenphotography.com" 
-                  className="text-stone hover:text-sage transition-colors"
+                  className="text-muted-foreground hover:text-accent transition-colors"
                 >
                   hello@kimberlynguyenphotography.com
                 </a>
               </div>
               
               <div>
-                <h3 className="font-semibold text-forest mb-2">Phone</h3>
+                <h3 className="font-semibold text-primary mb-2">Phone</h3>
                 <a 
                   href="tel:+1234567890" 
-                  className="text-stone hover:text-sage transition-colors"
+                  className="text-muted-foreground hover:text-accent transition-colors"
                 >
                   (555) 123-4567
                 </a>
               </div>
               
               <div>
-                <h3 className="font-semibold text-forest mb-2">Based in</h3>
-                <p className="text-stone">Bay Area, California</p>
-                <p className="text-stone text-sm mt-1">Available for travel worldwide</p>
+                <h3 className="font-semibold text-primary mb-2">Based in</h3>
+                <p className="text-muted-foreground font-accent">Bay Area, California</p>
+                <p className="text-muted-foreground text-sm mt-1">Available for travel worldwide</p>
               </div>
               
               <div>
-                <h3 className="font-semibold text-forest mb-2">Response Time</h3>
-                <p className="text-stone">Within 24-48 hours</p>
+                <h3 className="font-semibold text-primary mb-2">Response Time</h3>
+                <p className="text-muted-foreground font-accent">Within 24-48 hours</p>
               </div>
             </div>
           </div>
@@ -103,7 +103,7 @@ export default function ContactForm() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-forest mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-primary mb-2">
                     Name *
                   </label>
                   <input
@@ -113,12 +113,12 @@ export default function ContactForm() {
                     required
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-stone/20 rounded-lg focus:ring-2 focus:ring-sage focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 border border-muted/20 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-colors"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-forest mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-primary mb-2">
                     Email *
                   </label>
                   <input
@@ -128,14 +128,14 @@ export default function ContactForm() {
                     required
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-stone/20 rounded-lg focus:ring-2 focus:ring-sage focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 border border-muted/20 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-colors"
                   />
                 </div>
               </div>
               
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-forest mb-2">
+                  <label htmlFor="phone" className="block text-sm font-medium text-primary mb-2">
                     Phone
                   </label>
                   <input
@@ -144,12 +144,12 @@ export default function ContactForm() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-stone/20 rounded-lg focus:ring-2 focus:ring-sage focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 border border-muted/20 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-colors"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="weddingDate" className="block text-sm font-medium text-forest mb-2">
+                  <label htmlFor="weddingDate" className="block text-sm font-medium text-primary mb-2">
                     Wedding Date
                   </label>
                   <input
@@ -158,13 +158,13 @@ export default function ContactForm() {
                     name="weddingDate"
                     value={formData.weddingDate}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-stone/20 rounded-lg focus:ring-2 focus:ring-sage focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 border border-muted/20 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-colors"
                   />
                 </div>
               </div>
               
               <div>
-                <label htmlFor="venue" className="block text-sm font-medium text-forest mb-2">
+                <label htmlFor="venue" className="block text-sm font-medium text-primary mb-2">
                   Venue or Location
                 </label>
                 <input
@@ -173,12 +173,12 @@ export default function ContactForm() {
                   name="venue"
                   value={formData.venue}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-stone/20 rounded-lg focus:ring-2 focus:ring-sage focus:border-transparent transition-colors"
+                  className="w-full px-4 py-3 border border-muted/20 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-colors"
                 />
               </div>
               
               <div>
-                <label htmlFor="howDidYouHear" className="block text-sm font-medium text-forest mb-2">
+                <label htmlFor="howDidYouHear" className="block text-sm font-medium text-primary mb-2">
                   How did you hear about me?
                 </label>
                 <select
@@ -186,7 +186,7 @@ export default function ContactForm() {
                   name="howDidYouHear"
                   value={formData.howDidYouHear}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-stone/20 rounded-lg focus:ring-2 focus:ring-sage focus:border-transparent transition-colors"
+                  className="w-full px-4 py-3 border border-muted/20 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-colors"
                 >
                   <option value="">Please select</option>
                   <option value="instagram">Instagram</option>
@@ -198,7 +198,7 @@ export default function ContactForm() {
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-forest mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-primary mb-2">
                   Tell me about your wedding
                 </label>
                 <textarea
@@ -208,7 +208,7 @@ export default function ContactForm() {
                   value={formData.message}
                   onChange={handleInputChange}
                   placeholder="I'd love to hear about your wedding vision, timeline, and anything else you'd like to share..."
-                  className="w-full px-4 py-3 border border-stone/20 rounded-lg focus:ring-2 focus:ring-sage focus:border-transparent transition-colors resize-none"
+                  className="w-full px-4 py-3 border border-muted/20 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-colors resize-none"
                 ></textarea>
               </div>
               
@@ -217,8 +217,8 @@ export default function ContactForm() {
                 disabled={isSubmitting}
                 className={`w-full py-4 px-6 rounded-lg text-lg font-medium transition-colors ${
                   isSubmitting
-                    ? 'bg-stone/20 text-stone cursor-not-allowed'
-                    : 'bg-forest text-cream hover:bg-sage hover:text-forest'
+                    ? 'bg-muted/20 text-muted-foreground cursor-not-allowed'
+                    : 'bg-primary text-accent-foreground hover:bg-accent hover:text-primary'
                 }`}
               >
                 {isSubmitting ? 'Sending...' : 'Send Inquiry'}
