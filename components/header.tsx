@@ -38,7 +38,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-lg text-foreground hover:text-forest transition-colors"
+                className="text-lg text-foreground hover:text-accent transition-colors font-accent font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.label}

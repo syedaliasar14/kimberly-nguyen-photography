@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function CallToAction() {
   return (
-    <section className="py-20 bg-forest text-cream">
+    <section className="py-20 bg-primary text-cream">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="font-serif text-3xl sm:text-4xl mb-6">
           Let's Tell Your Story Together
@@ -12,7 +12,7 @@ export default function CallToAction() {
         </p>
         <Link
           href="/contact"
-          className="inline-block bg-sage text-forest px-8 py-4 rounded-full hover:bg-cream transition-colors text-lg font-medium"
+          className="inline-block bg-accent text-primary px-8 py-4 rounded-full hover:bg-secondary transition-colors text-lg font-medium"
         >
           Start the Conversation
         </Link>

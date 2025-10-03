@@ -1,18 +1,18 @@
 export default function InstagramFeed() {
   return (
-    <section className="py-20 bg-cream">
+    <section className="py-20 bg-secondary">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="font-serif text-3xl sm:text-4xl text-forest mb-8">
+        <h2 className="font-serif text-3xl sm:text-4xl text-primary mb-8 font-bold tracking-tight">
           Follow the Journey
         </h2>
-        <p className="text-stone mb-12 text-lg">
+        <p className="text-muted-foreground mb-12 text-lg font-accent">
           See the latest work and behind-the-scenes moments on Instagram
         </p>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-            <div key={item} className="aspect-square bg-sage/20 rounded-lg flex items-center justify-center">
-              <p className="text-sage">Instagram {item}</p>
+            <div key={item} className="aspect-square bg-accent/20 rounded-lg flex items-center justify-center hover:bg-accent/30 transition-colors">
+              <p className="text-accent font-accent font-medium">Instagram {item}</p>
             </div>
           ))}
         </div>
@@ -21,7 +21,7 @@ export default function InstagramFeed() {
           href="https://instagram.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center space-x-2 text-forest hover:text-sage transition-colors text-lg font-medium"
+          className="inline-flex items-center space-x-2 text-primary hover:text-accent transition-colors text-lg font-accent font-medium"
         >
           <span>@kimberlynguyenphotography</span>
           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

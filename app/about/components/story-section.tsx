@@ -2,11 +2,11 @@ export default function StorySection() {
   return (
     <section className="py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-serif text-3xl sm:text-4xl text-center text-forest mb-16">
+        <h2 className="font-serif text-3xl sm:text-4xl text-center text-primary mb-16">
           My Story
         </h2>
         
-        <div className="prose prose-lg max-w-none text-stone leading-relaxed">
+        <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed">
           <p className="text-xl mb-8">
             Photography found me through love—first, my love for capturing fleeting moments, 
             and later, through witnessing the profound love between couples on their wedding days.
