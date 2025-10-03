@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/header";
-import Footer from "@/components/_footer";
+import Footer from "@/components/footer";
+import { Lexend } from "next/font/google";
+
+const lexend = Lexend({
+  variable: "--font-lexend",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Kimberly Nguyen Photography - Wedding & Portrait Photographer",
   description: "Capturing love stories with flow, balance, and heart. Wedding photography that celebrates diversity and community with a bright, minimalist aesthetic.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body className="antialiased">
