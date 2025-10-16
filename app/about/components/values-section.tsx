@@ -12,7 +12,7 @@ export default function ValuesSection() {
               <div className="w-8 h-8 bg-accent rounded-full group-hover:scale-110 transition-transform"></div>
             </div>
             <h3 className="font-serif text-xl text-primary mb-4 font-semibold">Flow</h3>
-            <p className="text-muted-foreground leading-relaxed font-accent">
+            <p className="text-muted-foreground leading-relaxed">
               Every wedding has its own natural rhythm. I work with that flow, not against it, 
               capturing moments as they organically unfold throughout your day.
             </p>
@@ -27,7 +27,7 @@ export default function ValuesSection() {
               </div>
             </div>
             <h3 className="font-serif text-xl text-primary mb-4 font-semibold">Balance</h3>
-            <p className="text-muted-foreground leading-relaxed font-accent">
+            <p className="text-muted-foreground leading-relaxed">
               The perfect wedding photo balances light and shadow, joy and reverence, 
               candid moments and intentional portraits to create a complete story.
             </p>
@@ -40,7 +40,7 @@ export default function ValuesSection() {
               </svg>
             </div>
             <h3 className="font-serif text-xl text-primary mb-4 font-semibold">Heart</h3>
-            <p className="text-muted-foreground leading-relaxed font-accent">
+            <p className="text-muted-foreground leading-relaxed">
               I photograph with empathy and emotional intelligence, understanding that 
               your wedding day is filled with deep meaning and significance.
             </p>
@@ -53,7 +53,7 @@ export default function ValuesSection() {
               </svg>
             </div>
             <h3 className="font-serif text-xl text-primary mb-4 font-semibold">Cohesive Aesthetics</h3>
-            <p className="text-muted-foreground leading-relaxed font-accent">
+            <p className="text-muted-foreground leading-relaxed">
               Every image in your gallery works together to tell a unified story, 
               with consistent editing that enhances the natural beauty of your day.
             </p>
@@ -66,7 +66,7 @@ export default function ValuesSection() {
               </svg>
             </div>
             <h3 className="font-serif text-xl text-primary mb-4 font-semibold">Diversity</h3>
-            <p className="text-muted-foreground leading-relaxed font-accent">
+            <p className="text-muted-foreground leading-relaxed">
               Love comes in many forms, and I celebrate the beautiful diversity of 
               couples, families, and traditions that make each wedding unique.
             </p>
@@ -79,7 +79,7 @@ export default function ValuesSection() {
               </svg>
             </div>
             <h3 className="font-serif text-xl text-primary mb-4 font-semibold">Community</h3>
-            <p className="text-muted-foreground leading-relaxed font-accent">
+            <p className="text-muted-foreground leading-relaxed">
               Weddings are about bringing people together. I capture not just the couple, 
               but the community of love and support that surrounds them.
             </p>

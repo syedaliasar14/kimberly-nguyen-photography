@@ -26,7 +26,7 @@ export default function AdminPage() {
             <h1 className="font-serif text-3xl text-primary mb-6 text-center font-bold">
               Admin Access
             </h1>
-            <p className="text-muted-foreground text-center mb-6 font-accent">
+            <p className="text-muted-foreground text-center mb-6">
               Please enter your password to access the admin panel.
             </p>
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -49,7 +49,7 @@ export default function AdminPage() {
               )}
               <button
                 type="submit"
-                className="w-full bg-primary text-primary-foreground px-8 py-3 rounded-full hover:bg-accent hover:text-accent-foreground transition-all duration-300 text-lg font-accent font-semibold"
+                className="w-full bg-primary text-primary-foreground px-8 py-3 rounded-full hover:bg-accent hover:text-accent-foreground transition-all duration-300 text-lg font-semibold"
               >
                 Access Admin Panel
               </button>

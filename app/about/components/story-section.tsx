@@ -6,7 +6,7 @@ export default function StorySection() {
           My Story
         </h2>
         
-        <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed font-accent">
+        <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed">
           <p className="text-xl mb-8">
             Photography found me through love—first, my love for capturing fleeting moments, 
             and later, through witnessing the profound love between couples on their wedding days.

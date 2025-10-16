@@ -8,7 +8,7 @@ export default function ElopementsAndEngagements() {
             <div className="aspect-[4/3] bg-accent/10 rounded-lg mb-6 flex items-center justify-center">
               <p className="text-accent">Elopement Photography</p>
             </div>
-            <p className="text-muted-foreground leading-relaxed mb-6 font-accent">
+            <p className="text-muted-foreground leading-relaxed mb-6">
               Sometimes the most beautiful celebrations are the intimate ones. Elopements allow 
               couples to focus purely on their commitment to each other in a meaningful setting.
             </p>
@@ -33,7 +33,7 @@ export default function ElopementsAndEngagements() {
             <div className="aspect-[4/3] bg-accent/10 rounded-lg mb-6 flex items-center justify-center">
               <p className="text-accent">Engagement Photography</p>
             </div>
-            <p className="text-muted-foreground leading-relaxed mb-6 font-accent">
+            <p className="text-muted-foreground leading-relaxed mb-6">
               Engagement sessions are a wonderful way to celebrate this special time in your 
               relationship and get comfortable with your photographer before the big day.
             </p>

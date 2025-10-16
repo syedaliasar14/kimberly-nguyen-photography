@@ -20,11 +20,11 @@ export default function PortfolioGallery() {
             <div key={index} className="group cursor-pointer">
               <div className="aspect-[4/3] bg-accent/10 rounded-lg overflow-hidden mb-4 group-hover:bg-accent/20 transition-colors">
                 <div className="w-full h-full flex items-center justify-center text-accent">
-                  <p className="text-center px-4 font-accent font-medium">{wedding.title}</p>
+                  <p className="text-center px-4 font-medium">{wedding.title}</p>
                 </div>
               </div>
               <h3 className="font-serif text-lg text-primary mb-2 font-semibold">{wedding.title}</h3>
-              <p className="text-muted-foreground text-sm font-accent">{wedding.description}</p>
+              <p className="text-muted-foreground text-sm">{wedding.description}</p>
             </div>
           ))}
         </div>

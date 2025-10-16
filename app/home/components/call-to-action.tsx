@@ -7,12 +7,12 @@ export default function CallToAction() {
         <h2 className="font-serif text-3xl sm:text-4xl mb-6 font-bold tracking-tight">
           Ready to Tell Your Story?
         </h2>
-        <p className="text-xl mb-8 opacity-90 leading-relaxed font-accent">
+        <p className="text-xl mb-8 opacity-90 leading-relaxed">
           Let's create something beautiful together. Schedule your consultation today.
         </p>
         <Link
           href="/contact"
-          className="inline-block bg-accent text-accent-foreground px-8 py-4 rounded-full hover:bg-secondary hover:text-secondary-foreground transition-all duration-300 text-lg font-accent font-semibold"
+          className="inline-block bg-accent text-accent-foreground px-8 py-4 rounded-full hover:bg-secondary hover:text-secondary-foreground transition-all duration-300 text-lg font-semibold"
         >
           Schedule Your Consultation
         </Link>

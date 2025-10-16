@@ -47,7 +47,7 @@ export default function ContactForm() {
             I've received your inquiry and I'm so excited to learn about your wedding plans! 
             I'll be in touch within 24-48 hours to schedule our consultation.
           </p>
-          <p className="text-muted-foreground font-accent">
+          <p className="text-muted-foreground">
             In the meantime, feel free to follow along on{' '}
             <a href="https://instagram.com" className="text-accent hover:text-primary transition-colors">
               Instagram
@@ -88,13 +88,13 @@ export default function ContactForm() {
               
               <div>
                 <h3 className="font-semibold text-primary mb-2">Based in</h3>
-                <p className="text-muted-foreground font-accent">Bay Area, California</p>
+                <p className="text-muted-foreground">Bay Area, California</p>
                 <p className="text-muted-foreground text-sm mt-1">Available for travel worldwide</p>
               </div>
               
               <div>
                 <h3 className="font-semibold text-primary mb-2">Response Time</h3>
-                <p className="text-muted-foreground font-accent">Within 24-48 hours</p>
+                <p className="text-muted-foreground">Within 24-48 hours</p>
               </div>
             </div>
           </div>

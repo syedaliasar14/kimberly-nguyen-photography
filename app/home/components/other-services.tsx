@@ -9,30 +9,30 @@ export default function OtherServices() {
         <div className="grid md:grid-cols-3 gap-8">
           <div className="text-center hover:scale-105 transition-transform">
             <div className="aspect-square bg-accent/10 rounded-lg mb-6 flex items-center justify-center">
-              <p className="text-accent font-accent font-medium">Engagement Photos</p>
+              <p className="text-accent font-medium">Engagement Photos</p>
             </div>
             <h3 className="font-serif text-xl text-primary mb-4 font-semibold">Engagement Sessions</h3>
-            <p className="text-muted-foreground leading-relaxed font-accent">
+            <p className="text-muted-foreground leading-relaxed">
               Celebrate your love story with a romantic engagement session in beautiful locations.
             </p>
           </div>
           
           <div className="text-center hover:scale-105 transition-transform">
             <div className="aspect-square bg-accent/10 rounded-lg mb-6 flex items-center justify-center">
-              <p className="text-accent font-accent font-medium">Elopement Photos</p>
+              <p className="text-accent font-medium">Elopement Photos</p>
             </div>
             <h3 className="font-serif text-xl text-primary mb-4 font-semibold">Elopements</h3>
-            <p className="text-muted-foreground leading-relaxed font-accent">
+            <p className="text-muted-foreground leading-relaxed">
               Intimate ceremonies deserve intimate photography. Perfect for couples seeking simplicity.
             </p>
           </div>
           
           <div className="text-center hover:scale-105 transition-transform">
             <div className="aspect-square bg-accent/10 rounded-lg mb-6 flex items-center justify-center">
-              <p className="text-accent font-accent font-medium">Portrait Photos</p>
+              <p className="text-accent font-medium">Portrait Photos</p>
             </div>
             <h3 className="font-serif text-xl text-primary mb-4 font-semibold">Portrait Sessions</h3>
-            <p className="text-muted-foreground leading-relaxed font-accent">
+            <p className="text-muted-foreground leading-relaxed">
               Professional portraits that capture your personality and authentic self.
             </p>
           </div>

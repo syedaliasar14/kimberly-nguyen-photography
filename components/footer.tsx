@@ -7,28 +7,28 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
           <div>
             <h3 className="font-serif text-2xl text-primary mb-4 font-bold">Kimberly Nguyen</h3>
-            <p className="text-muted-foreground leading-relaxed font-accent">
+            <p className="text-muted-foreground leading-relaxed">
               Capturing love stories with heart, celebrating diversity and community through bright, minimalist photography.
             </p>
           </div>
           
           <div>
-            <h4 className="font-semibold text-primary mb-4 font-accent">Quick Links</h4>
+            <h4 className="font-semibold text-primary mb-4">Quick Links</h4>
             <div className="space-y-2">
-              <Link href="/weddings" className="block text-muted-foreground hover:text-accent transition-colors font-accent">
+              <Link href="/weddings" className="block text-muted-foreground hover:text-accent transition-colors">
                 Wedding Photography
               </Link>
-              <Link href="/about" className="block text-muted-foreground hover:text-accent transition-colors font-accent">
+              <Link href="/about" className="block text-muted-foreground hover:text-accent transition-colors">
                 About Kimberly
               </Link>
-              <Link href="/contact" className="block text-muted-foreground hover:text-accent transition-colors font-accent">
+              <Link href="/contact" className="block text-muted-foreground hover:text-accent transition-colors">
                 Schedule Consultation
               </Link>
             </div>
           </div>
           
           <div>
-            <h4 className="font-semibold text-primary mb-4 font-accent">Connect</h4>
+            <h4 className="font-semibold text-primary mb-4">Connect</h4>
             <div className="flex justify-center md:justify-start space-x-4">
               <a 
                 href="https://instagram.com" 
@@ -66,7 +66,7 @@ export default function Footer() {
         </div>
         
         <div className="border-t border-border mt-12 pt-8 text-center">
-          <p className="text-muted-foreground text-sm font-accent">
+          <p className="text-muted-foreground text-sm">
             © {new Date().getFullYear()} Kimberly Nguyen Photography. All rights reserved.
           </p>
         </div>

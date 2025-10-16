@@ -12,23 +12,23 @@ export default function ServicesBreakdown() {
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <div className="w-2 h-2 bg-accent rounded-full mt-2"></div>
-                <p className="text-muted-foreground font-accent">8-12 hours of wedding day coverage</p>
+                <p className="text-muted-foreground">8-12 hours of wedding day coverage</p>
               </div>
               <div className="flex items-start space-x-3">
                 <div className="w-2 h-2 bg-accent rounded-full mt-2"></div>
-                <p className="text-muted-foreground font-accent">Getting ready through reception</p>
+                <p className="text-muted-foreground">Getting ready through reception</p>
               </div>
               <div className="flex items-start space-x-3">
                 <div className="w-2 h-2 bg-accent rounded-full mt-2"></div>
-                <p className="text-muted-foreground font-accent">500+ edited high-resolution images</p>
+                <p className="text-muted-foreground">500+ edited high-resolution images</p>
               </div>
               <div className="flex items-start space-x-3">
                 <div className="w-2 h-2 bg-accent rounded-full mt-2"></div>
-                <p className="text-muted-foreground font-accent">Online gallery for easy sharing</p>
+                <p className="text-muted-foreground">Online gallery for easy sharing</p>
               </div>
               <div className="flex items-start space-x-3">
                 <div className="w-2 h-2 bg-accent rounded-full mt-2"></div>
-                <p className="text-muted-foreground font-accent">Print release included</p>
+                <p className="text-muted-foreground">Print release included</p>
               </div>
             </div>
           </div>
@@ -38,23 +38,23 @@ export default function ServicesBreakdown() {
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <div className="w-2 h-2 bg-accent rounded-full mt-2"></div>
-                <p className="text-muted-foreground font-accent">Engagement session</p>
+                <p className="text-muted-foreground">Engagement session</p>
               </div>
               <div className="flex items-start space-x-3">
                 <div className="w-2 h-2 bg-accent rounded-full mt-2"></div>
-                <p className="text-muted-foreground font-accent">Rehearsal dinner coverage</p>
+                <p className="text-muted-foreground">Rehearsal dinner coverage</p>
               </div>
               <div className="flex items-start space-x-3">
                 <div className="w-2 h-2 bg-accent rounded-full mt-2"></div>
-                <p className="text-muted-foreground font-accent">Second photographer</p>
+                <p className="text-muted-foreground">Second photographer</p>
               </div>
               <div className="flex items-start space-x-3">
                 <div className="w-2 h-2 bg-accent rounded-full mt-2"></div>
-                <p className="text-muted-foreground font-accent">Custom wedding albums</p>
+                <p className="text-muted-foreground">Custom wedding albums</p>
               </div>
               <div className="flex items-start space-x-3">
                 <div className="w-2 h-2 bg-accent rounded-full mt-2"></div>
-                <p className="text-muted-foreground font-accent">Extended coverage hours</p>
+                <p className="text-muted-foreground">Extended coverage hours</p>
               </div>
             </div>
           </div>
