@@ -2,16 +2,16 @@ export default function ExperienceBreakdown() {
   return (
     <section className="py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-serif text-3xl sm:text-4xl text-center text-primary mb-16">
+        <h2 className="font-heading text-3xl sm:text-4xl text-center text-primary mb-16">
           The Wedding Photography Experience
         </h2>
         
         <div className="grid md:grid-cols-3 gap-12">
           <div className="text-center">
             <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-6">
-              <span className="font-serif text-2xl text-primary">1</span>
+              <span className="font-heading text-2xl text-primary">1</span>
             </div>
-            <h3 className="font-serif text-xl text-primary mb-4 font-semibold">Consultation & Planning</h3>
+            <h3 className="font-heading text-xl text-primary mb-4 font-semibold">Consultation & Planning</h3>
             <p className="text-muted-foreground leading-relaxed">
               We'll start with a conversation about your vision, timeline, and all the special 
               moments you want captured. This is where we plan the perfect approach for your day.
@@ -20,9 +20,9 @@ export default function ExperienceBreakdown() {
           
           <div className="text-center">
             <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-6">
-              <span className="font-serif text-2xl text-primary">2</span>
+              <span className="font-heading text-2xl text-primary">2</span>
             </div>
-            <h3 className="font-serif text-xl text-primary mb-4 font-semibold">Your Wedding Day</h3>
+            <h3 className="font-heading text-xl text-primary mb-4 font-semibold">Your Wedding Day</h3>
             <p className="text-muted-foreground leading-relaxed">
               I'll be there to capture every meaningful moment—from getting ready to the last dance. 
               My approach is unobtrusive, allowing you to be present while I document your story.
@@ -31,9 +31,9 @@ export default function ExperienceBreakdown() {
           
           <div className="text-center">
             <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-6">
-              <span className="font-serif text-2xl text-primary">3</span>
+              <span className="font-heading text-2xl text-primary">3</span>
             </div>
-            <h3 className="font-serif text-xl text-primary mb-4 font-semibold">Gallery Delivery</h3>
+            <h3 className="font-heading text-xl text-primary mb-4 font-semibold">Gallery Delivery</h3>
             <p className="text-muted-foreground leading-relaxed">
               Within 6-8 weeks, you'll receive your curated gallery of beautifully edited images 
               that tell the complete story of your wedding day.

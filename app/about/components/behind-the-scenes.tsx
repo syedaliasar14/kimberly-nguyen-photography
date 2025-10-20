@@ -2,7 +2,7 @@ export default function BehindTheScenes() {
   return (
     <section className="py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-serif text-3xl sm:text-4xl text-center text-primary mb-16">
+        <h2 className="font-heading text-3xl sm:text-4xl text-center text-primary mb-16">
           Behind the Scenes
         </h2>
         
@@ -13,7 +13,7 @@ export default function BehindTheScenes() {
             </div>
           </div>
           <div>
-            <h3 className="font-serif text-2xl text-primary mb-6 font-semibold">My Process</h3>
+            <h3 className="font-heading text-2xl text-primary mb-6 font-semibold">My Process</h3>
             <div className="space-y-6">
               <p className="text-muted-foreground leading-relaxed">
                 I believe the best wedding photography happens when couples feel completely 

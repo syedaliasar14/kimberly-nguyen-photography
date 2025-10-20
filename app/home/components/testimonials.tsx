@@ -2,7 +2,7 @@ export default function Testimonials() {
   return (
     <section className="py-20 bg-secondary">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="font-serif text-3xl sm:text-4xl text-primary mb-16 font-bold tracking-tight">
+        <h2 className="font-heading text-3xl sm:text-4xl text-primary mb-16 font-bold tracking-tight">
           What Couples Say
         </h2>
         

@@ -6,7 +6,7 @@ export default function HeroSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-primary mb-6 leading-tight">
+            <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-primary mb-6 leading-tight">
               Hello, I'm<br />
               <span className="text-accent">Kimberly</span>
             </h1>

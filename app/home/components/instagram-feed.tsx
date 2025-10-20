@@ -2,7 +2,7 @@ export default function InstagramFeed() {
   return (
     <section className="py-20 bg-secondary">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="font-serif text-3xl sm:text-4xl text-primary mb-8 font-bold tracking-tight">
+        <h2 className="font-heading text-3xl sm:text-4xl text-primary mb-8 font-bold tracking-tight">
           Follow the Journey
         </h2>
         <p className="text-muted-foreground mb-12 text-lg">

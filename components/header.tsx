@@ -29,7 +29,7 @@ export default function Header() {
       </div>
 
       <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
-        <SheetContent side="left" >
+        <SheetContent side="left" className='' >
           <SheetHeader>
             <SheetTitle></SheetTitle>
           </SheetHeader>
@@ -38,7 +38,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-lg text-foreground hover:text-accent transition-colors font-medium"
+                className="text-lg hover:text-accent transition-colors font-medium uppercase"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.label}

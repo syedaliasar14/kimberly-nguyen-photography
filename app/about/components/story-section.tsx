@@ -2,7 +2,7 @@ export default function StorySection() {
   return (
     <section className="py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-serif text-3xl sm:text-4xl text-center text-primary mb-16 font-bold tracking-tight">
+        <h2 className="font-heading text-3xl sm:text-4xl text-center text-primary mb-16 font-bold tracking-tight">
           My Story
         </h2>
         

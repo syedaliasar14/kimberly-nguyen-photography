@@ -11,7 +11,7 @@ export default function PortfolioGallery() {
   return (
     <section className="py-20 bg-secondary">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-serif text-3xl sm:text-4xl text-center text-primary mb-16 font-bold tracking-tight">
+        <h2 className="font-heading text-3xl sm:text-4xl text-center text-primary mb-16 font-bold tracking-tight">
           Recent Weddings
         </h2>
         
@@ -23,7 +23,7 @@ export default function PortfolioGallery() {
                   <p className="text-center px-4 font-medium">{wedding.title}</p>
                 </div>
               </div>
-              <h3 className="font-serif text-lg text-primary mb-2 font-semibold">{wedding.title}</h3>
+              <h3 className="font-heading text-lg text-primary mb-2 font-semibold">{wedding.title}</h3>
               <p className="text-muted-foreground text-sm">{wedding.description}</p>
             </div>
           ))}

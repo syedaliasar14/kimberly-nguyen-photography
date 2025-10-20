@@ -13,7 +13,7 @@ export default function WeddingSection2() {
                 <p className="text-lg font-medium">Wedding Gallery 1</p>
               </div>
             </div>
-            <h3 className="font-serif text-2xl text-primary font-semibold">Intimate Ceremonies</h3>
+            <h3 className="font-heading text-2xl text-primary font-semibold">Intimate Ceremonies</h3>
             <p className="text-muted-foreground leading-relaxed">
               Every love story is unique. I specialize in capturing the intimate moments, genuine emotions, 
               and natural connections that make your day truly yours.
@@ -26,7 +26,7 @@ export default function WeddingSection2() {
                 <p className="text-lg font-medium">Wedding Gallery 2</p>
               </div>
             </div>
-            <h3 className="font-serif text-2xl text-primary font-semibold">Joyful Celebrations</h3>
+            <h3 className="font-heading text-2xl text-primary font-semibold">Joyful Celebrations</h3>
             <p className="text-muted-foreground leading-relaxed">
               From grand celebrations to quiet elopements, I document the joy, laughter, and tears 
               that make your wedding day unforgettable.

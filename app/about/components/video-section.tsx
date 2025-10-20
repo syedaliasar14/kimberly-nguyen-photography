@@ -2,7 +2,7 @@ export default function VideoSection() {
   return (
     <section className="py-20 bg-secondary">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="font-serif text-3xl sm:text-4xl text-primary mb-8">
+        <h2 className="font-heading text-3xl sm:text-4xl text-primary mb-8">
           Coming Soon: Video Stories
         </h2>
         <p className="text-muted-foreground text-lg leading-relaxed mb-8">

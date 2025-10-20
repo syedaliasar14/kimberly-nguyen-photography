@@ -2,13 +2,13 @@ export default function ServicesBreakdown() {
   return (
     <section className="py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-serif text-3xl sm:text-4xl text-center text-primary mb-16">
+        <h2 className="font-heading text-3xl sm:text-4xl text-center text-primary mb-16">
           Wedding Services
         </h2>
         
         <div className="grid md:grid-cols-2 gap-12">
           <div>
-            <h3 className="font-serif text-2xl text-primary mb-6 font-semibold">Full Wedding Coverage</h3>
+            <h3 className="font-heading text-2xl text-primary mb-6 font-semibold">Full Wedding Coverage</h3>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <div className="w-2 h-2 bg-accent rounded-full mt-2"></div>
@@ -34,7 +34,7 @@ export default function ServicesBreakdown() {
           </div>
           
           <div>
-            <h3 className="font-serif text-2xl text-primary mb-6 font-semibold">Add-On Options</h3>
+            <h3 className="font-heading text-2xl text-primary mb-6 font-semibold">Add-On Options</h3>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <div className="w-2 h-2 bg-accent rounded-full mt-2"></div>

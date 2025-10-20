@@ -4,7 +4,7 @@ export default function CallToAction() {
   return (
     <section className="py-20 bg-primary text-primary-foreground">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="font-serif text-3xl sm:text-4xl mb-6 font-bold tracking-tight">
+        <h2 className="font-heading text-3xl sm:text-4xl mb-6 font-bold tracking-tight">
           Ready to Book Your Wedding?
         </h2>
         <p className="text-xl mb-8 opacity-90 leading-relaxed">
