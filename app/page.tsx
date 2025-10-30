@@ -6,7 +6,8 @@ import InstagramFeed from "@/app/home/components/instagram-feed";
 import WeddingSection1 from "./home/components/wedding-section-1";
 import WeddingSection2 from "./home/components/wedding-section-2";
 
-export default function Home() {
+export default async function Home() {
+  
   return (
     <>
       <HeroSection />
