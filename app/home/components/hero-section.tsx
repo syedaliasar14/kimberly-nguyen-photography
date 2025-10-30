@@ -41,17 +41,17 @@ export default function HeroSection() {
       {/* Content */}
       <div className="w-full mx-auto px-4 md:px-8 text-center flex flex-col justify-between flex-grow pt-16">
         <div className="flex flex-col gap-4 mt-8">
-          <h1 className="font-jost text-4xl md:text-7xl tracking-widest uppercase">Kimberly Nguyen</h1>
-          <p className="text-xs sm:text-lg uppercase">{`Wedding & Lifestyle Photographer  |  CT, NY & MA`}</p>
+          <h1 className="font-jost text-7xl tracking-widest uppercase trailing-tight">Kimberly Nguyen</h1>
+          <p className="text-sm md:text-lg font-jost tracking-widest">{`Wedding & Lifestyle Photographer | CT, NY & MA`}</p>
         </div>
 
         <div className="flex flex-col gap-4 mb-12 mt-8">
           <div className="self-start text-left text-3xl sm:text-4xl font-accent">One of a kind memories, beautifully preserved</div>
           <div className="flex flex-col sm:flex-row gap-4 justify-start ">
-            <Link href="/contact" className="btn bg-white text-primary hover:bg-foreground hover:text-white rounded-full">
+            <Link href="/contact" className="btn bg-white text-primary hover:bg-foreground hover:text-white font-jost tracking-wider rounded-full">
               Schedule Consultation
             </Link>
-            <Link href="/weddings" className="btn-outline text-white border-white hover:bg-primary-foreground hover:text-primary rounded-full">
+            <Link href="/weddings" className="btn-outline text-white border-white font-jost tracking-wider hover:bg-primary-foreground hover:text-primary rounded-full">
               View Weddings
             </Link>
           </div>

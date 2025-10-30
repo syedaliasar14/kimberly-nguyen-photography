@@ -1,35 +1,52 @@
 export default function Testimonials() {
+  const testimonials = [
+    {
+      quote: "Kimberly captured our day perfectly. Her eye for natural beauty and genuine moments made our photos feel so authentic and timeless.",
+      names: "Sarah & Michael",
+      season: "Fall Wedding 2024",
+    },
+    {
+      quote: "Amazing work!",
+      names: "Jessica & David", 
+      season: "Summer Wedding 2024",
+    },
+    {
+      quote: "Every moment was captured with such care and creativity. We couldn't be happier with our photos.",
+      names: "Emily & James",
+      season: "Spring Wedding 2024",
+    },
+    {
+      quote: "Kimberly was a joy to work with! Her professionalism and talent made our wedding day stress-free.",
+      names: "Anna & Robert",
+      season: "Winter Wedding 2024",
+    },
+    {
+      quote: "The photos exceeded our expectations! Kimberly has an incredible talent for storytelling through her lens.",
+      names: "Olivia & Ethan",
+      season: "Autumn Wedding 2024",
+    }
+  ];
+
   return (
-    <section className="py-40 bg-secondary">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="font-heading text-3xl sm:text-4xl text-primary mb-16 tracking-tight">
-          What Couples Say
-        </h2>
+    <section className="py-40 border-b" id="testimonials">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="font-heading text-6xl mb-16 text-center">What Couples Are Saying</h2>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="bg-background p-8 rounded-lg shadow-sm border border-border hover:shadow-md transition-shadow">
-            <p className="text-muted-foreground italic mb-4 leading-relaxed">
-              "Kimberly captured our day perfectly. Her eye for natural beauty and genuine moments 
-              made our photos feel so authentic and timeless."
-            </p>
-            <p className="font-semibold text-primary">- Sarah & Michael</p>
-          </div>
-          
-          <div className="bg-background p-8 rounded-lg shadow-sm border border-border hover:shadow-md transition-shadow">
-            <p className="text-muted-foreground italic mb-4 leading-relaxed">
-              "We felt so comfortable with Kimberly. She has this amazing ability to blend into 
-              the background while capturing every important moment."
-            </p>
-            <p className="font-semibold text-primary">- Jessica & David</p>
-          </div>
-          
-          <div className="bg-background p-8 rounded-lg shadow-sm md:col-span-2 lg:col-span-1 border border-border hover:shadow-md transition-shadow">
-            <p className="text-muted-foreground italic mb-4 leading-relaxed">
-              "The photos exceeded our expectations. Kimberly's bright, clean style perfectly 
-              matched our vision for our special day."
-            </p>
-            <p className="font-semibold text-primary">- Maria & James</p>
-          </div>
+        <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4 text-sm md:text-base">
+          {testimonials.map((testimonial, index) => (
+            <div key={index} className={`bg-background cursor-default p-6 rounded-lg shadow-sm border border-border hover:shadow-xl hover:scale-101 transition-all duration-300 break-inside-avoid`}>
+              <div className="flex items-center mb-4">
+                <div className="flex text-yellow-400">
+                  {'★'.repeat(5)}
+                </div>
+              </div>
+              <p className="text-muted-foreground italic mb-4 leading-relaxed">
+                "{testimonial.quote}"
+              </p>
+              <p className="font-medium text-primary">- {testimonial.names}</p>
+              <p className="text-sm text-muted-foreground mt-1">{testimonial.season}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

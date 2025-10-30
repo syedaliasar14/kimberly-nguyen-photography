@@ -1,38 +1,30 @@
 export default function OtherServices() {
   return (
-    <section className="py-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-heading text-3xl sm:text-4xl text-center text-primary mb-16 font-bold tracking-tight">
-          Other Services
-        </h2>
+    <section className="py-40">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="font-accent text-6xl mb-16 text-center">Other Services</h2>
         
         <div className="grid md:grid-cols-3 gap-8">
-          <div className="text-center hover:scale-105 transition-transform">
-            <div className="aspect-square bg-accent/10 rounded-lg mb-6 flex items-center justify-center">
-              <p className="text-accent font-medium">Engagement Photos</p>
-            </div>
-            <h3 className="font-heading text-xl text-primary mb-4 font-semibold">Engagement Sessions</h3>
-            <p className="text-muted-foreground leading-relaxed">
+          <div className="text-left group">
+            <div className="aspect-square bg-accent/10 mb-6"/>
+            <h3 className="font-jost font-medium text-2xl text-primary group-hover:text-accent mb-2">Engagement Sessions</h3>
+            <p className="text-muted-foreground">
               Celebrate your love story with a romantic engagement session in beautiful locations.
             </p>
           </div>
           
-          <div className="text-center hover:scale-105 transition-transform">
-            <div className="aspect-square bg-accent/10 rounded-lg mb-6 flex items-center justify-center">
-              <p className="text-accent font-medium">Elopement Photos</p>
-            </div>
-            <h3 className="font-heading text-xl text-primary mb-4 font-semibold">Elopements</h3>
-            <p className="text-muted-foreground leading-relaxed">
+          <div className="text-left group">
+            <div className="aspect-square bg-accent/10 mb-6"/>
+            <h3 className="font-jost font-medium text-2xl text-primary group-hover:text-accent mb-2">Elopements</h3>
+            <p className="text-muted-foreground">
               Intimate ceremonies deserve intimate photography. Perfect for couples seeking simplicity.
             </p>
           </div>
           
-          <div className="text-center hover:scale-105 transition-transform">
-            <div className="aspect-square bg-accent/10 rounded-lg mb-6 flex items-center justify-center">
-              <p className="text-accent font-medium">Portrait Photos</p>
-            </div>
-            <h3 className="font-heading text-xl text-primary mb-4 font-semibold">Portrait Sessions</h3>
-            <p className="text-muted-foreground leading-relaxed">
+          <div className="text-left group">
+            <div className="aspect-square bg-accent/10 mb-6"/>
+            <h3 className="font-jost font-medium text-2xl text-primary group-hover:text-accent mb-2">Portrait Sessions</h3>
+            <p className="text-muted-foreground">
               Professional portraits that capture your personality and authentic self.
             </p>
           </div>

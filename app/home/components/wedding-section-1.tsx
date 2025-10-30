@@ -8,12 +8,12 @@ import Link from 'next/link';
 
 export default function WeddingSection1() {
   return (
-    <section className="py-40 flex flex-col items-center">
-      <div className="max-w-6xl mx-auto px-4 md:px-8 mb-12 z-20">
-        <h2 className="font-accent text-4xl md:text-6xl mb-4">
+    <section className="py-40 flex flex-col">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 mb-12 z-20 text-stone-700">
+        <h2 className="font-accent text-6xl mb-4">
           Intimate Ceremonies
         </h2>
-        <p className="mb-24">
+        <p className="mb-24 font-jost">
           {`Every love story is unique. I specialize in capturing the intimate moments, genuine emotions,
           and natural connections that make your day truly yours. Whether it's the stolen glances,
           the heartfelt laughter, or the tender embraces, each detail is a thread in the tapestry of your romance.
@@ -66,8 +66,8 @@ export default function WeddingSection1() {
         </Swiper>
       </div>
 
-      <Link href="#testimonials" className='btn-outline rounded-full self-end mx-8 mt-10 flex items-center'>
-        See Testimonials <ChevronRight className="w-4 h-4 ml-2" />
+      <Link href="#testimonials" className='btn-outline rounded-full font-jost tracking-wider self-end mx-8 mt-10 flex items-center group'>
+        See Testimonials <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
       </Link>
 
       <style jsx>{`

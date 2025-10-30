@@ -13,7 +13,7 @@
   --popover-foreground: oklch(0.18 0 0);
   --primary: oklch(0.22 0 0);
   --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.96 0.005 85);
+  --secondary: #847b74;
   --secondary-foreground: oklch(0.22 0 0);
   --accent: oklch(0% 0 0);
   --accent-foreground: oklch(0.98 0 0);
@@ -131,6 +131,10 @@
   .btn-outline {
     @apply px-8 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition duration-300 w-max rounded-sm;
   }
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 @custom-variant hover (&:hover);
+
