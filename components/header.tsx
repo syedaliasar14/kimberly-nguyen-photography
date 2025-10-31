@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle } from '@/components/ui/sheet';
+import { MenuIcon } from 'lucide-react';
 
 const NAV_LINKS = [
   { href: '/', label: 'Home' },
@@ -15,15 +16,11 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-primary/20 backdrop-blur-sm">
-      <div className="w-full mx-auto p-2 sm:px-6 lg:px-8">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-stone-500/50 backdrop-blur-sm">
+      <div className="w-full mx-auto p-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          <button onClick={() => setIsMenuOpen(true)} className="p-2 group" aria-label="Toggle menu">
-            <div className="w-6 h-6 flex flex-col justify-center items-center">
-              <span className="block h-0.5 w-6 bg-secondary transition-all group-hover:bg-accent" />
-              <span className="block h-0.5 w-6 bg-secondary transition-all my-1 group-hover:bg-accent" />
-              <span className="block h-0.5 w-6 bg-secondary transition-all group-hover:bg-accent" />
-            </div>
+          <button onClick={() => setIsMenuOpen(true)} className="group" aria-label="Toggle menu">
+            <MenuIcon className="w-6 h-6 text-white group-hover:text-accent transition-colors" />
           </button>
         </div>
       </div>
@@ -46,7 +43,7 @@ export default function Header() {
             ))}
           </div>
           <SheetFooter>
-            <p className="text-muted-foreground text-xs text-center">
+            <p className="text-muted-foreground text-xs text-center font-jost">
               © {new Date().getFullYear()} Kimberly Nguyen Photography.
               <br />
               All rights reserved.

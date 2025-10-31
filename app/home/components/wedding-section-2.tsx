@@ -41,7 +41,7 @@ export default function WeddingSection2() {
       {/* Content */}
       <div className="max-w-7xl px-4 md:px-8 mb-12 z-20 text-white relative">
         <h2 className="font-accent text-6xl mb-4">
-          Joyful Celebrations
+          Wedding Photography
         </h2>
         <p className='font-jost'>
           {`From grand celebrations to quiet elopements, I document the joy, laughter, and tears that make

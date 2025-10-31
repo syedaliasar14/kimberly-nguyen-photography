@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Testimonials() {
   const testimonials = [
     {
@@ -7,7 +9,7 @@ export default function Testimonials() {
     },
     {
       quote: "Amazing work!",
-      names: "Jessica & David", 
+      names: "Jessica & David",
       season: "Summer Wedding 2024",
     },
     {
@@ -28,11 +30,13 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className="py-40 border-b" id="testimonials">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-heading text-6xl mb-16 text-center">What Couples Are Saying</h2>
-        
-        <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4 text-sm md:text-base">
+    <section className="py-40 border-b overflow-hidden" id="testimonials">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 flex flex-col">
+        <h2 className="font-heading text-6xl mb-16 text-center">
+          What Couples Are Saying
+        </h2>
+
+        <div className="columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-4 space-y-4 text-sm md:text-base">
           {testimonials.map((testimonial, index) => (
             <div key={index} className={`bg-background cursor-default p-6 rounded-lg shadow-sm border border-border hover:shadow-xl hover:scale-101 transition-all duration-300 break-inside-avoid`}>
               <div className="flex items-center mb-4">

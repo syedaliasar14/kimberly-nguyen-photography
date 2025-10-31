@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white pt-16 pb-8">
+    <footer className="bg-stone-900 text-white pt-16 pb-8">
       <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
           <div>
@@ -12,24 +12,22 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className='md:border-l md:border-stone-700 px-4 uppercase font-jost'>
-            <div className="space-y-2">
-              <Link href="/" className="block w-max">
+          <div className='md:border-l md:border-stone-700 px-4 md:columns-2 space-y-2 uppercase font-jost'>
+              <Link href="/" className="block w-max mx-auto md:mx-0 hover:text-accent transition-colors">
                 Home
               </Link>
-              <Link href="/weddings" className="block w-max">
+              <Link href="/weddings" className="block w-max mx-auto md:mx-0 hover:text-accent transition-colors">
                 Weddings
               </Link>
-              <Link href="/portfolio" className="block w-max">
+              <Link href="/portfolio" className="block w-max mx-auto md:mx-0 hover:text-accent transition-colors">
                 Portfolio
               </Link>
-              <Link href="/about" className="block w-max">
+              <Link href="/about" className="block w-max mx-auto md:mx-0 hover:text-accent transition-colors">
                 About
               </Link>
-              <Link href="/contact" className="block w-max">
+              <Link href="/contact" className="block w-max mx-auto md:mx-0 hover:text-accent transition-colors">
                 Contact
               </Link>
-            </div>
           </div>
           
           <div>
