@@ -21,7 +21,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center text-primary-foreground -mt-16 relative">
+    <section className="min-h-screen flex flex-col items-center justify-center text-primary-foreground -mt-14 relative">
       {/* Background Slideshow */}
       <div className="absolute inset-0 -z-10">
         <Swiper
@@ -54,17 +54,18 @@ export default function HeroSection() {
       {/* Content */}
       <div className="w-full mx-auto px-4 md:px-8 text-center flex flex-col justify-between flex-grow pt-16">
         <div className="flex flex-col gap-4 mt-4">
-          <h1 className="font-jost text-5xl md:text-7xl tracking-widest uppercase trailing-tight">Kimberly Nguyen</h1>
-          <p className="text-sm md:text-lg font-jost tracking-widest flex flex-col md:flex-row gap-2 justify-center">
+          <h1 className="font-script text-6xl md:text-8xl -mb-2">Kimberly Nguyen</h1>
+          <h2 className="font-jost text-2xl md:text-2xl tracking-widest uppercase">Photography, LLC</h2>
+          {/* <p className="text-sm md:text-lg font-jost tracking-widest flex flex-col md:flex-row gap-2 justify-center">
             <span>Wedding & Lifestyle Photographer | </span>
             <span>CT, NY & MA</span>
-          </p>
+          </p> */}
         </div>
 
         <div className="flex flex-col-reverse md:flex-row justify-between items-end">
           <div className="flex flex-col gap-4 mb-12">
-            <div className="self-start text-left text-2xl sm:text-3xl font-accent">
-              Capturing one of a kind moments, immortalized for generations.
+            <div className="self-start text-left text-2xl sm:text-3xl font-jost">
+              Capturing one of a kind <span className="font-script text-5xl sm:text-7xl trailing-tight">moments,</span> immortalized for generations.
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-start ">
               <Link href="/contact" className="btn bg-white text-primary hover:bg-foreground hover:text-white font-jost tracking-wider rounded-full">
@@ -79,7 +80,7 @@ export default function HeroSection() {
           <div className="overflow-hidden self-start md:self-end mb-4 md:mb-10">
             <Image src="/white-logo.svg"
               alt="Testimonials" width={800} height={800}
-              className={`w-20 md:w-32 h-auto select-none pointer-events-none transform transition-all duration-1500 ${isLoaded
+              className={`w-20 md:w-32 h-auto select-none pointer-events-none transform transition-all ease-in-out duration-1500 ${isLoaded
                   ? 'translate-y-2'
                   : 'translate-y-full'
                 }`}

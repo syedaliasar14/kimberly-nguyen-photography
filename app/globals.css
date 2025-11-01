@@ -47,7 +47,7 @@
   --font-heading: "DM Serif Display", var(--font-serif);
   --font-accent: "DM Serif Display", var(--font-serif);
   --font-jost: "Jost", var(--font-sans);
-  --font-script: "Dancing Script", var(--font-serif);
+  --font-script: "Moontime", "Allura", var(--font-serif);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
