@@ -21,7 +21,7 @@ export default function WeddingSection1() {
           className="w-56 h-auto self-center mb-4 select-none pointer-events-none"
         />
         </h2>
-        <p className="mb-24 font-jost">
+        <p className="mb-24 font-jost text-lg">
           {`Every love story is unique. I specialize in capturing the intimate moments, genuine emotions,
           and natural connections that make your day truly yours. Whether it's the stolen glances,
           the heartfelt laughter, or the tender embraces, each detail is a thread in the tapestry of your romance.
@@ -42,13 +42,13 @@ export default function WeddingSection1() {
             slideShadows: false,
           }} */
           spaceBetween={20}
-          slidesPerView={2}
+          slidesPerView={1.5}
           centeredSlides={true}
           slideToClickedSlide={true}
           breakpoints={{
-            640: { slidesPerView: 3 },
-            768: { slidesPerView: 4 },
-            1024: { slidesPerView: 5 },
+            640: { slidesPerView: 2 },
+            768: { slidesPerView: 3 },
+            1024: { slidesPerView: 4 },
           }}
           navigation={{
             nextEl: '.swiper-button-next-custom',

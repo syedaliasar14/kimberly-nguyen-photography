@@ -43,7 +43,7 @@ export default function WeddingSection2() {
         <h2 className="font-accent text-6xl mb-4">
           Wedding Photography
         </h2>
-        <p className='font-jost'>
+        <p className='font-jost text-lg'>
           {`From grand celebrations to quiet elopements, I document the joy, laughter, and tears that make
           your wedding day unforgettable. Each photograph tells a story, capturing those intimate moments
           that words cannot fully express. As the couple exchanges vows, the love in their eyes speaks volumes,

@@ -14,7 +14,7 @@ export default function OtherServices() {
 
   const services = [
     {
-      title: "Portrait Sessions",
+      title: "Individualized Sessions",
       description: "Professional portraits that capture your personality and authentic self.",
       image: "/images/portrait-bg.jpg" // Add your portrait photo
     },
@@ -25,7 +25,7 @@ export default function OtherServices() {
     },
     {
       title: "Graduation Photos",
-      description: "Capture the joy and milestones of your child's academic journey.",
+      description: "Capture the joy and milestones of your academic journey.",
       image: "/images/graduation-bg.jpg" // Add your graduation photo
     },
     {
@@ -34,9 +34,9 @@ export default function OtherServices() {
       image: "/images/engagement-bg.jpg" // Add your engagement photo
     },
     {
-      title: "Elopements",
-      description: "Intimate ceremonies deserve intimate photography. Perfect for couples seeking simplicity.",
-      image: "/images/elopement-bg.jpg" // Add your elopement photo
+      title: "Couples Portraits",
+      description: "Celebrate your bond with intimate and heartfelt couples portraits.",
+      image: "/images/couples-bg.jpg" // Add your couples photo
     },
   ];
 
@@ -78,19 +78,19 @@ export default function OtherServices() {
 
       {/* Content Overlay */}
       <div className="relative z-20 h-full flex items-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative">
           <div className="max-w-3xl">
-            <h2 className="font-heading text-white text-6xl mb-8">Looking for Something Else?</h2>
+            <h2 className="font-heading text-white text-4xl mb-8 opacity-80">Looking for Something Else?</h2>
 
             <button className="swiper-button-next-custom absolute right-4 p-2 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 group z-30"
               aria-label="Next service"
             >
-              <ChevronRight className="size-8 group-hover:translate-x-1 transition-transform" />
+              <ChevronRight className="size-8" />
             </button>
 
             {/* Current Service Content */}
             <div className="text-white mt-24">
-              <h3 className="font-heading text-4xl mb-6 transition-all duration-500">
+              <h3 className="font-heading text-6xl mb-6 transition-all duration-500">
                 {services[currentSlide].title}
               </h3>
 

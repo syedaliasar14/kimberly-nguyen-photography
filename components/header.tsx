@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { MenuIcon } from 'lucide-react';
+import Image from 'next/image';
 
 const NAV_LINKS = [
   { href: '/', label: 'Home' },
@@ -27,8 +28,12 @@ export default function Header() {
 
       <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
         <SheetContent side="left">
-          <SheetHeader>
-            <SheetTitle></SheetTitle>
+          <SheetHeader className='pt-10 pb-0'>
+            <SheetTitle>
+              <Link href="/" onClick={() => setIsMenuOpen(false)}>
+                <Image src="/black-logo.svg" alt="Kimberly Nguyen Photography" width={50} height={50} className="mx-8 w-14" />
+              </Link>
+            </SheetTitle>
           </SheetHeader>
           <div className="flex flex-col p-6 px-12 gap-6">
             {NAV_LINKS.map((link) => (
@@ -44,7 +49,7 @@ export default function Header() {
           </div>
           <SheetFooter>
             <p className="text-muted-foreground text-xs text-center font-jost">
-              © {new Date().getFullYear()} Kimberly Nguyen Photography.
+              © {new Date().getFullYear()} Kimberly Nguyen Photography, LLC.
               <br />
               All rights reserved.
             </p>
