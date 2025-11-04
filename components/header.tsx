@@ -17,7 +17,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-stone-500/50 backdrop-blur-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-secondary/50 backdrop-blur-sm">
       <div className="w-full mx-auto p-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <button onClick={() => setIsMenuOpen(true)} className="group" aria-label="Toggle menu">

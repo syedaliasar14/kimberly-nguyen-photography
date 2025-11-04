@@ -32,6 +32,14 @@ export default function Testimonials() {
   return (
     <section className="py-40 border-b overflow-hidden" id="testimonials">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 flex flex-col">
+        <Image
+          src="/heart-line-art.svg"
+          alt="Testimonials"
+          width={1200}
+          height={800}
+          className="w-64 h-auto self-center mb-16 select-none pointer-events-none"
+        />
+
         <h2 className="font-heading text-6xl mb-16 text-center">
           What Couples Are Saying
         </h2>
@@ -47,7 +55,7 @@ export default function Testimonials() {
               <p className="text-muted-foreground italic mb-4 leading-relaxed">
                 "{testimonial.quote}"
               </p>
-              <p className="font-medium text-primary">- {testimonial.names}</p>
+              <p className="text-lg text-primary font-allura">- {testimonial.names}</p>
               <p className="text-sm text-muted-foreground mt-1">{testimonial.season}</p>
             </div>
           ))}

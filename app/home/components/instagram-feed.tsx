@@ -25,7 +25,7 @@ export default function InstagramFeed() {
           Follow the Journey
         </h2>
         <p className="text-muted-foreground mb-12 text-lg">
-          See the latest work and behind-the-scenes moments on Instagram
+          [insert instagram]
         </p>
 
         {/* Behold Instagram Feed */}

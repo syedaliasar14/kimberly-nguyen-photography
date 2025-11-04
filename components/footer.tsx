@@ -13,7 +13,7 @@ export default function Footer() {
             <div>
               <h3 className="font-jost text-3xl mb-4 ">Kimberly Nguyen Photography, LLC</h3>
               <p className="leading-relaxed text-sm">
-                Capturing love stories with heart,<br/>beautifully preserved for generations
+                Capturing one of a kind moments,<br/>immortalized for generations.
               </p>
             </div>
           </div>

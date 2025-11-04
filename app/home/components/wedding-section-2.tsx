@@ -5,6 +5,9 @@ import { Autoplay, EffectFade } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import { ChevronRight } from 'lucide-react';
+import Image from 'next/image';
+
+const NUM_IMAGES = 6;
 
 export default function WeddingSection2() {
   return (
@@ -20,22 +23,26 @@ export default function WeddingSection2() {
           slidesPerView={1}
           loop={true}
           autoplay={{
-            delay: 4000,
+            delay: 3000,
             disableOnInteraction: false,
           }}
           className="w-full h-full"
         >
-          {Array.from({ length: 5 }).map((_, i) => (
+          {Array.from({ length: NUM_IMAGES }).map((_, i) => (
             <SwiperSlide key={i}>
-              <div className="w-full h-full bg-stone-500 flex items-center justify-center">
-                <p className="text-lg font-medium opacity-50">Background Image {i + 1}</p>
-              </div>
+              <Image
+                className="absolute inset-0 object-cover object-center"
+                src={`/home-page/wedding-section-2/${i + 1}.png`}
+                alt={`Wedding Image ${i + 1}`}
+                fill
+                sizes='100vw'
+              />
             </SwiperSlide>
           ))}
         </Swiper>
 
         {/* Overlay for content readability */}
-        <div className="absolute z-10 inset-0 bg-gradient-to-b from-transparent to-black/30" />
+        <div className="absolute z-10 inset-0 bg-stone-950/30" />
       </div>
 
       {/* Content */}

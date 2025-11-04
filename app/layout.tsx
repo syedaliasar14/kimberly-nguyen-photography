@@ -6,7 +6,7 @@ import { Playfair_Display, Inter, DM_Serif_Display, Jost, Lavishly_Yours, Dancin
 import localFont from "next/font/local";
 
 export const metadata: Metadata = {
-  title: "Kimberly Nguyen Photography - Wedding & Portrait Photographer",
+  title: "Kimberly Nguyen Photography Connecticut",
   description: "Capturing love stories with flow, balance, and heart. Wedding photography that celebrates diversity and community with a bright, minimalist aesthetic.",
 };
 

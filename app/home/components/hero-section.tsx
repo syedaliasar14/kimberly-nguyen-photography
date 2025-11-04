@@ -9,6 +9,8 @@ import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
+const NUM_IMAGES = 6;
+
 export default function HeroSection() {
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -38,17 +40,21 @@ export default function HeroSection() {
           }}
           className="w-full h-full"
         >
-          {Array.from({ length: 5 }).map((_, i) => (
+          {Array.from({ length: NUM_IMAGES }).map((_, i) => (
             <SwiperSlide key={i}>
-              <div className="w-full h-full bg-stone-500 flex items-center justify-center">
-                <p className="text-lg font-medium opacity-50">Background Image {i + 1}</p>
-              </div>
+              <Image
+                className="absolute inset-0 object-cover object-center"
+                src={`/home-page/hero-section/${i + 1}.png`}
+                alt={`Hero Image ${i + 1}`}
+                fill
+                sizes="100vw"
+              />
             </SwiperSlide>
           ))}
         </Swiper>
 
         {/* Overlay for content readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30" />
+        <div className="absolute inset-0 bg-stone-900/30 z-10" />
       </div>
 
       {/* Content */}
@@ -77,7 +83,7 @@ export default function HeroSection() {
               </Link>
             </div>
           </div>
-          <div className="overflow-hidden self-start md:self-end mb-4 md:mb-10">
+          <div className="overflow-hidden self-start md:self-end md:mb-10">
             <Image src="/white-logo.svg"
               alt="Testimonials" width={800} height={800}
               className={`w-20 md:w-32 h-auto select-none pointer-events-none transform transition-all ease-in-out duration-1500 ${isLoaded

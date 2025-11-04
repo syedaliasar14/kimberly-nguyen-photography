@@ -7,39 +7,40 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function OtherServices() {
   const services = [
     {
       title: "Individualized Sessions",
       description: "Professional portraits that capture your personality and authentic self.",
-      image: "/images/portrait-bg.jpg"
+      image: "/home-page/other-services/individual.png"
     },
     {
       title: "Family Photography",
       description: "Capture cherished moments with your loved ones in a relaxed and natural setting.",
-      image: "/images/family-bg.jpg"
+      image: "/home-page/other-services/family.png"
     },
     {
       title: "Graduation Photos",
       description: "Capture the joy and milestones of your academic journey.",
-      image: "/images/graduation-bg.jpg"
+      image: "/home-page/other-services/graduation.png"
     },
     {
       title: "Engagement Sessions",
       description: "Celebrate your love story with a romantic engagement session in beautiful locations.",
-      image: "/images/engagement-bg.jpg"
+      image: "/home-page/other-services/engagement.png"
     },
     {
       title: "Couples Portraits",
       description: "Celebrate your bond with intimate and heartfelt couples portraits.",
-      image: "/images/couples-bg.jpg"
+      image: "/home-page/other-services/couples.png"
     },
   ];
 
   return (
     <section className="relative h-screen overflow-hidden">
-      <h2 className="absolute font-script text-white text-7xl -rotate-1 z-10 top-8 w-full px-4">
+      <h2 className="absolute font-script text-white text-7xl -rotate-10 z-10 top-8 w-full px-4 md:px-8">
         looking for something else?
       </h2>
 
@@ -64,21 +65,24 @@ export default function OtherServices() {
           <SwiperSlide key={index}>
             <div className="relative w-full h-full">
               {/* Background Image */}
-              <div
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: `url(${service.image})` }}
+              <Image
+                className="absolute inset-0 object-cover object-center"
+                src={service.image}
+                alt={service.title}
+                fill
+                sizes="100vw"
               />
 
               {/* Overlay for content readability */}
               <div className="absolute inset-0 bg-stone-900/40" />
 
               {/* Content */}
-              <div className="relative z-10 h-full flex items-center">
+              <div className="relative z-10 h-full flex items-end">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                  <div className="max-w-3xl">
+                  <div className="max-w-3xl mb-20">
 
                     <div className="text-white">
-                      <h3 className="font-heading text-6xl mb-6">
+                      <h3 className="font-heading text-5xl md:text-6xl mb-6">
                         {service.title}
                       </h3>
 
@@ -88,7 +92,7 @@ export default function OtherServices() {
 
                       <Link
                         href="/contact"
-                        className="bg-white/20 backdrop-blur-sm text-white px-8 py-3 rounded-full font-jost hover:bg-white/30 transition-all duration-300 font-medium"
+                        className="bg-white/20 backdrop-blur-sm text-white text-lg px-8 py-3 rounded-full font-jost hover:bg-white/30 transition-all duration-300 font-medium"
                       >
                         Book Session
                       </Link>
