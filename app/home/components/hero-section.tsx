@@ -13,6 +13,7 @@ const NUM_IMAGES = 6;
 
 export default function HeroSection() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -22,43 +23,55 @@ export default function HeroSection() {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center text-primary-foreground -mt-14 relative">
-      {/* Background Slideshow */}
+    <section className="min-h-screen flex flex-col items-center justify-center text-primary-foreground -mt-14 relative overflow-hidden">
+      {/* Background Slideshow with Parallax */}
       <div className="absolute inset-0 -z-10">
-        <Swiper
-          modules={[Autoplay, EffectFade]}
-          effect="fade"
-          fadeEffect={{
-            crossFade: true,
-          }}
-          slidesPerView={1}
-          loop={true}
-          autoplay={{
-            delay: 4000,
-            disableOnInteraction: false,
-          }}
-          className="w-full h-full"
-        >
-          {Array.from({ length: NUM_IMAGES }).map((_, i) => (
-            <SwiperSlide key={i}>
-              <Image
-                className="absolute inset-0 object-cover object-center"
-                src={`/home-page/hero-section/${i + 1}.png`}
-                alt={`Hero Image ${i + 1}`}
-                fill
-                sizes="100vw"
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        <div className="w-full h-[120%] -top-[10%] absolute" style={{ transform: `translateY(${scrollY * 0.5}px)` }}>
+          <Swiper
+            modules={[Autoplay, EffectFade]}
+            effect="fade"
+            fadeEffect={{
+              crossFade: true,
+            }}
+            slidesPerView={1}
+            loop={true}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+            }}
+            className="w-full h-full"
+          >
+            {Array.from({ length: NUM_IMAGES }).map((_, i) => (
+              <SwiperSlide key={i}>
+                <Image
+                  className="absolute inset-0 object-cover object-center"
+                  src={`/home-page/hero-section/${i + 1}.png`}
+                  alt={`Hero Image ${i + 1}`}
+                  fill
+                  sizes="100vw"
+                  priority={i === 0}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
 
         {/* Overlay for content readability */}
         <div className="absolute inset-0 bg-stone-900/30 z-10" />
       </div>
 
       {/* Content */}
-      <div className="w-full mx-auto px-4 md:px-8 text-center flex flex-col justify-between flex-grow pt-16">
+      <div className="w-full mx-auto px-4 md:px-8 text-center flex flex-col justify-between flex-grow pt-16 relative z-20">
         <div className="flex flex-col gap-4 mt-4">
           <h1 className="font-script text-6xl md:text-8xl -mb-2">Kimberly Nguyen</h1>
           <h2 className="font-jost text-2xl md:text-2xl tracking-widest uppercase">Photography, LLC</h2>
@@ -87,8 +100,8 @@ export default function HeroSection() {
             <Image src="/white-logo.svg"
               alt="Testimonials" width={800} height={800}
               className={`w-20 md:w-32 h-auto select-none pointer-events-none transform transition-all ease-in-out duration-1500 ${isLoaded
-                  ? 'translate-y-2'
-                  : 'translate-y-full'
+                ? 'translate-y-2'
+                : 'translate-y-full'
                 }`}
             />
           </div>
