@@ -1,59 +1,68 @@
-export default function ElopementsAndEngagements() {
+import Link from "next/link";
+
+export function ElopementsSection() {
   return (
-    <section className="py-20 bg-secondary">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-16">
-          <div>
-            <h2 className="font-heading text-3xl text-primary mb-8 font-bold tracking-tight">Elopements</h2>
-            <div className="aspect-[4/3] bg-accent/10 rounded-lg mb-6 flex items-center justify-center">
-              <p className="text-accent">Elopement Photography</p>
-            </div>
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              Sometimes the most beautiful celebrations are the intimate ones. Elopements allow 
-              couples to focus purely on their commitment to each other in a meaningful setting.
-            </p>
-            <ul className="space-y-2 text-muted-foreground">
-              <li className="flex items-start space-x-2">
-                <span className="text-accent">•</span>
-                <span>2-4 hours of coverage</span>
-              </li>
-              <li className="flex items-start space-x-2">
-                <span className="text-accent">•</span>
-                <span>100+ edited images</span>
-              </li>
-              <li className="flex items-start space-x-2">
-                <span className="text-accent">•</span>
-                <span>Location scouting assistance</span>
-              </li>
-            </ul>
-          </div>
-          
-          <div>
-            <h2 className="font-heading text-3xl text-primary mb-8 font-bold tracking-tight">Engagement Sessions</h2>
-            <div className="aspect-[4/3] bg-accent/10 rounded-lg mb-6 flex items-center justify-center">
-              <p className="text-accent">Engagement Photography</p>
-            </div>
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              Engagement sessions are a wonderful way to celebrate this special time in your 
-              relationship and get comfortable with your photographer before the big day.
-            </p>
-            <ul className="space-y-2 text-muted-foreground">
-              <li className="flex items-start space-x-2">
-                <span className="text-accent">•</span>
-                <span>1-2 hours of photography</span>
-              </li>
-              <li className="flex items-start space-x-2">
-                <span className="text-accent">•</span>
-                <span>50+ edited images</span>
-              </li>
-              <li className="flex items-start space-x-2">
-                <span className="text-accent">•</span>
-                <span>Perfect for save-the-dates</span>
-              </li>
-            </ul>
-          </div>
+    <section className="py-32 bg-secondary/20 relative overflow-hidden">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center max-w-3xl mx-auto">
+          <h2 className="font-script text-5xl sm:text-7xl text-primary mb-6">
+            Elopements
+          </h2>
+          <p className="font-jost text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
+            Sometimes the most beautiful celebrations are the intimate ones. Elopements allow 
+            couples to focus purely on their commitment to each other in a meaningful setting. 
+            Whether it's a mountain peak, a quiet beach, or a charming courthouse, I'm here to 
+            document your love story with the same care and artistry as any grand celebration.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-block btn bg-accent text-accent-foreground font-jost tracking-wider hover:bg-accent/90 rounded-full"
+          >
+            Inquire About Elopements
+          </Link>
         </div>
       </div>
+      {/* Decorative element */}
+      <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/30 rounded-full blur-3xl" />
     </section>
+  );
+}
+
+export function EngagementSessionsSection() {
+  return (
+    <section className="py-32 bg-background relative overflow-hidden">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center max-w-3xl mx-auto">
+          <h2 className="font-script text-5xl sm:text-7xl text-primary mb-6">
+            Engagement Sessions
+          </h2>
+          <p className="font-jost text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
+            Engagement sessions are a wonderful way to celebrate this special time in your 
+            relationship and get comfortable with your photographer before the big day. These 
+            sessions are perfect for save-the-dates, wedding websites, and displays at your 
+            reception. Let's capture the excitement and joy of this chapter in your love story.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-block btn bg-accent text-accent-foreground font-jost tracking-wider hover:bg-accent/90 rounded-full"
+          >
+            Book Engagement Session
+          </Link>
+        </div>
+      </div>
+      {/* Decorative element */}
+      <div className="absolute top-0 left-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-64 h-64 bg-secondary/30 rounded-full blur-3xl" />
+    </section>
+  );
+}
+
+export default function ElopementsAndEngagements() {
+  return (
+    <>
+      <ElopementsSection />
+      <EngagementSessionsSection />
+    </>
   );
 }
