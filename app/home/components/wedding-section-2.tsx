@@ -4,8 +4,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
-import { ChevronRight } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const NUM_IMAGES = 6;
 
@@ -56,10 +57,10 @@ export default function WeddingSection2() {
           that words cannot fully express. As the couple exchanges vows, the love in their eyes speaks volumes,
           and I am there to preserve that timeless memory.`}
         </p>
-        <button className="mt-6 btn bg-white text-primary font-jost tracking-wide hover:bg-foreground hover:text-white group rounded-full flex items-center">
-          The Wedding Experience
-          <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-        </button>
+        <Link href='#testimonials' className="mt-6 btn bg-white text-primary font-jost tracking-wide hover:bg-foreground hover:text-white group rounded-full flex items-center">
+          Read Testimonials
+          <ChevronDown className="w-4 h-4 ml-2" />
+        </Link>
       </div>
     </section>
   );

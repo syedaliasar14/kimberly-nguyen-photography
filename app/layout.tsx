@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import { Playfair_Display, Inter, DM_Serif_Display, Jost, Lavishly_Yours, Dancing_Script, Allura } from "next/font/google";
+import { Playfair_Display, Inter, DM_Serif_Display, Jost, Allura } from "next/font/google";
 import localFont from "next/font/local";
 
 export const metadata: Metadata = {

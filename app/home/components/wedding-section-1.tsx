@@ -67,8 +67,8 @@ export default function WeddingSection1() {
         </Swiper>
       </div>
 
-      <Link href="#testimonials" className='btn-outline rounded-full font-jost tracking-wider self-center md:self-end mx-8 mt-10 flex items-center group'>
-        See Testimonials <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+      <Link href="/weddings" className='btn-outline rounded-full font-jost tracking-wider self-center mx-8 mt-10 flex items-center group'>
+        The Wedding Experience <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
       </Link>
 
       <style jsx>{`
