@@ -21,7 +21,7 @@ export default function Header() {
       <div className="w-full mx-auto p-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <button onClick={() => setIsMenuOpen(true)} className="group" aria-label="Toggle menu">
-            <MenuIcon className="w-6 h-6 text-white group-hover:text-accent transition-colors" />
+            <MenuIcon className="w-6 h-6 text-white group-hover:text-secondary transition-colors" />
           </button>
         </div>
       </div>
@@ -40,7 +40,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-lg hover:text-accent transition-colors font-jost tracking-widest"
+                className="text-lg hover:text-secondary transition-colors font-jost tracking-widest"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.label}

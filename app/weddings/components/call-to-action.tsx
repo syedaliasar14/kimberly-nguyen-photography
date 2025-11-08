@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function CallToAction() {
   return (
-    <section className="py-20 bg-primary text-primary-foreground">
+    <section className="py-20 bg-stone-900 text-primary-foreground">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="font-heading text-4xl md:text-6xl mb-4">
           Ready to Book Your Wedding?

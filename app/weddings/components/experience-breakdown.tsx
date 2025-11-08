@@ -5,27 +5,27 @@ import { useState } from "react";
 const processSteps = [
   {
     number: "1",
-    title: "The First Chat",
+    title: "First Chat",
     content: "We set up a video call to talk through questions, and I get to know about you as a couple. I draft up a contract within a week of our chat when you decide you want to move forward. Once the contract is signed and the retainer (25% of package) is paid, the fun part begins."
   },
   {
     number: "2",
-    title: "The Questionnaire",
+    title: "Questionnaire",
     content: "I send you a questionnaire 6-8 weeks before the wedding day. From that questionnaire, I create a day-of plan to ensure the specificities of the day are on my shot list. I like to give suggestions on locations that photograph well, best timings for bridal party photos, individual shots, etc., and my own creative ideas for photos (a tearjerker first look anyone?)."
   },
   {
     number: "3",
-    title: "The Planning Call",
+    title: "Planning Call",
     content: "We set up a call (or even an in-person meeting if time and distance allow) to finalize our photo game plan. You will get my day-of plan before our call!"
   },
   {
     number: "4",
-    title: "The Wedding Day",
+    title: "Wedding Day",
     content: "It's the big day! Time to capture and photograph some memories. Sneak peeks will be sent 7-10 business days following the wedding."
   },
   {
     number: "5",
-    title: "The Gallery Delivery",
+    title: "Gallery Delivery",
     content: "Your beautiful digital photo gallery will be shared after 7-9 weeks! I highly suggest you back up your images 1, 2, or even 3 times. Later, I'll get to ask YOU some questions! You'll receive a short survey after receiving your gallery so I can know how best to improve my services for future couples."
   }
 ];
@@ -36,8 +36,8 @@ export default function ExperienceBreakdown() {
   return (
     <section className="py-20 bg-secondary/10" id="process">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-script text-5xl sm:text-7xl text-center text-primary mb-4">
-          get to know my process
+        <h2 className="font-heading text-5xl md:text-6xl text-center text-primary mb-4">
+          Get to Know the <span className="font-script text-8xl md:text-9xl ml-2">process</span>
         </h2>
         <p className="text-center text-muted-foreground mb-16 font-jost">
           Hover over each step to learn more
@@ -45,38 +45,23 @@ export default function ExperienceBreakdown() {
         
         <div className="space-y-4">
           {processSteps.map((step, index) => (
-            <div
-              key={index}
-              className="group relative"
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-            >
-              <div className={`
-                border-2 rounded-lg p-6 transition-all duration-500 cursor-pointer
-                ${hoveredIndex === index 
-                  ? 'border-accent bg-accent/5 shadow-lg' 
-                  : 'border-border bg-background hover:border-accent/50'
-                }
+            <div key={index} className="group relative" onMouseEnter={() => setHoveredIndex(index)} onMouseLeave={() => setHoveredIndex(null)}>
+              <div className={`border-1 rounded-lg p-6 transition-all duration-500 cursor-pointer bg-background
+                ${hoveredIndex === index ? 'border-secondary shadow-lg shadow-stone-300' : 'border-border'}
               `}>
                 <div className="flex items-start gap-6">
-                  <div className={`
-                    flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-6xl font-script transition-all duration-300
-                    ${hoveredIndex === index 
-                      ? 'bg-accent text-white scale-110' 
-                      : 'bg-secondary/20 text-primary'
-                    }
+                  <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-3xl font-jost transition-all duration-300
+                    ${hoveredIndex === index ? 'bg-secondary text-white scale-110' : 'bg-secondary/20 text-primary'}
                   `}>
                     {step.number}
                   </div>
+
                   <div className="flex-1">
-                    <h3 className={`
-                      font-heading text-xl md:text-2xl mb-3 transition-colors duration-300
-                      ${hoveredIndex === index ? 'text-accent' : 'text-primary'}
-                    `}>
-                      {step.title}
+                    <h3 className={`font-heading text-xl md:text-2xl mb-3 transition-colors duration-300
+                      ${hoveredIndex === index ? 'text-secondary' : 'text-primary'}`}>
+                      <span className="font-script text-5xl">{step.title}</span>
                     </h3>
-                    <div className={`
-                      overflow-hidden transition-all duration-500 ease-in-out
+                    <div className={`overflow-hidden transition-all duration-500 ease-in-out
                       ${hoveredIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}
                     `}>
                       <p className="font-jost text-muted-foreground leading-relaxed">
@@ -84,6 +69,7 @@ export default function ExperienceBreakdown() {
                       </p>
                     </div>
                   </div>
+
                 </div>
               </div>
             </div>

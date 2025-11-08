@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const packages = [
@@ -49,8 +50,8 @@ export default function ServicesBreakdown() {
         <h2 className="font-heading text-5xl sm:text-6xl text-center text-primary mb-4">
           Wedding Packages
         </h2>
-        <p className="text-center text-muted-foreground mb-16 font-jost">
-          Choose the perfect coverage for your special day
+        <p className="text-center text-muted-foreground font-jost mb-20">
+          Choose the perfect coverage for your day
         </p>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -58,7 +59,7 @@ export default function ServicesBreakdown() {
             <Link href="/contact" key={index}
               className={`bg-background rounded-lg p-8 shadow-sm border-2 transition-all duration-300 group relative
                 ${pkg.popular ? "border-accent transform md:-translate-y-4 scale-105 bg-gradient-to-br from-background to-accent/5"
-                  : "border-border hover:border-accent hover:shadow-xl"}`}
+                  : "border-border hover:border-lime-800/50 hover:shadow-xl"}`}
               style={{ boxShadow: pkg.popular ? "0 0px 25px 0px #dab364" : undefined }}
             >
 
@@ -70,19 +71,21 @@ export default function ServicesBreakdown() {
               )}
 
               <div className="mb-6">
-                <img
+                <Image
                   src={pkg.image}
                   alt={`${pkg.name} package`}
                   className={`
-                    w-full h-48 object-cover mb-4 rounded transition-transform duration-300
+                    w-full h-56 object-cover mb-4 rounded transition-transform duration-300
                     ${pkg.popular ? "shadow-lg group-hover:scale-105" : ""}
                   `}
                   loading="lazy"
+                  width={400}
+                  height={300}
                 />
               </div>
 
-              <h3 className={`flex items-end mb-6 gap-4 text-4xl transition-colors ${pkg.popular ? "text-accent" : "text-primary group-hover:text-secondary"}`}>
-                <span className={`font-heading text-5xl transition-opacity opacity-30 group-hover:opacity-100 ${pkg.popular ? "text-accent" : "text-secondary"}`}>
+              <h3 className={`flex items-end mb-6 gap-4 text-4xl opacity-50 group-hover:opacity-100 transition-all ${pkg.popular ? "text-accent opacity-100" : "text-primary group-hover:text-lime-800/70"}`}>
+                <span className={`font-heading text-5xl `}>
                   {pkg.number}
                 </span>
                 <span className="font-allura -mb-2">{pkg.name}</span>

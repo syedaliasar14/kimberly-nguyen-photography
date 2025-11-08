@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function TestimonialSection({ quote, coupleName }: { quote: string; coupleName: string }) {
   return (
-    <section className="border-b">
+    <section className="border-b px-4">
       <div className="max-w-4xl mx-auto text-center py-20">
         <Image
           src="/quote-icon.svg"

@@ -20,19 +20,19 @@ export default function Footer() {
 
           {/* Navigation Links */}
           <div className='px-4 md:border-l md:border-stone-700 px-4 md:columns-2 space-y-2 gap-x-12 uppercase font-jost'>
-            <Link href="/" className="block w-max mx-auto md:mx-0 hover:text-accent transition-colors">
+            <Link href="/" className="block w-max mx-auto md:mx-0 hover:text-secondary transition-colors">
               Home
             </Link>
-            <Link href="/weddings" className="block w-max mx-auto md:mx-0 hover:text-accent transition-colors">
+            <Link href="/weddings" className="block w-max mx-auto md:mx-0 hover:text-secondary transition-colors">
               Weddings
             </Link>
-            <Link href="/portfolio" className="block w-max mx-auto md:mx-0 hover:text-accent transition-colors">
+            <Link href="/portfolio" className="block w-max mx-auto md:mx-0 hover:text-secondary transition-colors">
               Portfolio
             </Link>
-            <Link href="/about" className="block w-max mx-auto md:mx-0 hover:text-accent transition-colors">
+            <Link href="/about" className="block w-max mx-auto md:mx-0 hover:text-secondary transition-colors">
               About
             </Link>
-            <Link href="/contact" className="block w-max mx-auto md:mx-0 hover:text-accent transition-colors">
+            <Link href="/contact" className="block w-max mx-auto md:mx-0 hover:text-secondary transition-colors">
               Contact
             </Link>
           </div>
@@ -44,7 +44,7 @@ export default function Footer() {
                 href="https://www.instagram.com/keemkaptures/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center hover:bg-accent/40 transition-colors"
+                className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center hover:bg-secondary/40 transition-colors"
                 aria-label="Instagram"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -55,7 +55,7 @@ export default function Footer() {
                 href="https://www.facebook.com/kimberlynguyenphotography"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center hover:bg-accent/40 transition-colors"
+                className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center hover:bg-secondary/40 transition-colors"
                 aria-label="Facebook"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -64,7 +64,7 @@ export default function Footer() {
               </Link>
               <Link
                 href="mailto:kimberlypnguyenphotography@gmail.com"
-                className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center hover:bg-accent/40 transition-colors"
+                className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center hover:bg-secondary/40 transition-colors"
                 aria-label="Email"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
