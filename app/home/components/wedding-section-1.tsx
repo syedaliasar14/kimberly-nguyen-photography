@@ -57,13 +57,12 @@ export default function WeddingSection1() {
             </SwiperSlide>
           ))}
 
-          <div className="swiper-button-prev-custom absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-black/80 hover:bg-primary/50 rounded-full flex items-center justify-center cursor-pointer transition-all">
+          {/* <div className="swiper-button-prev-custom absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-black/80 hover:bg-primary/50 rounded-full flex items-center justify-center cursor-pointer transition-all">
             <ChevronLeft className="w-6 h-6 text-white" />
           </div>
-
           <div className="swiper-button-next-custom absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-black/80 hover:bg-primary/50 rounded-full flex items-center justify-center cursor-pointer transition-all">
             <ChevronRight className="w-6 h-6 text-white" />
-          </div>
+          </div> */}
         </Swiper>
       </div>
 

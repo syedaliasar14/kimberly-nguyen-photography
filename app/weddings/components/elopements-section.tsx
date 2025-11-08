@@ -5,7 +5,7 @@ export default function ElopementsSection() {
     <section className="py-32 bg-secondary/20 relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="font-script text-5xl sm:text-7xl text-primary mb-6">
+          <h2 className="font-heading text-5xl sm:text-7xl text-primary mb-6">
             Elopements
           </h2>
           <p className="font-jost text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">

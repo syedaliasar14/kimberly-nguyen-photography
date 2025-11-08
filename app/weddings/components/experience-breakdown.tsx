@@ -11,7 +11,7 @@ const processSteps = [
   {
     number: "2",
     title: "The Questionnaire",
-    content: "I send you a questionnaire 6–8 weeks before the wedding day. From that questionnaire, I create a day-of plan to ensure the specificities of the day are on my shot list. I like to give suggestions on locations that photograph well, best timings for bridal party photos, individual shots, etc., and my own creative ideas for photos (a tearjerker first look anyone?)."
+    content: "I send you a questionnaire 6-8 weeks before the wedding day. From that questionnaire, I create a day-of plan to ensure the specificities of the day are on my shot list. I like to give suggestions on locations that photograph well, best timings for bridal party photos, individual shots, etc., and my own creative ideas for photos (a tearjerker first look anyone?)."
   },
   {
     number: "3",
@@ -21,12 +21,12 @@ const processSteps = [
   {
     number: "4",
     title: "The Wedding Day",
-    content: "It's the big day! Time to capture and photograph some memories. Sneak peeks will be sent 7–10 business days following the wedding."
+    content: "It's the big day! Time to capture and photograph some memories. Sneak peeks will be sent 7-10 business days following the wedding."
   },
   {
     number: "5",
     title: "The Gallery Delivery",
-    content: "Your beautiful digital photo gallery will be shared after 7–9 weeks! I highly suggest you back up your images 1, 2, or even 3 times. Later, I'll get to ask YOU some questions! You'll receive a short survey after receiving your gallery so I can know how best to improve my services for future couples."
+    content: "Your beautiful digital photo gallery will be shared after 7-9 weeks! I highly suggest you back up your images 1, 2, or even 3 times. Later, I'll get to ask YOU some questions! You'll receive a short survey after receiving your gallery so I can know how best to improve my services for future couples."
   }
 ];
 
@@ -36,8 +36,8 @@ export default function ExperienceBreakdown() {
   return (
     <section className="py-20 bg-secondary/10" id="process">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-script text-5xl sm:text-6xl text-center text-primary mb-4">
-          Get to Know My Process
+        <h2 className="font-script text-5xl sm:text-7xl text-center text-primary mb-4">
+          get to know my process
         </h2>
         <p className="text-center text-muted-foreground mb-16 font-jost">
           Hover over each step to learn more
@@ -60,7 +60,7 @@ export default function ExperienceBreakdown() {
               `}>
                 <div className="flex items-start gap-6">
                   <div className={`
-                    flex-shrink-0 w-14 h-14 rounded-full flex items-center justify-center text-2xl font-heading transition-all duration-300
+                    flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-6xl font-script transition-all duration-300
                     ${hoveredIndex === index 
                       ? 'bg-accent text-white scale-110' 
                       : 'bg-secondary/20 text-primary'

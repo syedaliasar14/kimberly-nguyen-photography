@@ -5,7 +5,7 @@ import ServicesBreakdown from "@/app/weddings/components/services-breakdown";
 import ElopementsSection from "@/app/weddings/components/elopements-section";
 import EngagementSessionsSection from "@/app/weddings/components/engagement-sessions-section";
 import CallToAction from "@/app/weddings/components/call-to-action";
-import TestimonialCard from "@/components/testimonial-card";
+import TestimonialSection from "@/app/weddings/components/testimonial-section";
 
 export const metadata = {
   title: "Wedding Photography - Kimberly Nguyen Photography",
@@ -16,49 +16,37 @@ export default function Weddings() {
   return (
     <>
       <HeroSection />
-      
-      {/* Testimonial 1 */}
-      <section className="border-b">
-        <TestimonialCard 
-          quote="Kimberly captured our day perfectly. Her eye for natural beauty and genuine moments made our photos feel so authentic and timeless."
-          coupleName="Sarah & Michael"
-        />
-      </section>
-      
+
       <ExperienceBreakdown />
-      
-      {/* Testimonial 2 */}
-      <section className="border-b">
-        <TestimonialCard 
-          quote="Working with Kimberly was an absolute dream! She made us feel so comfortable throughout the entire process, and the photos exceeded all our expectations."
-          coupleName="Jessica & David"
-        />
-      </section>
-      
+
+      <TestimonialSection
+        quote="Working with Kimberly was an absolute dream! She made us feel so comfortable throughout the entire process, and the photos exceeded all our expectations."
+        coupleName="Jessica & David"
+      />
+
       <PortfolioGallery />
-      
-      {/* Testimonial 3 */}
-      <section className="border-b">
-        <TestimonialCard 
-          quote="Every moment was captured with such care and creativity. We couldn't be happier with our photos and the memories they preserve."
-          coupleName="Emily & James"
-        />
-      </section>
-      
+
+      <TestimonialSection
+        quote="Every moment was captured with such care and creativity. We couldn't be happier with our photos and the memories they preserve."
+        coupleName="Emily & James"
+      />
+
       <ElopementsSection />
-      
-      {/* Testimonial 4 */}
-      <section className="border-b">
-        <TestimonialCard 
-          quote="Kimberly's professionalism and talent made our wedding day stress-free. Her ability to capture candid moments is truly unmatched."
-          coupleName="Anna & Robert"
-        />
-      </section>
-      
+
+      <TestimonialSection
+        quote="Kimberly's professionalism and talent made our wedding day stress-free. Her ability to capture candid moments is truly unmatched."
+        coupleName="Anna & Robert"
+      />
+
       <EngagementSessionsSection />
-      
+
+      <TestimonialSection
+        quote="Kimberly captured our day perfectly. Her eye for natural beauty and genuine moments made our photos feel so authentic and timeless."
+        coupleName="Sarah & Michael"
+      />
+
       <ServicesBreakdown />
-      
+
       <CallToAction />
     </>
   );
