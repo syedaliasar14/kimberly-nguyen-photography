@@ -7,40 +7,45 @@ import 'swiper/css/effect-fade';
 import { ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 
 const NUM_IMAGES = 6;
 
 export default function WeddingSection2() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => { setScrollY(window.scrollY) };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <section className="pt-20 pb-8 relative overflow-hidden h-screen flex flex-col justify-end">
       {/* Background Slideshow */}
-      <div className="absolute inset-0 z-0">
-        <Swiper
-          modules={[Autoplay, EffectFade]}
-          effect="fade"
-          fadeEffect={{
-            crossFade: true,
-          }}
-          slidesPerView={1}
-          loop={true}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
-          className="w-full h-full"
-        >
-          {Array.from({ length: NUM_IMAGES }).map((_, i) => (
-            <SwiperSlide key={i}>
-              <Image
-                className="absolute inset-0 object-cover object-center"
-                src={`/home-page/wedding-section-2/${i + 1}.png`}
-                alt={`Wedding Image ${i + 1}`}
-                fill
-                sizes='100vw'
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+      <div className="absolute inset-0 -z-10">
+        <div className='w-full h-[120%] -top-[10%] absolute inset-0'>
+          <Swiper
+            modules={[Autoplay, EffectFade]}
+            effect="fade"
+            fadeEffect={{ crossFade: true}}
+            slidesPerView={1}
+            loop={true}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            className="w-full h-full"
+          >
+            {Array.from({ length: NUM_IMAGES }).map((_, i) => (
+              <SwiperSlide key={i}>
+                <Image
+                  className="absolute inset-0 object-cover object-center"
+                  src={`/home-page/wedding-section-2/${i + 1}.png`}
+                  alt={`Wedding Image ${i + 1}`}
+                  fill sizes='100vw'
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
 
         {/* Overlay for content readability */}
         <div className="absolute z-10 inset-0 bg-stone-950/30" />
@@ -62,6 +67,6 @@ export default function WeddingSection2() {
           <ChevronDown className="w-4 h-4 ml-2" />
         </Link>
       </div>
-    </section>
+    </section >
   );
 }

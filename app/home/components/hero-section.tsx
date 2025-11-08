@@ -8,12 +8,13 @@ import 'swiper/css/effect-fade';
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useScrollY } from "@/hooks/use-scroll";
 
 const NUM_IMAGES = 6;
 
 export default function HeroSection() {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
+  const scrollY = useScrollY();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -23,48 +24,30 @@ export default function HeroSection() {
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center text-primary-foreground -mt-14 relative overflow-hidden">
+    <section className="min-h-screen flex flex-col items-center justify-center text-white -mt-14 relative overflow-hidden">
       {/* Background Slideshow with Parallax */}
-      <div className="absolute inset-0 -z-10">
-        <div className="w-full h-[120%] -top-[10%] absolute" style={{ transform: `translateY(${scrollY * 0.5}px)` }}>
-          <Swiper
-            modules={[Autoplay, EffectFade]}
-            effect="fade"
-            fadeEffect={{
-              crossFade: true,
-            }}
-            slidesPerView={1}
-            loop={true}
-            autoplay={{
-              delay: 4000,
-              disableOnInteraction: false,
-            }}
-            className="w-full h-full"
-          >
-            {Array.from({ length: NUM_IMAGES }).map((_, i) => (
-              <SwiperSlide key={i}>
-                <Image
-                  className="absolute inset-0 object-cover object-center"
-                  src={`/home-page/hero-section/${i + 1}.png`}
-                  alt={`Hero Image ${i + 1}`}
-                  fill
-                  sizes="100vw"
-                  priority={i === 0}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+      <div className="w-full h-[120%] -top-[10%] absolute" style={{ transform: `translateY(${scrollY * 0.5}px)` }} will-change="transform">
+        <Swiper
+          modules={[Autoplay, EffectFade]}
+          effect="fade"
+          fadeEffect={{ crossFade: true }}
+          slidesPerView={1}
+          loop={true}
+          autoplay={{ delay: 4000, disableOnInteraction: false }}
+          className="w-full h-full"
+        >
+          {Array.from({ length: NUM_IMAGES }).map((_, i) => (
+            <SwiperSlide key={i}>
+              <Image
+                className="absolute inset-0 object-cover object-center"
+                src={`/home-page/hero-section/${i + 1}.png`}
+                alt={`Hero Image ${i + 1}`}
+                fill sizes="100vw" priority={i === 0}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
 
         {/* Overlay for content readability */}
         <div className="absolute inset-0 bg-stone-900/30 z-10" />

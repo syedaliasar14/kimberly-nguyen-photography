@@ -8,6 +8,7 @@ import Image from 'next/image';
 const NAV_LINKS = [
   { href: '/', label: 'Home' },
   { href: '/weddings', label: 'Weddings' },
+  { href: '/portfolio', label: 'Portfolio' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
   { href: '/blog', label: 'Blog' },

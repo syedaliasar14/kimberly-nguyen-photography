@@ -14,10 +14,7 @@ export default function EngagementSessionsSection() {
             sessions are perfect for save-the-dates, wedding websites, and displays at your 
             reception. Let's capture the excitement and joy of this chapter in your love story.
           </p>
-          <Link
-            href="/contact"
-            className="inline-block btn bg-accent text-accent-foreground font-jost tracking-wider hover:bg-accent/90 rounded-full"
-          >
+          <Link href="/contact" className="inline-block btn bg-accent text-white font-jost tracking-wider hover:bg-accent/90 rounded-full">
             Book Engagement Session
           </Link>
         </div>

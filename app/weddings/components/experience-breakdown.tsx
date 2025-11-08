@@ -39,7 +39,7 @@ export default function ExperienceBreakdown() {
         <h2 className="font-heading text-5xl md:text-6xl text-center text-primary mb-4">
           Get to Know the <span className="font-script text-8xl md:text-9xl ml-2">process</span>
         </h2>
-        <p className="text-center text-muted-foreground mb-16 font-jost">
+        <p className="text-center text-muted-foreground -mt-6 mb-16 font-jost">
           Hover over each step to learn more
         </p>
         

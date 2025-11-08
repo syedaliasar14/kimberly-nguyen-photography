@@ -16,7 +16,7 @@ export default function ElopementsSection() {
           </p>
           <Link
             href="/contact"
-            className="inline-block btn bg-accent text-accent-foreground font-jost tracking-wider hover:bg-accent/90 rounded-full"
+            className="inline-block btn bg-accent text-white font-jost tracking-wider hover:bg-accent/90 rounded-full"
           >
             Inquire About Elopements
           </Link>
