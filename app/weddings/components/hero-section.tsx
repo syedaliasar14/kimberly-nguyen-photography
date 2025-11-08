@@ -28,7 +28,7 @@ export default function HeroSection() {
       <div className="max-w-7xl flex flex-col md:flex-row gap-6 items-start mx-auto px-4 md:px-8 py-12">
         <div className="flex flex-col">
           <h1 className="font-script text-6xl sm:text-7xl lg:text-8xl mb-4 leading-tight w-max relative">
-            <div className="absolute bottom-0 -left-4 -right-4 bg-accent h-[80%] px-4 rotate-2 opacity-75" />
+            {/* <div className="absolute bottom-0 -left-4 -right-4 bg-accent h-[80%] px-4 rotate-2 opacity-75" /> */}
             <span className="relative">Wedding Photography</span>
           </h1>
           <p className="font-jost text-xl md:text-2xl max-w-3xl mx-auto mb-12 leading-relaxed">

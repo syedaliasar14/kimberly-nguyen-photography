@@ -19,11 +19,14 @@ export default function Header() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-secondary/50 backdrop-blur-sm">
-      <div className="w-full mx-auto p-4 sm:px-6 lg:px-8">
+      <div className="w-full mx-auto py-2 px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <button onClick={() => setIsMenuOpen(true)} className="group" aria-label="Toggle menu">
-            <MenuIcon className="w-6 h-6 text-white group-hover:text-secondary transition-colors" />
+            <MenuIcon className="w-6 h-6 text-white group-hover:text-primary transition-colors" />
           </button>
+          <Link href="/" className="flex items-center">
+            <Image src="/white-logo.svg" alt="Kimberly Nguyen Photography" width={50} height={50} className="w-8" />
+          </Link>
         </div>
       </div>
 
