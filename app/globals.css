@@ -130,6 +130,9 @@
   button {
     @apply cursor-pointer;
   }
+  input {
+    @apply backdrop-blur-lg
+  }
   .btn {
     @apply px-8 py-3 border-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/90 transition duration-300 w-max rounded-sm;
   }

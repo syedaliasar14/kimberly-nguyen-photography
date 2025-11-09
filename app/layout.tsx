@@ -30,7 +30,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en">
       <body className={`${playfairDisplay.variable} ${inter.variable} ${dmSerifDisplay.variable} ${jost.variable} ${moontime.variable} ${allura.variable} antialiased`}>
         <Header />
-        <main className="pt-14">
+        <main>
           {children}
         </main>
         <Footer />

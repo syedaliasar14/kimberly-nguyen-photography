@@ -14,7 +14,7 @@ export default function HeroSection() {
   const scrollY = useScrollY();
 
   return (
-    <section className="min-h-[80vh] flex items-center bg-gradient-to-br from-secondary via-secondary/50 to-secondary/90 text-white -mt-14 pt-14 relative">
+    <section className="min-h-[80vh] flex items-center bg-gradient-to-br from-secondary via-secondary/50 to-secondary/90 text-white pt-14 relative">
       <div className="absolute inset-0 overflow-hidden -z-10">
         <Image
           src="/home-page/hero-section/1.png"

@@ -25,7 +25,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center text-white -mt-14 relative overflow-hidden">
+    <section className="min-h-screen flex flex-col items-center justify-center text-white relative overflow-hidden">
       {/* Background Slideshow with Parallax */}
       <div className="w-full h-[120%] -top-[10%] absolute" style={{ transform: `translateY(${scrollY * 0.5}px)` }} will-change="transform">
         <Swiper

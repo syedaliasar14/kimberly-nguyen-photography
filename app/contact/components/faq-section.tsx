@@ -1,6 +1,7 @@
 "use client";
 
 import { ChevronDownIcon } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -53,7 +54,7 @@ export default function FaqSection() {
     },
     {
       question: "Will you share all unedited images with us?",
-      answer: "I do not share unedited images (ie. RAWs) to my Clients. I take pride in my editing style and attention to detail. It is my hope that my work resonates with you before you even reach out!",
+      answer: "I do not share unedited images (ie. RAWs) to my Clients. I take pride in my editing style and attention to detail. It is my hope that my work resonates with you even before you reach out!",
     },
     {
       question: "We're ready to book/would like to learn more! What are the next steps?",
@@ -72,16 +73,16 @@ export default function FaqSection() {
   };
 
   return (
-    <section className="py-20">
+    <section className="py-20 relative bg-secondary/20 overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-heading text-3xl sm:text-4xl text-center text-primary mb-16">
+        <h2 className="font-heading text-5xl sm:text-6xl text-center text-primary mb-16">
           Frequently Asked Questions
         </h2>
 
         <div className="space-y-4">
           {faqs.map((faq, i) => (
-            <div key={`faq-${i}`} className="border border-primary/20 rounded-lg overflow-hidden group">
-              <button onClick={() => toggleItem(i)} className="w-full px-6 py-4 text-left bg-white group-hover:bg-stone-50 transition-colors duration-200">
+            <div key={`faq-${i}`} className="border rounded-lg overflow-hidden group">
+              <button onClick={() => toggleItem(i)} className="w-full px-6 py-4 text-left backdrop-blur-lg bg-white/40 group-hover:bg-stone-50/50 transition-colors duration-200">
                 <div className="flex justify-between items-center">
                   <h3 className="font-semibold text-primary text-lg pr-4">
                     {faq.question}
@@ -90,7 +91,7 @@ export default function FaqSection() {
                 </div>
 
                 <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openItems.includes(i) ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                  <div className="mt-4 group-hover:bg-gray-50 transition-colors duration-200 text-muted-foreground leading-relaxed">
+                  <div className="mt-4 transition-colors duration-200 leading-relaxed">
                     {faq.answer}
                   </div>
                 </div>

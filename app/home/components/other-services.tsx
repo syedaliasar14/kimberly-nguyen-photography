@@ -36,6 +36,11 @@ export default function OtherServices() {
       description: "Celebrate your bond with intimate and heartfelt couples portraits.",
       image: "/home-page/other-services/couples.png"
     },
+    {
+      title: "Maternity Photography",
+      description: "Celebrate the beauty of motherhood with elegant maternity portraits.",
+      image: "/home-page/other-services/maternity.png"
+    }
   ];
 
   return (
