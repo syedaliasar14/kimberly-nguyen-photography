@@ -37,10 +37,7 @@ export default function WeddingSection1() {
             768: { slidesPerView: 3 },
             1024: { slidesPerView: 4 },
           }}
-          navigation={{
-            nextEl: '.swiper-button-next-custom',
-            prevEl: '.swiper-button-prev-custom',
-          }}
+          navigation={{ nextEl: '.swiper-button-next-custom', prevEl: '.swiper-button-prev-custom' }}
           loop={true}
           autoplay={{ delay: 3000 }}
           className="mySwiper w-full relative mx-4 md:mx-8"

@@ -21,7 +21,7 @@ export default function HeroSection() {
           alt="Wedding Photography Background"
           fill priority
           className="object-cover object-center absolute inset-0 opacity-90 blur-md w-full h-[120%] -top-[10%] absolute -z-10"
-          style={{ transform: `translateY(${scrollY * 0.5}px)` }} will-change="transform"
+          /* style={{ transform: `translateY(${scrollY * 0.5}px)` }} will-change="transform" */
         />
       </div>
 

@@ -1,5 +1,13 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function PortfolioGallery() {
   const weddings = [
@@ -11,45 +19,74 @@ export default function PortfolioGallery() {
     { coupleName: "Rachel & Sofia", img: "/images/weddings/wedding6.jpg", href: "/portfolio/rachel-sofia", rotate: 2 }
   ];
 
+  const PolaroidCard = ({ wedding, index }: { wedding: typeof weddings[0], index: number }) => (
+    <Link href={wedding.href} className="block">
+      <div className="flex justify-center py-12">
+        <div style={{ transform: `rotate(${wedding.rotate}deg)` }} 
+          className="bg-white p-4 rounded-sm shadow-2xl border border-gray-200 transition-all duration-300 hover:scale-105 hover:rotate-0"
+        >
+          <div className="bg-white rounded-sm overflow-hidden border border-gray-100">
+            <div className="relative w-[220px] h-[280px] bg-gray-50">
+              <Image
+                src={wedding.img}
+                alt={wedding.coupleName}
+                fill
+                sizes="(max-width: 768px) 220px, 280px"
+                className="object-cover"
+                priority={index < 3}
+              />
+            </div>
+            <div className="h-10 bg-white flex items-center justify-center border-t border-gray-100">
+              <span className="text-3xl text-primary font-script">{wedding.coupleName}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Link>
+  );
+
   return (
-    <section className="py-20 bg-background" id="portfolio">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-heading text-5xl sm:text-6xl text-center text-primary mb-4">
+    <section className="py-20 bg-stone-900" id="portfolio">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+        <h2 className="font-heading text-5xl sm:text-6xl text-center mb-4">
           Portfolio Gallery
         </h2>
-        <p className="text-center text-muted-foreground mb-16 font-jost">
+        <p className="text-center mb-16 font-jost">
           A glimpse into recent celebrations
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 items-start">
+        {/* Mobile/Small screen Swiper */}
+        <div className="md:hidden">
+          <Swiper
+            modules={[Navigation, Pagination]}
+            spaceBetween={20}
+            slidesPerView={1}
+            navigation={{ nextEl: '.swiper-button-next-custom', prevEl: '.swiper-button-prev-custom' }}
+            pagination={{ clickable: true }}
+            breakpoints={{
+              480: { slidesPerView: 1.2, centeredSlides: true },
+              640: { slidesPerView: 2, centeredSlides: false }
+            }}
+            className="pb-12"
+          >
+            {weddings.map((wedding, index) => (
+              <SwiperSlide key={index}>
+                <PolaroidCard wedding={wedding} index={index} />
+              </SwiperSlide>
+            ))}
+            <div className="swiper-button-prev-custom absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-black/80 hover:bg-primary/50 rounded-full flex items-center justify-center cursor-pointer transition-all">
+              <ChevronLeft className="w-6 h-6 text-white" />
+            </div>
+            <div className="swiper-button-next-custom absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-black/80 hover:bg-primary/50 rounded-full flex items-center justify-center cursor-pointer transition-all">
+              <ChevronRight className="w-6 h-6 text-white" />
+            </div>
+          </Swiper>
+        </div>
+
+        {/* Desktop Grid */}
+        <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-10 items-start">
           {weddings.map((wedding, index) => (
-            <Link key={index} href={wedding.href} className="block">
-              <div className="flex justify-center">
-                {/* Polaroid wrapper: white frame, bottom caption, slight rotation */}
-                <div
-                  style={{ transform: `rotate(${wedding.rotate}deg)` }}
-                  className="bg-white p-4 rounded-lg shadow-2xl border border-gray-200 transition-all duration-300 hover:scale-105 hover:rotate-0"
-                >
-                  {/* Polaroid "photo" area with thicker bottom frame effect */}
-                  <div className="bg-white rounded-sm overflow-hidden border border-gray-100">
-                    <div className="relative w-[220px] h-[280px] bg-gray-50">
-                      <Image
-                        src={wedding.img}
-                        alt={wedding.coupleName}
-                        fill
-                        sizes="(max-width: 768px) 220px, 280px"
-                        className="object-cover"
-                        priority={index < 3}
-                      />
-                    </div>
-                    {/* thicker bottom to mimic polaroid white space */}
-                    <div className="h-10 bg-white flex items-center justify-center border-t border-gray-100">
-                      <span className="text-sm text-muted-foreground font-jost">{wedding.coupleName}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Link>
+            <PolaroidCard key={index} wedding={wedding} index={index} />
           ))}
         </div>
       </div>

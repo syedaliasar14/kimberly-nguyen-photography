@@ -6,7 +6,6 @@ import FaqSection from "@/app/contact/components/faq-section";
 export default function Contact() {
   return (
     <>
-      <HeroSection />
       <ContactForm />
       <Testimonials />
       <FaqSection />

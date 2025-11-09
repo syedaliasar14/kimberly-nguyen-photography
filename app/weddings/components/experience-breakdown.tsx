@@ -40,7 +40,7 @@ export default function ExperienceBreakdown() {
           Get to Know the <span className="font-script text-8xl md:text-9xl ml-2">process</span>
         </h2>
         <p className="text-center text-muted-foreground -mt-6 mb-16 font-jost">
-          Hover over each step to learn more
+          Tap or hover over each step to learn more
         </p>
         
         <div className="space-y-4">
@@ -57,9 +57,9 @@ export default function ExperienceBreakdown() {
                   </div>
 
                   <div className="flex-1">
-                    <h3 className={`font-heading text-xl md:text-2xl mb-3 transition-colors duration-300
+                    <h3 className={`font-jost text-xl md:text-2xl mb-3 transition-colors duration-300
                       ${hoveredIndex === index ? 'text-secondary' : 'text-primary'}`}>
-                      <span className="font-script text-5xl">{step.title}</span>
+                      The {step.title}
                     </h3>
                     <div className={`overflow-hidden transition-all duration-500 ease-in-out
                       ${hoveredIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}

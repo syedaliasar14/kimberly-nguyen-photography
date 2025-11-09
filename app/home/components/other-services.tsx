@@ -57,7 +57,6 @@ export default function OtherServices() {
         }}
         pagination={{
           clickable: true,
-          el: '.swiper-pagination-custom',
         }}
         className="w-full h-full"
       >
@@ -106,17 +105,11 @@ export default function OtherServices() {
       </Swiper>
 
       {/* Custom Navigation Button */}
-      <button
-        className="swiper-button-next-custom absolute top-1/2 right-4 -translate-y-1/2 p-2 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 group z-30"
+      <button className="swiper-button-next-custom absolute top-1/2 right-4 -translate-y-1/2 p-2 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 group z-30"
         aria-label="Next service"
       >
         <ChevronRight className="size-8" />
       </button>
-
-      {/* Custom Pagination */}
-      <div className="swiper-pagination-custom absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-3 z-30">
-        {/* Pagination bullets will be inserted here by Swiper */}
-      </div>
     </section>
   );
 }

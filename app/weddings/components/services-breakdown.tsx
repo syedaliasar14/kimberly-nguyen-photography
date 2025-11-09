@@ -73,7 +73,7 @@ export default function ServicesBreakdown() {
             <Link href="/contact" key={index}
               className={`bg-background rounded-lg p-8 shadow-sm border-2 transition-all duration-300 group relative
                 ${pkg.popular ? "border-accent transform md:-translate-y-4 scale-105 bg-gradient-to-br from-background to-accent/5"
-                  : "border-border hover:border-lime-800/50 hover:shadow-xl"}`}
+                  : "border-border hover:shadow-xl"}`}
               style={{ boxShadow: pkg.popular ? "0 0px 25px 0px #dab364" : undefined }}
             >
 

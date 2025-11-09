@@ -11,7 +11,7 @@
   --card-foreground: oklch(0.18 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.18 0 0);
-  --primary: oklch(0.22 0 0);
+  --primary: oklch(21.6% 0.006 56.043);
   --primary-foreground: oklch(0.98 0 0);
   --secondary: #846660;
   --secondary-foreground: oklch(0.22 0 0);
@@ -138,6 +138,14 @@
   }
   html {
     scroll-behavior: smooth;
+  }
+  .swiper-pagination-bullet {
+    background-color: white !important;
+    opacity: 0.5;
+  }
+  .swiper-pagination-bullet-active {
+    background-color: white !important;
+    opacity: 1;
   }
 }
 
