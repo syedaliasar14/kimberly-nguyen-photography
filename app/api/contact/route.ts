@@ -6,28 +6,17 @@ const resend = new Resend(process.env.RESEND_API_KEY!);
 
 export async function POST(req: NextRequest) {
   try {
-    const {
-      firstName,
-      lastName,
-      email,
-      phone,
-      eventDate,
-      location,
-      subject,
-      description,
-      inspo,
-      howDidYouHear
-    } = await req.json();
-
-    const fullName = `${firstName} ${lastName}`;
+    const { firstName, lastName, email, phone, eventDate, location,
+      service, description, inspo, howDidYouHear } = await req.json();
+;
     const formattedEventDate = eventDate ? new Date(eventDate).toLocaleDateString() : 'Not specified';
     const formattedLocation = location || 'Not specified';
     const formattedInspo = inspo || 'None provided';
 
     await resend.emails.send({
       from: "contact@my-nimbus.com",
-      to: "sa.asar14@gmail.com",
-      subject: `New ${subject} Inquiry from ${fullName}`,
+      to: "syedali.asar14@gmail.com",
+      subject: `New ${service} Inquiry from ${firstName} ${lastName}`,
       react: ContactEmail({
         firstName,
         lastName,
@@ -35,7 +24,7 @@ export async function POST(req: NextRequest) {
         phone,
         eventDate: formattedEventDate,
         location: formattedLocation,
-        subject,
+        service,
         description,
         inspo: formattedInspo,
         howDidYouHear

@@ -5,11 +5,11 @@ import { Input } from '@/components/ui/input';
 import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Controller, useForm } from "react-hook-form"
 import * as z from "zod"
-import { CheckIcon, ChevronDownIcon } from 'lucide-react';
+import { ChevronDownIcon } from 'lucide-react';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
@@ -23,9 +23,9 @@ const schema = z.object({
   phone: z.string().min(10, "Phone number is too short").max(15, "Phone number is too long"),
   eventDate: z.date().optional(),
   location: z.string().max(200, "Location is too long").optional(),
-  subject: z.string().min(1, "Input is required").max(150),
+  service: z.string().min(1, "Input is required").max(150),
   description: z.string().min(1, "Description is required").max(1000, "Description is too long"),
-  inspo: z.string().max(200, "Input is too long").optional(),
+  inspo: z.string().max(300, "Input is too long").optional(),
   howDidYouHear: z.string().min(1, "Input is required").max(100),
 });
 
@@ -39,7 +39,7 @@ export default function ContactForm() {
       phone: '',
       eventDate: undefined,
       location: '',
-      subject: '',
+      service: '',
       description: '',
       inspo: '',
       howDidYouHear: '',
@@ -47,22 +47,26 @@ export default function ContactForm() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [openEventDate, setOpenEventDate] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const [error, setError] = useState<string | null>(null);
 
   async function onSubmit(data: z.infer<typeof schema>) {
     setIsSubmitting(true);
     try {
       await axios.post('/api/contact', data);
       setSubmitted(true);
+      sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } catch (error) {
       console.error("Error submitting form:", error);
+      setError("Something went wrong, please try again or email me directly at kimberlypnguyenphotography@gmail.com");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <section className="py-20 min-h-[80vh] flex items-center justify-center text-white relative text-white bg-stone-900/50 overflow-hidden">
+    <section ref={sectionRef} className="py-20 min-h-[80vh] flex items-center justify-center text-white relative text-white bg-stone-900/50 overflow-hidden">
       <Image
         src="/bg/1.png"
         alt="Contact Form Background"
@@ -90,7 +94,7 @@ export default function ContactForm() {
         </div>
       ) : (
         <div className="max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 text-white">
-          <h2 className="font-script text-9xl text-center">contact</h2>
+          <h2 className="font-script text-9xl text-center">Contact</h2>
           <h3 className="font-jost mb-6 text-center">Let's get in touch</h3>
 
           <div>
@@ -136,7 +140,7 @@ export default function ContactForm() {
                   <Field data-invalid={fieldState.invalid}>
                     <FieldLabel htmlFor="eventDate">Event date</FieldLabel>
                     <FieldDescription>Tell me when you need me, so I can check my calendar for availability.</FieldDescription>
-                    <Popover open={open} onOpenChange={setOpen}>
+                    <Popover open={openEventDate} onOpenChange={setOpenEventDate}>
                       <PopoverTrigger asChild>
                         <Button
                           variant="outline"
@@ -154,7 +158,7 @@ export default function ContactForm() {
                           captionLayout="dropdown"
                           onSelect={(date) => {
                             field.onChange(date)
-                            setOpen(false)
+                            setOpenEventDate(false)
                           }}
                         />
                       </PopoverContent>
@@ -172,11 +176,11 @@ export default function ContactForm() {
                   </Field>
                 )} />
 
-                <Controller control={form.control} name="subject" render={({ field, fieldState }) => (
+                <Controller control={form.control} name="service" render={({ field, fieldState }) => (
                   <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel htmlFor="subject">What do you need my help capturing? *</FieldLabel>
+                    <FieldLabel htmlFor="service">What do you need my help capturing? *</FieldLabel>
                     <Select onValueChange={field.onChange} value={field.value}>
-                      <SelectTrigger {...field} id="subject" aria-invalid={fieldState.invalid}>
+                      <SelectTrigger {...field} id="service" aria-invalid={fieldState.invalid}>
                         <SelectValue placeholder="Select an option" />
                       </SelectTrigger>
                       <SelectContent>
@@ -196,7 +200,8 @@ export default function ContactForm() {
                 <Controller control={form.control} name="description" render={({ field, fieldState }) => (
                   <Field data-invalid={fieldState.invalid}>
                     <FieldLabel htmlFor="description">Description *</FieldLabel>
-                    <Textarea {...field} id="description" placeholder="Go into detail about what you need help capturing & tell me a little bit about yourself as well!" aria-invalid={fieldState.invalid} />
+                    <FieldDescription>Go into detail about what you need help capturing & tell me a little bit about yourself as well!</FieldDescription>
+                    <Textarea {...field} id="description" placeholder="Describe your needs and a little about yourself." aria-invalid={fieldState.invalid} />
                     {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
                   </Field>
                 )} />
@@ -237,6 +242,9 @@ export default function ContactForm() {
               >
                 {isSubmitting ? 'Sending...' : 'Send Inquiry'}
               </button>
+              {error && (
+                <p className="text-red-500 text-center z-20">{error}</p>
+              )}
             </form>
           </div>
         </div>
