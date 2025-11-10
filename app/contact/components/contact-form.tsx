@@ -1,205 +1,247 @@
 'use client';
 
+import { FieldDescription, FieldGroup, Field, FieldLabel, FieldError } from '@/components/ui/field';
+import { Input } from '@/components/ui/input';
 import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
+import { zodResolver } from "@hookform/resolvers/zod"
+import { Controller, useForm } from "react-hook-form"
+import * as z from "zod"
+import { CheckIcon, ChevronDownIcon } from 'lucide-react';
+import { Textarea } from '@/components/ui/textarea';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Calendar } from '@/components/ui/calendar';
+import { Button } from '@/components/ui/button';
+
+const schema = z.object({
+  firstName: z.string().min(1, "First name is required").max(100, "First name is too long"),
+  lastName: z.string().min(1, "Last name is required").max(100, "Last name is too long"),
+  email: z.email("Invalid email address"),
+  phone: z.string().min(10, "Phone number is too short").max(15, "Phone number is too long"),
+  eventDate: z.date().optional(),
+  location: z.string().max(200, "Location is too long").optional(),
+  subject: z.string().min(1, "Input is required").max(150),
+  description: z.string().min(1, "Description is required").max(1000, "Description is too long"),
+  inspo: z.string().max(200, "Input is too long").optional(),
+  howDidYouHear: z.string().min(1, "Input is required").max(100),
+});
 
 export default function ContactForm() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    weddingDate: '',
-    venue: '',
-    howDidYouHear: '',
-    message: ''
+  const form = useForm({
+    resolver: zodResolver(schema),
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      eventDate: undefined,
+      location: '',
+      subject: '',
+      description: '',
+      inspo: '',
+      howDidYouHear: '',
+    }
   });
-
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  async function onSubmit(data: z.infer<typeof schema>) {
     setIsSubmitting(true);
-
-    await axios.post('/api/contact', formData);
-
-    setSubmitted(true);
-    setIsSubmitting(false);
+    try {
+      await axios.post('/api/contact', data);
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
-
-  if (submitted) {
-    return (
-      <section className="min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-secondary to-background">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="w-20 h-20 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-8">
-            <svg className="w-10 h-10 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
-          </div>
-          <h1 className="font-heading text-4xl sm:text-5xl text-primary mb-6">Thank You!</h1>
-          <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-            I've received your inquiry and I'll be in touch within 2-3 business days to schedule our consultation.
-          </p>
-          <p className="text-muted-foreground">
-            In the meantime, feel free to follow along on{' '}
-            <Link href="https://www.instagram.com/keemkaptures/" className="underline">
-              Instagram
-            </Link>{' '}
-            to see my latest work.
-          </p>
-        </div>
-      </section>
-    );
-  }
 
   return (
-    <section className="py-20 relative text-white bg-stone-900/50 overflow-hidden">
+    <section className="py-20 min-h-[80vh] flex items-center justify-center text-white relative text-white bg-stone-900/50 overflow-hidden">
       <Image
-        src="/bg/4.png"
+        src="/bg/1.png"
         alt="Contact Form Background"
         fill sizes='100vw'
         className="absolute -z-10 blur-lg scale-110 bg-stone-900 inset-0 w-full h-full object-cover"
       />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-heading text-6xl mb-8">Let's Get In Touch</h2>
-
-        <div>
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
-                  Name *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-muted/20 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-colors"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  Email *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-muted/20 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-colors"
-                />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium mb-2">
-                  Phone
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-muted/20 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-colors"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="weddingDate" className="block text-sm font-medium mb-2">
-                  Wedding Date
-                </label>
-                <input
-                  type="date"
-                  id="weddingDate"
-                  name="weddingDate"
-                  value={formData.weddingDate}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-muted/20 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-colors"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="venue" className="block text-sm font-medium mb-2">
-                Venue or Location
-              </label>
-              <input
-                type="text"
-                id="venue"
-                name="venue"
-                value={formData.venue}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-muted/20 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-colors"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="howDidYouHear" className="block text-sm font-medium mb-2">
-                How did you hear about me?
-              </label>
-              <select
-                id="howDidYouHear"
-                name="howDidYouHear"
-                value={formData.howDidYouHear}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-muted/20 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-colors"
-              >
-                <option value="">Please select</option>
-                <option value="instagram">Instagram</option>
-                <option value="website">Website/Google</option>
-                <option value="referral">Friend/Family Referral</option>
-                <option value="venue">Venue Recommendation</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium mb-2">
-                Tell me about your wedding
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={5}
-                value={formData.message}
-                onChange={handleInputChange}
-                placeholder="I'd love to hear about your wedding vision, timeline, and anything else you'd like to share..."
-                className="w-full px-4 py-3 border border-muted/20 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-colors resize-none"
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className={`w-full py-4 px-6 rounded-full text-lg font-medium transition-colors ${isSubmitting
-                ? 'bg-muted/20 text-muted-foreground cursor-not-allowed'
-                : 'bg-primary text-accent-foreground hover:bg-accent hover:text-primary'
-                }`}
-            >
-              {isSubmitting ? 'Sending...' : 'Send Inquiry'}
-            </button>
-          </form>
+      {submitted ? (
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="font-script text-8xl md:text-9xl mb-6">Thanks!</h1>
+          <p className="text-xl mb-8 leading-relaxed">
+            I've received your inquiry and I'll be in touch within 2-3 business days to schedule our consultation.
+          </p>
+          <div className="w-16 h-0.5 bg-white/30 mx-auto mb-8 rounded-full" />
+          <p className="opacity-80">
+            In the meantime, feel free to follow along on{' '}
+            <Link href="https://www.instagram.com/keemkaptures/" target="_blank" className="underline">
+              Instagram
+            </Link>{' '}
+            to see my latest work.
+          </p>
+          <p className="font-script text-4xl mt-12 px-10 w-max ml-auto -rotate-5">
+            talk soon! -KN
+          </p>
         </div>
-      </div>
+      ) : (
+        <div className="max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 text-white">
+          <h2 className="font-script text-9xl text-center">contact</h2>
+          <h3 className="font-jost mb-6 text-center">Let's get in touch</h3>
+
+          <div>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <FieldGroup>
+                <div className='grid grid-cols-2 gap-4'>
+                  <Controller control={form.control} name="firstName" render={({ field, fieldState }) => (
+                    <Field data-invalid={fieldState.invalid}>
+                      <FieldLabel htmlFor="firstName">First name *</FieldLabel>
+                      <Input {...field} id="firstName" autoComplete="off" placeholder="First name" aria-invalid={fieldState.invalid} />
+                      {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                    </Field>
+                  )} />
+
+                  <Controller control={form.control} name="lastName" render={({ field, fieldState }) => (
+                    <Field data-invalid={fieldState.invalid}>
+                      <FieldLabel htmlFor="lastName">Last name *</FieldLabel>
+                      <Input {...field} id="lastName" autoComplete="off" placeholder="Last name" aria-invalid={fieldState.invalid} />
+                      {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                    </Field>
+                  )} />
+                </div>
+
+                <div className='grid grid-cols-2 gap-4'>
+                  <Controller control={form.control} name="email" render={({ field, fieldState }) => (
+                    <Field data-invalid={fieldState.invalid}>
+                      <FieldLabel htmlFor="email">Email *</FieldLabel>
+                      <Input {...field} id="email" autoComplete="email" placeholder="you@example.com" aria-invalid={fieldState.invalid} />
+                      {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                    </Field>
+                  )} />
+
+                  <Controller control={form.control} name="phone" render={({ field, fieldState }) => (
+                    <Field data-invalid={fieldState.invalid}>
+                      <FieldLabel htmlFor="phone">Phone *</FieldLabel>
+                      <Input {...field} id="phone" type="tel" autoComplete="tel" placeholder="Phone number" aria-invalid={fieldState.invalid} />
+                      {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                    </Field>
+                  )} />
+                </div>
+
+                <Controller control={form.control} name="eventDate" render={({ field, fieldState }) => (
+                  <Field data-invalid={fieldState.invalid}>
+                    <FieldLabel htmlFor="eventDate">Event date</FieldLabel>
+                    <FieldDescription>Tell me when you need me, so I can check my calendar for availability.</FieldDescription>
+                    <Popover open={open} onOpenChange={setOpen}>
+                      <PopoverTrigger asChild>
+                        <Button
+                          variant="outline"
+                          id="date"
+                          className="w-48 justify-between font-normal"
+                        >
+                          {field?.value ? field.value.toLocaleDateString() : "Select date"}
+                          <ChevronDownIcon />
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-auto overflow-hidden p-0" align="start">
+                        <Calendar
+                          mode="single"
+                          selected={field.value ? new Date(field.value) : undefined}
+                          captionLayout="dropdown"
+                          onSelect={(date) => {
+                            field.onChange(date)
+                            setOpen(false)
+                          }}
+                        />
+                      </PopoverContent>
+                    </Popover>
+                    {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                  </Field>
+                )} />
+
+                <Controller control={form.control} name="location" render={({ field, fieldState }) => (
+                  <Field data-invalid={fieldState.invalid}>
+                    <FieldLabel htmlFor="location">Location</FieldLabel>
+                    <FieldDescription>If location is unconfirmed, leave blank.</FieldDescription>
+                    <Input {...field} id="location" autoComplete="off" placeholder="City, venue, or address" aria-invalid={fieldState.invalid} />
+                    {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                  </Field>
+                )} />
+
+                <Controller control={form.control} name="subject" render={({ field, fieldState }) => (
+                  <Field data-invalid={fieldState.invalid}>
+                    <FieldLabel htmlFor="subject">What do you need my help capturing? *</FieldLabel>
+                    <Select onValueChange={field.onChange} value={field.value}>
+                      <SelectTrigger {...field} id="subject" aria-invalid={fieldState.invalid}>
+                        <SelectValue placeholder="Select an option" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Wedding">Wedding</SelectItem>
+                        <SelectItem value="Engagement">Engagement</SelectItem>
+                        <SelectItem value="Graduation">Graduation</SelectItem>
+                        <SelectItem value="Couples Portraits">Couples Portraits</SelectItem>
+                        <SelectItem value="Family/Maternity">Family/Maternity</SelectItem>
+                        <SelectItem value="Individualized Session">Individualized Session</SelectItem>
+                        <SelectItem value="Other">Other</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                  </Field>
+                )} />
+
+                <Controller control={form.control} name="description" render={({ field, fieldState }) => (
+                  <Field data-invalid={fieldState.invalid}>
+                    <FieldLabel htmlFor="description">Description *</FieldLabel>
+                    <Textarea {...field} id="description" placeholder="Go into detail about what you need help capturing & tell me a little bit about yourself as well!" aria-invalid={fieldState.invalid} />
+                    {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                  </Field>
+                )} />
+
+                <Controller control={form.control} name="inspo" render={({ field, fieldState }) => (
+                  <Field data-invalid={fieldState.invalid}>
+                    <FieldLabel htmlFor="inspo">Feel free to link a mood board/visual inspo here! <span className='font-normal opacity-80 text-sm italic'>(optional)</span></FieldLabel>
+                    <Input {...field} id="inspo" autoComplete="off" placeholder="Links or short notes" aria-invalid={fieldState.invalid} />
+                    {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                  </Field>
+                )} />
+
+                <Controller control={form.control} name="howDidYouHear" render={({ field, fieldState }) => (
+                  <Field data-invalid={fieldState.invalid}>
+                    <FieldLabel htmlFor="howDidYouHear">How did you hear about me? *</FieldLabel>
+                    <Select onValueChange={field.onChange} value={field.value}>
+                      <SelectTrigger {...field} id="howDidYouHear" aria-invalid={fieldState.invalid}>
+                        <SelectValue placeholder="Select an option" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Instagram">Instagram</SelectItem>
+                        <SelectItem value="Facebook">Facebook</SelectItem>
+                        <SelectItem value="Friend">Friend</SelectItem>
+                        <SelectItem value="Google">Google</SelectItem>
+                        <SelectItem value="Other">Other</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                  </Field>
+                )} />
+              </FieldGroup>
+
+              <button type="submit" disabled={isSubmitting}
+                className={`w-full btn rounded-full font-medium transition-colors ${isSubmitting
+                  ? 'bg-muted/20 text-muted-foreground cursor-not-allowed'
+                  : 'bg-primary text-accent-foreground hover:bg-accent hover:text-white'
+                  }`}
+              >
+                {isSubmitting ? 'Sending...' : 'Send Inquiry'}
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
     </section>
   );
 }
