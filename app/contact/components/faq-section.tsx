@@ -54,7 +54,7 @@ export default function FaqSection() {
     },
     {
       question: "Will you share all unedited images with us?",
-      answer: "I do not share unedited images (ie. RAWs) to my Clients. I take pride in my editing style and attention to detail. It is my hope that my work resonates with you even before you reach out!",
+      answer: "I do not share unedited images (ie. RAWs) to my clients. I take pride in my editing style and attention to detail. It is my hope that my work resonates with you even before you reach out!",
     },
     {
       question: "We're ready to book/would like to learn more! What are the next steps?",
