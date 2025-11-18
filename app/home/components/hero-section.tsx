@@ -25,9 +25,9 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center text-white relative overflow-hidden">
+    <section className="min-h-screen flex flex-col items-center justify-center text-white pt-12 bg-secondary relative overflow-hidden">
       {/* Background Slideshow with Parallax */}
-      <div className="w-full h-[120%] -top-[10%] absolute" style={{ transform: `translateY(${scrollY * 0.5}px)` }} will-change="transform">
+      <div className="w-full h-[120%] -top-[10%] mt-24 absolute" style={{ transform: `translateY(${scrollY * 0.5}px)` }} will-change="transform">
         <Swiper
           modules={[Autoplay, EffectFade]}
           effect="fade"
@@ -54,7 +54,7 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="w-full mx-auto px-4 md:px-8 text-center flex flex-col justify-between flex-grow pt-16 relative z-20">
+      <div className="w-full mx-auto px-4 md:px-8 text-center flex flex-col justify-between flex-grow pt-4 relative z-20">
         <div className="flex flex-col gap-4 mt-4">
           <h1 className="font-script text-6xl md:text-8xl -mb-2">Kimberly Nguyen</h1>
           <h2 className="font-jost text-2xl md:text-2xl tracking-widest uppercase">Photography, LLC</h2>

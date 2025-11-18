@@ -1,9 +1,11 @@
 'use client';
+
 import Link from 'next/link';
 import { useState } from 'react';
 import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { MenuIcon } from 'lucide-react';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 const NAV_LINKS = [
   { href: '/', label: 'Home' },
@@ -15,6 +17,9 @@ const NAV_LINKS = [
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  if (pathname.startsWith('/studio')) { return null; }
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-secondary/50 backdrop-blur-sm">
