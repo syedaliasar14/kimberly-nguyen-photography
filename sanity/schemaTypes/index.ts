@@ -1,6 +1,6 @@
 import { type SchemaTypeDefinition } from 'sanity'
-import { postType } from './post-type'
+import { portfolioType } from './portfolio-type'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [ postType ],
+  types: [ portfolioType ],
 }
