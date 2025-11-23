@@ -15,7 +15,7 @@ interface ImageItemProps {
 
 export default function ImageItem({ data, onClick }: ImageItemProps) {
   return (
-    <div onClick={onClick} className="group cursor-pointer overflow-hidden  shadow-md hover:shadow-xl transition-all duration-300 bg-white">
+    <div onClick={onClick} className="group cursor-pointer overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 bg-white">
       <div className="overflow-hidden">
         <img
           src={data.src}

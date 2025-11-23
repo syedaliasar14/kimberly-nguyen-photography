@@ -55,7 +55,6 @@ export default function ImageSlider({ images, initialIndex, isOpen, onClose }: I
           initialSlide={initialIndex}
           slidesPerView={1}
           loop={false}
-          autoplay={false}
           navigation={{
             nextEl: '.swiper-button-next-custom',
             prevEl: '.swiper-button-prev-custom',
