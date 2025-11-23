@@ -13,6 +13,9 @@ import ImageSlider from "./image-slider";
 
 const PORTFOLIO_QUERY = `*[_type == "portfolio" && slug.current == $slug][0]{_id, title, slug, images[]}`;
 
+const THUMBNAIL_WIDTH = 600;
+const FULL_IMAGE_WIDTH = 2000;
+
 const { projectId, dataset } = client.config();
 const urlFor = (source: SanityImageSource) =>
   projectId && dataset
@@ -46,8 +49,8 @@ export default function PortfolioDetailPage({ params, }: { params: Promise<{ slu
 
         if (portfolioData?.images) {
           const imageItems: IImageItem[] = portfolioData.images.map((image: any, index: number) => {
-            const imageUrl = urlFor(image)?.width(600).url();
-            const fullImageUrl = urlFor(image)?.width(2000).url();
+            const imageUrl = urlFor(image)?.width(THUMBNAIL_WIDTH).url();
+            const fullImageUrl = urlFor(image)?.width(FULL_IMAGE_WIDTH).url();
             return {
               id: `${portfolioData._id}-${index}`,
               src: imageUrl || '',
