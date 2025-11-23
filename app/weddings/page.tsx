@@ -3,7 +3,7 @@ import ExperienceBreakdown from "@/app/weddings/components/experience-breakdown"
 import PortfolioGallery from "@/app/weddings/components/portfolio-gallery";
 import ServicesBreakdown from "@/app/weddings/components/services-breakdown";
 import ElopementsSection from "@/app/weddings/components/elopements-section";
-import EngagementSessionsSection from "@/app/weddings/components/engagement-sessions-section";
+import EngagementsSection from "@/app/weddings/components/engagements-section";
 import CallToAction from "@/app/weddings/components/call-to-action";
 import TestimonialSection from "@/app/weddings/components/testimonial-section";
 
@@ -38,7 +38,7 @@ export default function Weddings() {
         coupleName="Anna & Robert"
       />
 
-      <EngagementSessionsSection />
+      <EngagementsSection />
 
       <TestimonialSection
         quote="Kimberly captured our day perfectly. Her eye for natural beauty and genuine moments made our photos feel so authentic and timeless."

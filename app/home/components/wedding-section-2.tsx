@@ -62,7 +62,7 @@ export default function WeddingSection2() {
           that words cannot fully express. As the couple exchanges vows, the love in their eyes speaks volumes,
           and I am there to preserve that timeless memory.`}
         </p>
-        <Link href='#testimonials' className="mt-6 btn bg-white text-primary font-jost tracking-wide hover:bg-foreground hover:text-white group rounded-full flex items-center">
+        <Link href='#testimonials' className="mt-6 btn bg-white/20 font-jost tracking-wide hover:bg-white/40 backdrop-blur-sm group rounded-full flex items-center">
           Read Testimonials
           <ChevronDown className="w-4 h-4 ml-2" />
         </Link>

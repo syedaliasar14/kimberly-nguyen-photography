@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export interface IImageItem {
   id: string;
   src: string;
@@ -8,20 +10,17 @@ export interface IImageItem {
   height: number;
 }
 
-interface ImageItemProps {
-  data: IImageItem;
-  onClick?: () => void;
-}
-
-export default function ImageItem({ data, onClick }: ImageItemProps) {
+export default function ImageItem({ data, onClick }: { data: IImageItem; onClick?: () => void }) {
   return (
     <div onClick={onClick} className="group cursor-pointer overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 bg-white">
       <div className="overflow-hidden">
-        <img
+        <Image
           src={data.src}
           alt={data.alt}
-          className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-full group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
+          width={1000}
+          height={1000}
         />
       </div>
       {data.caption && (

@@ -26,7 +26,7 @@ export default function HeroSection() {
       </div>
 
       <div className="max-w-7xl flex flex-col md:flex-row gap-6 items-start mx-auto px-4 md:px-8 py-12">
-        <div className="flex flex-col">
+        <div className="flex flex-col mt-12">
           <h1 className="font-heading text-6xl mb-4 relative">
             {/* <div className="absolute bottom-0 -left-4 -right-4 bg-accent h-[80%] px-4 rotate-2 opacity-75" /> */}
             Wedding Photography
@@ -38,19 +38,19 @@ export default function HeroSection() {
           </p>
 
           <div className="flex gap-2 md:gap-4 items-center mb-8 self-center md:self-start">
-            <Link href="#process" className="btn px-3 md:px-6 bg-transparent font-jost tracking-wider hover:bg-white/30 rounded-full">
+            <Link href="#process" className="btn px-3 md:px-6 bg-transparent hover:bg-white/30">
               Process
             </Link>
             <div className="block w-1 h-1 bg-white rounded-full" />
-            <Link href="#packages" className="btn px-3 md:px-6 bg-transparent font-jost tracking-wider hover:bg-white/30 rounded-full">
+            <Link href="#packages" className="btn px-3 md:px-6 bg-transparent hover:bg-white/30">
               Packages
             </Link>
             <div className="block w-1 h-1 bg-white rounded-full" />
-            <Link href="#portfolio" className="btn px-3 md:px-6 bg-transparent font-jost tracking-wider hover:bg-white/30 rounded-full">
+            <Link href="#portfolio" className="btn px-3 md:px-6 bg-transparent hover:bg-white/30">
               Portfolio
             </Link>
           </div>
-          <Link href="/contact" className="btn bg-white/20 px-8 font-jost tracking-wider hover:bg-white/40 rounded-full mx-auto md:mx-0">
+          <Link href="/contact" className="btn-glass mx-auto md:mx-0">
             Book Your Wedding
           </Link>
         </div>

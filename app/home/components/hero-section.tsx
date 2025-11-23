@@ -70,10 +70,10 @@ export default function HeroSection() {
               Capturing one of a kind <span className="font-script text-5xl sm:text-7xl trailing-tight">moments,</span> immortalized for generations.
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-start ">
-              <Link href="/contact" className="btn bg-white text-primary hover:bg-foreground hover:text-white font-jost tracking-wider rounded-full">
+              <Link href="/contact" className="btn bg-white text-primary hover:bg-accent hover:text-white">
                 Schedule Consultation
               </Link>
-              <Link href="/weddings" className="btn-outline text-white border-white font-jost tracking-wider hover:bg-primary-foreground hover:text-primary rounded-full flex items-center">
+              <Link href="/weddings" className="btn-glass flex items-center">
                 View Weddings
                 <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>

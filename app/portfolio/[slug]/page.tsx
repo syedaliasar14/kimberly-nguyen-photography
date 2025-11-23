@@ -111,7 +111,7 @@ export default function PortfolioDetailPage({ params, }: { params: Promise<{ slu
       />
 
       {/* Hero Section with Back Navigation */}
-      <section className="py-12 bg-gradient-to-br from-secondary/20 to-background">
+      <section className="py-12 bg-gradient-to-b from-secondary/20 to-background">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <Link href="/portfolio" className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors duration-300 my-8 font-jost">
             <ArrowLeft className="w-4 h-4 mr-2" />

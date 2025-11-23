@@ -94,10 +94,7 @@ export default function OtherServices() {
                         {service.description}
                       </p>
 
-                      <Link
-                        href="/contact"
-                        className="bg-white/20 backdrop-blur-sm text-white text-lg px-8 py-3 rounded-full font-jost hover:bg-white/30 transition-all duration-300 font-medium"
-                      >
+                      <Link href="/contact" className="btn-glass">
                         Book Session
                       </Link>
                     </div>

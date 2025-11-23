@@ -13,7 +13,7 @@
   --popover-foreground: oklch(0.18 0 0);
   --primary: oklch(21.6% 0.006 56.043);
   --primary-foreground: oklch(0.98 0 0);
-  --secondary: #755f59;
+  --secondary: #77635e;
   --secondary-foreground: oklch(0.22 0 0);
   --accent: #dab364;
   --accent-foreground: oklch(0.98 0 0);
@@ -125,7 +125,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground font-sans antialiased selection:bg-accent selection:text-accent-foreground;
   }
   button {
     @apply cursor-pointer;
@@ -134,10 +134,13 @@
     @apply backdrop-blur-lg
   }
   .btn {
-    @apply px-8 py-3 border-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/90 transition duration-300 w-max rounded-sm;
+    @apply px-8 py-3 border-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 w-max rounded-full tracking-wider;
   }
   .btn-outline {
-    @apply px-8 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition duration-300 w-max rounded-sm;
+    @apply px-8 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 w-max rounded-full tracking-wider;
+  }
+  .btn-glass {
+    @apply px-8 py-3 border-2 border-transparent bg-white/20 text-white backdrop-blur-sm hover:bg-white/40 transition-all duration-300 w-max rounded-full tracking-wider;
   }
   html {
     scroll-behavior: smooth;
