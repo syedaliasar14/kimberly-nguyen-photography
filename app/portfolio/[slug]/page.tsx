@@ -9,8 +9,12 @@ import { ArrowLeft } from "lucide-react";
 import { Masonry } from "masonic";
 import { useState, useEffect } from "react";
 import ImageItem, { IImageItem } from "./image-item";
+import ImageSlider from "./image-slider";
 
 const PORTFOLIO_QUERY = `*[_type == "portfolio" && slug.current == $slug][0]{_id, title, slug, images[]}`;
+
+const THUMBNAIL_WIDTH = 600;
+const FULL_IMAGE_WIDTH = 2000;
 
 const { projectId, dataset } = client.config();
 const urlFor = (source: SanityImageSource) =>
@@ -33,6 +37,8 @@ export default function PortfolioDetailPage({ params, }: { params: Promise<{ slu
   const [portfolio, setPortfolio] = useState<SanityDocument | null>(null);
   const [images, setImages] = useState<IImageItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const [sliderOpen, setSliderOpen] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   useEffect(() => {
     const fetchPortfolio = async () => {
@@ -43,10 +49,12 @@ export default function PortfolioDetailPage({ params, }: { params: Promise<{ slu
 
         if (portfolioData?.images) {
           const imageItems: IImageItem[] = portfolioData.images.map((image: any, index: number) => {
-            const imageUrl = urlFor(image)?.width(600).url();
+            const imageUrl = urlFor(image)?.width(THUMBNAIL_WIDTH).url();
+            const fullImageUrl = urlFor(image)?.width(FULL_IMAGE_WIDTH).url();
             return {
               id: `${portfolioData._id}-${index}`,
               src: imageUrl || '',
+              fullSrc: fullImageUrl || imageUrl || '',
               alt: image.alt || `${portfolioData.title} - Image ${index + 1}`,
               caption: image.caption,
             };
@@ -63,6 +71,11 @@ export default function PortfolioDetailPage({ params, }: { params: Promise<{ slu
 
     fetchPortfolio();
   }, [params]);
+
+  const handleImageClick = (index: number) => {
+    setSelectedImageIndex(index);
+    setSliderOpen(true);
+  };
 
   if (loading) {
     return (
@@ -89,6 +102,14 @@ export default function PortfolioDetailPage({ params, }: { params: Promise<{ slu
 
   return (
     <>
+      {/* Image Slider Popup */}
+      <ImageSlider
+        images={images}
+        initialIndex={selectedImageIndex}
+        isOpen={sliderOpen}
+        onClose={() => setSliderOpen(false)}
+      />
+
       {/* Hero Section with Back Navigation */}
       <section className="py-12 bg-gradient-to-br from-secondary/20 to-background">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
@@ -115,7 +136,12 @@ export default function PortfolioDetailPage({ params, }: { params: Promise<{ slu
               columnWidth={170}
               overscanBy={5}
               maxColumnCount={7}
-              render={ImageItem}
+              render={({ data, index }) => (
+                <ImageItem 
+                  data={data} 
+                  onClick={() => handleImageClick(index)} 
+                />
+              )}
             />
           </div>
         </section>
