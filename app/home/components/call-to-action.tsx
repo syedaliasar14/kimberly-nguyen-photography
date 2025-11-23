@@ -7,10 +7,10 @@ export default function CallToAction() {
         <h2 className="font-heading text-4xl md:text-6xl mb-4">
           Ready to Capture Your Special Day?
         </h2>
-        <p className="text-4xl md:text-6xl mt-8 mb-4 font-script">
-          let's create something beautiful together
+        <p className="text-lg md:text-xl mt-8 mb-4">
+          Let's create something <span className="font-script text-4xl md:text-6xl mx-1">beautiful</span> together
         </p>
-        <Link href="/contact" className="inline-block bg-secondary font-jost text-accent-foreground px-8 py-4 rounded-full hover:bg-gradient-to-r hover:from-white hover:to-gray-100 hover:text-secondary-foreground transition-colors duration-300 text-lg">
+        <Link href="/contact" className="inline-block bg-accent font-jost text-accent-foreground px-8 py-4 rounded-full hover:bg-gradient-to-r hover:from-white hover:to-gray-100 hover:text-secondary-foreground transition-colors duration-300 text-lg">
           Schedule Your Consultation
         </Link>
       </div>

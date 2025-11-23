@@ -50,7 +50,7 @@ export default function HeroSection() {
         </Swiper>
 
         {/* Overlay for content readability */}
-        <div className="absolute inset-0 bg-stone-900/30 z-10" />
+        <div className="absolute inset-0 bg-primary/25 z-10" />
       </div>
 
       {/* Content */}

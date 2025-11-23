@@ -16,7 +16,7 @@ export default async function Home() {
       <Testimonials />
       <OtherServices />
       <CallToAction />
-      <InstagramFeed />
+      {/* <InstagramFeed /> */}
     </>
   );
 }

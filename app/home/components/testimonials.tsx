@@ -1,6 +1,44 @@
+"use client";
+
 import Image from "next/image";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Masonry } from "masonic";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect } from "react";
+
+interface Testimonial {
+  id: string;
+  quote: string;
+  names: string;
+  season: string;
+}
+
+const TestimonialCard = ({ data }: { data: Testimonial }) => (
+  <div className="bg-background p-6 rounded-lg shadow-sm border border-border">
+    <div className="flex items-center mb-4">
+      <div className="flex text-yellow-400">
+        {'★'.repeat(5)}
+      </div>
+    </div>
+    <p className="text-muted-foreground italic mb-4 leading-relaxed">
+      "{data.quote}"
+    </p>
+    <p className="text-lg text-primary font-allura">- {data.names}</p>
+    <p className="text-sm text-muted-foreground mt-1">{data.season}</p>
+  </div>
+);
 
 export default function Testimonials() {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+  
   const testimonials = [
     {
       quote: "Kimberly captured our day perfectly. Her eye for natural beauty and genuine moments made our photos feel so authentic and timeless.",
@@ -29,6 +67,12 @@ export default function Testimonials() {
     }
   ];
 
+  // Transform testimonials for masonic
+  const masonicItems: Testimonial[] = testimonials.map((testimonial, index) => ({
+    id: `testimonial-${index}`,
+    ...testimonial,
+  }));
+
   return (
     <section className="py-40 border-b overflow-hidden" id="testimonials">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 flex flex-col">
@@ -37,28 +81,58 @@ export default function Testimonials() {
           alt="Testimonials"
           width={1200}
           height={800}
-          className="w-64 h-auto self-center mb-16 select-none pointer-events-none"
+          className="w-64 h-auto self-center mb-16 select-none pointer-events-none opacity-50"
         />
 
         <h2 className="font-heading text-6xl mb-16 text-center">
           What Couples Are Saying
         </h2>
 
-        <div className="columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-4 space-y-4 text-sm md:text-base">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className={`bg-background cursor-default p-6 rounded-lg shadow-sm border border-border hover:shadow-xl hover:scale-101 transition-all duration-300 break-inside-avoid`}>
-              <div className="flex items-center mb-4">
-                <div className="flex text-yellow-400">
-                  {'★'.repeat(5)}
-                </div>
-              </div>
-              <p className="text-muted-foreground italic mb-4 leading-relaxed">
-                "{testimonial.quote}"
-              </p>
-              <p className="text-lg text-primary font-allura">- {testimonial.names}</p>
-              <p className="text-sm text-muted-foreground mt-1">{testimonial.season}</p>
-            </div>
-          ))}
+        {/* Mobile: Swiper */}
+        <div className="md:hidden relative">
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={20}
+            slidesPerView={1.2}
+            navigation={{
+              nextEl: '.testimonial-button-next-mobile',
+              prevEl: '.testimonial-button-prev-mobile',
+            }}
+            pagination={{ clickable: true, dynamicBullets: true }}
+            autoplay={{ delay: 5000, disableOnInteraction: false }}
+            breakpoints={{
+              480: { slidesPerView: 1.2, centeredSlides: true },
+              640: { slidesPerView: 2, centeredSlides: false }
+            }}
+            className="pb-12"
+          >
+            {testimonials.map((testimonial, index) => (
+              <SwiperSlide key={index}>
+                <TestimonialCard data={{ id: `testimonial-${index}`, ...testimonial }} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          {/* Mobile Navigation Buttons */}
+          <div className="testimonial-button-prev-mobile absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer transition-all -translate-x-4">
+            <ChevronLeft className="w-5 h-5 text-primary/50" />
+          </div>
+          <div className="testimonial-button-next-mobile absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer transition-all translate-x-4">
+            <ChevronRight className="w-5 h-5 text-primary/50" />
+          </div>
+        </div>
+
+        {/* Desktop: Masonic Layout */}
+        <div className="hidden md:block">
+          {isMounted && typeof window !== 'undefined' && (
+            <Masonry
+              items={masonicItems}
+              columnGutter={16}
+              columnWidth={300}
+              overscanBy={3}
+              render={TestimonialCard}
+            />
+          )}
         </div>
       </div>
     </section>

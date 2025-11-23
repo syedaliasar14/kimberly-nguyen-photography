@@ -136,17 +136,43 @@ export default function ContactForm() {
                   )} />
                 </div>
 
+                <Controller control={form.control} name="service" render={({ field, fieldState }) => (
+                  <Field data-invalid={fieldState.invalid}>
+                    <FieldLabel htmlFor="service">What do you need my help capturing? *</FieldLabel>
+                    <Select onValueChange={field.onChange} value={field.value}>
+                      <SelectTrigger {...field} id="service" aria-invalid={fieldState.invalid}>
+                        <SelectValue placeholder="Select an option"/>
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Wedding">Wedding</SelectItem>
+                        <SelectItem value="Engagement">Engagement</SelectItem>
+                        <SelectItem value="Graduation">Graduation</SelectItem>
+                        <SelectItem value="Couples Portraits">Couples Portraits</SelectItem>
+                        <SelectItem value="Family/Maternity">Family/Maternity</SelectItem>
+                        <SelectItem value="Individualized Session">Individualized Session</SelectItem>
+                        <SelectItem value="Other">Other</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                  </Field>
+                )} />
+
+                <Controller control={form.control} name="description" render={({ field, fieldState }) => (
+                  <Field data-invalid={fieldState.invalid}>
+                    <FieldLabel htmlFor="description">Description *</FieldLabel>
+                    <FieldDescription>Go into detail about what you need help capturing & tell me a little bit about yourself as well!</FieldDescription>
+                    <Textarea {...field} id="description" placeholder="Describe your needs and a little about yourself." aria-invalid={fieldState.invalid} />
+                    {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                  </Field>
+                )} />
+
                 <Controller control={form.control} name="eventDate" render={({ field, fieldState }) => (
                   <Field data-invalid={fieldState.invalid}>
                     <FieldLabel htmlFor="eventDate">Event date</FieldLabel>
                     <FieldDescription>Tell me when you need me, so I can check my calendar for availability.</FieldDescription>
                     <Popover open={openEventDate} onOpenChange={setOpenEventDate}>
                       <PopoverTrigger asChild>
-                        <Button
-                          variant="outline"
-                          id="date"
-                          className="w-48 justify-between font-normal"
-                        >
+                        <Button variant="outline" id="date" className="w-48 justify-between bg-transparent font-normal">
                           {field?.value ? field.value.toLocaleDateString() : "Select date"}
                           <ChevronDownIcon />
                         </Button>
@@ -172,36 +198,6 @@ export default function ContactForm() {
                     <FieldLabel htmlFor="location">Location</FieldLabel>
                     <FieldDescription>If location is unconfirmed, leave blank.</FieldDescription>
                     <Input {...field} id="location" autoComplete="off" placeholder="City, venue, or address" aria-invalid={fieldState.invalid} />
-                    {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
-                  </Field>
-                )} />
-
-                <Controller control={form.control} name="service" render={({ field, fieldState }) => (
-                  <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel htmlFor="service">What do you need my help capturing? *</FieldLabel>
-                    <Select onValueChange={field.onChange} value={field.value}>
-                      <SelectTrigger {...field} id="service" aria-invalid={fieldState.invalid}>
-                        <SelectValue placeholder="Select an option" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="Wedding">Wedding</SelectItem>
-                        <SelectItem value="Engagement">Engagement</SelectItem>
-                        <SelectItem value="Graduation">Graduation</SelectItem>
-                        <SelectItem value="Couples Portraits">Couples Portraits</SelectItem>
-                        <SelectItem value="Family/Maternity">Family/Maternity</SelectItem>
-                        <SelectItem value="Individualized Session">Individualized Session</SelectItem>
-                        <SelectItem value="Other">Other</SelectItem>
-                      </SelectContent>
-                    </Select>
-                    {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
-                  </Field>
-                )} />
-
-                <Controller control={form.control} name="description" render={({ field, fieldState }) => (
-                  <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel htmlFor="description">Description *</FieldLabel>
-                    <FieldDescription>Go into detail about what you need help capturing & tell me a little bit about yourself as well!</FieldDescription>
-                    <Textarea {...field} id="description" placeholder="Describe your needs and a little about yourself." aria-invalid={fieldState.invalid} />
                     {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
                   </Field>
                 )} />

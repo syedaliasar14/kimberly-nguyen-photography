@@ -19,6 +19,12 @@ export const portfolioType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'order',
+      title: 'Order',
+      type: 'number',
+      description: 'Optional order for sorting. Leave empty to sort by date.',
+    }),
+    defineField({
       name: 'thumbnail',
       title: 'Thumbnail Image',
       type: 'image',
