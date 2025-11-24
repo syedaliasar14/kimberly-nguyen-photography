@@ -1,6 +1,7 @@
 import { client } from './client'
 import { PAGE_QUERY } from './queries'
 import { Page } from './types'
+import { urlFor } from './image'
 
 /**
  * Fetches page data from Sanity by slug
@@ -37,7 +38,7 @@ export function generatePageMetadata(page: Page | null) {
       ? {
           images: [
             {
-              url: page.seo.ogImage.toString(),
+              url: urlFor(page.seo.ogImage).width(1200).height(630).url(),
               width: 1200,
               height: 630,
             },
