@@ -1,28 +1,32 @@
 import { client } from './client'
-import { PAGE_QUERY } from './queries'
+import { HOME_PAGE_QUERY, WEDDINGS_PAGE_QUERY } from './queries'
 import { Page } from './types'
 import { urlFor } from './image'
 
-/**
- * Fetches page data from Sanity by slug
- * @param slug - The slug of the page to fetch
- * @returns Page data or null if not found
- */
-export async function getPageBySlug(slug: string): Promise<Page | null> {
+export async function getPageContent(pageType: 'home' | 'weddings'): Promise<Page | null> {
   try {
-    const page = await client.fetch<Page>(PAGE_QUERY, { slug })
+    let query: string
+    let params: any = {}
+
+    switch (pageType) {
+      case 'home':
+        query = HOME_PAGE_QUERY
+        break
+      case 'weddings':
+        query = WEDDINGS_PAGE_QUERY
+        break
+      default:
+        throw new Error('Invalid page type')
+    }
+
+    const page = await client.fetch<Page>(query, params)
     return page
   } catch (error) {
-    console.error('Error fetching page:', error)
+    console.error(`Error fetching ${pageType} page:`, error)
     return null
   }
 }
 
-/**
- * Generates metadata for Next.js pages from Sanity page data
- * @param page - The page data from Sanity
- * @returns Metadata object for Next.js
- */
 export function generatePageMetadata(page: Page | null) {
   if (!page) {
     return {

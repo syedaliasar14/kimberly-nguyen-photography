@@ -2,7 +2,7 @@ import {defineField, defineType} from 'sanity'
 
 export const pageType = defineType({
   name: 'page',
-  title: 'Page',
+  title: 'Pages Content',
   type: 'document',
   fields: [
     defineField({
@@ -61,198 +61,14 @@ export const pageType = defineType({
     defineField({
       name: 'homeContent',
       title: 'Home Page Content',
-      type: 'object',
+      type: 'homeContent',
       hidden: ({document}) => document?.pageType !== 'home',
-      fields: [
-        defineField({
-          name: 'weddingSection1',
-          title: 'Wedding Section 1',
-          type: 'object',
-          fields: [
-            {name: 'title', title: 'Title', type: 'string'},
-            {name: 'text', title: 'Text', type: 'text'},
-            {
-              name: 'images',
-              title: 'Images',
-              type: 'array',
-              of: [
-                {
-                  type: 'image',
-                  options: {hotspot: true},
-                  fields: [
-                    {
-                      name: 'alt',
-                      title: 'Alt Text',
-                      type: 'string',
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        }),
-        defineField({
-          name: 'weddingSection2',
-          title: 'Wedding Section 2',
-          type: 'object',
-          fields: [
-            {name: 'title', title: 'Title', type: 'string'},
-            {name: 'text', title: 'Text', type: 'text'},
-            {
-              name: 'images',
-              title: 'Images',
-              type: 'array',
-              of: [
-                {
-                  type: 'image',
-                  options: {hotspot: true},
-                  fields: [
-                    {
-                      name: 'alt',
-                      title: 'Alt Text',
-                      type: 'string',
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        }),
-        defineField({
-          name: 'testimonials',
-          title: 'Testimonials',
-          type: 'array',
-          of: [
-            {
-              type: 'object',
-              fields: [
-                {name: 'quote', title: 'Quote', type: 'text', validation: (rule) => rule.required()},
-                {name: 'author', title: 'Author', type: 'string', validation: (rule) => rule.required()},
-              ],
-            },
-          ],
-        }),
-        defineField({
-          name: 'otherServices',
-          title: 'Other Services',
-          type: 'array',
-          of: [
-            {
-              type: 'object',
-              fields: [
-                {name: 'service', title: 'Service Name', type: 'string', validation: (rule) => rule.required()},
-                {name: 'description', title: 'Description', type: 'text'},
-                {
-                  name: 'image',
-                  title: 'Image',
-                  type: 'image',
-                  options: {hotspot: true},
-                  fields: [
-                    {
-                      name: 'alt',
-                      title: 'Alt Text',
-                      type: 'string',
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        }),
-      ],
     }),
     defineField({
       name: 'weddingsContent',
       title: 'Weddings Page Content',
-      type: 'object',
+      type: 'weddingsContent',
       hidden: ({document}) => document?.pageType !== 'weddings',
-      fields: [
-        defineField({
-          name: 'heroSection',
-          title: 'Hero Section',
-          type: 'object',
-          fields: [
-            {name: 'title', title: 'Title', type: 'string'},
-            {name: 'text', title: 'Text', type: 'text'},
-            {
-              name: 'images',
-              title: 'Images',
-              type: 'array',
-              of: [
-                {
-                  type: 'image',
-                  options: {hotspot: true},
-                  fields: [
-                    {
-                      name: 'alt',
-                      title: 'Alt Text',
-                      type: 'string',
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        }),
-        defineField({
-          name: 'processSection',
-          title: 'Process Section',
-          type: 'array',
-          of: [
-            {
-              type: 'object',
-              fields: [
-                {name: 'title', title: 'Title', type: 'string', validation: (rule) => rule.required()},
-                {name: 'description', title: 'Description', type: 'text'},
-              ],
-            },
-          ],
-        }),
-        defineField({
-          name: 'elopementsSection',
-          title: 'Elopements Section',
-          type: 'object',
-          fields: [
-            {name: 'title', title: 'Title', type: 'string'},
-            {name: 'text', title: 'Text', type: 'text'},
-            {
-              name: 'image',
-              title: 'Image',
-              type: 'image',
-              options: {hotspot: true},
-              fields: [
-                {
-                  name: 'alt',
-                  title: 'Alt Text',
-                  type: 'string',
-                },
-              ],
-            },
-          ],
-        }),
-        defineField({
-          name: 'engagementsSection',
-          title: 'Engagements Section',
-          type: 'object',
-          fields: [
-            {name: 'title', title: 'Title', type: 'string'},
-            {name: 'text', title: 'Text', type: 'text'},
-            {
-              name: 'image',
-              title: 'Image',
-              type: 'image',
-              options: {hotspot: true},
-              fields: [
-                {
-                  name: 'alt',
-                  title: 'Alt Text',
-                  type: 'string',
-                },
-              ],
-            },
-          ],
-        }),
-      ],
     }),
   ],
   preview: {

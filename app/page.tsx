@@ -5,14 +5,24 @@ import CallToAction from "@/app/home/components/call-to-action";
 import InstagramFeed from "@/app/home/components/instagram-feed";
 import WeddingSection1 from "./home/components/wedding-section-1";
 import WeddingSection2 from "./home/components/wedding-section-2";
+import { getPageContent } from "@/sanity/lib/page";
 
 export default async function Home() {
-  
+  const homeContent = (await getPageContent('home'))?.homeContent;
+
   return (
     <>
       <HeroSection />
-      <WeddingSection1 />
-      <WeddingSection2 />
+      <WeddingSection1
+        title={homeContent?.weddingSection1?.title}
+        text={homeContent?.weddingSection1?.text}
+        images={homeContent?.weddingSection1?.images}
+      />
+      <WeddingSection2 
+        title={homeContent?.weddingSection2?.title}
+        text={homeContent?.weddingSection2?.text}
+        images={homeContent?.weddingSection2?.images}
+      />
       <Testimonials />
       <OtherServices />
       <CallToAction />

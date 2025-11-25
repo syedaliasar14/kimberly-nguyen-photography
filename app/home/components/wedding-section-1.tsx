@@ -6,18 +6,18 @@ import 'swiper/css';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { ImageWithAlt } from '@/sanity/lib/types';
+import { urlFor } from '@/sanity/lib/image';
 
-const NUM_IMAGES = 13;
-
-export default function WeddingSection1() {
+export default function WeddingSection1({ title, text, images }: { title?: string; text?: string; images?: ImageWithAlt[] }) {
   return (
     <section className="py-40 flex flex-col">
       <div className="max-w-7xl mx-auto px-4 md:px-8 mb-12 z-20 text-stone-800">
         <h2 className="font-accent text-6xl mb-4 text-center">
-          Capturing Your <div className="font-script text-9xl inline-block -rotate-10 ml-2 -translate-y-2">story</div>
+          {title || <>Capturing Your <div className="font-script text-9xl inline-block -rotate-10 ml-2 -translate-y-2">story</div></>}
         </h2>
-        <p className="mb-24 font-jost text-lg text-center">
-          {`Every love story is unique. I specialize in capturing the intimate moments, genuine emotions,
+        <p className="mb-24 font-jost text-lg text-center whitespace-pre-wrap">
+          {text || `Every love story is unique. I specialize in capturing the intimate moments, genuine emotions,
           and natural connections that make your day truly yours. Whether it's the stolen glances,
           the heartfelt laughter, or the tender embraces, each detail is a thread in the tapestry of your romance.
           I approach every shoot with an eye for authenticity and a passion for storytelling, ensuring that
@@ -42,11 +42,11 @@ export default function WeddingSection1() {
           autoplay={{ delay: 3000 }}
           className="mySwiper w-full relative mx-4 md:mx-8"
         >
-          {Array.from({ length: NUM_IMAGES }).map((_, i) => (
+          {images?.map((img, i) => (
             <SwiperSlide key={i}>
               <Image
-                src={`/home-page/wedding-section-1/${i + 1}.png`}
-                alt={`Wedding Photo ${i + 1}`}
+                src={urlFor(img.asset).url()!}
+                alt={img.alt || `Connecticut Wedding Photographer`}
                 width={1200}
                 height={1200}
                 className="object-cover"
