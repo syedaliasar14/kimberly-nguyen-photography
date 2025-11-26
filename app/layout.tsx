@@ -4,6 +4,10 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Playfair_Display, Inter, DM_Serif_Display, Jost, Allura } from "next/font/google";
 import localFont from "next/font/local";
+import { draftMode } from 'next/headers'
+import { VisualEditing } from 'next-sanity/visual-editing'
+import { DisableDraftMode } from '@/components/disable-draft-mode'
+import { SanityLive } from "@/sanity/lib/live";
 
 export const metadata: Metadata = {
   title: "Kimberly Nguyen Photography Connecticut",
@@ -25,7 +29,7 @@ const moontime = localFont({
   display: "swap",
 });
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body className={`${playfairDisplay.variable} ${inter.variable} ${dmSerifDisplay.variable} ${jost.variable} ${moontime.variable} ${allura.variable} antialiased`}>
@@ -34,6 +38,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           {children}
         </main>
         <Footer />
+        <SanityLive />
+        {(await draftMode()).isEnabled && (
+          <>
+            <DisableDraftMode />
+            <VisualEditing />
+          </>
+        )}
       </body>
     </html>
   );
