@@ -10,8 +10,6 @@ export const homeContent = defineType({
       title: 'Hero Section',
       type: 'object',
       fields: [
-        {name: 'title', title: 'Title', type: 'string'},
-        {name: 'subtitle', title: 'Subtitle', type: 'string'},
         {name: 'tagline', title: 'Tagline', type: 'text'},
         {
           name: 'images',
@@ -88,15 +86,23 @@ export const homeContent = defineType({
       ],
     }),
     defineField({
-      name: 'testimonials',
-      title: 'Testimonials',
-      type: 'array',
-      of: [
+      name: 'testimonialsSection',
+      title: 'Testimonials Section',
+      type: 'object',
+      fields: [
+        {name: 'title', title: 'Title', type: 'string'},
         {
-          type: 'object',
-          fields: [
-            {name: 'quote', title: 'Quote', type: 'text', validation: (rule) => rule.required()},
-            {name: 'author', title: 'Author', type: 'string', validation: (rule) => rule.required()},
+          name: 'testimonials',
+          title: 'Testimonials',
+          type: 'array',
+          of: [
+            {
+              type: 'object',
+              fields: [
+                {name: 'quote', title: 'Quote', type: 'text', validation: (rule) => rule.required()},
+                {name: 'name', title: 'Name', type: 'string', validation: (rule) => rule.required()},
+              ],
+            },
           ],
         },
       ],
@@ -104,23 +110,31 @@ export const homeContent = defineType({
     defineField({
       name: 'otherServices',
       title: 'Other Services',
-      type: 'array',
-      of: [
+      type: 'object',
+      fields: [
+        {name: 'title', title: 'Title', type: 'string'},
         {
-          type: 'object',
-          fields: [
-            {name: 'service', title: 'Service Name', type: 'string', validation: (rule) => rule.required()},
-            {name: 'description', title: 'Description', type: 'text'},
+          name: 'services',
+          title: 'Services',
+          type: 'array',
+          of: [
             {
-              name: 'image',
-              title: 'Image',
-              type: 'image',
-              options: {hotspot: true},
+              type: 'object',
               fields: [
+                {name: 'service', title: 'Service Name', type: 'string', validation: (rule) => rule.required()},
+                {name: 'description', title: 'Description', type: 'text'},
                 {
-                  name: 'alt',
-                  title: 'Alt Text',
-                  type: 'string',
+                  name: 'image',
+                  title: 'Image',
+                  type: 'image',
+                  options: {hotspot: true},
+                  fields: [
+                    {
+                      name: 'alt',
+                      title: 'Alt Text',
+                      type: 'string',
+                    },
+                  ],
                 },
               ],
             },

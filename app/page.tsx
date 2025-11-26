@@ -12,7 +12,10 @@ export default async function Home() {
 
   return (
     <>
-      <HeroSection />
+      <HeroSection 
+        tagline={homeContent?.heroSection?.tagline}
+        images={homeContent?.heroSection?.images}
+      />
       <WeddingSection1
         title={homeContent?.weddingSection1?.title}
         text={homeContent?.weddingSection1?.text}
@@ -23,8 +26,14 @@ export default async function Home() {
         text={homeContent?.weddingSection2?.text}
         images={homeContent?.weddingSection2?.images}
       />
-      <Testimonials />
-      <OtherServices />
+      <Testimonials 
+        title={homeContent?.testimonialsSection?.title}
+        testimonials={homeContent?.testimonialsSection?.testimonials}
+      />
+      <OtherServices 
+        title={homeContent?.otherServices?.title}
+        services={homeContent?.otherServices?.services}
+      />
       <CallToAction />
       {/* <InstagramFeed /> */}
     </>

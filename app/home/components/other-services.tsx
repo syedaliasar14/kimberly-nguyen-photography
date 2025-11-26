@@ -8,9 +8,11 @@ import 'swiper/css/pagination';
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { ImageWithAlt } from '@/sanity/lib/types';
+import { urlFor } from '@/sanity/lib/image';
 
-export default function OtherServices() {
-  const services = [
+export default function OtherServices({ title, services }: { title?: string; services?: { service?: string; description?: string; image?: ImageWithAlt }[] }) {
+  /* const services = [
     {
       title: "Individualized Sessions",
       description: "Professional portraits that capture your personality and authentic self.",
@@ -41,12 +43,12 @@ export default function OtherServices() {
       description: "Celebrate the beauty of motherhood with elegant maternity portraits.",
       image: "/home-page/other-services/maternity.png"
     }
-  ];
+  ]; */
 
   return (
     <section className="relative h-screen overflow-hidden">
-      <h2 className="absolute font-script text-white text-7xl -rotate-10 z-10 top-8 w-full px-4 md:px-8">
-        looking for something else?
+      <h2 className="absolute font-script text-white text-5xl -rotate-10 z-10 top-8 w-full px-4 md:px-8">
+        {title || "Looking for something else?"}
       </h2>
 
       <Swiper
@@ -65,17 +67,18 @@ export default function OtherServices() {
         }}
         className="w-full h-full"
       >
-        {services.map((service, index) => (
+        {services?.map((service, index) => (
           <SwiperSlide key={index}>
             <div className="relative w-full h-full">
               {/* Background Image */}
-              <Image
-                className="absolute inset-0 object-cover object-center"
-                src={service.image}
-                alt={service.title}
-                fill
-                sizes="100vw"
-              />
+              {service?.image && (
+                <Image
+                  className="absolute inset-0 object-cover object-center"
+                  src={urlFor(service.image.asset).url()!}
+                  alt={service?.service || `Connecticut Photography Service`}
+                  fill sizes="100vw"
+                />
+              )}
 
               {/* Overlay for content readability */}
               <div className="absolute inset-0 bg-stone-900/40" />
@@ -87,7 +90,7 @@ export default function OtherServices() {
 
                     <div className="text-white">
                       <h3 className="font-heading text-5xl md:text-6xl mb-6">
-                        {service.title}
+                        {service.service}
                       </h3>
 
                       <p className="text-xl mb-8 leading-relaxed opacity-90">

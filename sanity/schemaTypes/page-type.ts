@@ -6,19 +6,6 @@ export const pageType = defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'title',
-      title: 'Page Title',
-      type: 'string',
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      options: {source: 'title'},
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
       name: 'pageType',
       title: 'Page Type',
       type: 'string',

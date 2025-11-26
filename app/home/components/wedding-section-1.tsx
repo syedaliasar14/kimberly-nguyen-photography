@@ -14,7 +14,7 @@ export default function WeddingSection1({ title, text, images }: { title?: strin
     <section className="py-40 flex flex-col relative">
       <Image 
         src="/bg/1.png" alt=""
-        width={2000} height={2000}
+        fill sizes="100vw"
         className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none blur-sm z-0 opacity-10"
       />
 
@@ -75,7 +75,7 @@ export default function WeddingSection1({ title, text, images }: { title?: strin
         </Swiper>
       </div>
 
-      <Link href="/weddings" className='btn-outline rounded-full hover:bg-accent hover:border-accent tracking-wider self-center mx-8 mt-10 flex items-center group'>
+      <Link href="/weddings" className='btn bg-accent border-accent hover:bg-transparent hover:border-accent hover:text-accent self-center mx-8 mt-10 flex items-center group'>
         The Wedding Experience <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
       </Link>
 

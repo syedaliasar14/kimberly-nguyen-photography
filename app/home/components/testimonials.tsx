@@ -13,62 +13,32 @@ import { useState, useEffect } from "react";
 interface Testimonial {
   id: string;
   quote: string;
-  names: string;
-  season: string;
+  name: string;
 }
 
 const TestimonialCard = ({ data }: { data: Testimonial }) => (
-  <div className="bg-background p-6 rounded-lg shadow-sm border border-border hover:shadow-md transition-shadow">
+  <div className="bg-background p-6 rounded-lg shadow-sm border border-border hover:shadow-2xl transition-shadow cursor-default">
     <div className="flex items-center mb-4">
-      <div className="flex text-yellow-400">
+      <div className="flex text-accent">
         {'★'.repeat(5)}
       </div>
     </div>
     <p className="text-muted-foreground italic mb-4 leading-relaxed">
       "{data.quote}"
     </p>
-    <p className="text-lg text-primary font-allura">- {data.names}</p>
-    <p className="text-sm text-muted-foreground mt-1">{data.season}</p>
+    <p className="text-lg text-primary font-allura">- {data.name}</p>
   </div>
 );
 
-export default function Testimonials() {
+export default function Testimonials({ title, testimonials }: { title?: string; testimonials?: { quote: string; name: string }[] }) {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
-  const testimonials = [
-    {
-      quote: "Kimberly captured our day perfectly. Her eye for natural beauty and genuine moments made our photos feel so authentic and timeless.",
-      names: "Sarah & Michael",
-      season: "Fall Wedding 2024",
-    },
-    {
-      quote: "Amazing work!",
-      names: "Jessica & David",
-      season: "Summer Wedding 2024",
-    },
-    {
-      quote: "Every moment was captured with such care and creativity. We couldn't be happier with our photos.",
-      names: "Emily & James",
-      season: "Spring Wedding 2024",
-    },
-    {
-      quote: "Kimberly was a joy to work with! Her professionalism and talent made our wedding day stress-free.",
-      names: "Anna & Robert",
-      season: "Winter Wedding 2024",
-    },
-    {
-      quote: "The photos exceeded our expectations! Kimberly has an incredible talent for storytelling through her lens.",
-      names: "Olivia & Ethan",
-      season: "Autumn Wedding 2024",
-    }
-  ];
-
   // Transform testimonials for masonic
-  const masonicItems: Testimonial[] = testimonials.map((testimonial, index) => ({
+  const masonicItems: Testimonial[] | undefined = testimonials?.map((testimonial, index) => ({
     id: `testimonial-${index}`,
     ...testimonial,
   }));
@@ -76,16 +46,14 @@ export default function Testimonials() {
   return (
     <section className="py-40 overflow-hidden relative" id="testimonials">
       <Image
-        src="/bg/1.png"
-        alt=""
-        width={2000}
-        height={2000}
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none z-0 opacity-10"
+        src="/bg/1.png" alt=""
+        width={2000} height={2000}
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none z-0 opacity-10 blur-sm"
       />
 
       <div className="mx-auto px-4 sm:px-6 lg:px-8 flex flex-col">
         <h2 className="font-heading text-6xl mb-10 text-center">
-          What Couples Are Saying...
+          {title || "What Couples Are Saying..."}
         </h2>
 
         {/* Mobile: Swiper */}
@@ -106,7 +74,7 @@ export default function Testimonials() {
             }}
             className="pb-12"
           >
-            {testimonials.map((testimonial, index) => (
+            {testimonials?.map((testimonial, index) => (
               <SwiperSlide key={index}>
                 <TestimonialCard data={{ id: `testimonial-${index}`, ...testimonial }} />
               </SwiperSlide>
@@ -124,7 +92,7 @@ export default function Testimonials() {
 
         {/* Desktop: Masonic Layout */}
         <div className="hidden md:block">
-          {isMounted && typeof window !== 'undefined' && (
+          {isMounted && typeof window !== 'undefined' && masonicItems && (
             <Masonry
               items={masonicItems}
               columnGutter={16}

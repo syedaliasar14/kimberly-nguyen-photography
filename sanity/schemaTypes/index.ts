@@ -5,5 +5,10 @@ import { homeContent } from './objects/home-content'
 import { weddingsContent } from './objects/weddings-content'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [ portfolioType, pageType, homeContent, weddingsContent ],
+  types: [
+    pageType,
+    portfolioType,
+    homeContent,
+    weddingsContent
+  ],
 }

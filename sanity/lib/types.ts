@@ -1,9 +1,19 @@
 import { SanityImageSource } from '@sanity/image-url/lib/types/types'
 
-export interface SEO {
-  metaTitle?: string
-  metaDescription?: string
-  ogImage?: SanityImageSource
+export interface Page {
+  _id: string
+  title: string
+  slug: {
+    current: string
+  }
+  pageType: 'home' | 'weddings'
+  seo?: {
+    metaTitle?: string
+    metaDescription?: string
+    ogImage?: SanityImageSource
+  }
+  homeContent?: HomeContent
+  weddingsContent?: WeddingsContent
 }
 
 export interface ImageWithAlt {
@@ -11,39 +21,36 @@ export interface ImageWithAlt {
   alt?: string
 }
 
-export interface WeddingSection {
-  title?: string
-  text?: string
-  images?: ImageWithAlt[]
-}
-
-export interface Testimonial {
-  quote: string
-  author: string
-}
-
-export interface OtherService {
-  service: string
-  description?: string
-  image?: ImageWithAlt
-}
-
-export interface ProcessStep {
-  title: string
-  description?: string
-}
-
-export interface SectionWithImage {
-  title?: string
-  text?: string
-  image?: ImageWithAlt
-}
-
 export interface HomeContent {
-  weddingSection1?: WeddingSection
-  weddingSection2?: WeddingSection
-  testimonials?: Testimonial[]
-  otherServices?: OtherService[]
+  heroSection?: {
+    tagline?: string
+    images?: ImageWithAlt[]
+  }
+  weddingSection1?: {
+    title?: string
+    text?: string
+    images?: ImageWithAlt[]
+  }
+  weddingSection2?: {
+    title?: string
+    text?: string
+    images?: ImageWithAlt[]
+  }
+  testimonialsSection?: {
+    title?: string
+    testimonials?: {
+      quote: string
+      name: string
+    }[]
+  }
+  otherServices?: {
+    title?: string
+    services?: {
+      service: string
+      description?: string
+      image?: ImageWithAlt
+    }[]
+  }
 }
 
 export interface WeddingsContent {
@@ -52,19 +59,19 @@ export interface WeddingsContent {
     text?: string
     images?: ImageWithAlt[]
   }
-  processSection?: ProcessStep[]
-  elopementsSection?: SectionWithImage
-  engagementsSection?: SectionWithImage
+  processSection?: {
+    title: string
+    description?: string
+  }[]
+  elopementsSection?: {
+    title?: string
+    text?: string
+    image?: ImageWithAlt
+  }
+  engagementsSection?: {
+    title?: string
+    text?: string
+    image?: ImageWithAlt
+  }
 }
 
-export interface Page {
-  _id: string
-  title: string
-  slug: {
-    current: string
-  }
-  pageType: 'home' | 'weddings'
-  seo?: SEO
-  homeContent?: HomeContent
-  weddingsContent?: WeddingsContent
-}

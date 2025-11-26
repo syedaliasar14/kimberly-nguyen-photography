@@ -9,10 +9,9 @@ import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useScrollY } from "@/hooks/use-scroll";
+import { urlFor } from "@/sanity/lib/image";
 
-const NUM_IMAGES = 6;
-
-export default function HeroSection() {
+export default function HeroSection({ tagline, images }: { tagline?: string; images?: any[] }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const scrollY = useScrollY();
 
@@ -25,9 +24,9 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center text-white pt-12 bg-secondary relative overflow-hidden">
+    <section className="min-h-screen flex flex-col items-center justify-center text-white pt-12 bg-primary relative overflow-hidden">
       {/* Background Slideshow with Parallax */}
-      <div className="w-full h-[120%] -top-[10%] mt-24 absolute" style={{ transform: `translateY(${scrollY * 0.5}px)` }} will-change="transform">
+      <div className="w-full h-[120%] -top-[10%] mt-16 md:mt-20 absolute" style={{ transform: `translateY(${scrollY * 0.5}px)` }} will-change="transform">
         <Swiper
           modules={[Autoplay, EffectFade]}
           effect="fade"
@@ -37,11 +36,11 @@ export default function HeroSection() {
           autoplay={{ delay: 4000, disableOnInteraction: false }}
           className="w-full h-full"
         >
-          {Array.from({ length: NUM_IMAGES }).map((_, i) => (
+          {images?.map((img, i) => (
             <SwiperSlide key={i}>
               <Image
                 className="absolute inset-0 object-cover object-center"
-                src={`/home-page/hero-section/${i + 1}.png`}
+                src={urlFor(img.asset).url()!}
                 alt={`Hero Image ${i + 1}`}
                 fill sizes="100vw" priority={i === 0}
               />
@@ -50,7 +49,7 @@ export default function HeroSection() {
         </Swiper>
 
         {/* Overlay for content readability */}
-        <div className="absolute inset-0 bg-primary/25 z-10" />
+        <div className="absolute inset-0 bg-primary/5 z-10" />
       </div>
 
       {/* Content */}
@@ -67,7 +66,7 @@ export default function HeroSection() {
         <div className="flex flex-col-reverse md:flex-row justify-between items-end">
           <div className="flex flex-col gap-4 mb-12">
             <div className="self-start text-left text-2xl sm:text-3xl font-jost">
-              Capturing one of a kind moments, immortalized for generations.
+              {tagline || `Capturing one of a kind moments, immortalized for generations.`}
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-start ">
               <Link href="/contact" className="btn bg-white text-primary hover:bg-accent hover:text-white">

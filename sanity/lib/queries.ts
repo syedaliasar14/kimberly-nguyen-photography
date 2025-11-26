@@ -3,8 +3,6 @@ import { groq } from 'next-sanity'
 // Base page fields used by all pages
 const BASE_PAGE_FIELDS = groq`
   _id,
-  title,
-  slug,
   pageType,
   seo{
     metaTitle,
@@ -17,6 +15,10 @@ const BASE_PAGE_FIELDS = groq`
 export const HOME_PAGE_QUERY = groq`*[_type == "page" && pageType == "home"][0]{
   ${BASE_PAGE_FIELDS},
   homeContent{
+    heroSection{
+      tagline,
+      images[]{asset->, alt}
+    },
     weddingSection1{
       title,
       text,
@@ -27,11 +29,17 @@ export const HOME_PAGE_QUERY = groq`*[_type == "page" && pageType == "home"][0]{
       text,
       images[]{asset->, alt}
     },
-    testimonials[]{quote, author},
-    otherServices[]{
-      service,
-      description,
-      image{asset->, alt}
+    testimonialsSection{
+      title,
+      testimonials[]{quote, name}
+    },
+    otherServices{
+      title,
+      services[]{
+        service,
+        description,
+        image{asset->, alt}
+      }
     }
   }
 }`
