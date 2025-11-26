@@ -107,7 +107,7 @@ export default function OtherServices() {
       </Swiper>
 
       {/* Custom Navigation Button */}
-      <button className="swiper-button-next-custom absolute top-1/2 right-4 -translate-y-1/2 p-2 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 group z-30"
+      <button className="swiper-button-next-custom absolute top-1/2 right-4 -translate-y-1/2 p-2 btn-glass group z-30"
         aria-label="Next service"
       >
         <ChevronRight className="size-8" />

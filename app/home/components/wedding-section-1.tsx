@@ -11,8 +11,20 @@ import { urlFor } from '@/sanity/lib/image';
 
 export default function WeddingSection1({ title, text, images }: { title?: string; text?: string; images?: ImageWithAlt[] }) {
   return (
-    <section className="py-40 flex flex-col">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 mb-12 z-20 text-stone-800">
+    <section className="py-40 flex flex-col relative">
+      <Image 
+        src="/bg/1.png" alt=""
+        width={2000} height={2000}
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none blur-sm z-0 opacity-10"
+      />
+
+      <div className="max-w-7xl flex flex-col mx-auto px-4 md:px-8 mb-12 z-20 text-stone-800">
+        <Image
+          src="/heart-line-art.svg" alt="Testimonials"
+          width={1200} height={800}
+          className="w-78 h-auto self-center mb-16 select-none pointer-events-none opacity-80"
+        />
+
         <h2 className="font-accent text-6xl mb-4 text-center">
           {title || <>Capturing Your <div className="font-script text-9xl inline-block -rotate-10 ml-2 -translate-y-2">story</div></>}
         </h2>

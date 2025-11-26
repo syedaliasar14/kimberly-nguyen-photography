@@ -13,6 +13,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { type SanityDocument } from "next-sanity";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const PORTFOLIO_QUERY = `*[
   _type == "portfolio"
@@ -60,7 +61,13 @@ export default function PortfolioGallery() {
   }
 
   return (
-    <section className="py-20 bg-stone-900" id="portfolio">
+    <section className="py-20 bg-stone-900 relative" id="portfolio">
+      <Image 
+        src="/bg/3.png" alt=""
+        width={2000} height={2000}
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none blur-sm z-0 opacity-10"
+      />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
         <h2 className="font-heading text-5xl sm:text-6xl text-center mb-4">
           Portfolio Gallery

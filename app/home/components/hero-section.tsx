@@ -67,19 +67,19 @@ export default function HeroSection() {
         <div className="flex flex-col-reverse md:flex-row justify-between items-end">
           <div className="flex flex-col gap-4 mb-12">
             <div className="self-start text-left text-2xl sm:text-3xl font-jost">
-              Capturing one of a kind <span className="font-script text-5xl sm:text-7xl trailing-tight">moments,</span> immortalized for generations.
+              Capturing one of a kind moments, immortalized for generations.
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-start ">
               <Link href="/contact" className="btn bg-white text-primary hover:bg-accent hover:text-white">
                 Schedule Consultation
               </Link>
               <Link href="/weddings" className="btn-glass flex items-center">
-                View Weddings
+                Wedding Details
                 <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
             </div>
           </div>
-          <div className="overflow-hidden self-start md:self-end md:mb-10">
+          <div className="overflow-hidden self-start md:self-end mb-4 md:mb-10">
             <Image src="/white-logo.svg"
               alt="Testimonials" width={800} height={800}
               className={`w-20 md:w-32 h-auto select-none pointer-events-none transform transition-all ease-in-out duration-1500 ${isLoaded

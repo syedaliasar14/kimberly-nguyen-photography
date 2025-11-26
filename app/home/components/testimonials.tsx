@@ -18,7 +18,7 @@ interface Testimonial {
 }
 
 const TestimonialCard = ({ data }: { data: Testimonial }) => (
-  <div className="bg-background p-6 rounded-lg shadow-sm border border-border">
+  <div className="bg-background p-6 rounded-lg shadow-sm border border-border hover:shadow-md transition-shadow">
     <div className="flex items-center mb-4">
       <div className="flex text-yellow-400">
         {'★'.repeat(5)}
@@ -38,7 +38,7 @@ export default function Testimonials() {
   useEffect(() => {
     setIsMounted(true);
   }, []);
-  
+
   const testimonials = [
     {
       quote: "Kimberly captured our day perfectly. Her eye for natural beauty and genuine moments made our photos feel so authentic and timeless.",
@@ -74,22 +74,22 @@ export default function Testimonials() {
   }));
 
   return (
-    <section className="py-40 border-b overflow-hidden" id="testimonials">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8 flex flex-col">
-        <Image
-          src="/heart-line-art.svg"
-          alt="Testimonials"
-          width={1200}
-          height={800}
-          className="w-64 h-auto self-center mb-16 select-none pointer-events-none opacity-50"
-        />
+    <section className="py-40 overflow-hidden relative" id="testimonials">
+      <Image
+        src="/bg/1.png"
+        alt=""
+        width={2000}
+        height={2000}
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none z-0 opacity-10"
+      />
 
-        <h2 className="font-heading text-6xl mb-16 text-center">
-          What Couples Are Saying
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 flex flex-col">
+        <h2 className="font-heading text-6xl mb-10 text-center">
+          What Couples Are Saying...
         </h2>
 
         {/* Mobile: Swiper */}
-        <div className="md:hidden relative">
+        <div className="md:hidden relative px-4">
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={20}
@@ -99,7 +99,7 @@ export default function Testimonials() {
               prevEl: '.testimonial-button-prev-mobile',
             }}
             pagination={{ clickable: true, dynamicBullets: true }}
-            autoplay={{ delay: 5000, disableOnInteraction: false }}
+            autoplay={{ delay: 4000, disableOnInteraction: false }}
             breakpoints={{
               480: { slidesPerView: 1.2, centeredSlides: true },
               640: { slidesPerView: 2, centeredSlides: false }

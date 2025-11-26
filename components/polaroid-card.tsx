@@ -16,18 +16,37 @@ export default function PolaroidCard({ title, slug, thumbnailUrl, index, rotate 
   
   return (
     <Link href={`/portfolio/${slug}`} className="flex justify-center mb-8">
-        <div style={{ transform: `rotate(${cardRotation}deg)` }}
-          className="bg-white p-4 rounded-sm shadow-2xl border border-gray-200 transition-all duration-300 hover:scale-105 hover:rotate-0"
-        >
-          <div className="bg-white rounded-sm overflow-hidden border border-gray-100">
-            <div className="relative w-[220px] h-[250px] bg-gray-50">
+      <div className="relative group">
+        {/* Back card (bottom layer) */}
+        <div className="absolute bg-white p-4  shadow-lg border border-gray-200 z-0"
+          style={{ transform: `rotate(${cardRotation + 2}deg) translate(-4px, 8px)`,opacity: 0.7}}>
+          <div className="bg-gray-100 rounded-sm overflow-hidden border border-gray-100">
+            <div className="w-[220px] h-[250px] bg-gray-200"></div>
+            <div className="h-10 bg-gray-100 border-t border-gray-200"></div>
+          </div>
+        </div>
+
+        {/* Middle card */}
+        <div className="absolute bg-white p-4  shadow-lg border border-gray-200 z-10"
+          style={{ transform: `rotate(${cardRotation - 1}deg) translate(-2px, 4px)`, opacity: 0.85}}>
+          <div className="bg-gray-50 rounded-sm overflow-hidden border border-gray-100">
+            <div className="w-[220px] h-[250px] bg-gray-150"></div>
+            <div className="h-10 bg-gray-50 border-t border-gray-150"></div>
+          </div>
+        </div>
+
+        {/* Front card (top layer) */}
+        <div className="relative bg-white p-4  shadow-2xl border border-gray-200 z-20"
+          style={{ transform: `rotate(${cardRotation}deg)` }} >
+          <div className="bg-white overflow-hidden border border-gray-100">
+            <div className="relative w-[220px] h-[250px] bg-gray-50 overflow-hidden">
               {thumbnailUrl ? (
                 <Image
                   src={thumbnailUrl}
                   alt={title}
                   fill
                   sizes="(max-width: 768px) 220px, 250px"
-                  className="object-cover"
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
                   priority={index < 3}
                 />
               ) : (
@@ -41,6 +60,7 @@ export default function PolaroidCard({ title, slug, thumbnailUrl, index, rotate 
             </div>
           </div>
         </div>
+      </div>
     </Link>
   );
 }
