@@ -4,6 +4,8 @@ import { groq } from 'next-sanity'
 const BASE_PAGE_FIELDS = groq`
   _id,
   pageType,
+  title,
+  slug,
   seo{
     metaTitle,
     metaDescription,
@@ -62,6 +64,17 @@ export const WEDDINGS_PAGE_QUERY = groq`*[_type == "page" && pageType == "weddin
       title,
       text,
       image{asset->, alt}
+    },
+    packagesSection{
+      packages[]{
+        name,
+        price,
+        isBestValue,
+        image{asset->, alt},
+        description,
+        features,
+        bonus
+      }
     }
   }
 }`

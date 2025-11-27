@@ -5,7 +5,13 @@ import CallToAction from "@/app/home/components/call-to-action";
 import InstagramFeed from "@/app/home/components/instagram-feed";
 import WeddingSection1 from "./home/components/wedding-section-1";
 import WeddingSection2 from "./home/components/wedding-section-2";
-import { getPageContent } from "@/sanity/lib/page";
+import { generatePageMetadata, getPageContent } from "@/sanity/lib/page";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const pageData = await getPageContent('home');
+  return generatePageMetadata(pageData);
+}
 
 export default async function Home() {
   const homeContent = (await getPageContent('home'))?.homeContent;

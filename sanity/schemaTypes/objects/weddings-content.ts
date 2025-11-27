@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export const weddingsContent = defineType({
   name: 'weddingsContent',
@@ -10,8 +10,8 @@ export const weddingsContent = defineType({
       title: 'Hero Section',
       type: 'object',
       fields: [
-        {name: 'title', title: 'Title', type: 'string'},
-        {name: 'text', title: 'Text', type: 'text'},
+        { name: 'title', title: 'Title', type: 'string' },
+        { name: 'text', title: 'Text', type: 'text' },
         {
           name: 'images',
           title: 'Images',
@@ -19,7 +19,7 @@ export const weddingsContent = defineType({
           of: [
             {
               type: 'image',
-              options: {hotspot: true},
+              options: { hotspot: true },
               fields: [
                 {
                   name: 'alt',
@@ -40,8 +40,8 @@ export const weddingsContent = defineType({
         {
           type: 'object',
           fields: [
-            {name: 'title', title: 'Title', type: 'string', validation: (rule) => rule.required()},
-            {name: 'description', title: 'Description', type: 'text'},
+            { name: 'title', title: 'Title', type: 'string', validation: (rule) => rule.required() },
+            { name: 'description', title: 'Description', type: 'text' },
           ],
         },
       ],
@@ -51,13 +51,13 @@ export const weddingsContent = defineType({
       title: 'Elopements Section',
       type: 'object',
       fields: [
-        {name: 'title', title: 'Title', type: 'string'},
-        {name: 'text', title: 'Text', type: 'text'},
+        { name: 'title', title: 'Title', type: 'string' },
+        { name: 'text', title: 'Text', type: 'text' },
         {
           name: 'image',
           title: 'Image',
           type: 'image',
-          options: {hotspot: true},
+          options: { hotspot: true },
           fields: [
             {
               name: 'alt',
@@ -73,18 +73,66 @@ export const weddingsContent = defineType({
       title: 'Engagements Section',
       type: 'object',
       fields: [
-        {name: 'title', title: 'Title', type: 'string'},
-        {name: 'text', title: 'Text', type: 'text'},
+        { name: 'title', title: 'Title', type: 'string' },
+        { name: 'text', title: 'Text', type: 'text' },
         {
           name: 'image',
           title: 'Image',
           type: 'image',
-          options: {hotspot: true},
+          options: { hotspot: true },
           fields: [
             {
               name: 'alt',
               title: 'Alt Text',
               type: 'string',
+            },
+          ],
+        },
+      ],
+    }),
+    defineField({
+      name: 'packagesSection',
+      title: 'Packages Section',
+      type: 'object',
+      fields: [
+        {
+          name: 'packages',
+          title: 'Packages',
+          type: 'array',
+          of: [
+            {
+              type: 'object',
+              fields: [
+                { name: 'name', title: 'Package Name', type: 'string', validation: (rule) => rule.required() },
+                { name: 'price', title: 'Price', type: 'string', validation: (rule) => rule.required() },
+                {
+                  name: 'isBestValue',
+                  title: 'Mark as Best Value/Popular',
+                  type: 'boolean',
+                  initialValue: false,
+                },
+                {
+                  name: 'image',
+                  title: 'Image',
+                  type: 'image',
+                  options: { hotspot: true },
+                  fields: [
+                    {
+                      name: 'alt',
+                      title: 'Alt Text',
+                      type: 'string',
+                    },
+                  ],
+                },
+                { name: 'description', title: 'Description', type: 'text' },
+                {
+                  name: 'features',
+                  title: 'Features (Bulleted List)',
+                  type: 'array',
+                  of: [{ type: 'string' }],
+                },
+                { name: 'bonus', title: '✨Bonus', type: 'text' },
+              ],
             },
           ],
         },

@@ -12,39 +12,6 @@ import { ImageWithAlt } from '@/sanity/lib/types';
 import { urlFor } from '@/sanity/lib/image';
 
 export default function OtherServices({ title, services }: { title?: string; services?: { service?: string; description?: string; image?: ImageWithAlt }[] }) {
-  /* const services = [
-    {
-      title: "Individualized Sessions",
-      description: "Professional portraits that capture your personality and authentic self.",
-      image: "/home-page/other-services/individual.png"
-    },
-    {
-      title: "Family Photography",
-      description: "Capture cherished moments with your loved ones in a relaxed and natural setting.",
-      image: "/home-page/other-services/family.png"
-    },
-    {
-      title: "Graduation Photos",
-      description: "Capture the joy and milestones of your academic journey.",
-      image: "/home-page/other-services/graduation.png"
-    },
-    {
-      title: "Engagement Sessions",
-      description: "Celebrate your love story with a romantic engagement session in beautiful locations.",
-      image: "/home-page/other-services/engagement.png"
-    },
-    {
-      title: "Couples Portraits",
-      description: "Celebrate your bond with intimate and heartfelt couples portraits.",
-      image: "/home-page/other-services/couples.png"
-    },
-    {
-      title: "Maternity Photography",
-      description: "Celebrate the beauty of motherhood with elegant maternity portraits.",
-      image: "/home-page/other-services/maternity.png"
-    }
-  ]; */
-
   return (
     <section className="relative h-screen overflow-hidden">
       <h2 className="absolute font-script text-white text-5xl -rotate-10 z-10 top-8 w-full px-4 md:px-8">

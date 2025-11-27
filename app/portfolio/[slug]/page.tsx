@@ -10,6 +10,7 @@ import { Masonry } from "masonic";
 import { useState, useEffect } from "react";
 import ImageItem, { IImageItem } from "./image-item";
 import ImageSlider from "./image-slider";
+import Image from "next/image";
 
 const PORTFOLIO_QUERY = `*[_type == "portfolio" && slug.current == $slug][0]{_id, title, slug, images[]}`;
 
@@ -137,9 +138,9 @@ export default function PortfolioDetailPage({ params, }: { params: Promise<{ slu
               overscanBy={5}
               maxColumnCount={7}
               render={({ data, index }) => (
-                <ImageItem 
-                  data={data} 
-                  onClick={() => handleImageClick(index)} 
+                <ImageItem
+                  data={data}
+                  onClick={() => handleImageClick(index)}
                 />
               )}
             />
@@ -148,15 +149,15 @@ export default function PortfolioDetailPage({ params, }: { params: Promise<{ slu
       )}
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-secondary/20 to-background">
+      <section className="py-20 bg-gradient-to-b from-background to-secondary/20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h3 className="font-heading text-3xl sm:text-3xl text-primary mb-6">
-            Ready to Create Your Own <span className="font-script text-5xl ">Story?</span>
+          <h3 className="font-heading text-3xl md:text-4xl text-primary mb-6">
+            Ready to Create Your Own Story?
           </h3>
-          <p className="text-lg text-muted-foreground mb-8 font-jost leading-relaxed">
-            Let's capture the beautiful moments and genuine emotions of your special day.
-            Every love story deserves to be told with intention and heart.
+          <p className="text-lg text-muted-foreground mb-4 font-jost leading-relaxed">
+            Every beautiful story deserves to be told with intention and heart.
           </p>
+          
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link href="/contact" className="btn rounded-full hover:bg-accent">
               Book Your Session
@@ -165,6 +166,13 @@ export default function PortfolioDetailPage({ params, }: { params: Promise<{ slu
               View More Work
             </Link>
           </div>
+
+          <Image
+            src="/camera-line-art.svg"
+            alt="Camera Line Art"
+            width={800} height={800}
+            className="w-56 h-auto mx-auto mt-10 select-none pointer-events-none"
+          />
         </div>
       </section>
     </>

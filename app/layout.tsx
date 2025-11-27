@@ -7,11 +7,10 @@ import localFont from "next/font/local";
 import { draftMode } from 'next/headers'
 import { VisualEditing } from 'next-sanity/visual-editing'
 import { DisableDraftMode } from '@/components/disable-draft-mode'
-import { SanityLive } from "@/sanity/lib/live";
 
 export const metadata: Metadata = {
-  title: "Kimberly Nguyen Photography Connecticut",
-  description: "Capturing love stories with flow, balance, and heart. Wedding photography that celebrates diversity and community with a bright, minimalist aesthetic.",
+  title: "Kimberly Nguyen Photography LLC | Connecticut",
+  description: "Wedding Photographer for Connecticut, New York and Massachusetts. Clean, beautiful photography for weddings, engagements, couples, and more.",
 };
 
 const playfairDisplay = Playfair_Display({ variable: "--playfair-display", subsets: ["latin"] });
@@ -38,7 +37,6 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
           {children}
         </main>
         <Footer />
-        <SanityLive />
         {(await draftMode()).isEnabled && (
           <>
             <DisableDraftMode />

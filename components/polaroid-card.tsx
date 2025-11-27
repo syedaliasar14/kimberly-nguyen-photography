@@ -44,8 +44,7 @@ export default function PolaroidCard({ title, slug, thumbnailUrl, index, rotate 
                 <Image
                   src={thumbnailUrl}
                   alt={title}
-                  fill
-                  sizes="(max-width: 768px) 220px, 250px"
+                  fill sizes="500px"
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                   priority={index < 3}
                 />

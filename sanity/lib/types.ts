@@ -73,5 +73,16 @@ export interface WeddingsContent {
     text?: string
     image?: ImageWithAlt
   }
+  packagesSection?: {
+    packages?: {
+      name: string
+      price: string
+      isBestValue?: boolean
+      image?: ImageWithAlt
+      description?: string
+      features?: string[]
+      bonus?: string
+    }[]
+  }
 }
 

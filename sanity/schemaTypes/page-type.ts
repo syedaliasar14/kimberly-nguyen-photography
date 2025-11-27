@@ -2,7 +2,7 @@ import {defineField, defineType} from 'sanity'
 
 export const pageType = defineType({
   name: 'page',
-  title: 'Pages Content',
+  title: 'Page Content',
   type: 'document',
   fields: [
     defineField({
@@ -60,14 +60,13 @@ export const pageType = defineType({
   ],
   preview: {
     select: {
-      title: 'title',
       pageType: 'pageType',
     },
     prepare(selection) {
-      const {title, pageType} = selection
+      const {pageType} = selection
       return {
-        title: title,
-        subtitle: pageType ? pageType.charAt(0).toUpperCase() + pageType.slice(1) : '',
+        title: pageType ? pageType.charAt(0).toUpperCase() + pageType.slice(1) : 'Page',
+        subtitle: 'Page Content'
       }
     },
   },

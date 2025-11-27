@@ -28,7 +28,7 @@ export default function WeddingSection2({ title, text, images }: { title?: strin
           <Swiper
             modules={[Autoplay, EffectFade]}
             effect="fade"
-            fadeEffect={{ crossFade: true}}
+            fadeEffect={{ crossFade: true }}
             slidesPerView={1}
             loop={true}
             autoplay={{ delay: 3000, disableOnInteraction: false }}
@@ -56,11 +56,8 @@ export default function WeddingSection2({ title, text, images }: { title?: strin
         <h2 className="font-accent text-6xl mb-4">
           {title || "Wedding Photography"}
         </h2>
-        <p className='font-jost text-lg'>
-          {text || `From grand celebrations to quiet elopements, I document the joy, laughter, and tears that make
-          your wedding day unforgettable. Each photograph tells a story, capturing those intimate moments
-          that words cannot fully express. As the couple exchanges vows, the love in their eyes speaks volumes,
-          and I am there to preserve that timeless memory.`}
+        <p className='font-jost text-lg md:text-xl leading-relaxed whitespace-pre-wrap'>
+          {text || `From grand celebrations to quiet elopements, I document the joy, laughter, and tears that make your wedding day unforgettable. Each photograph tells a story, capturing those intimate moments that words cannot fully express. As the couple exchanges vows, the love in their eyes speaks volumes, and I am there to preserve that timeless memory.`}
         </p>
         <Link href='#testimonials' className="mt-6 btn bg-white/20 font-jost tracking-wide hover:bg-white/40 backdrop-blur-sm group rounded-full flex items-center">
           Read Testimonials
