@@ -66,16 +66,16 @@ export default function ContactForm() {
   };
 
   return (
-    <section ref={sectionRef} className="py-20 min-h-[80vh] flex items-center justify-center text-white relative text-white bg-stone-900/50 overflow-hidden">
+    <section ref={sectionRef} className="py-20 min-h-[80vh] flex items-center justify-center text-white relative text-white bg-primary overflow-hidden">
       <Image
         src="/bg/1.png"
         alt="Contact Form Background"
         fill sizes='100vw'
-        className="absolute -z-10 blur-lg scale-110 bg-stone-900 inset-0 w-full h-full object-cover"
+        className="absolute blur-lg scale-110 inset-0 opacity-30 w-full h-full object-cover"
       />
 
       {submitted ? (
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
           <h1 className="font-script text-8xl md:text-9xl mb-6">Thanks!</h1>
           <p className="text-xl mb-8 leading-relaxed">
             I've received your inquiry and I'll be in touch within 2-3 business days to schedule our consultation.
@@ -93,7 +93,7 @@ export default function ContactForm() {
           </p>
         </div>
       ) : (
-        <div className="max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 text-white">
+        <div className="max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 text-white z-10">
           <h2 className="font-script text-9xl text-center">Contact</h2>
           <h3 className="font-jost mb-6 text-center">Let's get in touch</h3>
 
@@ -141,7 +141,7 @@ export default function ContactForm() {
                     <FieldLabel htmlFor="service">What do you need my help capturing? *</FieldLabel>
                     <Select onValueChange={field.onChange} value={field.value}>
                       <SelectTrigger {...field} id="service" aria-invalid={fieldState.invalid}>
-                        <SelectValue placeholder="Select an option"/>
+                        <SelectValue placeholder="Select an option" />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="Wedding">Wedding</SelectItem>
@@ -231,9 +231,9 @@ export default function ContactForm() {
               </FieldGroup>
 
               <button type="submit" disabled={isSubmitting}
-                className={`w-full btn rounded-full font-medium transition-colors ${isSubmitting
+                className={`w-full btn transition-colors ${isSubmitting
                   ? 'bg-muted/20 text-muted-foreground cursor-not-allowed'
-                  : 'bg-primary text-accent-foreground hover:bg-accent hover:text-white'
+                  : 'bg-accent text-white hover:bg-white hover:text-primary'
                   }`}
               >
                 {isSubmitting ? 'Sending...' : 'Send Inquiry'}

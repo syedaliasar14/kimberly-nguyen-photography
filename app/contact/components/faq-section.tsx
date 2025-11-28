@@ -73,7 +73,7 @@ export default function FaqSection() {
   };
 
   return (
-    <section className="py-20 relative bg-secondary/20 overflow-hidden">
+    <section className="py-20 relative bg-gradient-to-b from-secondary/20 to-secondary/50 overflow-hidden" id="faq">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="font-heading text-5xl sm:text-6xl text-center text-primary mb-16">
           Frequently Asked Questions

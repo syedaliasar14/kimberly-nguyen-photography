@@ -45,6 +45,9 @@ export default function Footer() {
             <Link href="/contact" className="block w-max mx-auto md:mx-0 hover:text-secondary transition-colors">
               Contact
             </Link>
+            <Link href="/contact#faq" className="block w-max mx-auto md:mx-0 hover:text-secondary transition-colors">
+              FAQ
+            </Link>
           </div>
 
           {/* Social Media Links */}
