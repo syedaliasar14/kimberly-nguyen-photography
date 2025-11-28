@@ -58,13 +58,13 @@ const portableTextComponents: PortableTextComponents = {
   },
   block: {
     h2: ({ children }) => (
-      <h2 className="font-heading text-3xl text-primary mt-10 mb-4 font-semibold">{children}</h2>
+      <h2 className="font-heading text-3xl mt-10 mb-4">{children}</h2>
     ),
     h3: ({ children }) => (
-      <h3 className="font-heading text-2xl text-primary mt-8 mb-3 font-semibold">{children}</h3>
+      <h3 className="font-heading text-2xl mt-8 mb-3">{children}</h3>
     ),
     h4: ({ children }) => (
-      <h4 className="font-heading text-xl text-primary mt-6 mb-2 font-semibold">{children}</h4>
+      <h4 className="font-heading text-xl mt-6 mb-2">{children}</h4>
     ),
     normal: ({ children }) => (
       <p className="text-muted-foreground leading-relaxed mb-4">{children}</p>
@@ -110,7 +110,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
   return (
     <article className="min-h-screen">
       {/* Hero Section */}
-      <section className="pt-12 pb-8 bg-gradient-to-b from-secondary/20 to-background">
+      <section className="pt-20 pb-8 bg-gradient-to-b from-secondary/20 to-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             href="/blog"

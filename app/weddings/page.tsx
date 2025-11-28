@@ -54,9 +54,9 @@ export default async function Weddings() {
       />
 
       <EngagementsSection
-        title={weddingsContent?.elopementsSection?.title}
-        text={weddingsContent?.elopementsSection?.text}
-        image={weddingsContent?.elopementsSection?.image}
+        title={weddingsContent?.engagementsSection?.title}
+        text={weddingsContent?.engagementsSection?.text}
+        image={weddingsContent?.engagementsSection?.image}
       />
 
       <TestimonialSection

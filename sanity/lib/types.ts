@@ -105,11 +105,10 @@ export interface BlogListItem {
   slug: {
     current: string
   }
-  thumbnail?: SanityImageSource
+  image?: ImageWithAlt
   publishedAt: string
-  order?: number
 }
-  
+
 export interface PortfolioContent {
   title?: string
   description?: string
@@ -121,10 +120,10 @@ export interface PortfolioItem {
   slug: {
     current: string
   }
-  image?: ImageWithAlt
+  thumbnail?: ImageWithAlt
   publishedAt: string
+  order?: number
 }
-
 
 
 

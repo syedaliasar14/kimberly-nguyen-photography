@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { MenuIcon } from 'lucide-react';
 import Image from 'next/image';
@@ -18,12 +18,35 @@ const NAV_LINKS = [
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Show header when at top of page
+      if (currentScrollY < 10) {
+        setIsVisible(true);
+      } else {
+        // Show header when scrolling up, hide when scrolling down
+        setIsVisible(lastScrollY > currentScrollY);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
   if (pathname.startsWith('/studio')) { return null; }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-primary/20 backdrop-blur-sm">
+    <nav className={`fixed top-0 left-0 right-0 z-50 bg-primary/30 backdrop-blur-sm transition-transform duration-300 ${
+      isVisible ? 'translate-y-0' : '-translate-y-full'
+    }`}>
       <div className="w-full mx-auto py-2 px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <button onClick={() => setIsMenuOpen(true)} className="group" aria-label="Toggle menu">

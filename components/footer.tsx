@@ -89,6 +89,11 @@ export default function Footer() {
           <p className="text-sm font-jost">
             © {new Date().getFullYear()} Kimberly Nguyen Photography, LLC. All rights reserved.
           </p>
+          <p className="text-xs font-jost text-stone-400 mt-2">
+            <Link href="/privacy-policy" className="hover:text-secondary transition-colors">
+              Privacy Policy
+            </Link>
+          </p>
         </div>
       </div>
     </footer>

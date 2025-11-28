@@ -1,7 +1,5 @@
 import HeroSection from "@/app/about/components/hero-section";
-import StorySection from "@/app/about/components/story-section";
 import BehindTheScenes from "@/app/about/components/behind-the-scenes";
-import VideoSection from "@/app/about/components/video-section";
 import CallToAction from "@/app/about/components/call-to-action";
 
 export const metadata = {
@@ -13,9 +11,7 @@ export default function About() {
   return (
     <>
       <HeroSection />
-      <StorySection />
       <BehindTheScenes />
-      <VideoSection />
       <CallToAction />
     </>
   );

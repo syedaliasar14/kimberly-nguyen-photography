@@ -1,8 +1,15 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function CallToAction() {
   return (
-    <section className="py-20 bg-primary text-primary-foreground">
+    <section className="py-20 bg-primary text-primary-foreground relative">
+      <Image
+        src="/bg/1.png" alt=""
+        fill sizes="100vw"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none z-0 opacity-10 blur-sm"
+      />
+
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="font-heading text-3xl sm:text-4xl mb-6">
           Let's Tell Your Story Together
@@ -12,7 +19,7 @@ export default function CallToAction() {
         </p>
         <Link
           href="/contact"
-          className="inline-block bg-accent text-primary px-8 py-4 rounded-full hover:bg-secondary transition-colors text-lg font-medium"
+          className="btn bg-accent hover:bg-white hover:text-primary text-lg"
         >
           Start the Conversation
         </Link>

@@ -21,7 +21,7 @@ export default function PackagesSection({ packages }: { packages?: Package[] }) 
 
   return (
     <section className="py-20 relative overflow-hidden" id="packages">
-      <div className="absolute inset-0 w-full h-[120%] top-[-10%] -z-10 bg-secondary filter">
+      <div className="absolute inset-0 w-full h-[120%] top-[-10%] -z-10 bg-gradient-to-br from-secondary to-primary filter">
         <Image
           src="/bg/6.png"
           alt="Background"
