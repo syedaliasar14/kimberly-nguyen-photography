@@ -5,16 +5,19 @@ import CallToAction from "@/app/home/components/call-to-action";
 import InstagramFeed from "@/app/home/components/instagram-feed";
 import WeddingSection1 from "./home/components/wedding-section-1";
 import WeddingSection2 from "./home/components/wedding-section-2";
-import { generatePageMetadata, getPageContent } from "@/sanity/lib/page";
+import { generatePageMetadata } from "@/sanity/lib/page";
 import { Metadata } from "next";
+import { HOME_PAGE_QUERY } from "@/sanity/lib/queries";
+import { sanityFetch } from "@/sanity/lib/live";
+import { Page } from "@/sanity/lib/types";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const pageData = await getPageContent('home');
+  const pageData = (await sanityFetch({query: HOME_PAGE_QUERY, params: {}}))?.data as Page;
   return generatePageMetadata(pageData);
 }
 
 export default async function Home() {
-  const homeContent = (await getPageContent('home'))?.homeContent;
+  const homeContent = (await sanityFetch({query: HOME_PAGE_QUERY, params: {}}))?.data.homeContent;
 
   return (
     <>

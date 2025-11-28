@@ -1,92 +1,38 @@
-"use client";
-
 import { type SanityDocument } from "next-sanity";
-import imageUrlBuilder from "@sanity/image-url";
-import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { client } from "@/sanity/lib/client";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { Masonry } from "masonic";
-import { useState, useEffect } from "react";
-import ImageItem, { IImageItem } from "./image-item";
-import ImageSlider from "./image-slider";
 import Image from "next/image";
+import ImagesGrid from "./images-grid";
+import { Metadata } from "next";
+import { sanityFetch } from "@/sanity/lib/live";
+import { urlFor } from "@/sanity/lib/image";
+import { PORTFOLIO_ITEMS_QUERY } from "@/sanity/lib/queries";
 
-const PORTFOLIO_QUERY = `*[_type == "portfolio" && slug.current == $slug][0]{_id, title, slug, images[]}`;
-
-const THUMBNAIL_WIDTH = 600;
-const FULL_IMAGE_WIDTH = 2000;
-
-const { projectId, dataset } = client.config();
-const urlFor = (source: SanityImageSource) =>
-  projectId && dataset
-    ? imageUrlBuilder({ projectId, dataset }).image(source)
-    : null;
-
-const options = { next: { revalidate: 30 } };
-
-/* export async function generateMetadata({params}: {params: Promise<{ slug: string }>;}) {
-  const portfolio = await client.fetch<SanityDocument>(PORTFOLIO_QUERY, await params, options);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const resolvedParams = await params;
+  const portfolio = (await sanityFetch({ query: PORTFOLIO_ITEMS_QUERY, params: resolvedParams })).data as SanityDocument | null;
   
+  const ogImage = portfolio?.thumbnail 
+    ? urlFor(portfolio.thumbnail).width(1200).height(630).url()
+    : undefined;
+
   return {
-    title: `${portfolio?.title} - Portfolio - Kimberly Nguyen Photography`,
-    description: `View ${portfolio?.title} from our wedding and engagement photography portfolio.`,
+    title: `${portfolio?.title} - Portfolio - Kimberly Nguyen Photography Connecticut`,
+    description: `View the ${portfolio?.title} gallery from our wedding and engagement photography portfolio.`,
+    openGraph: ogImage ? {
+      images: [{
+        url: ogImage,
+        width: 1200,
+        height: 630,
+      }]
+    } : undefined,
   };
-} */
+}
 
-export default function PortfolioDetailPage({ params, }: { params: Promise<{ slug: string }>; }) {
-  const [portfolio, setPortfolio] = useState<SanityDocument | null>(null);
-  const [images, setImages] = useState<IImageItem[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [sliderOpen, setSliderOpen] = useState(false);
-  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-
-  useEffect(() => {
-    const fetchPortfolio = async () => {
-      try {
-        const resolvedParams = await params;
-        const portfolioData = await client.fetch<SanityDocument>(PORTFOLIO_QUERY, resolvedParams, options);
-        setPortfolio(portfolioData);
-
-        if (portfolioData?.images) {
-          const imageItems: IImageItem[] = portfolioData.images.map((image: any, index: number) => {
-            const imageUrl = urlFor(image)?.width(THUMBNAIL_WIDTH).url();
-            const fullImageUrl = urlFor(image)?.width(FULL_IMAGE_WIDTH).url();
-            return {
-              id: `${portfolioData._id}-${index}`,
-              src: imageUrl || '',
-              fullSrc: fullImageUrl || imageUrl || '',
-              alt: image.alt || `${portfolioData.title} - Image ${index + 1}`,
-              caption: image.caption,
-            };
-          }).filter((item: IImageItem) => item.src); // Filter out items without valid src
-
-          setImages(imageItems);
-        }
-      } catch (error) {
-        console.error('Error fetching portfolio:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPortfolio();
-  }, [params]);
-
-  const handleImageClick = (index: number) => {
-    setSelectedImageIndex(index);
-    setSliderOpen(true);
-  };
-
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="font-heading text-2xl text-primary mb-4">Loading...</h1>
-        </div>
-      </div>
-    );
-  }
+export default async function PortfolioDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
+  const portfolio = (await sanityFetch({ query: PORTFOLIO_ITEMS_QUERY, params: resolvedParams })).data as SanityDocument | null;
 
   if (!portfolio) {
     return (
@@ -103,15 +49,7 @@ export default function PortfolioDetailPage({ params, }: { params: Promise<{ slu
 
   return (
     <>
-      {/* Image Slider Popup */}
-      <ImageSlider
-        images={images}
-        initialIndex={selectedImageIndex}
-        isOpen={sliderOpen}
-        onClose={() => setSliderOpen(false)}
-      />
-
-      {/* Hero Section with Back Navigation */}
+      {/* Hero Section */}
       <section className="py-12 bg-gradient-to-b from-secondary/20 to-background">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <Link href="/portfolio" className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors duration-300 my-8 font-jost">
@@ -127,26 +65,8 @@ export default function PortfolioDetailPage({ params, }: { params: Promise<{ slu
         </div>
       </section>
 
-      {/* Masonry Gallery */}
-      {images.length > 0 && (
-        <section className="py-16">
-          <div className="mx-auto px-4 sm:px-6 lg:px-8">
-            <Masonry
-              items={images}
-              columnGutter={16}
-              columnWidth={170}
-              overscanBy={5}
-              maxColumnCount={7}
-              render={({ data, index }) => (
-                <ImageItem
-                  data={data}
-                  onClick={() => handleImageClick(index)}
-                />
-              )}
-            />
-          </div>
-        </section>
-      )}
+      {/* Interactive Gallery */}
+      <ImagesGrid portfolio={portfolio} />
 
       {/* Call to Action */}
       <section className="py-20 bg-gradient-to-b from-background to-secondary/20">

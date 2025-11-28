@@ -6,7 +6,7 @@ export interface Page {
   slug: {
     current: string
   }
-  pageType: 'home' | 'weddings'
+  pageType: 'home' | 'weddings' | 'portfolio'
   seo?: {
     metaTitle?: string
     metaDescription?: string
@@ -14,6 +14,7 @@ export interface Page {
   }
   homeContent?: HomeContent
   weddingsContent?: WeddingsContent
+  portfolioContent?: PortfolioContent
 }
 
 export interface ImageWithAlt {
@@ -84,5 +85,21 @@ export interface WeddingsContent {
       bonus?: string
     }[]
   }
+}
+
+export interface PortfolioContent {
+  title?: string
+  description?: string
+}
+
+export interface PortfolioItem {
+  _id: string
+  title: string
+  slug: {
+    current: string
+  }
+  thumbnail?: SanityImageSource
+  publishedAt: string
+  order?: number
 }
 

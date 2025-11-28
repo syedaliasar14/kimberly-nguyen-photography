@@ -1,9 +1,10 @@
 "use client";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Zoom } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/zoom';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { IImageItem } from './image-item';
 import { useEffect } from 'react';
@@ -26,7 +27,6 @@ export default function ImageSlider({ images, initialIndex, isOpen, onClose }: I
 
     if (isOpen) {
       document.addEventListener('keydown', handleEscape);
-      // Prevent body scroll when slider is open
       document.body.style.overflow = 'hidden';
     }
 
@@ -52,10 +52,15 @@ export default function ImageSlider({ images, initialIndex, isOpen, onClose }: I
       {/* Swiper Slider */}
       <div className="w-full h-full flex items-center md:px-16 justify-center relative">
         <Swiper
-          modules={[Navigation]}
+          modules={[Navigation, Zoom]}
           initialSlide={initialIndex}
           slidesPerView={1}
           loop={false}
+          zoom={{
+            maxRatio: 3,
+            minRatio: 1,
+            toggle: true,
+          }}
           navigation={{
             nextEl: '.swiper-button-next-custom',
             prevEl: '.swiper-button-prev-custom',
@@ -64,7 +69,7 @@ export default function ImageSlider({ images, initialIndex, isOpen, onClose }: I
         >
           {images.map((image) => (
             <SwiperSlide key={image.id}>
-              <div className="absolute w-full h-full flex items-center justify-center p-4">
+              <div className="swiper-zoom-container w-full h-full flex items-center justify-center p-4">
                 <Image
                   src={image.fullSrc}
                   alt={image.alt}

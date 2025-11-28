@@ -1,37 +1,19 @@
 import Link from "next/link";
-import { type SanityDocument } from "next-sanity";
-import imageUrlBuilder from "@sanity/image-url";
-import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import { client } from "@/sanity/lib/client";
+import { PORTFOLIO_PAGE_QUERY, PORTFOLIO_THUMBNAILS_QUERY } from "@/sanity/lib/queries";
+import { Page, PortfolioItem } from "@/sanity/lib/types";
 import PolaroidCard from "@/components/polaroid-card";
-
-interface PortfolioItem extends SanityDocument {
-  title: string;
-  slug: { current: string };
-  publishedAt: string;
-  thumbnail?: SanityImageSource;
-}
-
-const PORTFOLIO_QUERY = `*[
-  _type == "portfolio"
-  && defined(slug.current)
-] | order(order asc, publishedAt asc){_id, title, slug, publishedAt, thumbnail, order}`;
-
-const { projectId, dataset } = client.config();
-const urlFor = (source: SanityImageSource) =>
-  projectId && dataset
-    ? imageUrlBuilder({ projectId, dataset }).image(source)
-    : null;
-
-const options = { next: { revalidate: 30 } };
-
-export const metadata = {
-  title: "Portfolio - Kimberly Nguyen Photography",
-  description: "Explore our collection of wedding and engagement photography, showcasing love stories captured with flow, balance, and heart.",
-};
+import { sanityFetch } from "@/sanity/lib/live";
+import { urlFor } from "@/sanity/lib/image";
 
 export default async function PortfolioPage() {
-  const portfolios = await client.fetch<SanityDocument[]>(PORTFOLIO_QUERY, {}, options);
+  const [pageData, portfolios] = await Promise.all([
+    (await sanityFetch({query: PORTFOLIO_PAGE_QUERY, params: {}})).data as Page,
+    (await sanityFetch({query: PORTFOLIO_THUMBNAILS_QUERY, params: {}})).data as PortfolioItem[],
+  ]);
+
+  const title = pageData?.portfolioContent?.title || "The Portfolio";
+  const description = pageData?.portfolioContent?.description || 
+    "A curated collection of love stories we've had the honor to capture. Each gallery represents a unique celebration of love, connection, and the beautiful moments that make your day unforgettable.";
 
   return (
     <>
@@ -39,12 +21,10 @@ export default async function PortfolioPage() {
       <section className="pt-20 bg-gradient-to-b from-secondary/20 to-background">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-primary mb-6 leading-tight">
-            The Portfolio
+            {title}
           </h1>
           <p className="text-xl mb-8 text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            A curated collection of love stories we've had the honor to capture. Each gallery 
-            represents a unique celebration of love, connection, and the beautiful moments that 
-            make your day unforgettable.
+            {description}
           </p>
         </div>
       </section>

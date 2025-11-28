@@ -79,3 +79,37 @@ export const WEDDINGS_PAGE_QUERY = groq`*[_type == "page" && pageType == "weddin
   }
 }`
 
+export const PORTFOLIO_PAGE_QUERY = groq`*[_type == "page" && pageType == "portfolio"][0]{
+  ${BASE_PAGE_FIELDS},
+  portfolioContent{
+    title,
+    description
+  }
+}`
+
+export const PORTFOLIO_THUMBNAILS_QUERY = groq`*[
+  _type == "portfolio"
+  && defined(slug.current)
+] | order(order asc, publishedAt desc){
+  _id,
+  title,
+  slug,
+  publishedAt,
+  thumbnail,
+  order
+}`
+
+export const PORTFOLIO_ITEMS_QUERY = groq`*[_type == "portfolio" && slug.current == $slug][0]{
+  _id, 
+  title, 
+  slug, 
+  thumbnail{
+    asset->
+  },
+  images[]{
+    asset->,
+    alt,
+    caption
+  }
+}`;
+
