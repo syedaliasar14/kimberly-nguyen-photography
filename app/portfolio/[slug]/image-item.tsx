@@ -6,8 +6,8 @@ export interface IImageItem {
   fullSrc: string;
   alt: string;
   caption?: string;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
 }
 
 export default function ImageItem({ data, onClick }: { data: IImageItem; onClick?: () => void }) {
@@ -16,7 +16,7 @@ export default function ImageItem({ data, onClick }: { data: IImageItem; onClick
       <div className="overflow-hidden">
         <Image
           src={data.src}
-          alt={data.alt}
+          alt={data.alt || 'Portfolio Image | Connecticut Photographer'}
           className="w-full h-full group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
           width={1000}

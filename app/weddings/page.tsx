@@ -6,16 +6,19 @@ import ElopementsSection from "@/app/weddings/components/elopements-section";
 import EngagementsSection from "@/app/weddings/components/engagements-section";
 import CallToAction from "@/app/weddings/components/call-to-action";
 import TestimonialSection from "@/app/weddings/components/testimonial-section";
-import { generatePageMetadata, getPageContent } from "@/sanity/lib/page";
+import { generatePageMetadata } from "@/sanity/lib/page";
 import { Metadata } from "next";
+import { WEDDINGS_PAGE_QUERY } from "@/sanity/lib/queries";
+import { sanityFetch } from "@/sanity/lib/live";
+import { Page } from "@/sanity/lib/types";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const pageData = await getPageContent('weddings');
+  const pageData = (await sanityFetch({query: WEDDINGS_PAGE_QUERY, params: {}}))?.data as Page;
   return generatePageMetadata(pageData);
 }
 
 export default async function Weddings() {
-  const weddingsContent = (await getPageContent('weddings'))?.weddingsContent;
+  const weddingsContent = (await sanityFetch({query: WEDDINGS_PAGE_QUERY, params: {}}))?.data.weddingsContent;
 
   return (
     <>

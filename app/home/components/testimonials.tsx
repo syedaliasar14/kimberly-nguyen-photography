@@ -92,7 +92,7 @@ export default function Testimonials({ title, testimonials }: { title?: string; 
 
         {/* Desktop: Masonic Layout */}
         <div className="hidden md:block">
-          {isMounted && typeof window !== 'undefined' && masonicItems && (
+          {isMounted && masonicItems && (
             <Masonry
               items={masonicItems}
               columnGutter={16}
