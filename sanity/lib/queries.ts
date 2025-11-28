@@ -79,3 +79,30 @@ export const WEDDINGS_PAGE_QUERY = groq`*[_type == "page" && pageType == "weddin
   }
 }`
 
+// Blog queries
+export const BLOGS_QUERY = groq`*[
+  _type == "blog"
+  && defined(slug.current)
+] | order(publishedAt desc){
+  _id,
+  title,
+  slug,
+  image{asset->, alt},
+  publishedAt
+}`
+
+export const BLOG_BY_SLUG_QUERY = groq`*[_type == "blog" && slug.current == $slug][0]{
+  _id,
+  title,
+  slug,
+  image{asset->, alt},
+  content[]{
+    ...,
+    _type == "image" => {
+      ...,
+      asset->
+    }
+  },
+  publishedAt
+}`
+

@@ -1,4 +1,5 @@
 import { SanityImageSource } from '@sanity/image-url/lib/types/types'
+import { PortableTextBlock } from 'next-sanity'
 
 export interface Page {
   _id: string
@@ -85,4 +86,26 @@ export interface WeddingsContent {
     }[]
   }
 }
+
+export interface Blog {
+  _id: string
+  title: string
+  slug: {
+    current: string
+  }
+  image: ImageWithAlt
+  content: PortableTextBlock[]
+  publishedAt: string
+}
+
+export interface BlogListItem {
+  _id: string
+  title: string
+  slug: {
+    current: string
+  }
+  image: ImageWithAlt
+  publishedAt: string
+}
+
 

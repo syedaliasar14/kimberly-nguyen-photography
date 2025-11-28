@@ -36,6 +36,9 @@ export default function Footer() {
             <Link href="/portfolio" className="block w-max mx-auto md:mx-0 hover:text-secondary transition-colors">
               Portfolio
             </Link>
+            <Link href="/blog" className="block w-max mx-auto md:mx-0 hover:text-secondary transition-colors">
+              Blog
+            </Link>
             <Link href="/about" className="block w-max mx-auto md:mx-0 hover:text-secondary transition-colors">
               About
             </Link>
