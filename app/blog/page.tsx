@@ -1,27 +1,26 @@
-export default function BlogPage() {
-  const placeholderPosts = [
-    {
-      id: 1,
-      title: "A Complete Guide to Engagement Sessions",
-      excerpt: "Everything you need to know about planning your engagement photo session.",
-      date: "Coming Soon",
-      category: "Tips & Advice"
-    },
-    {
-      id: 2,
-      title: "Real Wedding: Sarah & Michael's Garden Celebration",
-      excerpt: "A beautiful botanical garden wedding filled with love and laughter.",
-      date: "Coming Soon",
-      category: "Real Weddings"
-    },
-    {
-      id: 3,
-      title: "What to Wear for Your Engagement Photos",
-      excerpt: "Style tips and outfit ideas for your engagement session.",
-      date: "Coming Soon",
-      category: "Tips & Advice"
-    }
-  ];
+import Link from "next/link";
+import Image from "next/image";
+import imageUrlBuilder from "@sanity/image-url";
+import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { client } from "@/sanity/lib/client";
+import { BLOGS_QUERY } from "@/sanity/lib/queries";
+import { BlogListItem } from "@/sanity/lib/types";
+
+const { projectId, dataset } = client.config();
+const urlFor = (source: SanityImageSource) =>
+  projectId && dataset
+    ? imageUrlBuilder({ projectId, dataset }).image(source)
+    : null;
+
+const options = { next: { revalidate: 30 } };
+
+export const metadata = {
+  title: "Blog - Kimberly Nguyen Photography",
+  description: "Wedding tips, real wedding stories, and photography insights from Kimberly Nguyen Photography.",
+};
+
+export default async function BlogPage() {
+  const blogs = await client.fetch<BlogListItem[]>(BLOGS_QUERY, {}, options);
 
   return (
     <section className="py-20 min-h-screen">
@@ -35,51 +34,68 @@ export default function BlogPage() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {placeholderPosts.map((post) => (
-            <article 
-              key={post.id}
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
-            >
-              <div className="aspect-[4/3] bg-accent/10 flex items-center justify-center">
-                <p className="text-accent">Blog Post Image</p>
-              </div>
-              <div className="p-6">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="text-xs text-accent font-medium uppercase">
-                    {post.category}
-                  </span>
-                  <span className="text-xs text-muted-foreground">•</span>
-                  <span className="text-xs text-muted-foreground">{post.date}</span>
-                </div>
-                <h2 className="font-heading text-xl text-primary mb-3 font-semibold">
-                  {post.title}
-                </h2>
-                <p className="text-muted-foreground leading-relaxed mb-4">
-                  {post.excerpt}
-                </p>
-                <button 
-                  className="text-primary hover:text-accent transition-colors font-medium"
-                  disabled
-                >
-                  Read More →
-                </button>
-              </div>
-            </article>
-          ))}
-        </div>
+        {blogs.length > 0 ? (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogs.map((blog) => {
+              const imageUrl = blog.image?.asset
+                ? urlFor(blog.image.asset)?.width(800).height(600).url()
+                : null;
 
-        <div className="mt-16 text-center">
-          <div className="bg-secondary rounded-lg p-8">
-            <h2 className="font-heading text-2xl text-primary mb-4 font-bold">
-              Blog Coming Soon
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              I'm working on creating helpful content about wedding photography, 
-              planning tips, and real wedding stories. Check back soon for updates!
-            </p>
+              return (
+                <article 
+                  key={blog._id}
+                  className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+                >
+                  <Link href={`/blog/${blog.slug.current}`}>
+                    <div className="aspect-[4/3] relative">
+                      {imageUrl ? (
+                        <Image
+                          src={imageUrl}
+                          alt={blog.image?.alt || blog.title}
+                          fill
+                          className="object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-accent/10 flex items-center justify-center">
+                          <p className="text-accent">Blog Post Image</p>
+                        </div>
+                      )}
+                    </div>
+                    <div className="p-6">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="text-xs text-muted-foreground">
+                          {new Date(blog.publishedAt).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                          })}
+                        </span>
+                      </div>
+                      <h2 className="font-heading text-xl text-primary mb-3 font-semibold">
+                        {blog.title}
+                      </h2>
+                      <span className="text-primary hover:text-accent transition-colors font-medium">
+                        Read More →
+                      </span>
+                    </div>
+                  </Link>
+                </article>
+              );
+            })}
           </div>
-        </div>
+        ) : (
+          <div className="text-center">
+            <div className="bg-secondary rounded-lg p-8">
+              <h2 className="font-heading text-2xl text-primary mb-4 font-bold">
+                Blog Coming Soon
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                I'm working on creating helpful content about wedding photography, 
+                planning tips, and real wedding stories. Check back soon for updates!
+              </p>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

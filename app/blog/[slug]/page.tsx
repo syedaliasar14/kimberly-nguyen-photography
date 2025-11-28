@@ -1,0 +1,195 @@
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import imageUrlBuilder from "@sanity/image-url";
+import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { PortableText, PortableTextComponents } from "next-sanity";
+import { client } from "@/sanity/lib/client";
+import { BLOG_BY_SLUG_QUERY } from "@/sanity/lib/queries";
+import { Blog } from "@/sanity/lib/types";
+import { ArrowLeft } from "lucide-react";
+
+const { projectId, dataset } = client.config();
+const urlFor = (source: SanityImageSource) =>
+  projectId && dataset
+    ? imageUrlBuilder({ projectId, dataset }).image(source)
+    : null;
+
+const options = { next: { revalidate: 30 } };
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
+  const blog = await client.fetch<Blog>(BLOG_BY_SLUG_QUERY, resolvedParams, options);
+  
+  if (!blog) {
+    return {
+      title: "Blog Not Found - Kimberly Nguyen Photography",
+    };
+  }
+
+  return {
+    title: `${blog.title} - Blog - Kimberly Nguyen Photography`,
+    description: `Read ${blog.title} on the Kimberly Nguyen Photography blog.`,
+  };
+}
+
+const portableTextComponents: PortableTextComponents = {
+  types: {
+    image: ({ value }) => {
+      const imageUrl = value?.asset ? urlFor(value.asset)?.width(1200).url() : null;
+      if (!imageUrl) return null;
+      return (
+        <figure className="my-8">
+          <Image
+            src={imageUrl}
+            alt={value?.alt || "Blog image"}
+            width={1200}
+            height={800}
+            className="rounded-lg w-full h-auto"
+          />
+          {value?.caption && (
+            <figcaption className="text-center text-sm text-muted-foreground mt-2">
+              {value.caption}
+            </figcaption>
+          )}
+        </figure>
+      );
+    },
+  },
+  block: {
+    h2: ({ children }) => (
+      <h2 className="font-heading text-3xl text-primary mt-10 mb-4 font-semibold">{children}</h2>
+    ),
+    h3: ({ children }) => (
+      <h3 className="font-heading text-2xl text-primary mt-8 mb-3 font-semibold">{children}</h3>
+    ),
+    h4: ({ children }) => (
+      <h4 className="font-heading text-xl text-primary mt-6 mb-2 font-semibold">{children}</h4>
+    ),
+    normal: ({ children }) => (
+      <p className="text-muted-foreground leading-relaxed mb-4">{children}</p>
+    ),
+    blockquote: ({ children }) => (
+      <blockquote className="border-l-4 border-accent pl-6 my-6 italic text-muted-foreground">
+        {children}
+      </blockquote>
+    ),
+  },
+  marks: {
+    link: ({ children, value }) => {
+      const href = value?.href || '';
+      const isInternal = href.startsWith('/') || href.startsWith('#');
+      return (
+        <a
+          href={href}
+          {...(!isInternal && { target: "_blank", rel: "noopener noreferrer" })}
+          className="text-accent hover:underline"
+        >
+          {children}
+        </a>
+      );
+    },
+    strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
+    em: ({ children }) => <em>{children}</em>,
+    underline: ({ children }) => <span className="underline">{children}</span>,
+  },
+};
+
+export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
+  const blog = await client.fetch<Blog>(BLOG_BY_SLUG_QUERY, resolvedParams, options);
+
+  if (!blog) {
+    notFound();
+  }
+
+  const featuredImageUrl = blog.image?.asset
+    ? urlFor(blog.image.asset)?.width(1600).height(900).url()
+    : null;
+
+  return (
+    <article className="min-h-screen">
+      {/* Hero Section */}
+      <section className="pt-12 pb-8 bg-gradient-to-b from-secondary/20 to-background">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Link
+            href="/blog"
+            className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors duration-300 mb-8 font-jost"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Blog
+          </Link>
+
+          <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-primary mb-6 leading-tight">
+            {blog.title}
+          </h1>
+
+          {/* Author Info */}
+          <div className="flex items-center gap-4 mb-8">
+            <Image
+              src="/kim/1.png"
+              alt="Kimberly Nguyen"
+              width={48}
+              height={48}
+              className="rounded-full object-cover"
+            />
+            <div>
+              <p className="font-jost font-medium text-primary">Kimberly Nguyen</p>
+              <p className="text-sm text-muted-foreground">
+                {new Date(blog.publishedAt).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Image */}
+      {featuredImageUrl && (
+        <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-4">
+          <div className="relative aspect-[16/9] rounded-lg overflow-hidden shadow-lg">
+            <Image
+              src={featuredImageUrl}
+              alt={blog.image?.alt || blog.title}
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        </section>
+      )}
+
+      {/* Content */}
+      <section className="py-12">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="prose prose-lg max-w-none">
+            <PortableText value={blog.content} components={portableTextComponents} />
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-16 bg-gradient-to-b from-background to-secondary/20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h3 className="font-heading text-3xl text-primary mb-6">
+            Ready to Capture Your Story?
+          </h3>
+          <p className="text-lg text-muted-foreground mb-8 font-jost leading-relaxed">
+            Let's create beautiful memories together.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link href="/contact" className="btn rounded-full hover:bg-accent">
+              Get in Touch
+            </Link>
+            <Link href="/blog" className="btn-outline rounded-full hover:bg-primary hover:text-primary-foreground">
+              Read More Posts
+            </Link>
+          </div>
+        </div>
+      </section>
+    </article>
+  );
+}
