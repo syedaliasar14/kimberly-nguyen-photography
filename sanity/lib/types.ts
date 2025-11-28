@@ -93,7 +93,7 @@ export interface Blog {
   slug: {
     current: string
   }
-  image: ImageWithAlt
+  image?: ImageWithAlt
   content: PortableTextBlock[]
   publishedAt: string
 }
@@ -104,7 +104,7 @@ export interface BlogListItem {
   slug: {
     current: string
   }
-  image: ImageWithAlt
+  image?: ImageWithAlt
   publishedAt: string
 }
 

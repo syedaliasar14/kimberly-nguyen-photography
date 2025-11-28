@@ -76,16 +76,19 @@ const portableTextComponents: PortableTextComponents = {
     ),
   },
   marks: {
-    link: ({ children, value }) => (
-      <a
-        href={value?.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-accent hover:underline"
-      >
-        {children}
-      </a>
-    ),
+    link: ({ children, value }) => {
+      const href = value?.href || '';
+      const isInternal = href.startsWith('/') || href.startsWith('#');
+      return (
+        <a
+          href={href}
+          {...(!isInternal && { target: "_blank", rel: "noopener noreferrer" })}
+          className="text-accent hover:underline"
+        >
+          {children}
+        </a>
+      );
+    },
     strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
     em: ({ children }) => <em>{children}</em>,
     underline: ({ children }) => <span className="underline">{children}</span>,
