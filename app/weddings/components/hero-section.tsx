@@ -18,7 +18,7 @@ export default function HeroSection({ title, text, images }: { title?: string; t
     <section className="min-h-screen flex items-center bg-gradient-to-b from-secondary via-secondary to-secondary/30 text-white pt-14 relative">
       <div className="absolute inset-0 overflow-hidden">
         <Image
-          src="/home-page/hero-section/1.png"
+          src="/bg/1.png"
           alt="Wedding Photography Background"
           fill priority
           className="object-cover object-center absolute inset-0 opacity-25 blur-md w-full h-[120%] -top-[10%] absolute"
