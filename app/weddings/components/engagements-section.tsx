@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ImageWithAlt } from "@/sanity/lib/types";
+import { urlFor } from "@/sanity/lib/image";
 
 export default function EngagementsSection({ title, text, image }: { title?: string; text?: string; image?: ImageWithAlt }) {
   return (
@@ -13,8 +14,20 @@ export default function EngagementsSection({ title, text, image }: { title?: str
         className="object-cover object-center absolute inset-0 opacity-20 blur-md w-full absolute scale-105"
       />
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row gap-12 items-center">
+        {/* Image */}
+        <div className="relative w-full md:w-1/3 aspect-square overflow-hidden shadow-2xl rounded-full">
+          {image && <Image
+            src={urlFor(image).url()!}
+            alt={image.alt || "Engagement Photography"}
+            width={1000} height={1000}
+            className="object-cover w-full h-full flex-shrink-0"
+          />}
+          {/* Image overlay for depth */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+        </div>
+
+        <div className="text-center w-full md:w-2/3 space-y-6">
           <h2 className="font-heading text-accent text-5xl sm:text-7xl mb-6">
             {title || "Engagement Sessions"}
           </h2>

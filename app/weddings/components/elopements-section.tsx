@@ -16,11 +16,11 @@ export default function ElopementsSection({ title, text, image }: { title?: stri
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row gap-12 items-center">
         {/* Text Content */}
-        <div className="space-y-6 md:w-1/2 w-full">
-          <h2 className="font-heading text-5xl sm:text-6xl lg:text-7xl text-center md:text-left text-primary leading-tight">
+        <div className="space-y-6 md:w-2/3 w-full">
+          <h2 className="font-heading text-5xl sm:text-6xl lg:text-7xl text-center md:text-left text-primary">
             {title || "Elopements"}
           </h2>
-          <div className="space-y-4 text-center md:text-left font-jost text-lg md:text-xl text-primary leading-relaxed whitespace-pre-wrap">
+          <div className="text-center md:text-left font-jost text-lg md:text-xl text-primary whitespace-pre-wrap">
             {text || `Sometimes the most beautiful celebrations are the intimate ones. Elopements allow couples to focus purely on their commitment to each other in a meaningful setting.\n\nWhether it's a mountain peak, a quiet beach, or a charming courthouse, I'm here to document your love story with the same care and artistry as any grand celebration.`}
           </div>
           <div className="pt-4 text-center md:text-left">
@@ -31,17 +31,15 @@ export default function ElopementsSection({ title, text, image }: { title?: stri
         </div>
 
         {/* Image */}
-        <div className="relative md:w-1/2 w-full p-4 ">
-          <div className="relative w-full aspect-square overflow-hidden shadow-2xl rounded-full border-white rotate-3">
-            {image && <Image
-              src={urlFor(image).url()!}
-              alt={image.alt || "Elopement Photography"}
-              width={1000} height={1000}
-              className="object-cover w-full h-full flex-shrink-0"
-            />}
-            {/* Image overlay for depth */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-          </div>
+        <div className="relative md:w-1/3 w-full aspect-square overflow-hidden shadow-2xl rounded-full">
+          {image && <Image
+            src={urlFor(image).url()!}
+            alt={image.alt || "Elopement Photography"}
+            width={1000} height={1000}
+            className="object-cover w-full h-full flex-shrink-0"
+          />}
+          {/* Image overlay for depth */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
         </div>
       </div>
     </section>

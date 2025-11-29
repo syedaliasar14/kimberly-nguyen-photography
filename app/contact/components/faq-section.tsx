@@ -5,11 +5,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+interface FaqSectionProps {
+  data?: {
+    title?: string;
+    faqs?: {
+      question: string;
+      answer: string;
+    }[];
+  };
+}
 
-export default function FaqSection() {
+export default function FaqSection({ data }: FaqSectionProps) {
   const [openItems, setOpenItems] = useState<number[]>([]);
 
-  const faqs = [
+  // Fallback FAQs if no Sanity data is provided
+  const fallbackFaqs = [
     {
       question: "How far in advance should we book you for our wedding?",
       answer: "Typically, couples book me about 6-8 months before their wedding date. I encourage you to reach out as soon as possible about my availability, even if you're planning on a shorter time frame.",
@@ -40,9 +50,7 @@ export default function FaqSection() {
     },
     {
       question: "Where do I get more information about your wedding packages?",
-      answer: (<>
-        You can find all the information about my wedding packages <Link href="/weddings#packages" className="underline">here</Link>!
-      </>)
+      answer: "You can find all the information about my wedding packages on our weddings page!"
     },
     {
       question: "Do you offer videography services?",
@@ -58,11 +66,12 @@ export default function FaqSection() {
     },
     {
       question: "We're ready to book/would like to learn more! What are the next steps?",
-      answer: (<>
-        Submit an inquiry form to me <Link href="/contact" className="underline">here</Link>! Please allow 2-3 business days for my response. I look forward to connecting with you!
-      </>)
+      answer: "Submit an inquiry form to me through our contact page! Please allow 2-3 business days for my response. I look forward to connecting with you!"
     },
   ];
+
+  const title = data?.title || "Frequently Asked Questions";
+  const faqs = [...fallbackFaqs, ...(data?.faqs || [])];
 
   const toggleItem = (index: number) => {
     setOpenItems(prev =>
@@ -76,18 +85,18 @@ export default function FaqSection() {
     <section className="py-20 relative bg-gradient-to-b from-secondary/20 to-secondary/50 overflow-hidden" id="faq">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="font-heading text-5xl sm:text-6xl text-center text-primary mb-16">
-          Frequently Asked Questions
+          {title}
         </h2>
 
         <div className="space-y-4">
           {faqs.map((faq, i) => (
-            <div key={`faq-${i}`} className="border rounded-lg overflow-hidden group">
-              <button onClick={() => toggleItem(i)} className="w-full px-6 py-4 text-left backdrop-blur-lg bg-white/40 group-hover:bg-stone-50/50 transition-colors duration-200">
+            <div key={`faq-${i}`} className="rounded-lg overflow-hidden group">
+              <button onClick={() => toggleItem(i)} className="w-full px-6 py-4 text-left bg-background transition-colors duration-200">
                 <div className="flex justify-between items-center">
                   <h3 className="font-semibold text-primary text-lg pr-4">
                     {faq.question}
                   </h3>
-                  <ChevronDownIcon className={`h-5 w-5 text-primary transition-transform duration-200 flex-shrink-0 ${openItems.includes(i) ? 'rotate-180' : ''}`} />
+                  <ChevronDownIcon className={`h-5 w-5 text-primary transition-transform duration-200 group-hover:text-accent transition-colors duration-200 flex-shrink-0 ${openItems.includes(i) ? 'rotate-180' : ''}`} />
                 </div>
 
                 <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openItems.includes(i) ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>

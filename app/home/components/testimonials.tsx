@@ -17,7 +17,7 @@ interface Testimonial {
 }
 
 const TestimonialCard = ({ data }: { data: Testimonial }) => (
-  <div className="bg-background p-6 rounded-lg shadow-sm border border-border hover:shadow-2xl transition-shadow cursor-default">
+  <div className="bg-background p-6 rounded-lg shadow-sm border border-border md:hover:shadow-2xl transition-shadow cursor-default">
     <div className="flex items-center mb-4">
       <div className="flex text-accent">
         {'★'.repeat(5)}
@@ -59,14 +59,13 @@ export default function Testimonials({ title, testimonials }: { title?: string; 
         {/* Mobile: Swiper */}
         <div className="md:hidden relative px-4">
           <Swiper
-            modules={[Navigation, Pagination, Autoplay]}
+            modules={[Navigation, Autoplay]}
             spaceBetween={20}
             slidesPerView={1.2}
             navigation={{
               nextEl: '.testimonial-button-next-mobile',
               prevEl: '.testimonial-button-prev-mobile',
             }}
-            pagination={{ clickable: true, dynamicBullets: true }}
             autoplay={{ delay: 4000, disableOnInteraction: false }}
             breakpoints={{
               480: { slidesPerView: 1.2, centeredSlides: true },

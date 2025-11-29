@@ -31,15 +31,15 @@ export default async function Weddings() {
       <ProcessSection processSteps={weddingsContent?.processSection || []} />
 
       <TestimonialSection
-        quote="Working with Kimberly was an absolute dream! She made us feel so comfortable throughout the entire process, and the photos exceeded all our expectations."
-        coupleName="Jessica & David"
+        quote={weddingsContent?.testimonials?.[0]?.quote || ""}
+        coupleName={weddingsContent?.testimonials?.[0]?.name || ""}
       />
 
       <PortfolioGallery />
 
       <TestimonialSection
-        quote="Every moment was captured with such care and creativity. We couldn't be happier with our photos and the memories they preserve."
-        coupleName="Emily & James"
+        quote={weddingsContent?.testimonials?.[1]?.quote || ""}
+        coupleName={weddingsContent?.testimonials?.[1]?.name || ""}
       />
 
       <ElopementsSection
@@ -49,8 +49,8 @@ export default async function Weddings() {
       />
 
       <TestimonialSection
-        quote="Kimberly's professionalism and talent made our wedding day stress-free. Her ability to capture candid moments is truly unmatched."
-        coupleName="Anna & Robert"
+        quote={weddingsContent?.testimonials?.[2]?.quote || ""}
+        coupleName={weddingsContent?.testimonials?.[2]?.name || ""}
       />
 
       <EngagementsSection
@@ -60,8 +60,8 @@ export default async function Weddings() {
       />
 
       <TestimonialSection
-        quote="Kimberly captured our day perfectly. Her eye for natural beauty and genuine moments made our photos feel so authentic and timeless."
-        coupleName="Sarah & Michael"
+        quote={weddingsContent?.testimonials?.[3]?.quote || ""}
+        coupleName={weddingsContent?.testimonials?.[3]?.name || ""}
       />
 
       <PackagesSection

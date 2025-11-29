@@ -138,5 +138,18 @@ export const weddingsContent = defineType({
         },
       ],
     }),
+    defineField({
+      name: 'testimonials',
+      title: 'Testimonials (4 max)',
+      type: 'array',
+      validation: (rule) => rule.max(4),
+      of: [{
+        type: 'object',
+        fields: [
+          { name: 'quote', title: 'Quote', type: 'text', validation: (rule) => rule.required() },
+          { name: 'name', title: 'Name', type: 'string', validation: (rule) => rule.required() },
+        ]
+      }]
+    })
   ],
 })

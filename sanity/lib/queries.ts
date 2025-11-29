@@ -75,6 +75,10 @@ export const WEDDINGS_PAGE_QUERY = groq`*[_type == "page" && pageType == "weddin
         features,
         bonus
       }
+    },
+    testimonials[]{
+      quote,
+      name
     }
   }
 }`
@@ -106,9 +110,19 @@ export const ABOUT_PAGE_QUERY = groq`*[_type == "page" && pageType == "about"][0
 export const CONTACT_PAGE_QUERY = groq`*[_type == "page" && pageType == "contact"][0]{
   ${BASE_PAGE_FIELDS},
   contactContent{
-    heroSection{
+    testimonialsSection{
       title,
-      subtitle
+      testimonials[]{
+        quote,
+        name
+      }
+    },
+    faqSection{
+      title,
+      faqs[]{
+        question,
+        answer
+      }
     }
   }
 }`

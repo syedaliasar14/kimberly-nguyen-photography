@@ -50,7 +50,7 @@ export default function Header() {
       <div className="w-full mx-auto py-2 px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <button onClick={() => setIsMenuOpen(true)} className="group" aria-label="Toggle menu">
-            <MenuIcon className="w-6 h-6 text-white group-hover:text-secondary transition-colors" />
+            <MenuIcon className="w-6 h-6 text-white hover:text-accent transition-colors" />
           </button>
           <Link href="/" className="flex items-center">
             <Image src="/white-logo.svg" alt="Kimberly Nguyen Photography" width={50} height={50} className="w-8" />

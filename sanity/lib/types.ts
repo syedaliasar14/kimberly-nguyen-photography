@@ -88,6 +88,10 @@ export interface WeddingsContent {
       bonus?: string
     }[]
   }
+  testimonials?: {
+    quote: string
+    name: string
+  }[]
 }
 
 export interface Blog {
@@ -130,9 +134,19 @@ export interface AboutContent {
 }
 
 export interface ContactContent {
-  heroSection?: {
+  testimonialsSection?: {
     title?: string
-    subtitle?: string
+    testimonials?: {
+      quote: string
+      name: string
+    }[]
+  }
+  faqSection?: {
+    title?: string
+    faqs?: {
+      question: string
+      answer: string
+    }[]
   }
 }
 

@@ -11,7 +11,7 @@ export default function TestimonialSection({ quote, coupleName }: { quote: strin
           height={80}
           className="mx-auto mb-8 select-none pointer-events-none opacity-30"
         />
-        <blockquote className="font-jost text-xl md:text-2xl text-muted-foreground italic leading-relaxed mb-6">
+        <blockquote className="font-jost text-lg md:text-xl text-muted-foreground italic leading-relaxed mb-6">
           "{quote}"
         </blockquote>
         <p className="font-allura text-3xl md:text-4xl text-primary">

@@ -1,11 +1,11 @@
 import ContactForm from "@/app/contact/components/contact-form";
-import Testimonials from "@/app/contact/components/testimonials";
 import FaqSection from "@/app/contact/components/faq-section";
 import { generatePageMetadata } from "@/sanity/lib/page";
 import { Metadata } from "next";
 import { CONTACT_PAGE_QUERY } from "@/sanity/lib/queries";
 import { sanityFetch } from "@/sanity/lib/live";
 import { Page } from "@/sanity/lib/types";
+import Testimonials from "../home/components/testimonials";
 
 export async function generateMetadata(): Promise<Metadata> {
   const pageData = (await sanityFetch({query: CONTACT_PAGE_QUERY, params: {}}))?.data as Page;
@@ -16,11 +16,14 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Contact() {
+  const pageData = (await sanityFetch({query: CONTACT_PAGE_QUERY, params: {}}))?.data as Page;
+  const contactContent = pageData?.contactContent;
+
   return (
     <>
       <ContactForm />
-      <Testimonials />
-      <FaqSection />
+      <Testimonials title={contactContent?.testimonialsSection?.title} testimonials={contactContent?.testimonialsSection?.testimonials} />
+      <FaqSection data={contactContent?.faqSection} />
     </>
   );
 }

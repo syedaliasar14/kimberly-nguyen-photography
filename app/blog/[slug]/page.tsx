@@ -10,8 +10,8 @@ import { ArrowLeft } from "lucide-react";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
-  const blog = (await sanityFetch({query: BLOG_BY_SLUG_QUERY, params: { slug: resolvedParams.slug }}))?.data as Blog;
-  
+  const blog = (await sanityFetch({ query: BLOG_BY_SLUG_QUERY, params: { slug: resolvedParams.slug } }))?.data as Blog;
+
   if (!blog) {
     return {
       title: "Blog Not Found - Kimberly Nguyen Photography",
@@ -36,7 +36,7 @@ const portableTextComponents: PortableTextComponents = {
             alt={value?.alt || "Blog image"}
             width={1200}
             height={800}
-            className="rounded-lg w-full h-auto"
+            className="w-full h-auto"
           />
           {value?.caption && (
             <figcaption className="text-center text-sm text-muted-foreground mt-2">
@@ -58,7 +58,7 @@ const portableTextComponents: PortableTextComponents = {
       <h4 className="font-heading text-xl mt-6 mb-2">{children}</h4>
     ),
     normal: ({ children }) => (
-      <p className="text-muted-foreground leading-relaxed mb-4">{children}</p>
+      <p className="leading-relaxed mb-4">{children}</p>
     ),
     blockquote: ({ children }) => (
       <blockquote className="border-l-4 border-accent pl-6 my-6 italic text-muted-foreground">
@@ -88,7 +88,7 @@ const portableTextComponents: PortableTextComponents = {
 
 export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
-  const blog = (await sanityFetch({query: BLOG_BY_SLUG_QUERY, params: { slug: resolvedParams.slug }}))?.data as Blog;
+  const blog = (await sanityFetch({ query: BLOG_BY_SLUG_QUERY, params: { slug: resolvedParams.slug } }))?.data as Blog;
 
   if (!blog) {
     notFound();
@@ -103,12 +103,9 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
       {/* Hero Section */}
       <section className="pt-20 pb-8 bg-gradient-to-b from-secondary/20 to-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link
-            href="/blog"
-            className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors duration-300 mb-8 font-jost"
-          >
+          <Link href="/blog" className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors duration-300 mb-8 font-jost">
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Blog
+            Back to Blogs
           </Link>
 
           <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-primary mb-6 leading-tight">
@@ -116,13 +113,13 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
           </h1>
 
           {/* Author Info */}
-          <div className="flex items-center gap-4 mb-8">
+          <Link href="/about" className="flex items-center gap-4 mb-8 w-max">
             <Image
-              src="/kim/1.png"
+              src="/kim/3.png"
               alt="Kimberly Nguyen"
-              width={48}
-              height={48}
-              className="rounded-full object-cover"
+              width={200}
+              height={200}
+              className="rounded-full object-cover h-12 w-12"
             />
             <div>
               <p className="font-jost font-medium text-primary">Kimberly Nguyen</p>
@@ -134,14 +131,14 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
                 })}
               </p>
             </div>
-          </div>
+          </Link>
         </div>
       </section>
 
       {/* Featured Image */}
       {featuredImageUrl && (
         <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-4">
-          <div className="relative aspect-[16/9] rounded-lg overflow-hidden shadow-lg">
+          <div className="relative aspect-[16/9] overflow-hidden shadow-lg">
             <Image
               src={featuredImageUrl}
               alt={blog.image?.alt || blog.title}
@@ -155,7 +152,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
 
       {/* Content */}
       <section className="py-12">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none">
             <PortableText value={blog.content} components={portableTextComponents} />
           </div>
@@ -165,17 +162,22 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
       {/* Call to Action */}
       <section className="py-16 bg-gradient-to-b from-background to-secondary/20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h3 className="font-heading text-3xl text-primary mb-6">
-            Ready to Capture Your Story?
-          </h3>
-          <p className="text-lg text-muted-foreground mb-8 font-jost leading-relaxed">
-            Let's create beautiful memories together.
+          <div className="flex flex-row items-center gap-6 mb-8 justify-center">
+            <Image
+              src="/black-logo.svg"
+              alt="Kimberly Nguyen Photography Logo"
+              width={80} height={80}
+              className="object-contain"
+            />
+          </div>
+          <p className="text-lg text-muted-foreground mb-4 font-jost leading-relaxed">
+            Let's capture beautiful moments together.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link href="/contact" className="btn rounded-full hover:bg-accent">
+            <Link href="/contact" className="btn hover:bg-accent">
               Get in Touch
             </Link>
-            <Link href="/blog" className="btn-outline rounded-full hover:bg-primary hover:text-primary-foreground">
+            <Link href="/blog" className="btn-outline hover:bg-primary hover:text-primary-foreground">
               Read More Posts
             </Link>
           </div>

@@ -41,7 +41,7 @@ export default function PackagesSection({ packages }: { packages?: Package[] }) 
         <div className="grid md:grid-cols-3 gap-8">
           {packages?.map((pkg, index) => (
             <Link href="/contact" key={index}
-              className={`bg-background rounded-lg p-8 shadow-sm border transition-all duration-300 group relative
+              className={`bg-background p-8 shadow-sm border transition-all duration-300 group relative
                 ${pkg.isBestValue ? "border-accent transform bg-gradient-to-br from-background to-accent/5"
                   : "border-border hover:shadow-xl"}`}
               style={{ boxShadow: pkg.isBestValue ? "0 0px 25px 0px #dab364" : undefined }}
@@ -54,11 +54,11 @@ export default function PackagesSection({ packages }: { packages?: Package[] }) 
                 </div>
               )}
 
-              <div className="mb-6 overflow-hidden rounded shadow-lg ">
+              <div className="mb-6 overflow-hidden shadow-lg ">
                 {pkg.image && <Image
                   src={urlFor(pkg.image).url()!}
                   alt={pkg.image.alt || `${pkg.name} package`}
-                  className={`w-full h-64 object-cover rounded group-hover:scale-105 transition-transform duration-300`}
+                  className={`w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300`}
                   loading="lazy"
                   width={400} height={300}
                 />}

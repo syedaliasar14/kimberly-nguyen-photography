@@ -17,5 +17,20 @@ export const resolve: PresentationPluginOptions['resolve'] = {
         ],
       }),
     }),
+    blog: defineLocations({
+      select: {
+        title: 'title',
+        slug: 'slug.current',
+      },
+      resolve: (doc) => ({
+        locations: [
+          {
+            title: doc?.title || 'Untitled',
+            href: `/blog/${doc?.slug}`,
+          },
+          { title: 'Blog index', href: `/blog` },
+        ],
+      }),
+    }),
   },
 }
