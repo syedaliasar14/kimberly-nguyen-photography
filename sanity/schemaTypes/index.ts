@@ -17,6 +17,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     weddingsContent,
     portfolioContent,
     aboutContent,
-    contactContent
+    contactContent,
   ],
 }
