@@ -83,14 +83,6 @@ export const WEDDINGS_PAGE_QUERY = groq`*[_type == "page" && pageType == "weddin
   }
 }`
 
-export const PORTFOLIO_PAGE_QUERY = groq`*[_type == "page" && pageType == "portfolio"][0]{
-  ${BASE_PAGE_FIELDS},
-  portfolioContent{
-    title,
-    description
-  }
-}`
-
 export const ABOUT_PAGE_QUERY = groq`*[_type == "page" && pageType == "about"][0]{
   ${BASE_PAGE_FIELDS},
   aboutContent{

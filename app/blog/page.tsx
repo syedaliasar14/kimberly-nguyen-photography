@@ -19,11 +19,8 @@ export default async function BlogPage() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="font-heading text-6xl text-primary mb-6">
-            Blog
+            The Blog
           </h1>
-          <p className="text-xl text-muted-foreground mx-auto">
-            Wedding tips, real wedding stories, and photography insights from Kimberly Nguyen Photography.
-          </p>
         </div>
 
         {blogs && blogs.length > 0 ? (

@@ -52,9 +52,9 @@ export default function WeddingSection2({ title, text, images }: { title?: strin
       </div>
 
       {/* Content */}
-      <div className="max-w-7xl px-4 md:px-8 mb-12 z-20 text-white relative">
+      <div className="max-w-7xl px-4 md:px-8 z-20 text-white relative">
         <h2 className="font-accent text-6xl mb-4">
-          {title || "Wedding Photography"}
+          {title || <>Capturing Your <div className="font-script text-9xl inline-block -rotate-10 ml-2 -translate-y-2">story</div></>}
         </h2>
         <p className='font-jost text-lg md:text-xl leading-relaxed whitespace-pre-wrap'>
           {text || `From grand celebrations to quiet elopements, I document the joy, laughter, and tears that make your wedding day unforgettable. Each photograph tells a story, capturing those intimate moments that words cannot fully express. As the couple exchanges vows, the love in their eyes speaks volumes, and I am there to preserve that timeless memory.`}

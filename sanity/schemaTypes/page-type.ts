@@ -61,12 +61,6 @@ export const pageType = defineType({
       hidden: ({document}) => document?.pageType !== 'weddings',
     }),
     defineField({
-      name: 'portfolioContent',
-      title: 'Portfolio Page Content',
-      type: 'portfolioContent',
-      hidden: ({document}) => document?.pageType !== 'portfolio',
-    }),
-    defineField({
       name: 'aboutContent',
       title: 'About Page Content',
       type: 'aboutContent',

@@ -4,9 +4,10 @@ import { useScrollY } from "@/hooks/use-scroll";
 import Image from "next/image";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, EffectFade } from 'swiper/modules';
+import { Autoplay, EffectFade, Zoom } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
+import 'swiper/css/zoom';
 import { ImageWithAlt } from "@/sanity/lib/types";
 import { urlFor } from "@/sanity/lib/image";
 
@@ -62,23 +63,30 @@ export default function HeroSection({ title, text, images }: { title?: string; t
 
         <div className="mx-4 mt-10 md:mt-0 rounded-t-full w-xs sm:w-sm md:w-md h-full overflow-hidden border-3 border-white/75 shadow-accent shadow-lg flex-shrink-0 self-center">
           <Swiper
-            modules={[Autoplay, EffectFade]}
+            modules={[Autoplay, EffectFade, Zoom]}
             effect="fade"
             fadeEffect={{ crossFade: true }}
             slidesPerView={1}
             loop={true}
+            zoom={{
+              maxRatio: 3,
+              minRatio: 1,
+              toggle: true,
+            }}
             autoplay={{ delay: 4000, disableOnInteraction: false }}
             className="w-full h-full"
           >
             {images?.map((img, i) => (
               <SwiperSlide key={i}>
-                <Image
-                  src={urlFor(img.asset).url()!}
-                  alt={img.alt || `Wedding Photo ${i + 1}`}
-                  width={1200}
-                  height={1200}
-                  className="object-cover"
-                />
+                <div className="swiper-zoom-container w-full h-full flex items-center justify-center">
+                  <Image
+                    src={urlFor(img.asset).url()!}
+                    alt={img.alt || `Wedding Photo ${i + 1}`}
+                    width={1200}
+                    height={1200}
+                    className="object-cover"
+                  />
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>

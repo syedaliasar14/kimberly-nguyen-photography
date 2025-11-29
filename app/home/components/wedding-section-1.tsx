@@ -1,8 +1,9 @@
 "use client";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay } from 'swiper/modules';
+import { Navigation, Autoplay, Zoom } from 'swiper/modules';
 import 'swiper/css';
+import 'swiper/css/zoom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -12,7 +13,7 @@ import { urlFor } from '@/sanity/lib/image';
 export default function WeddingSection1({ title, text, images }: { title?: string; text?: string; images?: ImageWithAlt[] }) {
   return (
     <section className="py-40 flex flex-col relative">
-      <Image 
+      <Image
         src="/bg/1.png" alt=""
         fill sizes="100vw"
         className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none blur-sm z-0 opacity-10"
@@ -26,7 +27,7 @@ export default function WeddingSection1({ title, text, images }: { title?: strin
         />
 
         <h2 className="font-accent text-6xl mb-4 text-center">
-          {title || <>Capturing Your <div className="font-script text-9xl inline-block -rotate-10 ml-2 -translate-y-2">story</div></>}
+          {title || "Wedding Photography"}
         </h2>
         <p className="mb-24 font-jost text-lg text-center whitespace-pre-wrap">
           {text || `Every love story is unique. I specialize in capturing the intimate moments, genuine emotions, and natural connections that make your day truly yours. Whether it's the stolen glances, the heartfelt laughter, or the tender embraces, each detail is a thread in the tapestry of your romance. I approach every shoot with an eye for authenticity and a passion for storytelling, ensuring that your memories are preserved as beautifully as the day itself.`}
@@ -35,11 +36,16 @@ export default function WeddingSection1({ title, text, images }: { title?: strin
 
       <div className="w-full">
         <Swiper
-          modules={[Navigation, Autoplay]}
+          modules={[Navigation, Autoplay, Zoom]}
           spaceBetween={20}
           slidesPerView={1.5}
           centeredSlides={true}
           slideToClickedSlide={true}
+          zoom={{
+            maxRatio: 3,
+            minRatio: 1,
+            toggle: true,
+          }}
           breakpoints={{
             640: { slidesPerView: 2 },
             768: { slidesPerView: 3 },
@@ -52,13 +58,15 @@ export default function WeddingSection1({ title, text, images }: { title?: strin
         >
           {images?.map((img, i) => (
             <SwiperSlide key={i}>
-              <Image
-                src={urlFor(img.asset).url()!}
-                alt={img.alt || `Connecticut Wedding Photographer`}
-                width={1200}
-                height={1200}
-                className="object-cover"
-              />
+              <div className="swiper-zoom-container w-full h-full flex items-center justify-center">
+                <Image
+                  src={urlFor(img.asset).url()!}
+                  alt={img.alt || `Connecticut Wedding Photographer`}
+                  width={1200}
+                  height={1200}
+                  className="object-cover"
+                />
+              </div>
             </SwiperSlide>
           ))}
 

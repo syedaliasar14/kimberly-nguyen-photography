@@ -84,7 +84,7 @@ export default function ImageSlider({ images, initialIndex, isOpen, onClose }: I
         </Swiper>
 
         {/* Custom Navigation Buttons */}
-        <button className="swiper-button-prev-custom absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-all duration-300 text-white z-40"
+        {/* <button className="swiper-button-prev-custom absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-all duration-300 text-white z-40"
           aria-label="Previous image"
         >
           <ChevronLeft className="w-6 h-6" />
@@ -93,7 +93,7 @@ export default function ImageSlider({ images, initialIndex, isOpen, onClose }: I
           aria-label="Next image"
         >
           <ChevronRight className="w-6 h-6" />
-        </button>
+        </button> */}
       </div>
     </div>
   );

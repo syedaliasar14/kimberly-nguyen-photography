@@ -58,7 +58,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
           </Link>
 
           <div className="text-center">
-            <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-primary mb-4 leading-tight">
+            <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-primary leading-tight">
               {portfolio.title}
             </h1>
           </div>
