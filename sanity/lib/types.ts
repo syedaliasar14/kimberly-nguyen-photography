@@ -7,7 +7,7 @@ export interface Page {
   slug: {
     current: string
   }
-  pageType: 'home' | 'weddings' | 'portfolio'
+  pageType: 'home' | 'weddings' | 'portfolio' | 'about' | 'contact'
   seo?: {
     metaTitle?: string
     metaDescription?: string
@@ -16,6 +16,8 @@ export interface Page {
   homeContent?: HomeContent
   weddingsContent?: WeddingsContent
   portfolioContent?: PortfolioContent
+  aboutContent?: AboutContent
+  contactContent?: ContactContent
 }
 
 export interface ImageWithAlt {
@@ -112,6 +114,26 @@ export interface BlogListItem {
 export interface PortfolioContent {
   title?: string
   description?: string
+}
+
+export interface AboutContent {
+  heroSection?: {
+    title?: string
+    text?: string
+    image?: ImageWithAlt
+  }
+  behindTheScenesSection?: {
+    title?: string
+    text?: string
+    image?: ImageWithAlt
+  }
+}
+
+export interface ContactContent {
+  heroSection?: {
+    title?: string
+    subtitle?: string
+  }
 }
 
 export interface PortfolioItem {

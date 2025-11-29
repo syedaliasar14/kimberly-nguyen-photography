@@ -14,6 +14,8 @@ export const pageType = defineType({
           {title: 'Home', value: 'home'},
           {title: 'Weddings', value: 'weddings'},
           {title: 'Portfolio', value: 'portfolio'},
+          {title: 'About', value: 'about'},
+          {title: 'Contact', value: 'contact'},
         ],
         layout: 'dropdown',
       },
@@ -63,6 +65,18 @@ export const pageType = defineType({
       title: 'Portfolio Page Content',
       type: 'portfolioContent',
       hidden: ({document}) => document?.pageType !== 'portfolio',
+    }),
+    defineField({
+      name: 'aboutContent',
+      title: 'About Page Content',
+      type: 'aboutContent',
+      hidden: ({document}) => document?.pageType !== 'about',
+    }),
+    defineField({
+      name: 'contactContent',
+      title: 'Contact Page Content',
+      type: 'contactContent',
+      hidden: ({document}) => document?.pageType !== 'contact',
     }),
   ],
   preview: {

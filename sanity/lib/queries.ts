@@ -87,6 +87,32 @@ export const PORTFOLIO_PAGE_QUERY = groq`*[_type == "page" && pageType == "portf
   }
 }`
 
+export const ABOUT_PAGE_QUERY = groq`*[_type == "page" && pageType == "about"][0]{
+  ${BASE_PAGE_FIELDS},
+  aboutContent{
+    heroSection{
+      title,
+      text,
+      image{asset->, alt}
+    },
+    behindTheScenesSection{
+      title,
+      text,
+      image{asset->, alt}
+    }
+  }
+}`
+
+export const CONTACT_PAGE_QUERY = groq`*[_type == "page" && pageType == "contact"][0]{
+  ${BASE_PAGE_FIELDS},
+  contactContent{
+    heroSection{
+      title,
+      subtitle
+    }
+  }
+}`
+
 export const PORTFOLIO_THUMBNAILS_QUERY = groq`*[
   _type == "portfolio"
   && defined(slug.current)
