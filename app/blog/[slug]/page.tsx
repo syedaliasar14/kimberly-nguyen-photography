@@ -1,25 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import imageUrlBuilder from "@sanity/image-url";
-import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { urlFor } from "@/sanity/lib/image";
 import { PortableText, PortableTextComponents } from "next-sanity";
-import { client } from "@/sanity/lib/client";
 import { BLOG_BY_SLUG_QUERY } from "@/sanity/lib/queries";
+import { sanityFetch } from "@/sanity/lib/live";
 import { Blog } from "@/sanity/lib/types";
 import { ArrowLeft } from "lucide-react";
 
-const { projectId, dataset } = client.config();
-const urlFor = (source: SanityImageSource) =>
-  projectId && dataset
-    ? imageUrlBuilder({ projectId, dataset }).image(source)
-    : null;
-
-const options = { next: { revalidate: 30 } };
-
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
-  const blog = await client.fetch<Blog>(BLOG_BY_SLUG_QUERY, resolvedParams, options);
+  const blog = (await sanityFetch({query: BLOG_BY_SLUG_QUERY, params: { slug: resolvedParams.slug }}))?.data as Blog;
   
   if (!blog) {
     return {
@@ -36,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 const portableTextComponents: PortableTextComponents = {
   types: {
     image: ({ value }) => {
-      const imageUrl = value?.asset ? urlFor(value.asset)?.width(1200).url() : null;
+      const imageUrl = value?.asset ? urlFor(value.asset).width(1200).url() : null;
       if (!imageUrl) return null;
       return (
         <figure className="my-8">
@@ -97,14 +88,14 @@ const portableTextComponents: PortableTextComponents = {
 
 export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
-  const blog = await client.fetch<Blog>(BLOG_BY_SLUG_QUERY, resolvedParams, options);
+  const blog = (await sanityFetch({query: BLOG_BY_SLUG_QUERY, params: { slug: resolvedParams.slug }}))?.data as Blog;
 
   if (!blog) {
     notFound();
   }
 
   const featuredImageUrl = blog.image?.asset
-    ? urlFor(blog.image.asset)?.width(1600).height(900).url()
+    ? urlFor(blog.image.asset).width(1600).height(900).url()
     : null;
 
   return (
