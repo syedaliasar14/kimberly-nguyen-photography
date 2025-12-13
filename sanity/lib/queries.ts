@@ -69,7 +69,7 @@ export const WEDDINGS_PAGE_QUERY = groq`*[_type == "page" && pageType == "weddin
       packages[]{
         name,
         price,
-        isBestValue,
+        isBest,
         image{asset->, alt},
         description,
         features,

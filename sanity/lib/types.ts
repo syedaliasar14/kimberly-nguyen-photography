@@ -80,7 +80,7 @@ export interface WeddingsContent {
     packages?: {
       name: string
       price: string
-      isBestValue?: boolean
+      isBest?: boolean
       image?: ImageWithAlt
       description?: string
       features?: string[]

@@ -106,7 +106,7 @@ export const weddingsContent = defineType({
                 { name: 'name', title: 'Package Name', type: 'string', validation: (rule) => rule.required() },
                 { name: 'price', title: 'Price', type: 'string', validation: (rule) => rule.required() },
                 {
-                  name: 'isBestValue',
+                  name: 'isBest',
                   title: 'Mark as Best Value/Popular',
                   type: 'boolean',
                   initialValue: false,
