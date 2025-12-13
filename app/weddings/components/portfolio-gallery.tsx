@@ -49,7 +49,7 @@ export default function PortfolioGallery() {
     return (
       <section className="py-20 bg-stone-900" id="portfolio">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
-          <h2 className="font-heading text-5xl sm:text-6xl text-center mb-4">
+          <h2 className="font-heading font-thin text-5xl sm:text-6xl text-center mb-4">
             Portfolio Gallery
           </h2>
           <p className="text-center mb-16 font-sans">
@@ -69,7 +69,7 @@ export default function PortfolioGallery() {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
-        <h2 className="font-heading text-5xl sm:text-6xl text-center mb-4">
+        <h2 className="font-heading font-thin text-5xl sm:text-6xl text-center mb-4">
           Portfolio Gallery
         </h2>
         <p className="text-center mb-16 font-sans">

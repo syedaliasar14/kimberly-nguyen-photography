@@ -17,8 +17,8 @@
   --secondary-foreground: oklch(0.22 0 0);
   --accent: #dab364;
   --accent-foreground: oklch(0.98 0 0);
-  --tertiary: #9ea39d;
-  --tertiary-foreground: oklch(0.22 0 0);
+  --tertiary: #0c3110;
+  --tertiary-foreground: oklch(0.98 0 0);
   --muted: oklch(0.96 0.005 85);
   --muted-foreground: oklch(0.50 0 0);
   --destructive: oklch(0.577 0.245 27.325);
@@ -45,9 +45,9 @@
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
   --color-tertiary: var(--tertiary);
-  --font-sans: "Jost", "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: "Montserrat", "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-serif: "Instrument Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-heading: var(--font-serif);
+  --font-heading: "Canela", var(--font-serif);
   --font-cursive: "Moontime", var(--font-serif);
   --font-allura: "Allura", var(--font-serif);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -128,23 +128,26 @@
   button {
     @apply cursor-pointer;
   }
-  input {
-    @apply backdrop-blur-lg
-  }
   .btn {
-    @apply px-8 py-3 border-2 border-transparent bg-primary text-primary-foreground hover:bg-white hover:text-primary transition-all duration-300 w-max tracking-wider;
+    @apply px-8 py-3 border-1 border-transparent bg-primary text-primary-foreground hover:bg-white hover:text-primary transition-all duration-300 w-max tracking-wider;
   }
   .btn-white {
-    @apply px-8 py-3 border-2 border-transparent bg-white text-stone-900 hover:bg-stone-900 hover:text-white transition-all duration-300 w-max tracking-wider;
+    @apply px-8 py-3 border-1 border-transparent bg-white text-stone-900 hover:bg-stone-900 hover:text-white transition-all duration-300 w-max tracking-wider;
+  }
+  .btn-outline-white {
+    @apply px-8 py-3 border-1 border-white text-white hover:bg-white hover:text-stone-900 transition-all duration-300 w-max tracking-wider;
+  }
+  .btn-white-to-outline {
+    @apply px-8 py-3 border-1 border-transparent bg-white text-stone-900 hover:bg-transparent hover:text-white hover:border-white transition-all duration-300 w-max tracking-wider;
   }
   .btn-accent {
-    @apply px-8 py-3 border-2 border-transparent bg-accent text-accent-foreground hover:bg-white hover:text-accent transition-all duration-300 w-max tracking-wider;
+    @apply px-8 py-3 border-1 border-transparent bg-accent text-accent-foreground hover:bg-white hover:text-black transition-all duration-300 w-max tracking-wider;
   }
   .btn-outline {
-    @apply px-8 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 w-max tracking-wider;
+    @apply px-8 py-3 border-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 w-max tracking-wider;
   }
   .btn-glass {
-    @apply px-8 py-3 border-2 border-transparent bg-white/20 text-white backdrop-blur-sm hover:bg-white/40 transition-all duration-300 w-max tracking-wider;
+    @apply px-8 py-3 border-1 border-transparent bg-white/20 text-white backdrop-blur-sm hover:bg-white/40 transition-all duration-300 w-max tracking-wider;
   }
   html {
     scroll-behavior: smooth;

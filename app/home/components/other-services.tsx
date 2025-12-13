@@ -56,7 +56,7 @@ export default function OtherServices({ title, services }: { title?: string; ser
                   <div className="max-w-3xl mb-20">
 
                     <div className="text-white">
-                      <h3 className="font-heading text-5xl md:text-6xl mb-6">
+                      <h3 className="font-heading font-thin text-5xl md:text-6xl mb-6">
                         {service.service}
                       </h3>
 

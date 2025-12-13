@@ -11,7 +11,7 @@ export default function PrivacyPolicyPage() {
     <div className="min-h-screen bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
         <div className="text-center mb-16">
-          <h1 className="font-heading text-4xl md:text-5xl font-light text-stone-900 mb-6">
+          <h1 className="font-heading font-thin text-4xl md:text-5xl font-light text-stone-900 mb-6">
             Privacy Policy
           </h1>
           <p className="text-stone-600 text-lg max-w-3xl mx-auto leading-relaxed">
@@ -34,7 +34,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section className="mb-12">
-            <h2 className="font-heading text-3xl font-light text-stone-900 mb-6">
+            <h2 className="font-heading font-thin text-3xl font-light text-stone-900 mb-6">
               Summary of Key Points
             </h2>
             <p className="text-stone-700 leading-relaxed mb-6">
@@ -63,7 +63,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section className="mb-12">
-            <h2 id="table-of-contents" className="font-heading text-3xl font-light text-stone-900 mb-6">
+            <h2 id="table-of-contents" className="font-heading font-thin text-3xl font-light text-stone-900 mb-6">
               Table of Contents
             </h2>
             <nav className="bg-stone-50 p-6 rounded-lg">
@@ -85,7 +85,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section id="information-we-collect" className="mb-12">
-            <h2 className="font-heading text-3xl font-light text-stone-900 mb-6">
+            <h2 className="font-heading font-thin text-3xl font-light text-stone-900 mb-6">
               1. What Information Do We Collect?
             </h2>
             
@@ -143,7 +143,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section id="how-we-process" className="mb-12">
-            <h2 className="font-heading text-3xl font-light text-stone-900 mb-6">
+            <h2 className="font-heading font-thin text-3xl font-light text-stone-900 mb-6">
               2. How Do We Process Your Information?
             </h2>
             <p className="text-stone-600 font-medium mb-4">
@@ -165,7 +165,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section id="when-we-share" className="mb-12">
-            <h2 className="font-heading text-3xl font-light text-stone-900 mb-6">
+            <h2 className="font-heading font-thin text-3xl font-light text-stone-900 mb-6">
               3. When and With Whom Do We Share Your Personal Information?
             </h2>
             <p className="text-stone-600 font-medium mb-4">
@@ -180,7 +180,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section id="how-long-we-keep" className="mb-12">
-            <h2 className="font-heading text-3xl font-light text-stone-900 mb-6">
+            <h2 className="font-heading font-thin text-3xl font-light text-stone-900 mb-6">
               4. How Long Do We Keep Your Information?
             </h2>
             <p className="text-stone-600 font-medium mb-4">
@@ -195,7 +195,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section id="how-we-keep-safe" className="mb-12">
-            <h2 className="font-heading text-3xl font-light text-stone-900 mb-6">
+            <h2 className="font-heading font-thin text-3xl font-light text-stone-900 mb-6">
               5. How Do We Keep Your Information Safe?
             </h2>
             <p className="text-stone-600 font-medium mb-4">
@@ -207,7 +207,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section id="information-from-minors" className="mb-12">
-            <h2 className="font-heading text-3xl font-light text-stone-900 mb-6">
+            <h2 className="font-heading font-thin text-3xl font-light text-stone-900 mb-6">
               6. Do We Collect Information From Minors?
             </h2>
             <p className="text-stone-600 font-medium mb-4">
@@ -222,7 +222,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section id="privacy-rights" className="mb-12">
-            <h2 className="font-heading text-3xl font-light text-stone-900 mb-6">
+            <h2 className="font-heading font-thin text-3xl font-light text-stone-900 mb-6">
               7. What Are Your Privacy Rights?
             </h2>
             <p className="text-stone-600 font-medium mb-4">
@@ -241,7 +241,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section id="do-not-track" className="mb-12">
-            <h2 className="font-heading text-3xl font-light text-stone-900 mb-6">
+            <h2 className="font-heading font-thin text-3xl font-light text-stone-900 mb-6">
               8. Controls for Do-Not-Track Features
             </h2>
             <p className="text-stone-700 leading-relaxed mb-6">
@@ -253,14 +253,14 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section id="us-residents-rights" className="mb-12">
-            <h2 className="font-heading text-3xl font-light text-stone-900 mb-6">
+            <h2 className="font-heading font-thin text-3xl font-light text-stone-900 mb-6">
               9. Do United States Residents Have Specific Privacy Rights?
             </h2>
             <p className="text-stone-600 font-medium mb-4">
               In Short: If you are a resident of California, Colorado, Connecticut, Delaware, Florida, Indiana, Iowa, Kentucky, Minnesota, Montana, Nebraska, New Hampshire, New Jersey, Oregon, Tennessee, Texas, Utah, or Virginia, you may have the right to request access to and receive details about the personal information we maintain about you and how we have processed it, correct inaccuracies, get a copy of, or delete your personal information. You may also have the right to withdraw your consent to our processing of your personal information. These rights may be limited in some circumstances by applicable law. More information is provided below.
             </p>
 
-            <h3 className="font-heading text-xl font-medium text-stone-800 mb-4">
+            <h3 className="font-heading font-thin text-xl font-medium text-stone-800 mb-4">
               Categories of Personal Information We Collect
             </h3>
             <p className="text-stone-700 leading-relaxed mb-4">
@@ -445,7 +445,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section id="updates-to-notice" className="mb-12">
-            <h2 className="font-heading text-3xl font-light text-stone-900 mb-6">
+            <h2 className="font-heading font-thin text-3xl font-light text-stone-900 mb-6">
               10. Do We Make Updates to This Notice?
             </h2>
             <p className="text-stone-600 font-medium mb-4">
@@ -457,7 +457,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section id="contact-us" className="mb-12">
-            <h2 className="font-heading text-3xl font-light text-stone-900 mb-6">
+            <h2 className="font-heading font-thin text-3xl font-light text-stone-900 mb-6">
               11. How Can You Contact Us About This Notice?
             </h2>
             <p className="text-stone-700 leading-relaxed mb-6">
@@ -475,7 +475,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section id="review-update-delete" className="mb-12">
-            <h2 className="font-heading text-3xl font-light text-stone-900 mb-6">
+            <h2 className="font-heading font-thin text-3xl font-light text-stone-900 mb-6">
               12. How Can You Review, Update, or Delete the Data We Collect From You?
             </h2>
             <p className="text-stone-700 leading-relaxed">

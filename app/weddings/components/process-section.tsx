@@ -8,7 +8,7 @@ export default function ProcessSection({ processSteps }: { processSteps: { title
   return (
     <section className="py-20 bg-gradient-to-b from-secondary/5 to-secondary/40" id="process">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-heading text-5xl md:text-6xl text-center text-primary mb-4">
+        <h2 className="font-heading font-thin text-5xl md:text-6xl text-center text-primary mb-4">
           Get to Know the <span className="font-cursive text-8xl md:text-9xl ml-2">process</span>
         </h2>
         <p className="text-center text-muted-foreground -mt-6 mb-16 font-sans">

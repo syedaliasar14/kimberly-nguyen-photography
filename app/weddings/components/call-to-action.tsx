@@ -11,7 +11,7 @@ export default function CallToAction() {
       />
 
       <div className="mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="font-heading text-4xl md:text-6xl mb-4">
+        <h2 className="font-heading font-thin text-4xl md:text-6xl mb-4">
           Ready to Book Your Wedding?
         </h2>
         <p className="text-lg mt-8 mb-4 font-sans">

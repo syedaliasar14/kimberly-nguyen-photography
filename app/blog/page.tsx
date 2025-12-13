@@ -18,7 +18,7 @@ export default async function BlogPage() {
       <div className="absolute h-[30vh] inset-0 bg-gradient-to-b from-secondary/30 to-transparent -z-10" />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h1 className="font-heading text-6xl text-primary mb-6">
+          <h1 className="font-heading font-thin text-6xl text-primary mb-6">
             The Blog
           </h1>
         </div>
@@ -53,7 +53,7 @@ export default async function BlogPage() {
                         })}
                       </span>
 
-                      <h2 className="font-heading text-2xl md:text-3xl text-primary mb-4 group-hover:text-accent transition-colors duration-300">
+                      <h2 className="font-heading font-thin text-2xl md:text-3xl text-primary mb-4 group-hover:text-accent transition-colors duration-300">
                         {blog.title}
                       </h2>
 
@@ -80,7 +80,7 @@ export default async function BlogPage() {
           <div className="text-center opacity-">
             <div className="mx-auto mb-4 w-24 h-1 bg-accent rounded" />
             <div className="p-8">
-              <h2 className="font-heading text-2xl text-primary mb-4 font-bold">
+              <h2 className="font-heading font-thin text-2xl text-primary mb-4 font-bold">
                 Coming Soon...
               </h2>
               <p className="max-w-2xl mx-auto">

@@ -22,7 +22,7 @@ After your wedding, I carefully curate and edit your images, ensuring each photo
   return (
     <section className="py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-heading text-5xl md:text-6xl text-center text-primary mb-16">
+        <h2 className="font-heading font-thin text-5xl md:text-6xl text-center text-primary mb-16">
           {title || defaultTitle}
         </h2>
 

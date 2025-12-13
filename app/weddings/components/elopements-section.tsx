@@ -17,7 +17,7 @@ export default function ElopementsSection({ title, text, image }: { title?: stri
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row gap-12 items-center">
         {/* Text Content */}
         <div className="space-y-6 md:w-2/3 w-full">
-          <h2 className="font-heading text-5xl sm:text-6xl lg:text-7xl text-center md:text-left text-primary">
+          <h2 className="font-heading font-thin text-5xl sm:text-6xl lg:text-7xl text-center md:text-left text-primary">
             {title || "Elopements"}
           </h2>
           <div className="text-center md:text-left font-sans text-lg md:text-xl text-primary whitespace-pre-wrap">

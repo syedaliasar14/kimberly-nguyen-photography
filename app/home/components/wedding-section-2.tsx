@@ -23,7 +23,7 @@ export default function WeddingSection2({ title, text, images }: { title?: strin
   return (
     <section className="pt-20 pb-8 relative overflow-hidden h-screen flex flex-col justify-end">
       {/* Background Slideshow */}
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 z-0">
         <div className='w-full h-[120%] -top-[10%] absolute inset-0'>
           <Swiper
             modules={[Autoplay, EffectFade]}
@@ -53,7 +53,7 @@ export default function WeddingSection2({ title, text, images }: { title?: strin
 
       {/* Content */}
       <div className="max-w-7xl px-4 md:px-8 z-20 text-white relative">
-        <h2 className="font-accent text-6xl mb-4">
+        <h2 className="font-heading font-thin font-thin text-6xl mb-4">
           {title || <>Capturing Your <div className="font-cursive text-9xl inline-block -rotate-10 ml-2 -translate-y-2">story</div></>}
         </h2>
         <p className='text-lg md:text-xl leading-relaxed whitespace-pre-wrap'>

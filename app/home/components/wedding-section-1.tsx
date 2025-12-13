@@ -12,15 +12,15 @@ import { urlFor } from '@/sanity/lib/image';
 
 export default function WeddingSection1({ title, text, images }: { title?: string; text?: string; images?: ImageWithAlt[] }) {
   return (
-    <section className="py-40 flex flex-col relative">
+    <section className="py-40 bg-background flex flex-col relative">
       <Image
         src="/marble2.jpg" alt=""
         fill sizes="100vw"
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none -z-10 opacity-50"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none z-0 opacity-50"
       />
 
       <div className="max-w-7xl flex flex-col mx-auto px-4 md:px-8 mb-12 z-20 text-stone-800">
-        <h2 className="font-accent text-6xl mb-4 text-center">
+        <h2 className="font-heading font-thin font-thin text-6xl mb-8 text-center">
           {title || "Wedding Photography"}
         </h2>
         <p className="mb-24 text-lg text-center whitespace-pre-wrap">
@@ -48,7 +48,7 @@ export default function WeddingSection1({ title, text, images }: { title?: strin
           navigation={{ nextEl: '.swiper-button-next-custom', prevEl: '.swiper-button-prev-custom' }}
           loop={true}
           autoplay={{ delay: 3000 }}
-          className="mySwiper w-full relative mx-4 md:mx-8"
+          className="mySwiper w-full relative mx-4 md:mx-8 z-10"
         >
           {images?.map((img, i) => (
             <SwiperSlide key={i}>
@@ -73,7 +73,7 @@ export default function WeddingSection1({ title, text, images }: { title?: strin
         </Swiper>
       </div>
 
-      <Link href="/weddings" className='btn bg-accent border-accent hover:bg-transparent hover:border-accent hover:text-accent self-center mx-8 mt-10 flex items-center group'>
+      <Link href="/weddings" className='btn z-10 bg-accent border-accent hover:bg-transparent hover:border-accent hover:text-accent self-center mx-8 mt-10 flex items-center group'>
         The Wedding Experience <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
       </Link>
 

@@ -10,7 +10,7 @@ export default function Footer() {
   if (pathname.startsWith('/studio')) { return null; }
 
   return (
-    <footer className="bg-stone-900 text-white pt-16 pb-8">
+    <footer className="bg-stone-900 z-50 text-white pt-16 pb-8">
       <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row gap-8 text-center md:text-left w-full justify-between">
 
@@ -18,9 +18,9 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center md:items-start gap-6 mb-8 md:mb-0 justify-center md:justify-start">
             <Image src="/white-logo.svg" alt="Kimberly Nguyen Photography" width={100} height={100} className="w-24" />
             <div>
-              <h3 className="font-sans text-3xl mb-4 ">Kimberly Nguyen Photography, LLC</h3>
-              <p className="leading-relaxed text-sm">
-                Capturing one of a kind moments,<br/>immortalized for generations.
+              <h3 className="font-heading font-thin text-3xl mb-4 ">Kimberly Nguyen Photography, LLC</h3>
+              <p className="leading-relaxed font-sans text-sm md:text-base">
+                Capturing one of a kind moments,<br /> immortalized for generations.
               </p>
             </div>
           </div>

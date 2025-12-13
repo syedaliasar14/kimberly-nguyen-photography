@@ -66,7 +66,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section ref={sectionRef} className="py-20 min-h-[80vh] flex items-center justify-center text-white relative text-white bg-primary overflow-hidden">
+    <section ref={sectionRef} className="py-20 min-h-[80vh] flex items-center justify-center text-white relative bg-primary overflow-hidden">
       <Image
         src="/bg/1.png"
         alt="Contact Form Background"
@@ -93,12 +93,12 @@ export default function ContactForm() {
           </p>
         </div>
       ) : (
-        <div className="max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 text-white z-10">
-          <h2 className="font-cursive text-9xl text-center">Contact</h2>
-          <h3 className="font-sans mb-6 text-center">Let's get in touch</h3>
+        <div className="max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 z-10">
+          <h2 className="font-heading font-thin text-7xl mb-4 text-center">Contact</h2>
+          <h3 className="font-sans mb-6 text-center uppercase text-sm tracking-widest">Let's get in touch</h3>
 
           <div>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 font-sans">
               <FieldGroup>
                 <div className='grid grid-cols-2 gap-4'>
                   <Controller control={form.control} name="firstName" render={({ field, fieldState }) => (
@@ -172,20 +172,21 @@ export default function ContactForm() {
                     <FieldDescription>Tell me when you need me, so I can check my calendar for availability.</FieldDescription>
                     <Popover open={openEventDate} onOpenChange={setOpenEventDate}>
                       <PopoverTrigger asChild>
-                        <Button variant="outline" id="date" className="w-48 justify-between bg-transparent font-normal">
+                        <Button variant="outline" id="date" className="w-48 justify-between !bg-transparent font-normal">
                           {field?.value ? field.value.toLocaleDateString() : "Select date"}
                           <ChevronDownIcon />
                         </Button>
                       </PopoverTrigger>
-                      <PopoverContent className="w-auto overflow-hidden p-0" align="start">
+                      <PopoverContent className="w-auto overflow-hidden p-0 rounded-none" align="start">
                         <Calendar
+                          className='font-sans rounded-none'
                           mode="single"
                           selected={field.value ? new Date(field.value) : undefined}
-                          captionLayout="dropdown"
                           onSelect={(date) => {
                             field.onChange(date)
                             setOpenEventDate(false)
                           }}
+                          disabled={(date) => date < new Date()}
                         />
                       </PopoverContent>
                     </Popover>
@@ -204,7 +205,7 @@ export default function ContactForm() {
 
                 <Controller control={form.control} name="inspo" render={({ field, fieldState }) => (
                   <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel htmlFor="inspo">Feel free to link a mood board/visual inspo here! <span className='font-normal opacity-80 text-sm italic'>(optional)</span></FieldLabel>
+                    <FieldLabel htmlFor="inspo">Link a mood board/visual inspo! <span className='font-normal opacity-80 text-sm italic'>(optional)</span></FieldLabel>
                     <Input {...field} id="inspo" autoComplete="off" placeholder="Links or short notes" aria-invalid={fieldState.invalid} />
                     {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
                   </Field>
@@ -231,7 +232,7 @@ export default function ContactForm() {
               </FieldGroup>
 
               <button type="submit" disabled={isSubmitting}
-                className={`w-full btn transition-colors ${isSubmitting
+                className={`w-full btn transition-colors uppercase text-sm ${isSubmitting
                   ? 'bg-muted/20 text-muted-foreground cursor-not-allowed'
                   : 'bg-accent text-white hover:bg-white hover:text-primary'
                   }`}

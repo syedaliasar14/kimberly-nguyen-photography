@@ -11,13 +11,13 @@ export default function CallToAction() {
       />
 
       <div className="mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="font-heading text-4xl md:text-6xl mb-4">
+        <h2 className="font-heading font-thin text-4xl md:text-5xl mb-4">
           Ready to Capture Your Special Day?
         </h2>
         <p className="text-lg md:text-xl mt-8 mb-4">
           Let's create something <span className="font-cursive text-4xl md:text-6xl mx-1">beautiful</span> together
         </p>
-        <Link href="/contact" className="inline-block bg-accent font-sans text-accent-foreground px-8 py-4 hover:bg-gradient-to-r hover:from-white hover:to-gray-100 hover:text-secondary-foreground transition-colors duration-300 text-lg">
+        <Link href="/contact" className="btn-accent">
           Schedule Your Consultation
         </Link>
       </div>

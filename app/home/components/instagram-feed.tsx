@@ -21,7 +21,7 @@ export default function InstagramFeed() {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="font-heading text-6xl text-primary mb-8">
+        <h2 className="font-heading font-thin text-6xl text-primary mb-8">
           Follow the Journey
         </h2>
         <p className="text-muted-foreground mb-12 text-lg">

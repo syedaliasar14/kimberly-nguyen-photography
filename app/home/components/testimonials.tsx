@@ -44,15 +44,15 @@ export default function Testimonials({ title, testimonials }: { title?: string; 
   }));
 
   return (
-    <section className="py-40 overflow-hidden relative" id="testimonials">
+    <section className="py-40 overflow-hidden bg-background relative" id="testimonials">
       <Image
         src="/marble2.jpg" alt=""
         width={2000} height={2000}
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none -z-10 opacity-50 blur-sm"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none z-0 opacity-50"
       />
 
-      <div className="mx-auto px-4 sm:px-6 lg:px-8 flex flex-col">
-        <h2 className="font-heading text-6xl mb-10 text-center">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 flex flex-col z-10 ">
+        <h2 className="font-heading font-thin text-6xl mb-10 z-10 text-center">
           {title || "What Couples Are Saying..."}
         </h2>
 

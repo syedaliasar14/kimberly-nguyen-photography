@@ -83,24 +83,25 @@ export default function FaqSection({ data }: FaqSectionProps) {
 
   return (
     <section className="py-20 relative bg-gradient-to-b from-secondary/20 to-secondary/50 overflow-hidden" id="faq">
+      
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-heading text-5xl sm:text-6xl text-center text-primary mb-16">
+        <h2 className="font-heading font-thin text-5xl sm:text-6xl text-center text-primary mb-16">
           {title}
         </h2>
 
         <div className="space-y-4">
           {faqs.map((faq, i) => (
-            <div key={`faq-${i}`} className="rounded-lg overflow-hidden group">
-              <button onClick={() => toggleItem(i)} className="w-full px-6 py-4 text-left bg-background transition-colors duration-200">
+            <div key={`faq-${i}`} className="overflow-hidden group">
+              <button onClick={() => toggleItem(i)} className="w-full font-sans px-6 py-4 text-left bg-background transition-colors duration-200">
                 <div className="flex justify-between items-center">
-                  <h3 className="font-semibold text-primary text-lg pr-4">
+                  <h3 className="font-heading font-thin text-primary text-lg pr-4">
                     {faq.question}
                   </h3>
                   <ChevronDownIcon className={`h-5 w-5 text-primary transition-transform duration-200 group-hover:text-accent transition-colors duration-200 flex-shrink-0 ${openItems.includes(i) ? 'rotate-180' : ''}`} />
                 </div>
 
                 <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openItems.includes(i) ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                  <div className="mt-4 transition-colors duration-200 leading-relaxed">
+                  <div className="font-serif  tracking-wider mt-4 transition-colors duration-200 leading-relaxed">
                     {faq.answer}
                   </div>
                 </div>

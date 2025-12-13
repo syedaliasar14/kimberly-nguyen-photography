@@ -15,7 +15,7 @@ export default function Testimonials({ data }: TestimonialsProps) {
   return (
     <section className="py-20 bg-gradient-to-b from-background via-background to-muted/10">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-heading text-4xl md:text-6xl text-center text-primary mb-16">
+        <h2 className="font-heading font-thin text-4xl md:text-6xl text-center text-primary mb-16">
           {title}
         </h2>
         

@@ -38,7 +38,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="font-heading text-2xl text-primary mb-4">Portfolio Not Found</h1>
+          <h1 className="font-heading font-thin text-2xl text-primary mb-4">Portfolio Not Found</h1>
           <Link href="/portfolio" className="text-accent hover:underline font-sans">
             ← Back to Portfolio
           </Link>
@@ -58,7 +58,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
           </Link>
 
           <div className="text-center">
-            <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-primary leading-tight">
+            <h1 className="font-heading font-thin text-3xl sm:text-4xl lg:text-5xl text-primary leading-tight">
               {portfolio.title}
             </h1>
           </div>
@@ -71,7 +71,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
       {/* Call to Action */}
       <section className="py-20 bg-gradient-to-b from-background to-secondary/20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h3 className="font-heading text-3xl md:text-4xl text-primary mb-6">
+          <h3 className="font-heading font-thin text-3xl md:text-4xl text-primary mb-6">
             Ready to Create Your Own Story?
           </h3>
           <p className="text-lg text-muted-foreground mb-4 font-sans leading-relaxed">

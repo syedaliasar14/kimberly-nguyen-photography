@@ -13,7 +13,7 @@ export default async function PortfolioPage() {
       {/* Hero Section */}
       <section className="pt-20 bg-gradient-to-b from-secondary/30 to-background">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-primary leading-tight">
+          <h1 className="font-heading font-thin text-4xl sm:text-5xl lg:text-6xl text-primary leading-tight">
             The Portfolio
           </h1>
         </div>
@@ -42,7 +42,7 @@ export default async function PortfolioPage() {
             </div>
           ) : (
             <div className="text-center py-16">
-              <h3 className="font-heading text-2xl text-primary mb-4">Coming Soon</h3>
+              <h3 className="font-heading font-thin text-2xl text-primary mb-4">Coming Soon</h3>
               <p className="text-muted-foreground text-lg font-sans max-w-2xl mx-auto">
                 We're currently curating our portfolio galleries. Check back soon to see
                 beautiful love stories and unforgettable moments we've captured.

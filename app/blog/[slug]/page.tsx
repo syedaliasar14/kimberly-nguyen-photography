@@ -49,13 +49,13 @@ const portableTextComponents: PortableTextComponents = {
   },
   block: {
     h2: ({ children }) => (
-      <h2 className="font-heading text-3xl mt-10 mb-4">{children}</h2>
+      <h2 className="font-heading font-thin text-3xl mt-10 mb-4">{children}</h2>
     ),
     h3: ({ children }) => (
-      <h3 className="font-heading text-2xl mt-8 mb-3">{children}</h3>
+      <h3 className="font-heading font-thin text-2xl mt-8 mb-3">{children}</h3>
     ),
     h4: ({ children }) => (
-      <h4 className="font-heading text-xl mt-6 mb-2">{children}</h4>
+      <h4 className="font-heading font-thin text-xl mt-6 mb-2">{children}</h4>
     ),
     normal: ({ children }) => (
       <p className="leading-relaxed mb-4">{children}</p>
@@ -108,7 +108,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
             Back to Blogs
           </Link>
 
-          <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-primary mb-6 leading-tight">
+          <h1 className="font-heading font-thin text-3xl sm:text-4xl lg:text-5xl text-primary mb-6 leading-tight">
             {blog.title}
           </h1>
 

@@ -28,7 +28,7 @@ export default function HeroSection({ title, text, images }: { title?: string; t
 
       <div className="max-w-7xl flex flex-col md:flex-row gap-6 items-start mx-auto px-4 md:px-8 py-12 z-10">
         <div className="flex flex-col mt-12">
-          <h1 className="font-heading text-6xl mb-4 relative">
+          <h1 className="font-heading font-thin text-6xl mb-4 relative">
             {/* <div className="absolute bottom-0 -left-4 -right-4 bg-accent h-[80%] px-4 rotate-2 opacity-75" /> */}
             {title || "Wedding Photography"}
           </h1>

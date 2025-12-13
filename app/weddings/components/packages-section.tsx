@@ -31,7 +31,7 @@ export default function PackagesSection({ packages }: { packages?: Package[] }) 
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
-        <h2 className="font-heading text-5xl sm:text-6xl text-center mb-4">
+        <h2 className="font-heading font-thin text-5xl sm:text-6xl text-center mb-4">
           Wedding Packages
         </h2>
         <p className="text-center font-sans mb-20">
@@ -65,14 +65,14 @@ export default function PackagesSection({ packages }: { packages?: Package[] }) 
               </div>
 
               <h3 className={`flex items-end mb-6 gap-4 text-4xl opacity-50 group-hover:opacity-100 transition-all ${pkg.isBest ? "text-accent opacity-100" : "text-primary group-hover:text-primary"}`}>
-                <span className={`font-heading text-5xl `}>
+                <span className={`font-heading font-thin text-5xl `}>
                   {index + 1}
                 </span>
                 <span className="font-allura -mb-2">{pkg.name}</span>
               </h3>
 
               <div className="mb-6">
-                <p className={`font-heading text-xl mb-2 ${pkg.isBest ? "text-accent" : "text-primary"}`}>
+                <p className={`font-heading font-thin text-xl mb-2 ${pkg.isBest ? "text-accent" : "text-primary"}`}>
                   Starting at ${pkg.price}
                 </p>
                 <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground font-sans">

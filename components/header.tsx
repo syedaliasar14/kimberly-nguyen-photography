@@ -44,7 +44,7 @@ export default function Header() {
   if (pathname.startsWith('/studio')) { return null; }
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 bg-primary/30 backdrop-blur-sm transition-transform duration-300 ${
+    <nav className={`fixed top-0 left-0 right-0 z-50 bg-stone-900 backdrop-blur-sm transition-transform duration-300 ${
       isVisible ? 'translate-y-0' : '-translate-y-full'
     }`}>
       <div className="w-full mx-auto py-2 px-4 sm:px-6 lg:px-8">
@@ -52,7 +52,7 @@ export default function Header() {
           <button onClick={() => setIsMenuOpen(true)} className="group" aria-label="Toggle menu">
             <MenuIcon className="w-6 h-6 text-white hover:text-accent transition-colors" />
           </button>
-          <Link href="/contact" className="btn bg-white py-1 px-4 text-sm text-primary border-white hover:bg-transparent hover:text-white hover:border-white">
+          <Link href="/contact" className="btn border-1 bg-white py-1 px-6 text-sm text-primary border-white hover:bg-transparent hover:text-white hover:border-white">
             Get in Touch
           </Link>
         </div>
