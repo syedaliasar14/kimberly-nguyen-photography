@@ -20,7 +20,7 @@ export default function ElopementsSection({ title, text, image }: { title?: stri
           <h2 className="font-heading text-5xl sm:text-6xl lg:text-7xl text-center md:text-left text-primary">
             {title || "Elopements"}
           </h2>
-          <div className="text-center md:text-left font-jost text-lg md:text-xl text-primary whitespace-pre-wrap">
+          <div className="text-center md:text-left font-sans text-lg md:text-xl text-primary whitespace-pre-wrap">
             {text || `Sometimes the most beautiful celebrations are the intimate ones. Elopements allow couples to focus purely on their commitment to each other in a meaningful setting.\n\nWhether it's a mountain peak, a quiet beach, or a charming courthouse, I'm here to document your love story with the same care and artistry as any grand celebration.`}
           </div>
           <div className="pt-4 text-center md:text-left">
@@ -31,7 +31,7 @@ export default function ElopementsSection({ title, text, image }: { title?: stri
         </div>
 
         {/* Image */}
-        <div className="relative md:w-1/3 w-full aspect-square overflow-hidden shadow-2xl rounded-full">
+        <div className="relative md:w-1/3 w-full aspect-square overflow-hidden shadow-2xl">
           {image && <Image
             src={urlFor(image).url()!}
             alt={image.alt || "Elopement Photography"}

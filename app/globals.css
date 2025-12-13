@@ -13,7 +13,7 @@
   --popover-foreground: oklch(0.18 0 0);
   --primary: oklch(21.6% 0.006 56.043);
   --primary-foreground: oklch(0.98 0 0);
-  --secondary: #846060;
+  --secondary: #c1a37f;
   --secondary-foreground: oklch(0.22 0 0);
   --accent: #dab364;
   --accent-foreground: oklch(0.98 0 0);
@@ -46,12 +46,10 @@
   --color-accent: var(--accent);
   --color-tertiary: var(--tertiary);
   --font-sans: "Jost", "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-serif: "Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-heading: "DM Serif Display", var(--font-serif);
-  --font-accent: "DM Serif Display", var(--font-serif);
-  --font-jost: "Jost", var(--font-sans);
-  --font-script: "Moontime", "Allura", var(--font-serif);
-  --font-allura: "Allura", var(--font-script);
+  --font-serif: "Instrument Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-heading: var(--font-serif);
+  --font-cursive: "Moontime", var(--font-serif);
+  --font-allura: "Allura", var(--font-serif);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -125,7 +123,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased selection:bg-accent selection:text-accent-foreground;
+    @apply bg-background text-foreground font-serif antialiased selection:bg-accent selection:text-accent-foreground;
   }
   button {
     @apply cursor-pointer;
@@ -134,13 +132,19 @@
     @apply backdrop-blur-lg
   }
   .btn {
-    @apply px-8 py-3 border-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 w-max rounded-full tracking-wider;
+    @apply px-8 py-3 border-2 border-transparent bg-primary text-primary-foreground hover:bg-white hover:text-primary transition-all duration-300 w-max tracking-wider;
+  }
+  .btn-white {
+    @apply px-8 py-3 border-2 border-transparent bg-white text-stone-900 hover:bg-stone-900 hover:text-white transition-all duration-300 w-max tracking-wider;
+  }
+  .btn-accent {
+    @apply px-8 py-3 border-2 border-transparent bg-accent text-accent-foreground hover:bg-white hover:text-accent transition-all duration-300 w-max tracking-wider;
   }
   .btn-outline {
-    @apply px-8 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 w-max rounded-full tracking-wider;
+    @apply px-8 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 w-max tracking-wider;
   }
   .btn-glass {
-    @apply px-8 py-3 border-2 border-transparent bg-white/20 text-white backdrop-blur-sm hover:bg-white/40 transition-all duration-300 w-max rounded-full tracking-wider;
+    @apply px-8 py-3 border-2 border-transparent bg-white/20 text-white backdrop-blur-sm hover:bg-white/40 transition-all duration-300 w-max tracking-wider;
   }
   html {
     scroll-behavior: smooth;

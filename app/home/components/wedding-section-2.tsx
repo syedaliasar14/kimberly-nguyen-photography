@@ -54,12 +54,12 @@ export default function WeddingSection2({ title, text, images }: { title?: strin
       {/* Content */}
       <div className="max-w-7xl px-4 md:px-8 z-20 text-white relative">
         <h2 className="font-accent text-6xl mb-4">
-          {title || <>Capturing Your <div className="font-script text-9xl inline-block -rotate-10 ml-2 -translate-y-2">story</div></>}
+          {title || <>Capturing Your <div className="font-cursive text-9xl inline-block -rotate-10 ml-2 -translate-y-2">story</div></>}
         </h2>
-        <p className='font-jost text-lg md:text-xl leading-relaxed whitespace-pre-wrap'>
+        <p className='text-lg md:text-xl leading-relaxed whitespace-pre-wrap'>
           {text || `From grand celebrations to quiet elopements, I document the joy, laughter, and tears that make your wedding day unforgettable. Each photograph tells a story, capturing those intimate moments that words cannot fully express. As the couple exchanges vows, the love in their eyes speaks volumes, and I am there to preserve that timeless memory.`}
         </p>
-        <Link href='#testimonials' className="mt-6 btn bg-white/20 font-jost tracking-wide hover:bg-white/40 backdrop-blur-sm group rounded-full flex items-center">
+        <Link href='#testimonials' className="mt-6 btn-white group flex items-center">
           Read Testimonials
           <ChevronDown className="w-4 h-4 ml-2" />
         </Link>

@@ -39,7 +39,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="font-heading text-2xl text-primary mb-4">Portfolio Not Found</h1>
-          <Link href="/portfolio" className="text-accent hover:underline font-jost">
+          <Link href="/portfolio" className="text-accent hover:underline font-sans">
             ← Back to Portfolio
           </Link>
         </div>
@@ -52,7 +52,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
       {/* Hero Section */}
       <section className="py-12 bg-gradient-to-b from-secondary/20 to-background">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/portfolio" className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors duration-300 my-8 font-jost">
+          <Link href="/portfolio" className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors duration-300 my-8 font-sans">
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Portfolio
           </Link>
@@ -74,15 +74,15 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
           <h3 className="font-heading text-3xl md:text-4xl text-primary mb-6">
             Ready to Create Your Own Story?
           </h3>
-          <p className="text-lg text-muted-foreground mb-4 font-jost leading-relaxed">
+          <p className="text-lg text-muted-foreground mb-4 font-sans leading-relaxed">
             Every beautiful story deserves to be told with intention and heart.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link href="/contact" className="btn rounded-full hover:bg-accent">
+            <Link href="/contact" className="btn hover:bg-accent">
               Book Your Session
             </Link>
-            <Link href="/portfolio" className="btn-outline rounded-full hover:bg-primary hover:text-primary-foreground">
+            <Link href="/portfolio" className="btn-outline hover:bg-primary hover:text-primary-foreground">
               View More Work
             </Link>
           </div>

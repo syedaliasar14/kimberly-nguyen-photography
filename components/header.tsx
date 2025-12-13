@@ -52,8 +52,8 @@ export default function Header() {
           <button onClick={() => setIsMenuOpen(true)} className="group" aria-label="Toggle menu">
             <MenuIcon className="w-6 h-6 text-white hover:text-accent transition-colors" />
           </button>
-          <Link href="/" className="flex items-center">
-            <Image src="/white-logo.svg" alt="Kimberly Nguyen Photography" width={50} height={50} className="w-8" />
+          <Link href="/contact" className="btn bg-white py-1 px-4 text-sm text-primary border-white hover:bg-transparent hover:text-white hover:border-white">
+            Get in Touch
           </Link>
         </div>
       </div>
@@ -72,7 +72,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-lg hover:text-secondary transition-colors font-jost tracking-widest"
+                className="text-lg hover:text-secondary transition-colors font-sans tracking-widest"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.label}
@@ -80,7 +80,7 @@ export default function Header() {
             ))}
           </div>
           <SheetFooter>
-            <p className="text-muted-foreground text-xs text-center font-jost">
+            <p className="text-muted-foreground text-xs text-center font-sans">
               © {new Date().getFullYear()} Kimberly Nguyen Photography, LLC.
               <br />
               All rights reserved.

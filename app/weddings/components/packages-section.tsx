@@ -34,7 +34,7 @@ export default function PackagesSection({ packages }: { packages?: Package[] }) 
         <h2 className="font-heading text-5xl sm:text-6xl text-center mb-4">
           Wedding Packages
         </h2>
-        <p className="text-center font-jost mb-20">
+        <p className="text-center font-sans mb-20">
           Choose the perfect coverage for your day
         </p>
 
@@ -49,7 +49,7 @@ export default function PackagesSection({ packages }: { packages?: Package[] }) 
 
               {/* Popular Badge */}
               {pkg.isBestValue && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent font-jost text-accent-foreground px-6 py-1 rounded-full text-sm shadow-lg">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent font-sans text-accent-foreground px-6 py-1 rounded-full text-sm shadow-lg">
                   best value
                 </div>
               )}
@@ -75,7 +75,7 @@ export default function PackagesSection({ packages }: { packages?: Package[] }) 
                 <p className={`font-heading text-xl mb-2 ${pkg.isBestValue ? "text-accent" : "text-primary"}`}>
                   Starting at ${pkg.price}
                 </p>
-                <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground font-jost">
+                <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground font-sans">
                   {pkg.features?.map((feature, idx) => (
                     <li key={idx}>{feature}</li>
                   ))}
@@ -83,10 +83,10 @@ export default function PackagesSection({ packages }: { packages?: Package[] }) 
               </div>
 
               <div className="border-t border-border pt-6 mb-6">
-                <p className="font-jost text-muted-foreground leading-relaxed mb-4">
+                <p className="font-sans text-muted-foreground leading-relaxed mb-4">
                   {pkg.description}
                 </p>
-                <p className="font-jost text-accent">
+                <p className="font-sans text-accent">
                   ✨ {pkg.bonus}
                 </p>
               </div>

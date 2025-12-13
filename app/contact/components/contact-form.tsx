@@ -76,7 +76,7 @@ export default function ContactForm() {
 
       {submitted ? (
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-          <h1 className="font-script text-8xl md:text-9xl mb-6">Thanks!</h1>
+          <h1 className="font-cursive text-8xl md:text-9xl mb-6">Thanks!</h1>
           <p className="text-xl mb-8 leading-relaxed">
             I've received your inquiry and I'll be in touch within 2-3 business days to schedule our consultation.
           </p>
@@ -88,14 +88,14 @@ export default function ContactForm() {
             </Link>{' '}
             to see my latest work.
           </p>
-          <p className="font-script text-4xl mt-12 px-10 w-max ml-auto -rotate-5">
+          <p className="font-cursive text-4xl mt-12 px-10 w-max ml-auto -rotate-5">
             talk soon! -KN
           </p>
         </div>
       ) : (
         <div className="max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 text-white z-10">
-          <h2 className="font-script text-9xl text-center">Contact</h2>
-          <h3 className="font-jost mb-6 text-center">Let's get in touch</h3>
+          <h2 className="font-cursive text-9xl text-center">Contact</h2>
+          <h3 className="font-sans mb-6 text-center">Let's get in touch</h3>
 
           <div>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">

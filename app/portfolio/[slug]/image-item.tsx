@@ -25,7 +25,7 @@ export default function ImageItem({ data, onClick }: { data: IImageItem; onClick
       </div>
       {data.caption && (
         <div className="p-3 bg-white">
-          <p className="text-sm text-muted-foreground italic font-jost">
+          <p className="text-sm text-muted-foreground italic font-sans">
             {data.caption}
           </p>
         </div>

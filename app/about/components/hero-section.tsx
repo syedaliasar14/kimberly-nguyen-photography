@@ -30,7 +30,7 @@ My goal in my work is to document and capture one-of-a-kind memories that will b
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="font-heading text-5xl md:text-6xl mb-8 text-center md:text-left">
-          {title || defaultTitle} <span className="font-script text-9xl ml-2">me!</span>
+          {title || defaultTitle} <span className="font-cursive text-9xl ml-2">me!</span>
         </h1>
 
         <div className="relative">
@@ -42,7 +42,7 @@ My goal in my work is to document and capture one-of-a-kind memories that will b
               height={1000}
               className="w-full h-full object-cover shadow-lg"
             />
-            <span className="absolute bottom-4 right-4 text-white text-xl rotate-12 font-script px-2 py-1 rounded-tl-md">-KN</span>
+            <span className="absolute bottom-4 right-4 text-white text-xl rotate-12 font-cursive px-2 py-1 rounded-tl-md">-KN</span>
           </div>
 
           <div className="text-xl leading-relaxed whitespace-pre-wrap">

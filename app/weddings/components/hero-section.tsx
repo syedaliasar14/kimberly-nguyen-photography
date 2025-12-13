@@ -31,13 +31,8 @@ export default function HeroSection({ title, text, images }: { title?: string; t
           <h1 className="font-heading text-6xl mb-4 relative">
             {/* <div className="absolute bottom-0 -left-4 -right-4 bg-accent h-[80%] px-4 rotate-2 opacity-75" /> */}
             {title || "Wedding Photography"}
-            <Image
-              src="/rings-line-art.svg" alt="Rings Line Art"
-              width={1200} height={800}
-              className="absolute right-4 top-0 w-14 h-auto select-none pointer-events-none opacity-80"
-            />
           </h1>
-          <p className="font-jost text-xl md:text-2xl max-w-3xl mx-auto mb-12 leading-relaxed">
+          <p className="font-sans text-xl md:text-2xl max-w-3xl mx-auto mb-12 leading-relaxed">
             {text || `Every love story is unique, deserving to be captured with intention and heart.
             I believe in documenting the authentic moments—the quiet glances, joyful tears,
             and everything in between that makes your day truly yours.`}

@@ -103,7 +103,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
       {/* Hero Section */}
       <section className="pt-20 pb-8 bg-gradient-to-b from-secondary/20 to-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/blog" className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors duration-300 mb-8 font-jost">
+          <Link href="/blog" className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors duration-300 mb-8 font-sans">
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Blogs
           </Link>
@@ -122,7 +122,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
               className="rounded-full object-cover h-12 w-12"
             />
             <div>
-              <p className="font-jost font-medium text-primary">Kimberly Nguyen</p>
+              <p className="font-sans font-medium text-primary">Kimberly Nguyen</p>
               <p className="text-sm text-muted-foreground">
                 {new Date(blog.publishedAt).toLocaleDateString('en-US', {
                   year: 'numeric',
@@ -170,7 +170,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
               className="object-contain"
             />
           </div>
-          <p className="text-lg text-muted-foreground mb-4 font-jost leading-relaxed">
+          <p className="text-lg text-muted-foreground mb-4 font-sans leading-relaxed">
             Let's capture beautiful moments together.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

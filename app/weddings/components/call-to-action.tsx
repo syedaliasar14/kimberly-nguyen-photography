@@ -14,10 +14,10 @@ export default function CallToAction() {
         <h2 className="font-heading text-4xl md:text-6xl mb-4">
           Ready to Book Your Wedding?
         </h2>
-        <p className="text-lg mt-8 mb-4 font-jost">
-          It's time to capture <span className="font-script text-5xl md:text-7xl mx-1">your</span> love story
+        <p className="text-lg mt-8 mb-4 font-sans">
+          It's time to capture <span className="font-cursive text-5xl md:text-7xl mx-1">your</span> love story
         </p>
-        <Link href="/contact" className="inline-block bg-accent font-jost text-accent-foreground px-8 py-4 rounded-full hover:bg-gradient-to-r hover:from-white hover:to-gray-100 hover:text-secondary-foreground transition-colors duration-300 text-lg">
+        <Link href="/contact" className="inline-block bg-accent font-sans text-accent-foreground px-8 py-4 hover:bg-gradient-to-r hover:from-white hover:to-gray-100 hover:text-secondary-foreground transition-colors duration-300 text-lg">
           Schedule Your Consultation
         </Link>
       </div>

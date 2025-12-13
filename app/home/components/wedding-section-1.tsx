@@ -14,22 +14,16 @@ export default function WeddingSection1({ title, text, images }: { title?: strin
   return (
     <section className="py-40 flex flex-col relative">
       <Image
-        src="/bg/1.png" alt=""
+        src="/marble2.jpg" alt=""
         fill sizes="100vw"
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none blur-sm z-0 opacity-10"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none -z-10 opacity-50"
       />
 
       <div className="max-w-7xl flex flex-col mx-auto px-4 md:px-8 mb-12 z-20 text-stone-800">
-        <Image
-          src="/heart-line-art.svg" alt="Testimonials"
-          width={1200} height={800}
-          className="w-78 h-auto self-center mb-16 select-none pointer-events-none opacity-80"
-        />
-
         <h2 className="font-accent text-6xl mb-4 text-center">
           {title || "Wedding Photography"}
         </h2>
-        <p className="mb-24 font-jost text-lg text-center whitespace-pre-wrap">
+        <p className="mb-24 text-lg text-center whitespace-pre-wrap">
           {text || `Every love story is unique. I specialize in capturing the intimate moments, genuine emotions, and natural connections that make your day truly yours. Whether it's the stolen glances, the heartfelt laughter, or the tender embraces, each detail is a thread in the tapestry of your romance. I approach every shoot with an eye for authenticity and a passion for storytelling, ensuring that your memories are preserved as beautifully as the day itself.`}
         </p>
       </div>
@@ -70,10 +64,10 @@ export default function WeddingSection1({ title, text, images }: { title?: strin
             </SwiperSlide>
           ))}
 
-          {/* <div className="swiper-button-prev-custom absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-black/80 hover:bg-primary/50 rounded-full flex items-center justify-center cursor-pointer transition-all">
+          {/* <div className="swiper-button-prev-custom absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-black/80 hover:bg-primary/50 flex items-center justify-center cursor-pointer transition-all">
             <ChevronLeft className="w-6 h-6 text-white" />
           </div>
-          <div className="swiper-button-next-custom absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-black/80 hover:bg-primary/50 rounded-full flex items-center justify-center cursor-pointer transition-all">
+          <div className="swiper-button-next-custom absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-black/80 hover:bg-primary/50 flex items-center justify-center cursor-pointer transition-all">
             <ChevronRight className="w-6 h-6 text-white" />
           </div> */}
         </Swiper>

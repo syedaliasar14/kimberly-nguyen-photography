@@ -52,7 +52,7 @@ export default function PortfolioGallery() {
           <h2 className="font-heading text-5xl sm:text-6xl text-center mb-4">
             Portfolio Gallery
           </h2>
-          <p className="text-center mb-16 font-jost">
+          <p className="text-center mb-16 font-sans">
             Loading recent celebrations...
           </p>
         </div>
@@ -72,7 +72,7 @@ export default function PortfolioGallery() {
         <h2 className="font-heading text-5xl sm:text-6xl text-center mb-4">
           Portfolio Gallery
         </h2>
-        <p className="text-center mb-16 font-jost">
+        <p className="text-center mb-16 font-sans">
           A glimpse into recent celebrations
         </p>
 
@@ -104,15 +104,14 @@ export default function PortfolioGallery() {
                         slug={portfolio.slug.current}
                         thumbnailUrl={thumbnailUrl}
                         index={index}
-                        rotate={true}
                       />
                     </SwiperSlide>
                   );
                 })}
-                <div className="swiper-button-prev-custom absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-black/80 hover:bg-primary/50 rounded-full flex items-center justify-center cursor-pointer transition-all">
+                <div className="swiper-button-prev-custom absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center cursor-pointer transition-all">
                   <ChevronLeft className="w-6 h-6 text-white" />
                 </div>
-                <div className="swiper-button-next-custom absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-black/80 hover:bg-primary/50 rounded-full flex items-center justify-center cursor-pointer transition-all">
+                <div className="swiper-button-next-custom absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center cursor-pointer transition-all">
                   <ChevronRight className="w-6 h-6 text-white" />
                 </div>
               </Swiper>
@@ -132,7 +131,6 @@ export default function PortfolioGallery() {
                     slug={portfolio.slug.current}
                     thumbnailUrl={thumbnailUrl}
                     index={index}
-                    rotate={true}
                   />
                 );
               })}
@@ -140,13 +138,13 @@ export default function PortfolioGallery() {
           </>
         ) : (
           <div className="text-center py-16">
-            <p className="text-white/80 font-jost text-lg">
+            <p className="text-white/80 font-sans text-lg">
               Portfolio coming soon...
             </p>
           </div>
         )}
 
-        <Link href="/portfolio" className="btn-outline rounded-full text-white border-white hover:text-primary hover:bg-white mx-auto block mt-12 flex items-center gap-2">
+        <Link href="/portfolio" className="btn-outline text-white border-white hover:text-primary hover:bg-white mx-auto block mt-12 flex items-center gap-2">
           View Full Gallery <ChevronRight className="size-4" />
         </Link>
       </div>

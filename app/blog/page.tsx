@@ -45,7 +45,7 @@ export default async function BlogPage() {
 
                     {/* Content Section */}
                     <div className={`w-full md:w-1/2 flex flex-col justify-center md:pl-4`}>
-                      <span className="text-sm text-muted-foreground mb-3 font-jost tracking-wide uppercase">
+                      <span className="text-sm text-muted-foreground mb-3 font-sans tracking-wide uppercase">
                         {new Date(blog.publishedAt).toLocaleDateString('en-US', {
                           year: 'numeric',
                           month: 'long',
@@ -59,7 +59,7 @@ export default async function BlogPage() {
 
                       <div className={`w-12 h-0.5 bg-accent/50 mb-4 mr-auto`} />
 
-                      <span className={`inline-flex items-center text-primary group-hover:text-accent transition-colors duration-300 font-medium font-jost mr-auto`}>
+                      <span className={`inline-flex items-center text-primary group-hover:text-accent transition-colors duration-300 font-medium font-sans mr-auto`}>
                         Read Article
                         <svg className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

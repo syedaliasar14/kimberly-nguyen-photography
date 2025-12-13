@@ -16,7 +16,7 @@ export default function EngagementsSection({ title, text, image }: { title?: str
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row gap-12 items-center">
         {/* Image */}
-        <div className="relative w-full md:w-1/3 aspect-square overflow-hidden shadow-2xl rounded-full">
+        <div className="relative w-full md:w-1/3 aspect-square overflow-hidden shadow-2xl">
           {image && <Image
             src={urlFor(image).url()!}
             alt={image.alt || "Engagement Photography"}
@@ -31,7 +31,7 @@ export default function EngagementsSection({ title, text, image }: { title?: str
           <h2 className="font-heading text-accent text-5xl sm:text-7xl mb-6">
             {title || "Engagement Sessions"}
           </h2>
-          <p className="font-jost text-lg md:text-xl text-white leading-relaxed mb-8 whitespace-pre-wrap">
+          <p className="font-sans text-lg md:text-xl text-white leading-relaxed mb-8 whitespace-pre-wrap">
             {text || "Engagement sessions are a wonderful way to celebrate this special time in your relationship and get comfortable with your photographer before the big day. These sessions are perfect for save-the-dates, wedding websites, and displays at your reception. Let's capture the excitement and joy of this chapter in your love story."}
           </p>
           <Link href="/contact" className="btn bg-accent text-white hover:bg-white hover:text-primary">

@@ -43,11 +43,11 @@ export default async function PortfolioPage() {
           ) : (
             <div className="text-center py-16">
               <h3 className="font-heading text-2xl text-primary mb-4">Coming Soon</h3>
-              <p className="text-muted-foreground text-lg font-jost max-w-2xl mx-auto">
+              <p className="text-muted-foreground text-lg font-sans max-w-2xl mx-auto">
                 We're currently curating our portfolio galleries. Check back soon to see
                 beautiful love stories and unforgettable moments we've captured.
               </p>
-              <Link href="/contact" className="inline-block mt-8 rounded-full hover:bg-accent btn">
+              <Link href="/contact" className="inline-block mt-8 hover:bg-accent btn">
                 Book Your Session
               </Link>
             </div>

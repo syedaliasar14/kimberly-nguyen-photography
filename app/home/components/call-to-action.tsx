@@ -15,9 +15,9 @@ export default function CallToAction() {
           Ready to Capture Your Special Day?
         </h2>
         <p className="text-lg md:text-xl mt-8 mb-4">
-          Let's create something <span className="font-script text-4xl md:text-6xl mx-1">beautiful</span> together
+          Let's create something <span className="font-cursive text-4xl md:text-6xl mx-1">beautiful</span> together
         </p>
-        <Link href="/contact" className="inline-block bg-accent font-jost text-accent-foreground px-8 py-4 rounded-full hover:bg-gradient-to-r hover:from-white hover:to-gray-100 hover:text-secondary-foreground transition-colors duration-300 text-lg">
+        <Link href="/contact" className="inline-block bg-accent font-sans text-accent-foreground px-8 py-4 hover:bg-gradient-to-r hover:from-white hover:to-gray-100 hover:text-secondary-foreground transition-colors duration-300 text-lg">
           Schedule Your Consultation
         </Link>
       </div>

@@ -89,7 +89,7 @@ export default function PrivacyPolicyPage() {
               1. What Information Do We Collect?
             </h2>
             
-            <h3 className="font-jost text-xl font-medium text-stone-800 mb-4">
+            <h3 className="font-sans text-xl font-medium text-stone-800 mb-4">
               Personal Information You Disclose to Us
             </h3>
             <p className="text-stone-600 font-medium mb-4">
@@ -112,7 +112,7 @@ export default function PrivacyPolicyPage() {
               <strong>Sensitive Information:</strong> We do not process sensitive information.
             </p>
             
-            <h3 className="font-jost text-xl font-medium text-stone-800 mb-4">
+            <h3 className="font-sans text-xl font-medium text-stone-800 mb-4">
               Information Automatically Collected
             </h3>
             <p className="text-stone-600 font-medium mb-4">
@@ -357,14 +357,14 @@ export default function PrivacyPolicyPage() {
               Category A - As long as the user has an account with us
             </p>
 
-            <h3 className="font-jost text-xl font-medium text-stone-800 mb-4">
+            <h3 className="font-sans text-xl font-medium text-stone-800 mb-4">
               Sources of Personal Information
             </h3>
             <p className="text-stone-700 leading-relaxed mb-6">
               Learn more about the sources of personal information we collect in "<Link href="#information-we-collect" className="text-secondary hover:underline">What Information Do We Collect?</Link>"
             </p>
 
-            <h3 className="font-jost text-xl font-medium text-stone-800 mb-4">
+            <h3 className="font-sans text-xl font-medium text-stone-800 mb-4">
               How We Use and Share Personal Information
             </h3>
             <p className="text-stone-700 leading-relaxed mb-4">
@@ -378,7 +378,7 @@ export default function PrivacyPolicyPage() {
               <p>We have not disclosed, sold, or shared any personal information to third parties for a business or commercial purpose in the preceding twelve (12) months. We will not sell or share personal information in the future belonging to website visitors, users, and other consumers.</p>
             </div>
 
-            <h3 className="font-jost text-xl font-medium text-stone-800 mb-4">
+            <h3 className="font-sans text-xl font-medium text-stone-800 mb-4">
               Your Rights
             </h3>
             <p className="text-stone-700 leading-relaxed mb-4">
@@ -409,7 +409,7 @@ export default function PrivacyPolicyPage() {
               <li>Right to opt out of the collection of sensitive data and personal data collected through the operation of a voice or facial recognition feature (as permitted by applicable law, including Florida's privacy law)</li>
             </ul>
 
-            <h3 className="font-jost text-xl font-medium text-stone-800 mb-4">
+            <h3 className="font-sans text-xl font-medium text-stone-800 mb-4">
               How to Exercise Your Rights
             </h3>
             <p className="text-stone-700 leading-relaxed mb-4">
@@ -419,7 +419,7 @@ export default function PrivacyPolicyPage() {
               Under certain US state data protection laws, you can designate an authorized agent to make a request on your behalf. We may deny a request from an authorized agent that does not submit proof that they have been validly authorized to act on your behalf in accordance with applicable laws.
             </p>
 
-            <h3 className="font-jost text-xl font-medium text-stone-800 mb-4">
+            <h3 className="font-sans text-xl font-medium text-stone-800 mb-4">
               Request Verification
             </h3>
             <p className="text-stone-700 leading-relaxed mb-4">
@@ -429,14 +429,14 @@ export default function PrivacyPolicyPage() {
               If you submit the request through an authorized agent, we may need to collect additional information to verify your identity before processing your request and the agent will need to provide a written and signed permission from you to submit such request on your behalf.
             </p>
 
-            <h3 className="font-jost text-xl font-medium text-stone-800 mb-4">
+            <h3 className="font-sans text-xl font-medium text-stone-800 mb-4">
               Appeals
             </h3>
             <p className="text-stone-700 leading-relaxed mb-6">
               Under certain US state data protection laws, if we decline to take action regarding your request, you may appeal our decision by emailing us at <a href="mailto:kimberlypnguyenphotography@gmail.com" className="text-secondary hover:underline">kimberlypnguyenphotography@gmail.com</a>. We will inform you in writing of any action taken or not taken in response to the appeal, including a written explanation of the reasons for the decisions. If your appeal is denied, you may submit a complaint to your state attorney general.
             </p>
 
-            <h3 className="font-jost text-xl font-medium text-stone-800 mb-4">
+            <h3 className="font-sans text-xl font-medium text-stone-800 mb-4">
               California "Shine The Light" Law
             </h3>
             <p className="text-stone-700 leading-relaxed">

@@ -17,7 +17,7 @@ interface Testimonial {
 }
 
 const TestimonialCard = ({ data }: { data: Testimonial }) => (
-  <div className="bg-background p-6 rounded-lg shadow-sm border border-border md:hover:shadow-2xl transition-shadow cursor-default">
+  <div className="bg-background p-6 transition-shadow cursor-default">
     <div className="flex items-center mb-4">
       <div className="flex text-accent">
         {'★'.repeat(5)}
@@ -26,7 +26,7 @@ const TestimonialCard = ({ data }: { data: Testimonial }) => (
     <p className="text-muted-foreground italic mb-4 leading-relaxed">
       "{data.quote}"
     </p>
-    <p className="text-lg text-primary font-allura">- {data.name}</p>
+    <p className="text-lg text-primary">- {data.name}</p>
   </div>
 );
 
@@ -46,9 +46,9 @@ export default function Testimonials({ title, testimonials }: { title?: string; 
   return (
     <section className="py-40 overflow-hidden relative" id="testimonials">
       <Image
-        src="/bg/1.png" alt=""
+        src="/marble2.jpg" alt=""
         width={2000} height={2000}
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none z-0 opacity-10 blur-sm"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none -z-10 opacity-50 blur-sm"
       />
 
       <div className="mx-auto px-4 sm:px-6 lg:px-8 flex flex-col">
@@ -81,10 +81,10 @@ export default function Testimonials({ title, testimonials }: { title?: string; 
           </Swiper>
 
           {/* Mobile Navigation Buttons */}
-          <div className="testimonial-button-prev-mobile absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer transition-all -translate-x-4">
+          <div className="testimonial-button-prev-mobile absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center cursor-pointer transition-all -translate-x-4">
             <ChevronLeft className="w-5 h-5 text-primary/50" />
           </div>
-          <div className="testimonial-button-next-mobile absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer transition-all translate-x-4">
+          <div className="testimonial-button-next-mobile absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center cursor-pointer transition-all translate-x-4">
             <ChevronRight className="w-5 h-5 text-primary/50" />
           </div>
         </div>

@@ -55,9 +55,9 @@ export default function HeroSection({ tagline, images }: { tagline?: string; ima
       {/* Content */}
       <div className="w-full mx-auto px-4 md:px-8 text-center flex flex-col justify-between flex-grow pt-4 relative z-20">
         <div className="flex flex-col gap-4 mt-4">
-          <h1 className="font-script text-6xl md:text-8xl -mb-2">Kimberly Nguyen</h1>
-          <h2 className="font-jost text-2xl md:text-2xl tracking-widest uppercase">Photography, LLC</h2>
-          {/* <p className="text-sm md:text-lg font-jost tracking-widest flex flex-col md:flex-row gap-2 justify-center">
+          <h1 className="font-heading text-6xl md:text-8xl">Kimberly Nguyen</h1>
+          <h2 className="text-2xl md:text-2xl tracking-widest uppercase">Photography, LLC</h2>
+          {/* <p className="text-sm md:text-lg font-sans tracking-widest flex flex-col md:flex-row gap-2 justify-center">
             <span>Wedding & Lifestyle Photographer | </span>
             <span>CT, NY & MA</span>
           </p> */}
@@ -65,7 +65,7 @@ export default function HeroSection({ tagline, images }: { tagline?: string; ima
 
         <div className="flex flex-col-reverse md:flex-row justify-between items-end">
           <div className="flex flex-col gap-4 mb-12">
-            <div className="self-start text-left text-2xl sm:text-3xl font-jost">
+            <div className="self-start text-left text-2xl sm:text-3xl">
               {tagline || `Capturing one of a kind moments, immortalized for generations.`}
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-start ">

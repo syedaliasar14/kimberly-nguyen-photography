@@ -18,7 +18,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center md:items-start gap-6 mb-8 md:mb-0 justify-center md:justify-start">
             <Image src="/white-logo.svg" alt="Kimberly Nguyen Photography" width={100} height={100} className="w-24" />
             <div>
-              <h3 className="font-jost text-3xl mb-4 ">Kimberly Nguyen Photography, LLC</h3>
+              <h3 className="font-sans text-3xl mb-4 ">Kimberly Nguyen Photography, LLC</h3>
               <p className="leading-relaxed text-sm">
                 Capturing one of a kind moments,<br/>immortalized for generations.
               </p>
@@ -26,7 +26,7 @@ export default function Footer() {
           </div>
 
           {/* Navigation Links */}
-          <div className='px-4 md:border-l md:border-stone-700 px-4 md:columns-2 space-y-2 gap-x-12 uppercase font-jost'>
+          <div className='px-4 md:border-l md:border-stone-700 px-4 md:columns-2 space-y-2 gap-x-12 uppercase font-sans'>
             <Link href="/" className="block w-max mx-auto md:mx-0 hover:text-secondary transition-colors">
               Home
             </Link>
@@ -89,10 +89,10 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-stone-700 mt-12 pt-8 text-center">
-          <p className="text-sm font-jost">
+          <p className="text-sm font-sans">
             © {new Date().getFullYear()} Kimberly Nguyen Photography, LLC. All rights reserved.
           </p>
-          <p className="text-xs font-jost text-stone-400 mt-2">
+          <p className="text-xs font-sans text-stone-400 mt-2">
             <Link href="/privacy-policy" className="hover:text-secondary transition-colors">
               Privacy Policy
             </Link>

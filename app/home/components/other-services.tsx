@@ -14,7 +14,7 @@ import { urlFor } from '@/sanity/lib/image';
 export default function OtherServices({ title, services }: { title?: string; services?: { service?: string; description?: string; image?: ImageWithAlt }[] }) {
   return (
     <section className="relative h-screen overflow-hidden">
-      <h2 className="absolute font-script text-white text-5xl -rotate-10 z-10 top-8 w-full px-4 md:px-8">
+      <h2 className="absolute font-cursive text-white text-5xl -rotate-10 z-10 top-8 w-full px-4 md:px-8">
         {title || "Looking for something else?"}
       </h2>
 
