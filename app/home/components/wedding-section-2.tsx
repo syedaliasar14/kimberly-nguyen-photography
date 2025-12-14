@@ -51,14 +51,14 @@ export default function WeddingSection2({ title, text, images }: { title?: strin
                   alt={img.alt || `Connecticut Wedding Photographer`}
                   fill sizes='100vw'
                 />
-
-                {/* Overlay for content readability */}
-                <div className="absolute z-10 inset-0 bg-stone-950/30" />
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
       </div>
+      
+      {/* Overlay for content readability */}
+      <div className="absolute z-10 inset-0 bg-gradient-to-b from-transparent to-stone-950/30" />
 
       {/* Content */}
       <div className="max-w-7xl px-4 md:px-8 z-20 text-white relative">
