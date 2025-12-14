@@ -46,9 +46,9 @@ export default function Testimonials({ title, testimonials }: { title?: string; 
   return (
     <section className="py-40 overflow-hidden bg-background relative" id="testimonials">
       <Image
-        src="/marble2.jpg" alt=""
+        src="/leather1.jpg" alt=""
         width={2000} height={2000}
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none z-0 opacity-50"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none z-0 opacity-30"
       />
 
       <div className="mx-auto px-4 sm:px-6 lg:px-8 flex flex-col z-10 ">

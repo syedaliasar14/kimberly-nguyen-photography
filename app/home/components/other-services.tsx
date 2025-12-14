@@ -22,15 +22,14 @@ export default function OtherServices({ title, services }: { title?: string; ser
       <Swiper
         modules={[Autoplay, Navigation, Pagination]}
         slidesPerView={1}
+        breakpoints={{
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+          1536: { slidesPerView: 4},
+        }}
         loop={true}
-        autoplay={{
-          delay: 8000,
-          disableOnInteraction: false,
-        }}
-        navigation={{
-          prevEl: '.swiper-button-prev-custom',
-          nextEl: '.swiper-button-next-custom',
-        }}
+        autoplay={{ delay: 5000, disableOnInteraction: false }}
+        navigation={{ prevEl: '.swiper-button-prev-custom', nextEl: '.swiper-button-next-custom' }}
         pagination={{ clickable: true }}
         className="w-full h-full"
       >
@@ -73,10 +72,10 @@ export default function OtherServices({ title, services }: { title?: string; ser
 
       {/* Custom Navigation Button */}
       <div>
-        <div className="swiper-button-prev-custom absolute top-1/2 left-0 -translate-y-1/2 p-2 text-white group z-30 cursor-pointer" aria-label="Previous service">
+        <div className="swiper-button-prev-custom absolute top-1/3 left-0 p-2 text-white group z-30 cursor-pointer" aria-label="Previous service">
           <ChevronLeft className="size-8 stroke-1" />
         </div>
-        <div className="swiper-button-next-custom absolute top-1/2 right-0 -translate-y-1/2 p-2 text-white group z-30 cursor-pointer" aria-label="Next service">
+        <div className="swiper-button-next-custom absolute top-1/3 right-0 p-2 text-white group z-30 cursor-pointer" aria-label="Next service">
           <ChevronRight className="size-8 stroke-1" />
         </div>
       </div>
