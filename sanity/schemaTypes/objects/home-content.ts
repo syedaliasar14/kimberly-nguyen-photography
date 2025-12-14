@@ -56,6 +56,7 @@ export const homeContent = defineType({
             },
           ],
         },
+        {name: 'keywords', title: 'Keywords', type: 'array', of: [{type: 'string'}]},
       ],
     }),
     defineField({
@@ -82,7 +83,7 @@ export const homeContent = defineType({
               ],
             },
           ],
-        },
+        }
       ],
     }),
     defineField({

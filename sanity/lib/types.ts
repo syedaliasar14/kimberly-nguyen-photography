@@ -33,6 +33,7 @@ export interface HomeContent {
     title?: string
     text?: string
     images?: ImageWithAlt[]
+    keywords?: string[]
   }
   weddingSection2?: {
     title?: string

@@ -36,7 +36,7 @@ export default function HeroSection({ tagline, images }: { tagline?: string; ima
   return (
     <section ref={sectionRef} className="min-h-screen flex flex-col items-center justify-center text-white pt-12 bg-primary relative overflow-hidden">
       {/* Background Slideshow - Fixed Position */}
-      <div className={`fixed inset-0 w-full h-full z-0 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+      <div className={`fixed inset-0 w-full h-full z-0 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0 invisible pointer-events-none'}`}>
         <Swiper
           modules={[Autoplay, EffectFade]}
           effect="fade"
@@ -77,7 +77,7 @@ export default function HeroSection({ tagline, images }: { tagline?: string; ima
               </Link>
               <Link href="/weddings" className="btn-outline-white flex items-center">
                 Wedding Details
-                <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                <ChevronRight className="size-5 stroke-1 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
             </div>
             <div className="self-start text-left text-2xl sm:text-3xl">

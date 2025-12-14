@@ -24,7 +24,8 @@ export const HOME_PAGE_QUERY = groq`*[_type == "page" && pageType == "home"][0]{
     weddingSection1{
       title,
       text,
-      images[]{asset->, alt}
+      images[]{asset->, alt},
+      keywords[]
     },
     weddingSection2{
       title,

@@ -89,7 +89,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-stone-700 mt-12 pt-8 text-center">
-          <p className="text-sm font-sans">
+          <p className="text-sm font-sans text-balance">
             © {new Date().getFullYear()} Kimberly Nguyen Photography, LLC. All rights reserved.
           </p>
           <p className="text-xs font-sans text-stone-400 mt-2">

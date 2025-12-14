@@ -5,7 +5,7 @@ import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { ImageWithAlt } from '@/sanity/lib/types';
@@ -14,8 +14,9 @@ import { urlFor } from '@/sanity/lib/image';
 export default function OtherServices({ title, services }: { title?: string; services?: { service?: string; description?: string; image?: ImageWithAlt }[] }) {
   return (
     <section className="relative h-screen overflow-hidden">
-      <h2 className="absolute font-cursive text-white text-5xl -rotate-10 z-10 top-8 w-full px-4 md:px-8">
-        {title || "Looking for something else?"}
+      <h2 className="absolute text-white font-heading font-thin text-5xl md:text-6xl z-10 top-8 w-full px-4 md:px-8 flex flex-col items-center text-center gap-3">
+        {/* <div className="text-sm w-1.5 h-1.5 bg-white rotate-45" /> */} {title || "Other Services"} {/* <div className="text-sm w-1.5 h-1.5 bg-white rotate-45" /> */}
+        <div className='text-base font-sans'>For all your photography needs</div>
       </h2>
 
       <Swiper
@@ -27,11 +28,10 @@ export default function OtherServices({ title, services }: { title?: string; ser
           disableOnInteraction: false,
         }}
         navigation={{
+          prevEl: '.swiper-button-prev-custom',
           nextEl: '.swiper-button-next-custom',
         }}
-        pagination={{
-          clickable: true,
-        }}
+        pagination={{ clickable: true }}
         className="w-full h-full"
       >
         {services?.map((service, index) => (
@@ -51,24 +51,19 @@ export default function OtherServices({ title, services }: { title?: string; ser
               <div className="absolute inset-0 bg-stone-900/40" />
 
               {/* Content */}
-              <div className="relative z-10 h-full flex items-end">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                  <div className="max-w-3xl mb-20">
+              <div className="relative z-10 h-full flex items-end text-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mb-20 text-center text-balance">
+                  <h3 className="font-heading font-thin text-5xl md:text-6xl mb-6">
+                    {service.service}
+                  </h3>
 
-                    <div className="text-white">
-                      <h3 className="font-heading font-thin text-5xl md:text-6xl mb-6">
-                        {service.service}
-                      </h3>
+                  <p className="text-xl mb-8 leading-relaxed opacity-90">
+                    {service.description}
+                  </p>
 
-                      <p className="text-xl mb-8 leading-relaxed opacity-90">
-                        {service.description}
-                      </p>
-
-                      <Link href="/contact" className="btn-glass">
-                        Book Session
-                      </Link>
-                    </div>
-                  </div>
+                  <Link href="/contact" className="btn-white">
+                    Book Your Session
+                  </Link>
                 </div>
               </div>
             </div>
@@ -77,11 +72,14 @@ export default function OtherServices({ title, services }: { title?: string; ser
       </Swiper>
 
       {/* Custom Navigation Button */}
-      <button className="swiper-button-next-custom absolute top-1/2 right-4 -translate-y-1/2 p-2 btn-glass group z-30"
-        aria-label="Next service"
-      >
-        <ChevronRight className="size-8" />
-      </button>
+      <div>
+        <div className="swiper-button-prev-custom absolute top-1/2 left-0 -translate-y-1/2 p-2 text-white group z-30 cursor-pointer" aria-label="Previous service">
+          <ChevronLeft className="size-8 stroke-1" />
+        </div>
+        <div className="swiper-button-next-custom absolute top-1/2 right-0 -translate-y-1/2 p-2 text-white group z-30 cursor-pointer" aria-label="Next service">
+          <ChevronRight className="size-8 stroke-1" />
+        </div>
+      </div>
     </section>
   );
 }

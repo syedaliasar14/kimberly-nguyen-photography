@@ -25,7 +25,7 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
+
       // Show header when at top of page
       if (currentScrollY < 10) {
         setIsVisible(true);
@@ -33,7 +33,7 @@ export default function Header() {
         // Show header when scrolling up, hide when scrolling down
         setIsVisible(lastScrollY > currentScrollY);
       }
-      
+
       setLastScrollY(currentScrollY);
     };
 
@@ -44,15 +44,18 @@ export default function Header() {
   if (pathname.startsWith('/studio')) { return null; }
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 bg-stone-900 backdrop-blur-sm transition-transform duration-300 ${
-      isVisible ? 'translate-y-0' : '-translate-y-full'
-    }`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 bg-stone-900 backdrop-blur-sm transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}>
       <div className="w-full mx-auto py-2 px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <button onClick={() => setIsMenuOpen(true)} className="group" aria-label="Toggle menu">
-            <MenuIcon className="w-6 h-6 text-white hover:text-accent transition-colors" />
+            <div className="flex flex-col gap-1.5">
+              <div className="w-6 h-[1px] bg-white transition-colors"></div>
+              <div className="w-6 h-[1px] bg-white transition-colors"></div>
+              <div className="w-6 h-[1px] bg-white transition-colors"></div>
+            </div>
           </button>
-          <Link href="/contact" className="btn border-1 bg-white py-1 px-6 text-sm text-primary border-white hover:bg-transparent hover:text-white hover:border-white">
+          <Link href="/contact" className="btn-outline-white text-sm px-4 py-2">
             Get in Touch
           </Link>
         </div>
@@ -72,7 +75,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-lg hover:text-secondary transition-colors font-sans tracking-widest"
+                className="hover:text-secondary transition-colors font-sans tracking-wider uppercase"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.label}
@@ -80,7 +83,7 @@ export default function Header() {
             ))}
           </div>
           <SheetFooter>
-            <p className="text-muted-foreground text-xs text-center font-sans">
+            <p className="text-muted-foreground text-xs text-center font-sans text-balance">
               © {new Date().getFullYear()} Kimberly Nguyen Photography, LLC.
               <br />
               All rights reserved.

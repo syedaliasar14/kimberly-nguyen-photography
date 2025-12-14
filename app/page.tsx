@@ -29,6 +29,7 @@ export default async function Home() {
         title={homeContent?.weddingSection1?.title}
         text={homeContent?.weddingSection1?.text}
         images={homeContent?.weddingSection1?.images}
+        keywords={homeContent?.weddingSection1?.keywords}
       />
       <WeddingSection2 
         title={homeContent?.weddingSection2?.title}

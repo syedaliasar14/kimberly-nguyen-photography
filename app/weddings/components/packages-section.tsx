@@ -54,7 +54,7 @@ export default function PackagesSection({ packages }: { packages?: Package[] }) 
                 </div>
               )}
 
-              <div className="mb-6 overflow-hidden shadow-lg ">
+              <div className="mb-6 overflow-hidden">
                 {pkg.image && <Image
                   src={urlFor(pkg.image).url()!}
                   alt={pkg.image.alt || `${pkg.name} package`}
@@ -83,12 +83,12 @@ export default function PackagesSection({ packages }: { packages?: Package[] }) 
               </div>
 
               <div className="border-t border-border pt-6 mb-6">
-                <p className="font-sans text-muted-foreground leading-relaxed mb-4">
+                <p className="font-serif text-muted-foreground leading-relaxed mb-4">
                   {pkg.description}
                 </p>
-                <p className="font-sans text-accent flex items-center gap-2">
-                  <div className="w-2 h-2 rotate-45 bg-accent flex-shrink-0"/> {pkg.bonus}
-                </p>
+                <div className="font-serif text-accent flex items-center gap-2">
+                  <div className="w-2 h-2 rotate-45 bg-accent flex-shrink-0" /> {pkg.bonus}
+                </div>
               </div>
             </Link>
           ))}

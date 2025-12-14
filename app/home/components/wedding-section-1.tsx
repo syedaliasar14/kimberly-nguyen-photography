@@ -10,7 +10,7 @@ import Image from 'next/image';
 import { ImageWithAlt } from '@/sanity/lib/types';
 import { urlFor } from '@/sanity/lib/image';
 
-export default function WeddingSection1({ title, text, images }: { title?: string; text?: string; images?: ImageWithAlt[] }) {
+export default function WeddingSection1({ title, text, images, keywords }: { title?: string; text?: string; images?: ImageWithAlt[], keywords?: string[] }) {
   return (
     <section className="py-40 bg-background flex flex-col relative">
       <Image
@@ -23,7 +23,7 @@ export default function WeddingSection1({ title, text, images }: { title?: strin
         <h2 className="font-heading font-thin font-thin text-6xl mb-8 text-center">
           {title || "Wedding Photography"}
         </h2>
-        <p className="mb-24 text-lg text-center whitespace-pre-wrap">
+        <p className="mb-24 text-xl md:text-2xl whitespace-pre-wrap text-justify">
           {text || `Every love story is unique. I specialize in capturing the intimate moments, genuine emotions, and natural connections that make your day truly yours. Whether it's the stolen glances, the heartfelt laughter, or the tender embraces, each detail is a thread in the tapestry of your romance. I approach every shoot with an eye for authenticity and a passion for storytelling, ensuring that your memories are preserved as beautifully as the day itself.`}
         </p>
       </div>
@@ -73,9 +73,17 @@ export default function WeddingSection1({ title, text, images }: { title?: strin
         </Swiper>
       </div>
 
-      <Link href="/weddings" className='btn z-10 bg-accent border-accent hover:bg-transparent hover:border-accent hover:text-accent self-center mx-8 mt-10 flex items-center group'>
-        The Wedding Experience <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+      <Link href="/weddings" className='btn-outline z-10 self-center mx-8 mt-10 flex items-center group'>
+        The Wedding Experience  <ChevronRight className="size-5 stroke-1 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
       </Link>
+
+      {keywords?.length && <div className="max-w-4xl mx-auto px-4 md:px-8 mt-32 z-20 text-center flex flex-wrap justify-center gap-2">
+        {keywords.map((word, i) => (
+          <span key={i} className={`text-4xl md:text-5xl ${i % 2 === 0 ? 'opacity-75' : 'opacity-50' }`}>
+            {word}
+          </span>
+        ))}
+      </div>}
 
       <style jsx>{`
         :global(.mySwiper .swiper-slide) {
