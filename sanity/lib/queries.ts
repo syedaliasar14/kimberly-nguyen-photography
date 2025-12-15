@@ -38,6 +38,7 @@ export const HOME_PAGE_QUERY = groq`*[_type == "page" && pageType == "home"][0]{
     },
     otherServices{
       title,
+      subtitle,
       services[]{
         service,
         description,
@@ -96,12 +97,20 @@ export const ABOUT_PAGE_QUERY = groq`*[_type == "page" && pageType == "about"][0
     heroSection{
       title,
       text,
-      image{asset->, alt}
+      image{asset->, alt},
+      image2{asset->, alt}
     },
     behindTheScenesSection{
       title,
       text,
-      image{asset->, alt}
+      image{asset->, alt},
+      image2{asset->, alt}
+    },
+    valuesSection{
+      title,
+      text,
+      image{asset->, alt},
+      image2{asset->, alt}
     }
   }
 }`

@@ -49,6 +49,7 @@ export interface HomeContent {
   }
   otherServices?: {
     title?: string
+    subtitle?: string
     services?: {
       service: string
       description?: string
@@ -106,11 +107,19 @@ export interface AboutContent {
     title?: string
     text?: string
     image?: ImageWithAlt
+    image2?: ImageWithAlt
   }
   behindTheScenesSection?: {
     title?: string
     text?: string
     image?: ImageWithAlt
+    image2?: ImageWithAlt
+  }
+  valuesSection?: {
+    title?: string
+    text?: string
+    image?: ImageWithAlt
+    image2?: ImageWithAlt
   }
 }
 

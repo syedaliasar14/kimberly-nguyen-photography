@@ -11,12 +11,12 @@ import Image from "next/image";
 import { ImageWithAlt } from '@/sanity/lib/types';
 import { urlFor } from '@/sanity/lib/image';
 
-export default function OtherServices({ title, services }: { title?: string; services?: { service?: string; description?: string; image?: ImageWithAlt }[] }) {
+export default function OtherServices({ title, subtitle, services }: { title?: string; subtitle?: string; services?: { service?: string; description?: string; image?: ImageWithAlt }[] }) {
   return (
     <section className="relative h-screen overflow-hidden bg-primary">
       <h2 className="absolute text-white font-heading font-thin text-5xl md:text-6xl z-10 top-8 w-full px-4 md:px-8 flex flex-col items-center text-center gap-3">
         {/* <div className="text-sm w-1.5 h-1.5 bg-white rotate-45" /> */} {title || "Other Services"} {/* <div className="text-sm w-1.5 h-1.5 bg-white rotate-45" /> */}
-        <div className='text-base font-sans'>For all your photography needs</div>
+        <div className='text-base font-sans'>{subtitle || "For all your photography needs"}</div>
       </h2>
 
       <Swiper

@@ -7,11 +7,15 @@ interface HeroSectionProps {
   title?: string;
   text?: string;
   image?: ImageWithAlt;
+  image2?: ImageWithAlt;
 }
 
-export default function HeroSection({ title, text, image }: HeroSectionProps) {
-  const imageUrl = image?.asset ? urlFor(image.asset).width(1000).height(1000).url() : "/kim/3.png";
+export default function HeroSection({ title, text, image, image2 }: HeroSectionProps) {
+  const imageUrl = image?.asset ? urlFor(image.asset).width(1000).height(1200).url() : "/kim/3.png";
   const imageAlt = image?.alt || "Kimberly Nguyen Photography";
+
+  const image2Url = image2?.asset ? urlFor(image2.asset).width(1000).height(1200).url() : null;
+  const image2Alt = image2?.alt || "Kimberly Nguyen Photography";
 
   const defaultText = `Welcome! I'm Kim, a daughter of Vietnamese immigrants who chose to move to Connecticut, where I have lived for most of my life. I love the change of seasons in this part of the country and all the rich backdrops it brings for imagery (and mental health walks). My cultural heritage is the foundation for my photographic passion. My camera allows me to work where I know I work best, front row at some of the most profound moments in people's lives. In a pinch though, I'll be there carrying the train, making sure you don't get your shoes dirty and helping to support you where I can throughout your wedding day!
 
@@ -20,34 +24,44 @@ My goal in my work is to document and capture one-of-a-kind memories that will b
   return (
     <section className="py-20 bg-gradient-to-br from-background to-secondary/50 relative overflow-hidden text-primary">
       <Image
-        src="/bg/2.png"
+        src="/marble3.png"
         alt="Kimberly Nguyen Photography"
-        width={1000}
-        height={1000}
-        className="w-full h-full object-cover shadow-lg absolute opacity-10 blur-sm pointer-events-none select-none"
+        fill sizes="100vw"
+        className="object-cover absolute opacity-50 pointer-events-none select-none"
       />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="font-heading font-thin text-5xl md:text-6xl mb-8 text-center md:text-left">
-          {title || <>Get to Know... <span className="font-cursive text-9xl ml-2">me!</span></>}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10 relative">
+        <h1 className="font-heading font-thin text-5xl md:text-6xl my-8 text-center md:text-left">
+          {title || "Get to Know Me!"}
         </h1>
 
-        <div className="relative">
-          <div className="float-right md:ml-8 mb-6 w-full md:w-100 h-80 flex-shrink-0 relative">
-            <Image
-              src={imageUrl}
-              alt={imageAlt}
-              width={1000}
-              height={1000}
-              className="w-full h-full object-cover shadow-lg"
-            />
-            <span className="absolute bottom-4 right-4 text-white text-xl rotate-12 font-cursive px-2 py-1 rounded-tl-md">-KN</span>
+        <div className="w-16 h-px bg-primary mx-auto md:mx-0 my-8" />
+
+        <div className="relative flex flex-col md:flex-row-reverse items-center md:items-start">
+          <div className="md:ml-8 md:-mt-10 mb-6 w-full md:w-1/3 relative flex-shrink-0">
+            <div className="relative mr-8 aspect-[5/6]">
+              <Image
+                src={imageUrl} alt={imageAlt}
+                width={1000} height={1200}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            
+            {image2Url && (
+              <div className="ml-8 -mt-20 aspect-[5/6] shadow-lg relative">
+                <Image
+                  src={image2Url} alt={image2Alt}
+                  width={1000} height={1200}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
           </div>
 
-          <div className="text-xl leading-relaxed whitespace-pre-wrap">
+          <div className="text-xl leading-relaxed whitespace-pre-wrap text-justify">
             {text || defaultText}
 
-            <div className="clear-both mt-8">
+            <div className="mt-10">
               <Link href="/contact" className="btn hover:bg-accent">
                 Let's Connect
               </Link>

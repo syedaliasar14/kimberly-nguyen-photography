@@ -42,6 +42,7 @@ export default async function Home() {
       />
       <OtherServices 
         title={homeContent?.otherServices?.title}
+        subtitle={homeContent?.otherServices?.subtitle}
         services={homeContent?.otherServices?.services}
       />
       <CallToAction />

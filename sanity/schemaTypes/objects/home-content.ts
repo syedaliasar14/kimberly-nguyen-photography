@@ -114,6 +114,7 @@ export const homeContent = defineType({
       type: 'object',
       fields: [
         {name: 'title', title: 'Title', type: 'string'},
+        {name: 'subtitle', title: 'Subtitle', type: 'string'},
         {
           name: 'services',
           title: 'Services',
