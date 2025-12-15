@@ -181,3 +181,30 @@ export const BLOG_BY_SLUG_QUERY = groq`*[_type == "blog" && slug.current == $slu
   },
   publishedAt
 }`
+
+export const OTHER_PROJECTS_THUMBNAILS_QUERY = groq`*[
+  _type == "otherProjects"
+  && defined(slug.current)
+] | order(order asc, publishedAt desc){
+  _id,
+  title,
+  slug,
+  publishedAt,
+  thumbnail,
+  order
+}`
+
+export const OTHER_PROJECTS_ITEMS_QUERY = groq`*[_type == "otherProjects" && slug.current == $slug][0]{
+  _id, 
+  title, 
+  slug, 
+  thumbnail{
+    asset->
+  },
+  images[]{
+    asset->,
+    alt,
+    caption
+  }
+}`;
+

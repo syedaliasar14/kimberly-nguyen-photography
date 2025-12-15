@@ -6,11 +6,12 @@ interface PolaroidCardProps {
   slug: string;
   thumbnailUrl?: string | null;
   index: number;
+  basePath?: string;
 }
 
-export default function PolaroidCard({ title, slug, thumbnailUrl, index }: PolaroidCardProps) {
+export default function PolaroidCard({ title, slug, thumbnailUrl, index, basePath = "/portfolio" }: PolaroidCardProps) {
   return (
-    <Link href={`/portfolio/${slug}`} className="flex justify-center w-max mx-auto">
+    <Link href={`${basePath}/${slug}`} className="flex justify-center w-max mx-auto">
       <div className="relative group p-4 z-20">
         <div className="relative w-[250px] aspect-[5/6] overflow-hidden">
           {thumbnailUrl ? (

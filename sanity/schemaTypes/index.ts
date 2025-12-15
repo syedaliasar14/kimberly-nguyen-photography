@@ -6,11 +6,13 @@ import { weddingsContent } from './objects/weddings-content'
 import { blogType } from './blog-type'
 import { aboutContent } from './objects/about-content'
 import { contactContent } from './objects/contact-content'
+import { otherProjectsType } from './other-projects-type'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     pageType,
     portfolioType,
+    otherProjectsType,
     blogType,
     homeContent,
     weddingsContent,
