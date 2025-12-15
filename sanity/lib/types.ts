@@ -166,3 +166,14 @@ export interface BlogListItem {
   image?: ImageWithAlt
   publishedAt: string
 }
+
+export interface OtherWorksItem {
+  _id: string
+  title: string
+  slug: {
+    current: string
+  }
+  thumbnail?: ImageWithAlt
+  publishedAt: string
+  order?: number
+}
