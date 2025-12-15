@@ -11,7 +11,7 @@ export default async function OtherProjectsPage() {
 
   return (
     <>
-      {/* Other Projects Grid */}
+      {/* Other Works Grid */}
       <section className="py-20 bg-background relative">
         <Image
           src="/marble3.png" alt=""
@@ -19,7 +19,7 @@ export default async function OtherProjectsPage() {
           className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none z-0 opacity-50"
         />
         <h1 className="py-12 font-heading text-center mx-auto font-thin text-5xl md:text-6xl z-10 relative text-primary">
-          Other Projects
+          Other Works
         </h1>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,7 +46,7 @@ export default async function OtherProjectsPage() {
             <div className="text-center py-16">
               <h3 className="font-heading font-thin text-2xl text-primary mb-4">Coming Soon</h3>
               <p className="text-muted-foreground text-lg font-sans max-w-2xl mx-auto">
-                We're currently curating our other projects galleries. Check back soon to see
+                We're currently curating our other works galleries. Check back soon to see
                 more creative work we've captured.
               </p>
               <Link href="/contact" className="inline-block mt-8 hover:bg-accent btn">

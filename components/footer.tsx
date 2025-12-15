@@ -37,7 +37,7 @@ export default function Footer() {
               Portfolio
             </Link>
             <Link href="/other-projects" className="block w-max mx-auto md:mx-0 hover:text-secondary transition-colors">
-              Other Projects
+              Other Works
             </Link>
             <Link href="/blog" className="block w-max mx-auto md:mx-0 hover:text-secondary transition-colors">
               Blog

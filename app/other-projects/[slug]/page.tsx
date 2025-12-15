@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     : undefined;
 
   return {
-    title: `${project?.title} - Other Projects - Kimberly Nguyen Photography Connecticut`,
+    title: `${project?.title} - Other Works - Kimberly Nguyen Photography Connecticut`,
     description: `View the ${project?.title} gallery from our photography portfolio.`,
     openGraph: ogImage ? {
       images: [{
@@ -40,7 +40,7 @@ export default async function OtherProjectDetailPage({ params }: { params: Promi
         <div className="text-center">
           <h1 className="font-heading font-thin text-2xl text-primary mb-4">Project Not Found</h1>
           <Link href="/other-projects" className="text-accent hover:underline font-sans">
-            ← Back to Other Projects
+            ← Back to Other Works
           </Link>
         </div>
       </div>
@@ -54,7 +54,7 @@ export default async function OtherProjectDetailPage({ params }: { params: Promi
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <Link href="/other-projects" className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors duration-300 my-8 font-sans">
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Other Projects
+            Back to Other Works
           </Link>
 
           <div className="text-center">
