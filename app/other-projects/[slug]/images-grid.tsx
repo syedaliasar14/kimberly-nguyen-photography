@@ -1,9 +1,6 @@
 "use client";
 
 import { type SanityDocument } from "next-sanity";
-import imageUrlBuilder from "@sanity/image-url";
-import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import { client } from "@/sanity/lib/client";
 import { Masonry } from "masonic";
 import { useState, useMemo, useEffect } from "react";
 import ImageItem, { IImageItem } from "./image-item";
