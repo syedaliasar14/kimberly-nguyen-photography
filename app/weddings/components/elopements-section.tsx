@@ -31,7 +31,7 @@ export default function ElopementsSection({ title, text, image }: { title?: stri
         </div>
 
         {/* Image */}
-        <div className="relative md:w-1/3 w-full aspect-square overflow-hidden shadow-2xl">
+        <div className="relative md:w-1/3 w-full aspect-[5/6] overflow-hidden shadow-2xl">
           {image && <Image
             src={urlFor(image).url()!}
             alt={image.alt || "Elopement Photography"}

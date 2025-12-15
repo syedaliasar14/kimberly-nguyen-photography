@@ -1,11 +1,11 @@
 import HeroSection from "@/app/about/components/hero-section";
 import BehindTheScenes from "@/app/about/components/behind-the-scenes";
-import CallToAction from "@/app/about/components/call-to-action";
 import { generatePageMetadata } from "@/sanity/lib/page";
 import { Metadata } from "next";
 import { ABOUT_PAGE_QUERY } from "@/sanity/lib/queries";
 import { sanityFetch } from "@/sanity/lib/live";
 import { Page } from "@/sanity/lib/types";
+import CallToAction from "@/components/call-to-action";
 
 export async function generateMetadata(): Promise<Metadata> {
   const pageData = (await sanityFetch({query: ABOUT_PAGE_QUERY, params: {}}))?.data as Page;

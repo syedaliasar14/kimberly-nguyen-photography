@@ -16,7 +16,7 @@ export default function EngagementsSection({ title, text, image }: { title?: str
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row gap-12 items-center">
         {/* Image */}
-        <div className="relative w-full md:w-1/3 aspect-square overflow-hidden shadow-2xl">
+        <div className="relative w-full md:w-1/3 aspect-[5/6] overflow-hidden shadow-2xl">
           {image && <Image
             src={urlFor(image).url()!}
             alt={image.alt || "Engagement Photography"}

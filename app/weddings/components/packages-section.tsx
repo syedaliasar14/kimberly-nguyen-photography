@@ -36,7 +36,8 @@ export default function PackagesSection({ packages }: { packages?: Package[] }) 
         <div className="grid md:grid-cols-3 gap-8">
           {packages?.map((pkg, index) => (
             <Link href="/contact" key={index}
-              className={`bg-background p-8 shadow-sm border transition-all duration-300 group z-10 relative`}
+              className={`bg-background p-8 shadow-sm border transition-all duration-300 group z-10 relative
+                  ${pkg.isBest ? "border-accent" : ""}`}
               style={{ boxShadow: pkg.isBest ? "0 0px 25px 0px #dab364" : undefined }}
             >
               {/* Background for Package */}
@@ -60,6 +61,7 @@ export default function PackagesSection({ packages }: { packages?: Package[] }) 
                   loading="lazy"
                   width={400} height={300}
                 />}
+                <div className="absolute inset-2 border border-white" />
               </div>
 
               <h3 className={`flex items-end mb-6 z-10 relative gap-4 text-4xl opacity-50 group-hover:opacity-100 transition-all ${pkg.isBest ? "text-accent opacity-100" : "text-primary group-hover:text-primary"}`}>

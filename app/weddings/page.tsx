@@ -33,6 +33,7 @@ export default async function Weddings() {
       <TestimonialSection
         quote={weddingsContent?.testimonials?.[0]?.quote || ""}
         coupleName={weddingsContent?.testimonials?.[0]?.name || ""}
+        image={weddingsContent?.testimonials?.[0]?.image || ""}
       />
 
       <PortfolioGallery />
@@ -40,6 +41,7 @@ export default async function Weddings() {
       <TestimonialSection
         quote={weddingsContent?.testimonials?.[1]?.quote || ""}
         coupleName={weddingsContent?.testimonials?.[1]?.name || ""}
+        image={weddingsContent?.testimonials?.[1]?.image || ""}
       />
 
       <ElopementsSection
@@ -51,6 +53,7 @@ export default async function Weddings() {
       <TestimonialSection
         quote={weddingsContent?.testimonials?.[2]?.quote || ""}
         coupleName={weddingsContent?.testimonials?.[2]?.name || ""}
+        image={weddingsContent?.testimonials?.[2]?.image || ""}
       />
 
       <EngagementsSection
@@ -62,6 +65,7 @@ export default async function Weddings() {
       <TestimonialSection
         quote={weddingsContent?.testimonials?.[3]?.quote || ""}
         coupleName={weddingsContent?.testimonials?.[3]?.name || ""}
+        image={weddingsContent?.testimonials?.[3]?.image || ""}
       />
 
       <PackagesSection

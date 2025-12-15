@@ -30,33 +30,31 @@ export default function WeddingSection2({ title, text, images }: { title?: strin
   return (
     <section ref={sectionRef} className="pt-20 pb-8 relative overflow-hidden h-screen flex flex-col justify-end">
       {/* Background Slideshow */}
-      <div className="absolute inset-0 -z-10">
-        <div className='w-full fixed inset-0'>
-          <Swiper
-            modules={[Autoplay, EffectFade, Navigation, Pagination]}
-            effect="fade"
-            fadeEffect={{ crossFade: true }}
-            slidesPerView={1}
-            loop={true}
-            autoplay={{ delay: 3000, disableOnInteraction: false }}
-            className="w-full h-full"
-            navigation={{ prevEl: '.swiper-button-prev-custom', nextEl: '.swiper-button-next-custom' }}
-            pagination={{ el: '.swiper-pagination-custom', clickable: true }}
-          >
-            {images?.map((img, i) => (
-              <SwiperSlide key={i}>
-                <Image
-                  className="fixed inset-0 object-cover object-center"
-                  src={urlFor(img.asset).url()!}
-                  alt={img.alt || `Connecticut Wedding Photographer`}
-                  fill sizes='100vw'
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+      <div className={`fixed inset-0 -z-10 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0 invisible pointer-events-none'}`}>
+        <Swiper
+          modules={[Autoplay, EffectFade, Navigation, Pagination]}
+          effect="fade"
+          fadeEffect={{ crossFade: true }}
+          slidesPerView={1}
+          loop={true}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          className="w-full h-full"
+          navigation={{ prevEl: '.swiper-button-prev-custom', nextEl: '.swiper-button-next-custom' }}
+          pagination={{ el: '.swiper-pagination-custom', clickable: true }}
+        >
+          {images?.map((img, i) => (
+            <SwiperSlide key={i}>
+              <Image
+                className="fixed inset-0 object-cover object-center"
+                src={urlFor(img.asset).url()!}
+                alt={img.alt || `Connecticut Wedding Photographer`}
+                fill sizes='100vw'
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
-      
+
       {/* Overlay for content readability */}
       <div className="absolute z-10 inset-0 bg-gradient-to-b from-transparent to-stone-950/30" />
 

@@ -48,7 +48,7 @@ export default function WeddingSection1({ title, text, images, keywords }: { tit
           navigation={{ nextEl: '.swiper-button-next-custom', prevEl: '.swiper-button-prev-custom' }}
           loop={true}
           autoplay={{ delay: 3000 }}
-          className="mySwiper w-full relative mx-4 md:mx-8 z-10"
+          className="wedding-1-swiper w-full relative mx-4 md:mx-8 z-10"
         >
           {images?.map((img, i) => (
             <SwiperSlide key={i}>
@@ -86,11 +86,11 @@ export default function WeddingSection1({ title, text, images, keywords }: { tit
       </div>}
 
       <style jsx>{`
-        :global(.mySwiper .swiper-slide) {
+        :global(.wedding-1-swiper .swiper-slide) {
           transform: scale(0.85);
           transition: transform 0.3s ease;
         }
-        :global(.mySwiper .swiper-slide-active) {
+        :global(.wedding-1-swiper .swiper-slide-active) {
           transform: scale(1);
         }
       `}</style>

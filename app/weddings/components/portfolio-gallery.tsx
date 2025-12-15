@@ -45,27 +45,12 @@ export default function PortfolioGallery() {
     fetchPortfolios();
   }, []);
 
-  if (loading) {
-    return (
-      <section className="py-20 bg-stone-900" id="portfolio">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
-          <h2 className="font-heading font-thin text-5xl sm:text-6xl text-center mb-4">
-            Portfolio Gallery
-          </h2>
-          <p className="text-center mb-16 font-sans">
-            Loading recent celebrations...
-          </p>
-        </div>
-      </section>
-    );
-  }
-
   return (
     <section className="py-20 bg-background relative" id="portfolio">
-      <Image 
+      <Image
         src="/marble3.png" alt=""
         width={2000} height={2000}
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none z-0 opacity-50"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none z-0 opacity-80"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 relative">
@@ -76,10 +61,14 @@ export default function PortfolioGallery() {
           A glimpse into recent celebrations
         </p>
 
-        {portfolios.length > 0 ? (
+        {loading ? (
+          <div className="text-center py-16 opacity-75 font-sans">
+            Loading portfolio...
+          </div>
+        ) : portfolios.length > 0 ? (
           <>
             {/* Mobile/Small screen Swiper */}
-            <div className="md:hidden">
+            <div className="lg:hidden">
               <Swiper
                 modules={[Navigation, Pagination]}
                 spaceBetween={20}
@@ -90,16 +79,16 @@ export default function PortfolioGallery() {
                   480: { slidesPerView: 1.2, centeredSlides: true },
                   640: { slidesPerView: 2, centeredSlides: false }
                 }}
-                className="pb-12"
+                className="pb-12 portfolio-swiper"
               >
                 {portfolios.map((portfolio, index) => {
                   const thumbnailUrl = portfolio.thumbnail
                     ? urlFor(portfolio.thumbnail)?.url()
                     : null;
-                  
+
                   return (
                     <SwiperSlide key={portfolio._id} className="py-6">
-                      <PolaroidCard 
+                      <PolaroidCard
                         title={portfolio.title}
                         slug={portfolio.slug.current}
                         thumbnailUrl={thumbnailUrl}
@@ -118,15 +107,15 @@ export default function PortfolioGallery() {
             </div>
 
             {/* Desktop Grid */}
-            <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 items-start">
+            <div className="hidden lg:grid grid-cols-4 gap-10 items-start">
               {portfolios.map((portfolio, index) => {
                 const thumbnailUrl = portfolio.thumbnail
                   ? urlFor(portfolio.thumbnail)?.url()
                   : null;
-                  
+
                 return (
-                  <PolaroidCard 
-                    key={portfolio._id} 
+                  <PolaroidCard
+                    key={portfolio._id}
                     title={portfolio.title}
                     slug={portfolio.slug.current}
                     thumbnailUrl={thumbnailUrl}
@@ -148,6 +137,18 @@ export default function PortfolioGallery() {
           View Full Gallery <ChevronRight className="size-4 stroke-1" />
         </Link>
       </div>
+
+      <style jsx>{`
+        :global(.portfolio-swiper .swiper-pagination-bullet) {
+          background-color: #666666 !important;
+          opacity: 0.5;
+        }
+
+        :global(.portfolio-swiper .swiper-pagination-bullet-active) {
+          background-color: #333333 !important;
+          opacity: 1;
+        }
+      `}</style>
     </section>
   );
 }
