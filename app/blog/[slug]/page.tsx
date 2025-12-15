@@ -95,7 +95,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
   }
 
   const featuredImageUrl = blog.image?.asset
-    ? urlFor(blog.image.asset).width(1600).height(900).url()
+    ? urlFor(blog.image.asset).url()
     : null;
 
   return (
@@ -103,9 +103,9 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
       {/* Hero Section */}
       <section className="pt-20 pb-8 bg-gradient-to-b from-secondary/20 to-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/blog" className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors duration-300 mb-8 font-sans">
+          <Link href="/blog" className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors duration-300 mb-8">
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Blogs
+            View All Posts
           </Link>
 
           <h1 className="font-heading font-thin text-3xl sm:text-4xl lg:text-5xl text-primary mb-6 leading-tight">
@@ -170,8 +170,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
               className="object-contain"
             />
           </div>
-          <p className="text-lg text-muted-foreground mb-4 font-sans leading-relaxed">
-            Let's capture beautiful moments together.
+          <p className="text-lg mb-4 leading-relaxed">
+            Capturing one of a kind moments, immortalized for generations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link href="/contact" className="btn hover:bg-accent">

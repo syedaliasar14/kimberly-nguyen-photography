@@ -52,7 +52,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
       {/* Hero Section */}
       <section className="py-12 bg-gradient-to-b from-secondary/20 to-background">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/portfolio" className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors duration-300 my-8 font-sans">
+          <Link href="/portfolio" className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors duration-300 my-8">
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Portfolio
           </Link>
@@ -74,7 +74,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
           <h3 className="font-heading font-thin text-3xl md:text-4xl text-primary mb-6">
             Ready to Create Your Own Story?
           </h3>
-          <p className="text-lg text-muted-foreground mb-4 font-sans leading-relaxed">
+          <p className="text-lg mb-4 leading-relaxed">
             Every beautiful story deserves to be told with intention and heart.
           </p>
           
@@ -87,12 +87,12 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
             </Link>
           </div>
 
-          <Image
+          {/* <Image
             src="/camera-line-art.svg"
             alt="Camera Line Art"
             width={800} height={800}
             className="w-56 h-auto mx-auto mt-10 select-none pointer-events-none"
-          />
+          /> */}
         </div>
       </section>
     </>

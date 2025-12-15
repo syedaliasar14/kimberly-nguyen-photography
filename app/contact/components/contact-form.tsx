@@ -68,15 +68,15 @@ export default function ContactForm({ title, subtitle }: { title?: string; subti
   return (
     <section ref={sectionRef} className="py-20 min-h-[80vh] flex items-center justify-center text-white relative bg-primary overflow-hidden">
       <Image
-        src="/bg/1.png"
+        src="/charcoal.png"
         alt="Contact Form Background"
         fill sizes='100vw'
-        className="absolute blur-lg scale-110 inset-0 opacity-30 w-full h-full object-cover"
+        className="absolute inset-0 opacity-30 w-full h-full object-cover"
       />
 
       {submitted ? (
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-          <h1 className="font-cursive text-8xl md:text-9xl mb-6">Thanks!</h1>
+          <h1 className="font-cursive text-8xl md:text-9xl mb-6 text-accent">Thanks!</h1>
           <p className="text-xl mb-8 leading-relaxed">
             I've received your inquiry and I'll be in touch within 2-3 business days to schedule our consultation.
           </p>
@@ -94,7 +94,7 @@ export default function ContactForm({ title, subtitle }: { title?: string; subti
         </div>
       ) : (
         <div className="max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          <h2 className="font-heading font-thin text-7xl mb-4 text-center">{title || "Contact"}</h2>
+          <h2 className="font-heading font-thin text-7xl mb-4 text-center text-accent">{title || "Contact"}</h2>
           <h3 className="font-sans mb-6 text-center text-sm tracking-widest">{subtitle || "Let's get in touch"}</h3>
 
           <div>

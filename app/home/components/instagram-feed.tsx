@@ -55,12 +55,12 @@ export default function InstagramFeed() {
           </svg>
         </Link>
 
-        <Image
+        {/* <Image
           src="/camera-line-art.svg"
           alt="Camera Line Art"
           width={800} height={800}
           className="w-56 h-auto mx-auto mt-8 select-none pointer-events-none"
-        />
+        /> */}
       </div>
     </section>
   );
