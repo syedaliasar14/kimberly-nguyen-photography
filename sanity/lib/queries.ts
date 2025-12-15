@@ -112,7 +112,7 @@ export const CONTACT_PAGE_QUERY = groq`*[_type == "page" && pageType == "contact
     contactForm{
       title,
       subtitle
-    }
+    },
     testimonialsSection{
       title,
       testimonials[]{
