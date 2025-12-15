@@ -7,19 +7,19 @@ import ImagesGrid from "@/components/gallery/images-grid";
 import { Metadata } from "next";
 import { sanityFetch } from "@/sanity/lib/live";
 import { urlFor } from "@/sanity/lib/image";
-import { PORTFOLIO_ITEMS_QUERY } from "@/sanity/lib/queries";
+import { OTHER_WORKS_ITEMS_QUERY } from "@/sanity/lib/queries";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const resolvedParams = await params;
-  const portfolio = (await sanityFetch({ query: PORTFOLIO_ITEMS_QUERY, params: resolvedParams })).data as SanityDocument | null;
+  const otherWork = (await sanityFetch({ query: OTHER_WORKS_ITEMS_QUERY, params: resolvedParams })).data as SanityDocument | null;
   
-  const ogImage = portfolio?.thumbnail 
-    ? urlFor(portfolio.thumbnail).width(1200).height(630).url()
+  const ogImage = otherWork?.thumbnail 
+    ? urlFor(otherWork.thumbnail).width(1200).height(630).url()
     : undefined;
 
   return {
-    title: `${portfolio?.title} - Portfolio - Kimberly Nguyen Photography Connecticut`,
-    description: `View the ${portfolio?.title} gallery from our wedding and engagement photography portfolio.`,
+    title: `${otherWork?.title} - Other Works - Kimberly Nguyen Photography Connecticut`,
+    description: `View the ${otherWork?.title} gallery from our other works collection.`,
     openGraph: ogImage ? {
       images: [{
         url: ogImage,
@@ -30,17 +30,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-export default async function PortfolioDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function OtherWorksDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
-  const portfolio = (await sanityFetch({ query: PORTFOLIO_ITEMS_QUERY, params: resolvedParams })).data as SanityDocument | null;
+  const otherWork = (await sanityFetch({ query: OTHER_WORKS_ITEMS_QUERY, params: resolvedParams })).data as SanityDocument | null;
 
-  if (!portfolio) {
+  if (!otherWork) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="font-heading font-thin text-2xl text-primary mb-4">Portfolio Not Found</h1>
-          <Link href="/portfolio" className="text-accent hover:underline font-sans">
-            ← Back to Portfolio
+          <h1 className="font-heading font-thin text-2xl text-primary mb-4">Work Not Found</h1>
+          <Link href="/other-works" className="text-accent hover:underline font-sans">
+            ← Back to Other Works
           </Link>
         </div>
       </div>
@@ -52,21 +52,21 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
       {/* Hero Section */}
       <section className="py-12 bg-gradient-to-b from-secondary/20 to-background">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/portfolio" className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors duration-300 my-8 font-sans">
+          <Link href="/other-works" className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors duration-300 my-8 font-sans">
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Portfolio
+            Back to Other Works
           </Link>
 
           <div className="text-center">
             <h1 className="font-heading font-thin text-3xl sm:text-4xl lg:text-5xl text-primary leading-tight">
-              {portfolio.title}
+              {otherWork.title}
             </h1>
           </div>
         </div>
       </section>
 
       {/* Interactive Gallery */}
-      <ImagesGrid portfolio={portfolio} />
+      <ImagesGrid portfolio={otherWork} />
 
       {/* Call to Action */}
       <section className="py-20 bg-gradient-to-b from-background to-secondary/20">
@@ -82,7 +82,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
             <Link href="/contact" className="btn hover:bg-accent">
               Book Your Session
             </Link>
-            <Link href="/portfolio" className="btn-outline hover:bg-primary hover:text-primary-foreground">
+            <Link href="/other-works" className="btn-outline hover:bg-primary hover:text-primary-foreground">
               View More Work
             </Link>
           </div>
