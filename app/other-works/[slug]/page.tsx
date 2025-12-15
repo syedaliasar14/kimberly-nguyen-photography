@@ -3,7 +3,7 @@ import { client } from "@/sanity/lib/client";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
-import ImagesGrid from "./images-grid";
+import ImagesGrid from "@/components/gallery/images-grid";
 import { Metadata } from "next";
 import { sanityFetch } from "@/sanity/lib/live";
 import { urlFor } from "@/sanity/lib/image";
