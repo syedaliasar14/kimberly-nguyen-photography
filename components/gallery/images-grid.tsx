@@ -6,6 +6,13 @@ import { useState, useMemo, useEffect } from "react";
 import ImageItem, { IImageItem } from "./image-item";
 import ImageSlider from "./image-slider";
 import { urlFor } from "@/sanity/lib/image";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+
+interface GalleryImage {
+  asset: SanityImageSource;
+  alt?: string;
+  caption?: string;
+}
 
 export default function ImagesGrid({ portfolio }: { portfolio: SanityDocument | null }) {
   const [sliderOpen, setSliderOpen] = useState(false);
@@ -19,7 +26,7 @@ export default function ImagesGrid({ portfolio }: { portfolio: SanityDocument | 
   const images = useMemo(() => {
     if (!portfolio?.images) return [];
     
-    return portfolio.images.map((image: any, index: number) => {
+    return portfolio.images.map((image: GalleryImage, index: number) => {
       const imageUrl = urlFor(image)?.width(600).url();
       const fullImageUrl = urlFor(image).width(2000).url();
       return {
