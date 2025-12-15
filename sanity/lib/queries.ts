@@ -79,7 +79,8 @@ export const WEDDINGS_PAGE_QUERY = groq`*[_type == "page" && pageType == "weddin
     },
     testimonials[]{
       quote,
-      name
+      name,
+      image{asset->, alt}
     }
   }
 }`

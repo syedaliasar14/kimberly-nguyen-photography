@@ -1,6 +1,7 @@
+import { ImageWithAlt } from "@/sanity/lib/types";
 import Image from "next/image";
 
-export default function TestimonialSection({ quote, coupleName }: { quote: string; coupleName: string }) {
+export default function TestimonialSection({ quote, coupleName, image }: { quote: string; coupleName: string; image?: ImageWithAlt }) {
   return (
     <section className="px-4 bg-gradient-to-br from-background via-background to-secondary/10">
       <div className="max-w-4xl mx-auto text-center py-20">

@@ -31,7 +31,7 @@ export default function EngagementsSection({ title, text, image }: { title?: str
           <h2 className="font-heading font-thin text-accent text-5xl sm:text-7xl mb-6">
             {title || "Engagement Sessions"}
           </h2>
-          <p className="font-sans text-lg md:text-xl text-white leading-relaxed mb-8 whitespace-pre-wrap">
+          <p className="text-xl md:text-2xl text-white leading-relaxed mb-8 whitespace-pre-wrap text-justify">
             {text || "Engagement sessions are a wonderful way to celebrate this special time in your relationship and get comfortable with your photographer before the big day. These sessions are perfect for save-the-dates, wedding websites, and displays at your reception. Let's capture the excitement and joy of this chapter in your love story."}
           </p>
           <Link href="/contact" className="btn bg-accent text-white hover:bg-white hover:text-primary">

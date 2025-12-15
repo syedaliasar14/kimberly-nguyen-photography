@@ -4,23 +4,24 @@ import { Page, PortfolioItem } from "@/sanity/lib/types";
 import PolaroidCard from "@/components/polaroid-card";
 import { sanityFetch } from "@/sanity/lib/live";
 import { urlFor } from "@/sanity/lib/image";
+import Image from "next/image";
 
 export default async function PortfolioPage() {
   const portfolios = (await sanityFetch({ query: PORTFOLIO_THUMBNAILS_QUERY, params: {} })).data as PortfolioItem[];
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="pt-20 bg-gradient-to-b from-secondary/30 to-background">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-heading font-thin text-4xl sm:text-5xl lg:text-6xl text-primary leading-tight">
-            The Portfolio
-          </h1>
-        </div>
-      </section>
-
       {/* Portfolio Grid */}
-      <section className="py-20">
+      <section className="py-20 bg-background relative">
+        <Image
+          src="/marble3.png" alt=""
+          fill sizes="100vw"
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none z-0 opacity-50"
+        />
+        <h1 className="py-12 font-heading text-center mx-auto font-thin text-5xl md:text-6xl z-10 relative text-primary">
+          The Portfolio
+        </h1>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {portfolios.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">

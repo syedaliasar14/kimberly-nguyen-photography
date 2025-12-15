@@ -1,6 +1,5 @@
 "use client";
 
-import { useScrollY } from "@/hooks/use-scroll";
 import { urlFor } from "@/sanity/lib/image";
 import { ImageWithAlt } from "@/sanity/lib/types";
 import Image from "next/image";
@@ -17,21 +16,17 @@ interface Package {
 }
 
 export default function PackagesSection({ packages }: { packages?: Package[] }) {
-  const scrollY = useScrollY();
-
   return (
-    <section className="py-20 relative overflow-hidden" id="packages">
-      <div className="absolute inset-0 w-full h-[120%] top-[-10%] -z-10 bg-gradient-to-br from-secondary to-primary filter">
-        <Image
-          src="/bg/6.png"
-          alt="Background"
-          className="w-full h-full object-cover blur-sm opacity-25"
-          fill
-        />
-      </div>
+    <section className="py-20 relative overflow-hidden bg-tertiary" id="packages">
+      <Image
+        src="/green-leather1.jpg"
+        alt="Background"
+        className="w-full h-full object-cover blur-xs rotate-180 md:rotate-0 md:blur-none"
+        fill
+      />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
-        <h2 className="font-heading font-thin text-5xl sm:text-6xl text-center mb-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white z-10 relative">
+        <h2 className="font-heading font-thin text-5xl sm:text-6xl text-center text-accent mb-4">
           Wedding Packages
         </h2>
         <p className="text-center font-sans mb-20">
@@ -41,11 +36,14 @@ export default function PackagesSection({ packages }: { packages?: Package[] }) 
         <div className="grid md:grid-cols-3 gap-8">
           {packages?.map((pkg, index) => (
             <Link href="/contact" key={index}
-              className={`bg-background p-8 shadow-sm border transition-all duration-300 group relative
-                ${pkg.isBest ? "border-accent transform bg-gradient-to-br from-background to-accent/5"
-                  : "border-border hover:shadow-xl"}`}
+              className={`bg-background p-8 shadow-sm border transition-all duration-300 group z-10 relative`}
               style={{ boxShadow: pkg.isBest ? "0 0px 25px 0px #dab364" : undefined }}
             >
+              {/* Background for Package */}
+              <Image
+                src="/marble3.png" alt="" fill
+                className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none opacity-50 rotate-180 z-0"
+              />
 
               {/* Popular Badge */}
               {pkg.isBest && (
@@ -54,24 +52,24 @@ export default function PackagesSection({ packages }: { packages?: Package[] }) 
                 </div>
               )}
 
-              <div className="mb-6 overflow-hidden">
+              <div className="mb-6 overflow-hidden z-10 relative">
                 {pkg.image && <Image
                   src={urlFor(pkg.image).url()!}
                   alt={pkg.image.alt || `${pkg.name} package`}
-                  className={`w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300`}
+                  className={`w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300`}
                   loading="lazy"
                   width={400} height={300}
                 />}
               </div>
 
-              <h3 className={`flex items-end mb-6 gap-4 text-4xl opacity-50 group-hover:opacity-100 transition-all ${pkg.isBest ? "text-accent opacity-100" : "text-primary group-hover:text-primary"}`}>
+              <h3 className={`flex items-end mb-6 z-10 relative gap-4 text-4xl opacity-50 group-hover:opacity-100 transition-all ${pkg.isBest ? "text-accent opacity-100" : "text-primary group-hover:text-primary"}`}>
                 <span className={`font-heading font-thin text-5xl `}>
                   {index + 1}
                 </span>
                 <span className="font-allura -mb-2">{pkg.name}</span>
               </h3>
 
-              <div className="mb-6">
+              <div className="mb-6 z-10 relative">
                 <p className={`font-heading font-thin text-xl mb-2 ${pkg.isBest ? "text-accent" : "text-primary"}`}>
                   Starting at ${pkg.price}
                 </p>
@@ -82,7 +80,7 @@ export default function PackagesSection({ packages }: { packages?: Package[] }) 
                 </ul>
               </div>
 
-              <div className="border-t border-border pt-6 mb-6">
+              <div className="border-t border-border pt-6 mb-6 z-10 relative">
                 <p className="font-serif text-muted-foreground leading-relaxed mb-4">
                   {pkg.description}
                 </p>

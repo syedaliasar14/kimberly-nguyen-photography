@@ -4,13 +4,13 @@ import PortfolioGallery from "@/app/weddings/components/portfolio-gallery";
 import PackagesSection from "@/app/weddings/components/packages-section";
 import ElopementsSection from "@/app/weddings/components/elopements-section";
 import EngagementsSection from "@/app/weddings/components/engagements-section";
-import CallToAction from "@/app/weddings/components/call-to-action";
 import TestimonialSection from "@/app/weddings/components/testimonial-section";
 import { generatePageMetadata } from "@/sanity/lib/page";
 import { Metadata } from "next";
 import { WEDDINGS_PAGE_QUERY } from "@/sanity/lib/queries";
 import { sanityFetch } from "@/sanity/lib/live";
 import { Page } from "@/sanity/lib/types";
+import CallToAction from "@/components/call-to-action";
 
 export async function generateMetadata(): Promise<Metadata> {
   const pageData = (await sanityFetch({query: WEDDINGS_PAGE_QUERY, params: {}}))?.data as Page;

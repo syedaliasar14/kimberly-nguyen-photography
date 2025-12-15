@@ -18,7 +18,7 @@ import Image from "next/image";
 const PORTFOLIO_QUERY = `*[
   _type == "portfolio"
   && defined(slug.current)
-] | order(order asc, publishedAt asc)[0...6]{_id, title, slug, thumbnail, order}`;
+] | order(order asc, publishedAt asc)[0...4]{_id, title, slug, thumbnail, order}`;
 
 const { projectId, dataset } = client.config();
 const urlFor = (source: SanityImageSource) =>
@@ -61,15 +61,15 @@ export default function PortfolioGallery() {
   }
 
   return (
-    <section className="py-20 bg-stone-900 relative" id="portfolio">
+    <section className="py-20 bg-background relative" id="portfolio">
       <Image 
-        src="/bg/3.png" alt=""
+        src="/marble3.png" alt=""
         width={2000} height={2000}
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none blur-sm z-0 opacity-10"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none z-0 opacity-50"
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
-        <h2 className="font-heading font-thin text-5xl sm:text-6xl text-center mb-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 relative">
+        <h2 className="font-heading font-thin text-5xl md:text-6xl text-center mb-4">
           Portfolio Gallery
         </h2>
         <p className="text-center mb-16 font-sans">
@@ -108,17 +108,17 @@ export default function PortfolioGallery() {
                     </SwiperSlide>
                   );
                 })}
-                <div className="swiper-button-prev-custom absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center cursor-pointer transition-all">
-                  <ChevronLeft className="w-6 h-6 text-white" />
+                <div className="swiper-button-prev-custom absolute left-0 top-1/2 z-10 cursor-pointer">
+                  <ChevronLeft className="w-6 h-6 stroke-1" />
                 </div>
-                <div className="swiper-button-next-custom absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center cursor-pointer transition-all">
-                  <ChevronRight className="w-6 h-6 text-white" />
+                <div className="swiper-button-next-custom absolute right-0 top-1/2 z-10 cursor-pointer">
+                  <ChevronRight className="w-6 h-6 stroke-1" />
                 </div>
               </Swiper>
             </div>
 
             {/* Desktop Grid */}
-            <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-10 items-start">
+            <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 items-start">
               {portfolios.map((portfolio, index) => {
                 const thumbnailUrl = portfolio.thumbnail
                   ? urlFor(portfolio.thumbnail)?.url()
@@ -144,8 +144,8 @@ export default function PortfolioGallery() {
           </div>
         )}
 
-        <Link href="/portfolio" className="btn-outline text-white border-white hover:text-primary hover:bg-white mx-auto block mt-12 flex items-center gap-2">
-          View Full Gallery <ChevronRight className="size-4" />
+        <Link href="/portfolio" className="btn-outline mx-auto block mt-10 flex items-center gap-2">
+          View Full Gallery <ChevronRight className="size-4 stroke-1" />
         </Link>
       </div>
     </section>

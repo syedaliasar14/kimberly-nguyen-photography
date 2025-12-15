@@ -91,6 +91,7 @@ export interface WeddingsContent {
   testimonials?: {
     quote: string
     name: string
+    image?: ImageWithAlt
   }[]
 }
 

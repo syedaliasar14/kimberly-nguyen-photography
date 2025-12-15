@@ -75,14 +75,14 @@ export default function WeddingSection2({ title, text, images }: { title?: strin
       </div>
 
       {/* Custom Navigation Button */}
-      <div>
+      {/* <div>
         <div className="swiper-button-prev-custom absolute top-1/4 left-0 p-2 text-white group z-30 cursor-pointer" aria-label="Previous service">
           <ChevronLeft className="size-8 stroke-1" />
         </div>
         <div className="swiper-button-next-custom absolute top-1/4 right-0 p-2 text-white group z-30 cursor-pointer" aria-label="Next service">
           <ChevronRight className="size-8 stroke-1" />
         </div>
-      </div>
+      </div> */}
 
       {/* Custom Pagination */}
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3 z-30">
