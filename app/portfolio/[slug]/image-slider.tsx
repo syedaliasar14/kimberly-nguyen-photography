@@ -46,7 +46,7 @@ export default function ImageSlider({ images, initialIndex, isOpen, onClose }: I
         className="absolute top-4 right-4 z-50 p-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 text-white"
         aria-label="Close slider"
       >
-        <X className="w-6 h-6" />
+        <X className="w-6 h-6 stroke-1" />
       </button>
 
       {/* Swiper Slider */}

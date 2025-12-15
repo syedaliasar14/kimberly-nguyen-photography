@@ -17,11 +17,11 @@ interface Package {
 
 export default function PackagesSection({ packages }: { packages?: Package[] }) {
   return (
-    <section className="py-20 relative overflow-hidden bg-tertiary" id="packages">
+    <section className="py-20 relative overflow-hidden bg-primary" id="packages">
       <Image
-        src="/green-leather1.jpg"
+        src="/charcoal.png"
         alt="Background"
-        className="w-full h-full object-cover blur-xs rotate-180 md:rotate-0 md:blur-none"
+        className="w-full h-full object-cover opacity-30"
         fill
       />
 

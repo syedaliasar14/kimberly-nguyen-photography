@@ -71,7 +71,7 @@ export default function OtherServices({ title, services }: { title?: string; ser
       </Swiper>
 
       {/* Custom Navigation Button */}
-      <div>
+      <div className='hidden md:block'>
         <div className="swiper-button-prev-custom absolute top-1/3 left-0 p-2 text-white group z-30 cursor-pointer" aria-label="Previous service">
           <ChevronLeft className="size-8 stroke-1" />
         </div>
