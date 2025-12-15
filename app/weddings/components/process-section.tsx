@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
-export default function ProcessSection({ processSteps }: { processSteps: { title: string; description?: string }[] }) {
+export default function ProcessSection({ title, subtitle, processSteps }: { title?: string; subtitle?: string; processSteps: { title: string; description?: string }[] }) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
@@ -17,10 +17,10 @@ export default function ProcessSection({ processSteps }: { processSteps: { title
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <h2 className="font-heading font-thin text-5xl md:text-6xl text-center mb-4">
-          Here's What to Expect
+          {title || "Here's What to Expect"}
         </h2>
         <p className="text-center text-muted-foreground mb-16 font-sans">
-          Tap or hover over each step to learn more
+          {subtitle || "Tap or hover over each step to learn more"}
         </p>
 
         <div className="space-y-4">

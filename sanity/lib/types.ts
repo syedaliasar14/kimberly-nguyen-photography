@@ -65,8 +65,12 @@ export interface WeddingsContent {
   }
   processSection?: {
     title: string
-    description?: string
-  }[]
+    subtitle?: string
+    steps?: {
+      title: string
+      description?: string
+    }[]
+  }
   elopementsSection?: {
     title?: string
     text?: string
@@ -78,6 +82,8 @@ export interface WeddingsContent {
     image?: ImageWithAlt
   }
   packagesSection?: {
+    title?: string
+    subtitle?: string
     packages?: {
       name: string
       price: string
@@ -109,6 +115,10 @@ export interface AboutContent {
 }
 
 export interface ContactContent {
+  contactForm?: {
+    title?: string
+    subtitle?: string
+  }
   testimonialsSection?: {
     title?: string
     testimonials?: {

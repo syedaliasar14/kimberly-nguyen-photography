@@ -1,3 +1,4 @@
+import { title } from 'process'
 import { defineField, defineType } from 'sanity'
 
 export const weddingsContent = defineType({
@@ -35,15 +36,24 @@ export const weddingsContent = defineType({
     defineField({
       name: 'processSection',
       title: 'Process Section',
-      type: 'array',
-      of: [
+      type: 'object',
+      fields: [
+        { name: 'title', title: 'Title', type: 'string' },
+        { name: 'subtitle', title: 'Subtitle', type: 'string' },
         {
-          type: 'object',
-          fields: [
-            { name: 'title', title: 'Title', type: 'string', validation: (rule) => rule.required() },
-            { name: 'description', title: 'Description', type: 'text' },
+          name: 'steps',
+          title: 'Process Steps',
+          type: 'array',
+          of: [
+            {
+              type: 'object',
+              fields: [
+                { name: 'title', title: 'Title', type: 'string', validation: (rule) => rule.required() },
+                { name: 'description', title: 'Description', type: 'text' },
+              ],
+            },
           ],
-        },
+        }
       ],
     }),
     defineField({
@@ -95,6 +105,8 @@ export const weddingsContent = defineType({
       title: 'Packages Section',
       type: 'object',
       fields: [
+        { name: 'title', title: 'Title', type: 'string' },
+        { name: 'subtitle', title: 'Subtitle', type: 'string' },
         {
           name: 'packages',
           title: 'Packages',

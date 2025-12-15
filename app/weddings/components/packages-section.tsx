@@ -15,7 +15,7 @@ interface Package {
   bonus?: string;
 }
 
-export default function PackagesSection({ packages }: { packages?: Package[] }) {
+export default function PackagesSection({ title, subtitle, packages }: { title?: string; subtitle?: string; packages?: Package[] }) {
   return (
     <section className="py-20 relative overflow-hidden bg-primary" id="packages">
       <Image
@@ -27,10 +27,10 @@ export default function PackagesSection({ packages }: { packages?: Package[] }) 
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white z-10 relative">
         <h2 className="font-heading font-thin text-5xl sm:text-6xl text-center text-accent mb-4">
-          Wedding Packages
+          {title || "Wedding Packages"}
         </h2>
         <p className="text-center font-sans mb-20">
-          Choose the perfect coverage for your day
+          {subtitle || "Choose the perfect coverage for your day"}
         </p>
 
         <div className="grid md:grid-cols-3 gap-8">

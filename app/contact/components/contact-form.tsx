@@ -29,7 +29,7 @@ const schema = z.object({
   howDidYouHear: z.string().min(1, "Input is required").max(100),
 });
 
-export default function ContactForm() {
+export default function ContactForm({ title, subtitle }: { title?: string; subtitle?: string }) {
   const form = useForm({
     resolver: zodResolver(schema),
     defaultValues: {
@@ -94,8 +94,8 @@ export default function ContactForm() {
         </div>
       ) : (
         <div className="max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          <h2 className="font-heading font-thin text-7xl mb-4 text-center">Contact</h2>
-          <h3 className="font-sans mb-6 text-center uppercase text-sm tracking-widest">Let's get in touch</h3>
+          <h2 className="font-heading font-thin text-7xl mb-4 text-center">{title || "Contact"}</h2>
+          <h3 className="font-sans mb-6 text-center text-sm tracking-widest">{subtitle || "Let's get in touch"}</h3>
 
           <div>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 font-sans">

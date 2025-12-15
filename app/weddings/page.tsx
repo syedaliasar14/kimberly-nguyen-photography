@@ -13,12 +13,12 @@ import { Page } from "@/sanity/lib/types";
 import CallToAction from "@/components/call-to-action";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const pageData = (await sanityFetch({query: WEDDINGS_PAGE_QUERY, params: {}}))?.data as Page;
+  const pageData = (await sanityFetch({ query: WEDDINGS_PAGE_QUERY, params: {} }))?.data as Page;
   return generatePageMetadata(pageData);
 }
 
 export default async function Weddings() {
-  const weddingsContent = (await sanityFetch({query: WEDDINGS_PAGE_QUERY, params: {}}))?.data.weddingsContent;
+  const weddingsContent = (await sanityFetch({ query: WEDDINGS_PAGE_QUERY, params: {} }))?.data.weddingsContent;
 
   return (
     <>
@@ -28,7 +28,11 @@ export default async function Weddings() {
         images={weddingsContent?.heroSection?.images}
       />
 
-      <ProcessSection processSteps={weddingsContent?.processSection || []} />
+      <ProcessSection
+        title={weddingsContent?.processSection?.title}
+        subtitle={weddingsContent?.processSection?.subtitle}
+        processSteps={weddingsContent?.processSection?.steps || []}
+      />
 
       <TestimonialSection
         quote={weddingsContent?.testimonials?.[0]?.quote || ""}
@@ -69,6 +73,8 @@ export default async function Weddings() {
       />
 
       <PackagesSection
+        title={weddingsContent?.packagesSection?.title}
+        subtitle={weddingsContent?.packagesSection?.subtitle}
         packages={weddingsContent?.packagesSection?.packages}
       />
 

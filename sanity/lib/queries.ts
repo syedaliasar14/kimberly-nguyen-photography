@@ -55,7 +55,10 @@ export const WEDDINGS_PAGE_QUERY = groq`*[_type == "page" && pageType == "weddin
       text,
       images[]{asset->, alt}
     },
-    processSection[]{title, description},
+    processSection{
+      title,
+      subtitle,
+      steps[]{title, description}},
     elopementsSection{
       title,
       text,
@@ -67,6 +70,8 @@ export const WEDDINGS_PAGE_QUERY = groq`*[_type == "page" && pageType == "weddin
       image{asset->, alt}
     },
     packagesSection{
+      title,
+      subtitle,
       packages[]{
         name,
         price,
@@ -104,6 +109,10 @@ export const ABOUT_PAGE_QUERY = groq`*[_type == "page" && pageType == "about"][0
 export const CONTACT_PAGE_QUERY = groq`*[_type == "page" && pageType == "contact"][0]{
   ${BASE_PAGE_FIELDS},
   contactContent{
+    contactForm{
+      title,
+      subtitle
+    }
     testimonialsSection{
       title,
       testimonials[]{

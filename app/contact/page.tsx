@@ -21,7 +21,7 @@ export default async function Contact() {
 
   return (
     <>
-      <ContactForm />
+      <ContactForm title={contactContent?.contactForm?.title} subtitle={contactContent?.contactForm?.subtitle} />
       <Testimonials title={contactContent?.testimonialsSection?.title} testimonials={contactContent?.testimonialsSection?.testimonials} />
       <FaqSection data={contactContent?.faqSection} />
     </>

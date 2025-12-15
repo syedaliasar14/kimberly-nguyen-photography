@@ -6,6 +6,15 @@ export const contactContent = defineType({
   type: 'object',
   fields: [
     defineField({
+      name: 'contactForm',
+      title: 'Contact Form',
+      type: 'object',
+      fields: [
+        { name: 'title', title: 'Form Title', type: 'string' },
+        { name: 'subtitle', title: 'Form Subtitle', type: 'string' },
+      ],
+    }),
+    defineField({
       name: 'testimonialsSection',
       title: 'Testimonials Section',
       type: 'object',
