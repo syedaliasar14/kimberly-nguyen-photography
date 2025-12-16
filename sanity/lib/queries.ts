@@ -34,7 +34,7 @@ export const HOME_PAGE_QUERY = groq`*[_type == "page" && pageType == "home"][0]{
     },
     testimonialsSection{
       title,
-      testimonials[]{quote, name}
+      testimonials[]{quote, name, image{asset->, alt}}
     },
     otherServices{
       title,
@@ -126,7 +126,8 @@ export const CONTACT_PAGE_QUERY = groq`*[_type == "page" && pageType == "contact
       title,
       testimonials[]{
         quote,
-        name
+        name,
+        image{asset->, alt}
       }
     },
     faqSection{

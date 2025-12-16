@@ -102,6 +102,19 @@ export const homeContent = defineType({
               fields: [
                 {name: 'quote', title: 'Quote', type: 'text', validation: (rule) => rule.required()},
                 {name: 'name', title: 'Name', type: 'string', validation: (rule) => rule.required()},
+                {
+                  name: 'image',
+                  title: 'Image',
+                  type: 'image',
+                  options: {hotspot: true},
+                  fields: [
+                    {
+                      name: 'alt',
+                      title: 'Alt Text',
+                      type: 'string',
+                    },
+                  ],
+                }
               ],
             },
           ],

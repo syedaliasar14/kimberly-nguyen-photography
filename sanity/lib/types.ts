@@ -45,6 +45,7 @@ export interface HomeContent {
     testimonials?: {
       quote: string
       name: string
+      image?: ImageWithAlt
     }[]
   }
   otherServices?: {
@@ -133,6 +134,7 @@ export interface ContactContent {
     testimonials?: {
       quote: string
       name: string
+      image?: ImageWithAlt
     }[]
   }
   faqSection?: {
