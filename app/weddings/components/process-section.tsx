@@ -43,7 +43,7 @@ export default function ProcessSection({ title, subtitle, processSteps }: { titl
                     <div className={`overflow-hidden transition-all duration-500 ease-in-out
                       ${hoveredIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}
                     `}>
-                      <p className="tracking-wide leading-relaxed text-xl">
+                      <p className="tracking-wide leading-relaxed text-lg">
                         {step.description}
                       </p>
                     </div>

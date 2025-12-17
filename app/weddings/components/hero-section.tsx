@@ -46,7 +46,7 @@ export default function HeroSection({ title, text, images }: { title?: string; t
             </Link>
             <div className="block w-1 h-1 bg-white rounded-full" />
             <Link href="#packages" className="btn px-4 md:px-6 bg-transparent hover:border-white text-white">
-              Packages
+              Pricing
             </Link>
           </div>
           <Link href="/contact" className="text-xl btn-white mx-auto md:mx-0">
