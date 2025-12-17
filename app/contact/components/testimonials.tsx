@@ -1,44 +1,79 @@
-interface TestimonialsProps {
-  data?: {
-    title?: string;
-    testimonials?: {
-      quote: string;
-      name: string;
-    }[];
-  };
-}
+"use client";
 
-export default function Testimonials({ data }: TestimonialsProps) {
-  const title = data?.title || "Kind Words from Kind Clients";
-  const testimonials = data?.testimonials || [];
+import Image from "next/image";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ImageWithAlt } from "@/sanity/lib/types";
+import { urlFor } from "@/sanity/lib/image";
 
+export default function Testimonials({ title, testimonials }: { title?: string; testimonials?: { quote: string; name: string, image?: ImageWithAlt }[] }) {
   return (
-    <section className="py-20 bg-gradient-to-b from-background via-background to-muted/10">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-heading font-thin text-4xl md:text-6xl text-center text-primary mb-16">
-          {title}
-        </h2>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className={`bg-background p-8 rounded-lg shadow-sm ${index === testimonials.length - 1 && testimonials.length % 3 === 1 ? 'lg:col-span-1 md:col-span-2 lg:col-start-auto md:col-start-1' : ''}`}>
-              <div className="flex items-center mb-4">
-                <div className="flex text-accent">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                    </svg>
-                  ))}
+    <section className="relative h-screen overflow-hidden bg-primary">
+      <h2 className="absolute text-white font-heading font-thin text-5xl md:text-6xl z-10 top-8 w-full px-4 md:px-8 flex flex-col items-center text-center gap-3">
+        {title || "Kind Words from Kind Clients"}
+      </h2>
+
+      <Swiper
+        modules={[Autoplay, Navigation, Pagination]}
+        slidesPerView={1}
+        breakpoints={{
+          640: { slidesPerView: 1 },
+          1024: { slidesPerView: 2 },
+          1536: { slidesPerView: 3 },
+        }}
+        loop={true}
+        autoplay={{ delay: 5000, disableOnInteraction: false }}
+        navigation={{ prevEl: '.swiper-button-prev-custom', nextEl: '.swiper-button-next-custom' }}
+        pagination={{ clickable: true }}
+        className="w-full h-full"
+      >
+        {testimonials?.map((testimonial, index) => (
+          <SwiperSlide key={index}>
+            <div className="relative w-full h-full">
+              {/* Background Image */}
+              {testimonial?.image && (
+                <Image
+                  className="absolute inset-0 object-cover object-center"
+                  src={urlFor(testimonial.image).url()!}
+                  alt={testimonial.image.alt || "Connecticut Wedding Photography Testimonial"}
+                  fill
+                  sizes="100vw"
+                />
+              )}
+
+              {/* Overlay for content readability */}
+              <div className="absolute inset-0 bg-gradient-to-b from-stone-900/30 to-stone-900/80" />
+
+              {/* Content */}
+              <div className="relative z-10 h-full flex items-end text-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mb-20 text-center text-balance">
+                  <p className="text-xl mb-6 italic leading-relaxed">
+                    "{testimonial.quote}"
+                  </p>
+
+                  <p className="text-xl text-accent">
+                    - {testimonial.name}
+                  </p>
                 </div>
               </div>
-              <p className="text-muted-foreground italic mb-6 leading-relaxed">
-                "{testimonial.quote}"
-              </p>
-              <p className="font-semibold text-primary">{testimonial.name}</p>
             </div>
-          ))}
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      {/* Custom Navigation Buttons */}
+      {/* <div className=''>
+        <div className="swiper-button-prev-custom absolute top-1/3 left-0 p-2 text-white group z-30 cursor-pointer" aria-label="Previous testimonial">
+          <ChevronLeft className="size-8 stroke-1" />
         </div>
-      </div>
+        <div className="swiper-button-next-custom absolute top-1/3 right-0 p-2 text-white group z-30 cursor-pointer" aria-label="Next testimonial">
+          <ChevronRight className="size-8 stroke-1" />
+        </div>
+      </div> */}
     </section>
   );
 }

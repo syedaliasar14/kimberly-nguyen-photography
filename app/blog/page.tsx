@@ -6,7 +6,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { BlogListItem } from "@/sanity/lib/types";
 
 export const metadata = {
-  title: "Blog - Kimberly Nguyen Photography",
+  title: "Blog |Kimberly Nguyen Photography",
   description: "Wedding tips, real wedding stories, and photography insights from Kimberly Nguyen Photography.",
 };
 
