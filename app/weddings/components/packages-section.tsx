@@ -35,8 +35,7 @@ export default function PackagesSection({ title, subtitle, packages }: { title?:
 
         <div className="grid md:grid-cols-3 gap-8">
           {packages?.map((pkg, index) => (
-            <Link href="/contact" key={index}
-              className={`bg-background p-8 shadow-sm border transition-all duration-300 group z-10 relative
+            <div key={index} className={`bg-background p-8 shadow-sm border transition-all duration-300 group z-10 relative flex flex-col
                   ${pkg.isBest ? "border-accent" : ""}`}
               style={{ boxShadow: pkg.isBest ? "0 0px 25px 0px #dab364" : undefined }}
             >
@@ -90,7 +89,11 @@ export default function PackagesSection({ title, subtitle, packages }: { title?:
                   <div className="w-2 h-2 rotate-45 bg-accent flex-shrink-0" /> {pkg.bonus}
                 </div>
               </div>
-            </Link>
+
+                <Link href="/contact" className={`btn-accent py-2 w-full text-center z-10 relative self-end mt-auto`}>
+                Book Now →
+                </Link>
+            </div>
           ))}
         </div>
       </div>

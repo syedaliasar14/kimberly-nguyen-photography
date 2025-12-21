@@ -70,12 +70,12 @@ export default function Testimonials({ title, testimonials }: { title?: string; 
         </Swiper>
 
         {/* Custom Navigation Buttons */}
-        <div className="testimonial-button-prev-custom absolute left-0 top-1/2 z-10 cursor-pointer">
+        {/* <div className="testimonial-button-prev-custom absolute left-0 top-1/2 z-10 cursor-pointer">
           <ChevronLeft className="size-8 stroke-1" />
         </div>
         <div className="testimonial-button-next-custom absolute right-0 top-1/2 z-10 cursor-pointer">
           <ChevronRight className="size-8 stroke-1" />
-        </div>
+        </div> */}
       </div>
     </section >
   );
