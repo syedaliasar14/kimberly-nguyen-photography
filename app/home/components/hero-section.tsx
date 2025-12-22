@@ -34,7 +34,7 @@ export default function HeroSection({ tagline, images }: { tagline?: string; ima
   }, []);
 
   return (
-    <section ref={sectionRef} className="min-h-[100vh] flex flex-col items-center justify-center text-white pt-12 bg-primary relative overflow-hidden">
+    <section ref={sectionRef} className="min-h-screen flex flex-col items-center justify-center text-white pt-12 bg-primary relative overflow-hidden">
       {/* Background Slideshow - Fixed Position */}
       <div className={`fixed inset-0 w-full h-full z-0 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0 invisible pointer-events-none'}`}>
         <Swiper
