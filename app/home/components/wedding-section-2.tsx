@@ -28,7 +28,7 @@ export default function WeddingSection2({ title, text, images }: { title?: strin
   }, []);
 
   return (
-    <section ref={sectionRef} className="pt-20 pb-8 relative overflow-hidden min-h-[100dvh] flex flex-col justify-end">
+    <section ref={sectionRef} className="pt-20 pb-8 relative overflow-hidden min-h-[100vh] flex flex-col justify-end">
       {/* Background Slideshow */}
       <div className={`fixed inset-0 -z-10 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0 invisible pointer-events-none'}`}>
         <Swiper
