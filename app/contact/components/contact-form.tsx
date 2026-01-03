@@ -149,7 +149,7 @@ export default function ContactForm({ title, subtitle }: { title?: string; subti
                         <SelectItem value="Graduation">Graduation</SelectItem>
                         <SelectItem value="Couples Portraits">Couples Portraits</SelectItem>
                         <SelectItem value="Family/Maternity">Family/Maternity</SelectItem>
-                        <SelectItem value="Individualized Session">Individualized Session</SelectItem>
+                        <SelectItem value="Individualized Session">Headshot Session</SelectItem>
                         <SelectItem value="Other">Other</SelectItem>
                       </SelectContent>
                     </Select>
@@ -205,7 +205,7 @@ export default function ContactForm({ title, subtitle }: { title?: string; subti
 
                 <Controller control={form.control} name="inspo" render={({ field, fieldState }) => (
                   <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel htmlFor="inspo">Link a mood board/visual inspo! <span className='font-normal opacity-80 text-sm italic'>(optional)</span></FieldLabel>
+                    <FieldLabel htmlFor="inspo">Link a mood board/visual inspo!</FieldLabel>
                     <Input {...field} id="inspo" autoComplete="off" placeholder="Links or short notes" aria-invalid={fieldState.invalid} />
                     {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
                   </Field>
@@ -220,9 +220,9 @@ export default function ContactForm({ title, subtitle }: { title?: string; subti
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="Instagram">Instagram</SelectItem>
+                        <SelectItem value="Google">Google</SelectItem>
                         <SelectItem value="Facebook">Facebook</SelectItem>
                         <SelectItem value="Friend">Friend</SelectItem>
-                        <SelectItem value="Google">Google</SelectItem>
                         <SelectItem value="Other">Other</SelectItem>
                       </SelectContent>
                     </Select>
