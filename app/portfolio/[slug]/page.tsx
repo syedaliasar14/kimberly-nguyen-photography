@@ -61,6 +61,11 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
             <h1 className="font-heading font-thin text-3xl sm:text-4xl lg:text-5xl text-primary leading-tight">
               {portfolio.title}
             </h1>
+            <p className="text-lg text-muted-foreground mt-4">
+              {portfolio.venue && <span>{portfolio.venue}</span>}
+              {portfolio.venue && portfolio.season && <span> • </span>}
+              {portfolio.season && <span>{portfolio.season}</span>}
+            </p>
           </div>
         </div>
       </section>

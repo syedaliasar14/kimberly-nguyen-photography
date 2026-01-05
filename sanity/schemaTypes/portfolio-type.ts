@@ -25,6 +25,18 @@ export const portfolioType = defineType({
       description: 'Optional order for sorting. Leave empty to sort by date.',
     }),
     defineField({
+      name: 'venue',
+      title: 'Venue',
+      type: 'string',
+      description: 'Location or venue name',
+    }),
+    defineField({
+      name: 'season',
+      title: 'Season',
+      type: 'string',
+      description: 'Season or category (e.g., Spring 2024, Summer)',
+    }),
+    defineField({
       name: 'thumbnail',
       title: 'Thumbnail Image',
       type: 'image',

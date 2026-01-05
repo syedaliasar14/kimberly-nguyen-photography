@@ -159,6 +159,8 @@ export const PORTFOLIO_ITEMS_QUERY = groq`*[_type == "portfolio" && slug.current
   thumbnail{
     asset->
   },
+  venue,
+  season,
   images[]{
     asset->,
     alt,
