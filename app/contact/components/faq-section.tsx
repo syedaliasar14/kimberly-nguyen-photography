@@ -71,7 +71,7 @@ export default function FaqSection({ data }: FaqSectionProps) {
   ];
 
   const title = data?.title || "Frequently Asked Questions";
-  const faqs = [...fallbackFaqs, ...(data?.faqs || [])];
+  const faqs = data?.faqs && data.faqs.length > 0 ? data.faqs : fallbackFaqs;
 
   const toggleItem = (index: number) => {
     setOpenItems(prev =>

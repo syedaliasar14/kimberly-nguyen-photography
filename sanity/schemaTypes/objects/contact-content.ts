@@ -55,7 +55,7 @@ export const contactContent = defineType({
         { name: 'title', title: 'Section Title', type: 'string' },
         {
           name: 'faqs',
-          title: 'Additional FAQ Items',
+          title: 'FAQ Items',
           type: 'array',
           of: [{
             type: 'object',
