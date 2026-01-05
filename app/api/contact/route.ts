@@ -14,8 +14,8 @@ export async function POST(req: NextRequest) {
     const formattedInspo = inspo || 'None provided';
 
     await resend.emails.send({
-      from: "contact@my-nimbus.com",
-      to: "syedali.asar14@gmail.com",
+      from: "contact@kimberlynguyenphotography.com",
+      to: "kimberlypnguyenphotography@gmail.com",
       subject: `New ${service} Inquiry from ${firstName} ${lastName}`,
       react: ContactEmail({
         firstName,
