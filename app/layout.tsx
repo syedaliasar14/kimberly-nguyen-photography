@@ -8,7 +8,7 @@ import { DisableDraftMode } from '@/components/disable-draft-mode'
 import { allura, canela, instrumentSerif, jost, montserrat, moontime } from "@/fonts/utils";
 
 export const metadata: Metadata = {
-  title: "Kimberly Nguyen Photography LLC | Connecticut",
+  title: "Kimberly Nguyen Photography LLC",
   description: "Wedding Photographer for Connecticut, New York and Massachusetts. Clean, beautiful photography for weddings, engagements, couples, and more.",
 };
 
