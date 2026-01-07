@@ -27,7 +27,7 @@ export default function PolaroidCard({ title, slug, thumbnailUrl, index, basePat
           )}
           <div className="border border-white inset-2 absolute" />
         </div>
-        <div className="mt-2 text-balance flex items-center justify-center">
+        <div className="mt-2 text-balance text-center w-[250px] flex items-center justify-center">
           <span className="text-3xl text-primary">{title}</span>
         </div>
       </div>
