@@ -52,7 +52,7 @@ export default function HeroSection({ tagline, images }: { tagline?: string; ima
                 className="absolute inset-0 object-cover object-center"
                 src={urlFor(img.asset).url()!}
                 alt={`Hero Image ${i + 1}`}
-                fill sizes="(max-width: 768px) 100vw, 100vw"
+                fill sizes="(max-width: 768px) 300vw, 100vw"
                 priority={i === 0}
               />
             </SwiperSlide>
