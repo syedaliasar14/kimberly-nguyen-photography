@@ -123,7 +123,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-serif antialiased selection:bg-accent selection:text-accent-foreground;
+    @apply bg-background text-foreground font-sans antialiased selection:bg-accent selection:text-accent-foreground;
   }
   button {
     @apply cursor-pointer;

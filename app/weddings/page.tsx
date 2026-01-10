@@ -11,6 +11,7 @@ import { WEDDINGS_PAGE_QUERY } from "@/sanity/lib/queries";
 import { sanityFetch } from "@/sanity/lib/live";
 import { Page } from "@/sanity/lib/types";
 import CallToAction from "@/components/call-to-action";
+import WeddingGuide from "./components/wedding-guide";
 
 export async function generateMetadata(): Promise<Metadata> {
   const pageData = (await sanityFetch({ query: WEDDINGS_PAGE_QUERY, params: {} }))?.data as Page;
@@ -76,6 +77,13 @@ export default async function Weddings() {
         title={weddingsContent?.packagesSection?.title}
         subtitle={weddingsContent?.packagesSection?.subtitle}
         packages={weddingsContent?.packagesSection?.packages}
+      />
+
+      <WeddingGuide
+        title={weddingsContent?.weddingGuide?.title}
+        subtitle={weddingsContent?.weddingGuide?.subtitle}
+        images={weddingsContent?.weddingGuide?.images}
+        pdf={weddingsContent?.weddingGuide?.pdf}
       />
 
       <CallToAction />

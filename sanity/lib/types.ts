@@ -96,6 +96,12 @@ export interface WeddingsContent {
       bonus?: string
     }[]
   }
+  weddingGuide?: {
+    title?: string
+    subtitle?: string
+    pdf?: { asset: SanityImageSource }
+    images?: ImageWithAlt[]
+  }
   testimonials?: {
     quote: string
     name: string

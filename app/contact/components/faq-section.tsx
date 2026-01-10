@@ -101,7 +101,7 @@ export default function FaqSection({ data }: FaqSectionProps) {
                 </div>
 
                 <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openItems.includes(i) ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                  <div className="font-serif  tracking-wider mt-4 transition-colors duration-200 leading-relaxed">
+                  <div className="tracking-wider mt-4 transition-colors duration-200 leading-relaxed">
                     {faq.answer}
                   </div>
                 </div>

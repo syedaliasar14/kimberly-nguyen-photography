@@ -77,7 +77,7 @@ export default function WeddingSection1({ title, text, images, keywords }: { tit
         The Wedding Experience  <ChevronRight className="size-5 stroke-1 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
       </Link>
 
-      {keywords?.length && <div className="max-w-4xl mx-auto px-4 md:px-8 mt-32 z-20 text-center flex flex-wrap justify-center gap-2">
+      {keywords?.length && <div className="font-heading font-thin max-w-4xl mx-auto px-4 md:px-8 mt-32 z-20 text-center flex flex-wrap justify-center gap-2">
         {keywords.map((word, i) => (
           <span key={i} className={`text-4xl md:text-5xl ${i % 2 === 0 ? 'opacity-75' : 'opacity-50' }`}>
             {word}

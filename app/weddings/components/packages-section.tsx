@@ -82,10 +82,10 @@ export default function PackagesSection({ title, subtitle, packages }: { title?:
               </div>
 
               <div className="border-t border-border pt-6 mb-6 z-10 relative">
-                <p className="font-serif text-muted-foreground leading-relaxed mb-4">
+                <p className="text-muted-foreground leading-relaxed mb-4">
                   {pkg.description}
                 </p>
-                <div className="font-serif text-accent flex items-center gap-2">
+                <div className="text-accent flex items-center gap-2">
                   <div className="w-2 h-2 rotate-45 bg-accent flex-shrink-0" /> {pkg.bonus}
                 </div>
               </div>

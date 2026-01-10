@@ -151,6 +151,22 @@ export const weddingsContent = defineType({
       ],
     }),
     defineField({
+      name: 'weddingGuide',
+      title: 'Wedding Guide Section',
+      type: 'object',
+      fields: [
+        { name: 'title', title: 'Title', type: 'string' },
+        { name: 'subtitle', title: 'Subtitle', type: 'string' },
+        { name: 'pdf', title: 'PDF', type: 'file' },
+        {
+          name: 'images',
+          title: 'Images',
+          type: 'array',
+          of: [{ type: 'image', options: { hotspot: true }, fields: [{ name: 'alt', title: 'Alt Text', type: 'string' }] }],
+        },
+      ],
+    }),
+    defineField({
       name: 'testimonials',
       title: 'Testimonials (4 max)',
       type: 'array',

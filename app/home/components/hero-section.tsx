@@ -66,8 +66,9 @@ export default function HeroSection({ tagline, images }: { tagline?: string; ima
       {/* Content */}
       <div className="w-full mx-auto px-4 md:px-8 text-center flex flex-col justify-between flex-grow pt-4 relative z-20">
         <div className="flex flex-col gap-4 mt-4">
-          <h1 className="font-heading font-thin font-thin uppercase text-6xl md:text-7xl">Kimberly Nguyen</h1>
+          <h1 className="font-heading font-thin uppercase text-6xl md:text-7xl">Kimberly Nguyen</h1>
           <h2 className="text-xl md:text-2xl font-sans tracking-widest uppercase">Photography, LLC</h2>
+          <h3 className="-mt-2 text-sm">Connecticut, New York, Boston, and Destination</h3>
         </div>
 
         <div className="flex flex-row justify-between items-end">

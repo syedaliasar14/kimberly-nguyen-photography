@@ -59,10 +59,10 @@ export default function Testimonials({ title, testimonials }: { title?: string; 
                     </div>
                   )}
                 </div>
-                <div className="w-full md:w-1/2 lg:w-2/3 flex flex-col justify-center bg-white p-4 md:p-8 shadow-lg h-max self-end md:-ml-32 -mb-4 z-10">
+                <div className="w-full md:w-1/2 lg:w-2/3 flex flex-col justify-center bg-white p-4 md:p-8 shadow-lg h-max self-end -mb-4 md:-ml-32 z-10 select-none cursor-default">
                   <p className="text-accent">★★★★★</p>
-                  <p className="text-lg text-justify italic mb-6">"{testimonial.quote}"</p>
-                  <p className="text-xl text-right">- {testimonial.name}</p>
+                  <p className="text-justify italic mb-6">"{testimonial.quote}"</p>
+                  <p className="font-heading font-thin text-xl text-right">- {testimonial.name}</p>
                 </div>
               </div>
             </SwiperSlide>

@@ -83,6 +83,12 @@ export const WEDDINGS_PAGE_QUERY = groq`*[_type == "page" && pageType == "weddin
         bonus
       }
     },
+    weddingGuide{
+      title,
+      subtitle,
+      pdf{asset->},
+      images[]{asset->, alt}
+    },
     testimonials[]{
       quote,
       name,
