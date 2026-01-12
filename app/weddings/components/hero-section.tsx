@@ -1,6 +1,5 @@
 "use client";
 
-import { useScrollY } from "@/hooks/use-scroll";
 import Image from "next/image";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -12,7 +11,6 @@ import { ImageWithAlt } from "@/sanity/lib/types";
 import { urlFor } from "@/sanity/lib/image";
 
 export default function HeroSection({ title, text, images }: { title?: string; text?: string; images?: ImageWithAlt[] }) {
-  const scrollY = useScrollY();
 
   return (
     <section className="min-h-screen flex items-center bg-gradient-to-b from-secondary via-secondary to-secondary/30 text-white pt-14 relative">
@@ -22,7 +20,6 @@ export default function HeroSection({ title, text, images }: { title?: string; t
           alt="Wedding Photography Background"
           fill priority
           className="object-cover object-center absolute inset-0 opacity-25 w-full h-full"
-        /* style={{ transform: `translateY(${scrollY * 0.5}px)` }} will-change="transform" */
         />
       </div>
 
@@ -36,7 +33,7 @@ export default function HeroSection({ title, text, images }: { title?: string; t
             {text || `Every love story is unique, deserving to be captured with intention and heart. I believe in documenting the authentic moments—the quiet glances, joyful tears, and everything in between that makes your day truly yours.`}
           </p>
 
-          <div className="text-xl flex gap-2 md:gap-4 items-center mb-8 self-center md:self-start">
+          <div className="md:text-xl flex gap-2 md:gap-4 items-center mb-8 self-center md:self-start">
             <Link href="#process" className="btn px-4 md:px-6 bg-transparent hover:border-white text-white">
               Process
             </Link>
