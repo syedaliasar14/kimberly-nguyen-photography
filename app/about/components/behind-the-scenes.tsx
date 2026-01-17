@@ -67,7 +67,7 @@ After your wedding, I carefully curate and edit your images, ensuring each photo
             </p>
             <div className="w-16 h-px bg-accent self-center my-10" />
             <div className="mt-4 self-center">
-              <Link href="/weddings#process" className="btn-accent text-lg">
+              <Link href="/weddings#process" className="btn-accent">
                 Learn More About My Process
               </Link>
             </div>
