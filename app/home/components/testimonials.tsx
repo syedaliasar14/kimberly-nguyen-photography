@@ -55,6 +55,7 @@ export default function Testimonials({ title, testimonials }: { title?: string; 
                         alt={testimonial.image.alt || "Connecticut Wedding Photography Testimonial"}
                         width={1000} height={1000}
                         className="relative z-10 object-cover w-full aspect-[5/6] border border-accent"
+                        unoptimized
                       />
                     </div>
                   )}

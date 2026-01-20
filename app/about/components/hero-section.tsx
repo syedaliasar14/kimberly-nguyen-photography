@@ -44,6 +44,7 @@ My goal in my work is to document and capture one-of-a-kind memories that will b
                 src={imageUrl} alt={imageAlt}
                 width={1000} height={1200}
                 className="w-full h-full object-cover"
+                unoptimized
               />
             </div>
             
@@ -53,6 +54,7 @@ My goal in my work is to document and capture one-of-a-kind memories that will b
                   src={image2Url} alt={image2Alt}
                   width={1000} height={1200}
                   className="w-full h-full object-cover"
+                  unoptimized
                 />
               </div>
             )}

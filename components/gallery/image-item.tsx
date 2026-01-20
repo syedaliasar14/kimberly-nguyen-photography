@@ -21,6 +21,7 @@ export default function ImageItem({ data, onClick }: { data: IImageItem; onClick
           loading="lazy"
           width={1000}
           height={1000}
+          unoptimized
         />
       </div>
       {data.caption && (

@@ -49,6 +49,7 @@ export default function WeddingSection2({ title, text, images }: { title?: strin
                 src={urlFor(img.asset).url()!}
                 alt={img.alt || `Connecticut Wedding Photographer`}
                 fill sizes="(max-width: 768px) 300vw, 100vw"
+                unoptimized
               />
             </SwiperSlide>
           ))}

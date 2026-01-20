@@ -43,6 +43,7 @@ export default function OtherServices({ title, subtitle, services }: { title?: s
                   src={urlFor(service.image.asset).url()!}
                   alt={service?.service || `Connecticut Photography Service`}
                   fill sizes="100vw"
+                  unoptimized
                 />
               )}
 

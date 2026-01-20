@@ -40,8 +40,8 @@ export default function Testimonials({ title, testimonials }: { title?: string; 
                   className="absolute inset-0 object-cover object-center"
                   src={urlFor(testimonial.image).url()!}
                   alt={testimonial.image.alt || "Connecticut Wedding Photography Testimonial"}
-                  fill
-                  sizes="100vw"
+                  fill sizes="100vw"
+                  unoptimized
                 />
               )}
 

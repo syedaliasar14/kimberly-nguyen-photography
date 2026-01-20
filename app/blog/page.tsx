@@ -37,6 +37,7 @@ export default async function BlogPage() {
                           alt={blog.image?.alt || blog.title}
                           fill
                           className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          unoptimized
                         />
                       ) : (
                         <div className="w-full h-full bg-accent/10 flex items-center justify-center" />

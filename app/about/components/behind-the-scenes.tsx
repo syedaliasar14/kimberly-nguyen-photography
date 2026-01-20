@@ -47,6 +47,7 @@ After your wedding, I carefully curate and edit your images, ensuring each photo
                 src={imageUrl} alt={imageAlt}
                 width={1000} height={1200}
                 className="w-full h-full object-cover flex-shrink-0"
+                unoptimized
               />
             </div>
 
@@ -56,6 +57,7 @@ After your wedding, I carefully curate and edit your images, ensuring each photo
                   src={image2Url} alt={image2Alt}
                   width={1000} height={1200}
                   className="w-full h-full object-cover"
+                  unoptimized
                 />
               </div>
             )}

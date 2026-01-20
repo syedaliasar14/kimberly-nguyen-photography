@@ -77,6 +77,7 @@ export default function ImageSlider({ images, initialIndex, isOpen, onClose }: I
                   loading="lazy"
                   width={2000}
                   height={2000}
+                  unoptimized
                 />
               </div>
             </SwiperSlide>

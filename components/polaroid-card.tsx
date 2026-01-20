@@ -21,6 +21,7 @@ export default function PolaroidCard({ title, slug, thumbnailUrl, index, basePat
               fill sizes="500px"
               className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
               priority={index < 3}
+              unoptimized
             />
           ) : (
             <div className="w-full h-full bg-secondary/10 flex items-center justify-center" />

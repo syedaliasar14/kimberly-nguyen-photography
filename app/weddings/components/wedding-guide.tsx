@@ -64,6 +64,7 @@ export default function WeddingGuide({ title, subtitle, images, pdf }: { title?:
                   width={1200}
                   height={1200}
                   className="object-cover"
+                  unoptimized
                 />
               </div>
             </SwiperSlide>

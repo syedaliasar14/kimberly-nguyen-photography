@@ -22,6 +22,7 @@ export default function EngagementsSection({ title, text, image }: { title?: str
             alt={image.alt || "Engagement Photography"}
             width={1000} height={1000}
             className="object-cover w-full h-full flex-shrink-0 border border-accent"
+            unoptimized
           />}
           {/* Image overlay for depth */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />

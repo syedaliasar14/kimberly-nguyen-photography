@@ -48,6 +48,7 @@ Community and connection matter to me. I don't just photograph your wedding—I 
                 src={imageUrl} alt={imageAlt}
                 width={1000} height={1200}
                 className="w-full h-full object-cover flex-shrink-0"
+                unoptimized
               />
             </div>
 
@@ -57,6 +58,7 @@ Community and connection matter to me. I don't just photograph your wedding—I 
                   src={image2Url} alt={image2Alt}
                   width={1000} height={1200}
                   className="w-full h-full object-cover"
+                  unoptimized
                 />
               </div>
             )}

@@ -54,6 +54,7 @@ export default function HeroSection({ tagline, images }: { tagline?: string; ima
                 alt={`Hero Image ${i + 1}`}
                 fill sizes="(max-width: 768px) 300vw, 100vw"
                 priority={i === 0}
+                unoptimized
               />
             </SwiperSlide>
           ))}

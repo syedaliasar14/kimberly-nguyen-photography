@@ -22,6 +22,7 @@ export default function TestimonialSection({ quote, coupleName, image }: { quote
               alt={image.alt || "Connecticut Wedding Photography Testimonial"}
               width={600} height={700}
               className="object-cover w-full aspect-[5/6] z-10 relative border border-accent"
+              unoptimized
             />
           </div>
         )}
