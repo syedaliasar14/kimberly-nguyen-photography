@@ -2,7 +2,7 @@ import { urlFor } from "@/sanity/lib/image";
 import { ImageWithAlt } from "@/sanity/lib/types";
 import Image from "next/image";
 
-export default function TestimonialSection({ quote, coupleName, image }: { quote: string; coupleName: string; image?: ImageWithAlt }) {
+export default function TestimonialSection({ quote, coupleName, image, photosAltText }: { quote: string; coupleName: string; image?: ImageWithAlt; photosAltText?: string }) {
   return (
     <section className="relative overflow-hidden bg-secondary-50 text-accent">
       {/* Background */}
@@ -19,7 +19,7 @@ export default function TestimonialSection({ quote, coupleName, image }: { quote
           <div className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 relative ml-4 md:ml-0">
             <div className="absolute -top-4 -left-4 right-8 bottom-8 bg-accent" />
             <Image src={urlFor(image).url()!}
-              alt={image.alt || "Connecticut Wedding Photography Testimonial"}
+              alt={image.alt || photosAltText || "Connecticut Wedding Photography Testimonial"}
               width={600} height={700}
               className="object-cover w-full aspect-[5/6] z-10 relative border border-accent"
               unoptimized

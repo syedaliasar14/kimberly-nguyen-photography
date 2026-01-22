@@ -71,7 +71,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
       </section>
 
       {/* Interactive Gallery */}
-      <ImagesGrid portfolio={portfolio} />
+      <ImagesGrid portfolio={portfolio} photosAltText={portfolio.photosAltText} />
 
       {/* Call to Action */}
       <section className="py-20 bg-gradient-to-b from-background to-secondary/20">

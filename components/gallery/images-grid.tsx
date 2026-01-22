@@ -14,7 +14,7 @@ interface GalleryImage {
   caption?: string;
 }
 
-export default function ImagesGrid({ portfolio }: { portfolio: SanityDocument | null }) {
+export default function ImagesGrid({ portfolio, photosAltText }: { portfolio: SanityDocument | null; photosAltText?: string }) {
   const [sliderOpen, setSliderOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [isMounted, setIsMounted] = useState(false);
@@ -33,12 +33,12 @@ export default function ImagesGrid({ portfolio }: { portfolio: SanityDocument | 
         id: `${portfolio._id}-${index}`,
         src: imageUrl || '',
         fullSrc: fullImageUrl || imageUrl || '',
-        alt: image.alt || `${portfolio.title} - Image ${index + 1}`,
+        alt: image.alt || photosAltText || `${portfolio.title} - Image ${index + 1}`,
         caption: image.caption,
       };
     }).filter((item: IImageItem) => item.src);
-  }, [portfolio]);
-
+  }, [portfolio, photosAltText]);
+  
   const handleImageClick = (index: number) => {
     setSelectedImageIndex(index);
     setSliderOpen(true);

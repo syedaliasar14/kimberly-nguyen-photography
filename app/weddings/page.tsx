@@ -22,7 +22,9 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Weddings() {
-  const weddingsContent = (await sanityFetch({ query: WEDDINGS_PAGE_QUERY, params: {} }))?.data.weddingsContent;
+  const pageData = (await sanityFetch({ query: WEDDINGS_PAGE_QUERY, params: {} }))?.data as Page;
+  const weddingsContent = pageData.weddingsContent;
+  const photosAltText = pageData.seo?.photosAltText;
 
   return (
     <>
@@ -30,6 +32,7 @@ export default async function Weddings() {
         title={weddingsContent?.heroSection?.title}
         text={weddingsContent?.heroSection?.text}
         images={weddingsContent?.heroSection?.images}
+        photosAltText={photosAltText}
       />
 
       <ProcessSection
@@ -41,7 +44,8 @@ export default async function Weddings() {
       <TestimonialSection
         quote={weddingsContent?.testimonials?.[0]?.quote || ""}
         coupleName={weddingsContent?.testimonials?.[0]?.name || ""}
-        image={weddingsContent?.testimonials?.[0]?.image || ""}
+        image={weddingsContent?.testimonials?.[0]?.image}
+        photosAltText={photosAltText}
       />
 
       <PortfolioGallery />
@@ -49,37 +53,43 @@ export default async function Weddings() {
       <TestimonialSection
         quote={weddingsContent?.testimonials?.[1]?.quote || ""}
         coupleName={weddingsContent?.testimonials?.[1]?.name || ""}
-        image={weddingsContent?.testimonials?.[1]?.image || ""}
+        image={weddingsContent?.testimonials?.[1]?.image}
+        photosAltText={photosAltText}
       />
 
       <ElopementsSection
         title={weddingsContent?.elopementsSection?.title}
         text={weddingsContent?.elopementsSection?.text}
         image={weddingsContent?.elopementsSection?.image}
+        photosAltText={photosAltText}
       />
 
       <TestimonialSection
         quote={weddingsContent?.testimonials?.[2]?.quote || ""}
         coupleName={weddingsContent?.testimonials?.[2]?.name || ""}
-        image={weddingsContent?.testimonials?.[2]?.image || ""}
+        image={weddingsContent?.testimonials?.[2]?.image}
+        photosAltText={photosAltText}
       />
 
       <EngagementsSection
         title={weddingsContent?.engagementsSection?.title}
         text={weddingsContent?.engagementsSection?.text}
         image={weddingsContent?.engagementsSection?.image}
+        photosAltText={photosAltText}
       />
 
       <TestimonialSection
         quote={weddingsContent?.testimonials?.[3]?.quote || ""}
         coupleName={weddingsContent?.testimonials?.[3]?.name || ""}
-        image={weddingsContent?.testimonials?.[3]?.image || ""}
+        image={weddingsContent?.testimonials?.[3]?.image}
+        photosAltText={photosAltText}
       />
 
       <PackagesSection
         title={weddingsContent?.packagesSection?.title}
         subtitle={weddingsContent?.packagesSection?.subtitle}
         packages={weddingsContent?.packagesSection?.packages}
+        photosAltText={photosAltText}
       />
 
       <WeddingGuide
@@ -87,6 +97,7 @@ export default async function Weddings() {
         subtitle={weddingsContent?.weddingGuide?.subtitle}
         images={weddingsContent?.weddingGuide?.images}
         pdf={weddingsContent?.weddingGuide?.pdf}
+        photosAltText={photosAltText}
       />
 
       <CallToAction />

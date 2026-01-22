@@ -3,7 +3,7 @@ import Image from "next/image";
 import { ImageWithAlt } from "@/sanity/lib/types";
 import { urlFor } from "@/sanity/lib/image";
 
-export default function EngagementsSection({ title, text, image }: { title?: string; text?: string; image?: ImageWithAlt }) {
+export default function EngagementsSection({ title, text, image, photosAltText }: { title?: string; text?: string; image?: ImageWithAlt; photosAltText?: string }) {
   return (
     <section className="py-32 relative overflow-hidden bg-primary">
       {/* Background Image */}
@@ -19,7 +19,7 @@ export default function EngagementsSection({ title, text, image }: { title?: str
         <div className="relative w-full md:w-1/3 aspect-[5/6] overflow-hidden">
           {image && <Image
             src={urlFor(image).url()!}
-            alt={image.alt || "Engagement Photography"}
+            alt={image.alt || photosAltText || "Engagement Photography"}
             width={1000} height={1000}
             className="object-cover w-full h-full flex-shrink-0 border border-accent"
             unoptimized

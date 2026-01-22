@@ -18,6 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Contact() {
   const pageData = (await sanityFetch({ query: CONTACT_PAGE_QUERY, params: {} }))?.data as Page;
   const contactContent = pageData?.contactContent;
+  const photosAltText = pageData.seo?.photosAltText
 
   return (
     <>
@@ -28,6 +29,7 @@ export default async function Contact() {
       <Testimonials
         title={contactContent?.testimonialsSection?.title}
         testimonials={contactContent?.testimonialsSection?.testimonials}
+        photosAltText={photosAltText}
       />
       <FaqSection data={contactContent?.faqSection} />
     </>

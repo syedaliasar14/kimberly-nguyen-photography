@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export const otherWorksType = defineType({
   name: 'otherWorks',
@@ -15,7 +15,7 @@ export const otherWorksType = defineType({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      options: {source: 'title'},
+      options: { source: 'title' },
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -23,6 +23,12 @@ export const otherWorksType = defineType({
       title: 'Order',
       type: 'number',
       description: 'Optional order for sorting. Leave empty to sort by date.',
+    }),
+    defineField({
+      name: 'photosAltText',
+      title: 'Photos Alt Text',
+      type: 'string',
+      description: 'Alternative text for photos used across the page for accessibility and SEO',
     }),
     defineField({
       name: 'thumbnail',
@@ -70,7 +76,7 @@ export const otherWorksType = defineType({
       subtitle: 'publishedAt',
     },
     prepare(selection) {
-      const {title, media, subtitle} = selection
+      const { title, media, subtitle } = selection
       return {
         title: title,
         media: media,

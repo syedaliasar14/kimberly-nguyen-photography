@@ -17,7 +17,9 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function About() {
-  const aboutContent = (await sanityFetch({query: ABOUT_PAGE_QUERY, params: {}}))?.data?.aboutContent;
+  const pageData = (await sanityFetch({query: ABOUT_PAGE_QUERY, params: {}}))?.data as Page;
+  const aboutContent = pageData.aboutContent;
+  const photosAltText = pageData.seo?.photosAltText
 
   return (
     <>
@@ -26,18 +28,21 @@ export default async function About() {
         text={aboutContent?.heroSection?.text}
         image={aboutContent?.heroSection?.image}
         image2={aboutContent?.heroSection?.image2}
+        photosAltText={photosAltText}
       />
       <BehindTheScenes 
         title={aboutContent?.behindTheScenesSection?.title}
         text={aboutContent?.behindTheScenesSection?.text}
         image={aboutContent?.behindTheScenesSection?.image}
         image2={aboutContent?.behindTheScenesSection?.image2}
+        photosAltText={photosAltText}
       />
       <ValuesSection 
         title={aboutContent?.valuesSection?.title}
         text={aboutContent?.valuesSection?.text}
         image={aboutContent?.valuesSection?.image}
         image2={aboutContent?.valuesSection?.image2}
+        photosAltText={photosAltText}
       />
       <CallToAction />
     </>

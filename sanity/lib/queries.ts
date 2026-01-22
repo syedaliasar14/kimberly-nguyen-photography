@@ -9,7 +9,8 @@ const BASE_PAGE_FIELDS = groq`
   seo{
     metaTitle,
     metaDescription,
-    ogImage
+    ogImage,
+    photosAltText
   }
 `
 
@@ -162,6 +163,7 @@ export const PORTFOLIO_ITEMS_QUERY = groq`*[_type == "portfolio" && slug.current
   _id, 
   title, 
   slug, 
+  photosAltText,
   thumbnail{
     asset->
   },
@@ -189,6 +191,7 @@ export const BLOG_BY_SLUG_QUERY = groq`*[_type == "blog" && slug.current == $slu
   _id,
   title,
   slug,
+  photosAltText,
   image{asset->, alt},
   content[]{
     ...,
@@ -216,6 +219,7 @@ export const OTHER_WORKS_ITEMS_QUERY = groq`*[_type == "otherWorks" && slug.curr
   _id, 
   title, 
   slug, 
+  photosAltText,
   thumbnail{
     asset->
   },

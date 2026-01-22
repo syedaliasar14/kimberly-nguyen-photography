@@ -8,14 +8,12 @@ interface HeroSectionProps {
   text?: string;
   image?: ImageWithAlt;
   image2?: ImageWithAlt;
+  photosAltText?: string;
 }
 
-export default function HeroSection({ title, text, image, image2 }: HeroSectionProps) {
+export default function HeroSection({ title, text, image, image2, photosAltText }: HeroSectionProps) {
   const imageUrl = image?.asset ? urlFor(image.asset).width(1000).height(1200).url() : "/kim/3.png";
-  const imageAlt = image?.alt || "Kimberly Nguyen Photography";
-
   const image2Url = image2?.asset ? urlFor(image2.asset).width(1000).height(1200).url() : null;
-  const image2Alt = image2?.alt || "Kimberly Nguyen Photography";
 
   const defaultText = `Welcome! I'm Kim, a daughter of Vietnamese immigrants who chose to move to Connecticut, where I have lived for most of my life. I love the change of seasons in this part of the country and all the rich backdrops it brings for imagery (and mental health walks). My cultural heritage is the foundation for my photographic passion. My camera allows me to work where I know I work best, front row at some of the most profound moments in people's lives. In a pinch though, I'll be there carrying the train, making sure you don't get your shoes dirty and helping to support you where I can throughout your wedding day!
 
@@ -41,7 +39,7 @@ My goal in my work is to document and capture one-of-a-kind memories that will b
           <div className="md:ml-8 md:-mt-10 mb-6 w-full md:w-1/3 relative flex-shrink-0">
             <div className="relative mr-8 aspect-[5/6]">
               <Image
-                src={imageUrl} alt={imageAlt}
+                src={imageUrl} alt={image?.alt || photosAltText || "Kimberly Nguyen Photography"}
                 width={1000} height={1200}
                 className="w-full h-full object-cover"
                 unoptimized
@@ -51,7 +49,7 @@ My goal in my work is to document and capture one-of-a-kind memories that will b
             {image2Url && (
               <div className="ml-8 -mt-20 aspect-[5/6] shadow-lg relative">
                 <Image
-                  src={image2Url} alt={image2Alt}
+                  src={image2Url} alt={image2?.alt || photosAltText || "Kimberly Nguyen Photography"}
                   width={1000} height={1200}
                   className="w-full h-full object-cover"
                   unoptimized

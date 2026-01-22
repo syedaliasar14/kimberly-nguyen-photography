@@ -33,7 +33,7 @@ const portableTextComponents: PortableTextComponents = {
         <figure className="my-8">
           <Image
             src={imageUrl}
-            alt={value?.alt || "Blog image"}
+            alt={value?.alt || value.photosAltText || "Blog image"}
             width={1200}
             height={800}
             className="w-full h-auto"
@@ -117,7 +117,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
           <Link href="/about" className="flex items-center gap-4 mb-8 w-max">
             <Image
               src="/kim/3.png"
-              alt="Kimberly Nguyen"
+              alt={"Kimberly Nguyen"}
               width={200}
               height={200}
               className="rounded-full object-cover h-12 w-12"
@@ -142,7 +142,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
           <div className="relative aspect-[16/9] overflow-hidden shadow-lg">
             <Image
               src={featuredImageUrl}
-              alt={blog.image?.alt || blog.title}
+              alt={blog.image?.alt || blog.photosAltText || blog.title}
               fill
               className="object-cover"
               priority

@@ -10,7 +10,7 @@ import Image from 'next/image';
 import { ImageWithAlt } from '@/sanity/lib/types';
 import { urlFor } from '@/sanity/lib/image';
 
-export default function WeddingSection1({ title, text, images, keywords }: { title?: string; text?: string; images?: ImageWithAlt[], keywords?: string[] }) {
+export default function WeddingSection1({ title, text, images, keywords, photosAltText }: { title?: string; text?: string; images?: ImageWithAlt[], keywords?: string[], photosAltText?: string }) {
   return (
     <section className="py-40 bg-background flex flex-col relative">
       <Image
@@ -55,7 +55,7 @@ export default function WeddingSection1({ title, text, images, keywords }: { tit
               <div className="swiper-zoom-container w-full h-full flex items-center justify-center">
                 <Image
                   src={urlFor(img.asset).url()!}
-                  alt={img.alt || `Connecticut Wedding Photographer`}
+                  alt={img.alt || photosAltText || `Connecticut Wedding Photographer`}
                   width={1200}
                   height={1200}
                   className="object-cover"

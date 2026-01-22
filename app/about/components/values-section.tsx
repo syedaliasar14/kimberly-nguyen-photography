@@ -7,14 +7,12 @@ interface ValuesSectionProps {
   text?: string;
   image?: ImageWithAlt;
   image2?: ImageWithAlt;
+  photosAltText?: string;
 }
 
-export default function ValuesSection({ title, text, image, image2 }: ValuesSectionProps) {
+export default function ValuesSection({ title, text, image, image2, photosAltText }: ValuesSectionProps) {
   const imageUrl = image?.asset ? urlFor(image.asset).width(1000).height(1000).url() : "/kim/2.png";
-  const imageAlt = image?.alt || "Kimberly Nguyen Photography";
-
   const image2Url = image2?.asset ? urlFor(image2.asset).width(1000).height(1200).url() : null;
-  const image2Alt = image2?.alt || "Kimberly Nguyen Photography";
 
   const defaultTitle = "My Approach to Photography";
   const defaultText = `Authenticity is at the heart of everything I do. I believe in capturing real moments—the unguarded laughter, the quiet glances, and the genuine emotions that make your day uniquely yours.
@@ -45,7 +43,7 @@ Community and connection matter to me. I don't just photograph your wedding—I 
           <div className="md:ml-8 md:-mt-10 mb-6 w-full md:w-1/3 relative flex-shrink-0">
             <div className="relative mr-8 aspect-[5/6] flex-shrink-0">
               <Image
-                src={imageUrl} alt={imageAlt}
+                src={imageUrl} alt={image?.alt || photosAltText || "Kimberly Nguyen Photography"}
                 width={1000} height={1200}
                 className="w-full h-full object-cover flex-shrink-0"
                 unoptimized
@@ -55,7 +53,7 @@ Community and connection matter to me. I don't just photograph your wedding—I 
             {image2Url && (
               <div className="ml-8 -mt-20 aspect-[5/6] shadow-lg relative">
                 <Image
-                  src={image2Url} alt={image2Alt}
+                  src={image2Url} alt={image2?.alt || photosAltText || "Kimberly Nguyen Photography"}
                   width={1000} height={1200}
                   className="w-full h-full object-cover"
                   unoptimized

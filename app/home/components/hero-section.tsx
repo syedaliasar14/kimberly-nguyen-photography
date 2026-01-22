@@ -10,7 +10,7 @@ import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 import { urlFor } from "@/sanity/lib/image";
 
-export default function HeroSection({ tagline, images }: { tagline?: string; images?: any[] }) {
+export default function HeroSection({ tagline, images, photosAltText }: { tagline?: string; images?: any[]; photosAltText?: string }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const sectionRef = useRef<HTMLElement>(null);
@@ -51,7 +51,7 @@ export default function HeroSection({ tagline, images }: { tagline?: string; ima
               <Image
                 className="absolute inset-0 object-cover object-center"
                 src={urlFor(img.asset).url()!}
-                alt={`Hero Image ${i + 1}`}
+                alt={img.alt || photosAltText || `Hero Image ${i + 1}`}
                 fill sizes="(max-width: 768px) 300vw, 100vw"
                 priority={i === 0}
                 unoptimized

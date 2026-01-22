@@ -46,6 +46,12 @@ export const pageType = defineType({
           type: 'image',
           description: 'Image for social media sharing (1200x630px recommended)',
         }),
+        defineField({
+          name: 'photosAltText',
+          title: 'Photos Alt Text',
+          type: 'string',
+          description: 'Alternative text for photos used across the page for accessibility and SEO',
+        }),
       ],
     }),
     defineField({

@@ -10,7 +10,17 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ImageWithAlt } from "@/sanity/lib/types";
 import { urlFor } from "@/sanity/lib/image";
 
-export default function Testimonials({ title, testimonials }: { title?: string; testimonials?: { quote: string; name: string, image?: ImageWithAlt }[] }) {
+interface Props {
+  title?: string;
+  testimonials?: {
+    quote: string;
+    name: string;
+    image?: ImageWithAlt;
+  }[];
+  photosAltText?: string;
+}
+
+export default function Testimonials({ title, testimonials, photosAltText }: Props) {
   return (
     <section className="relative h-screen overflow-hidden bg-primary">
       <h2 className="absolute text-white font-heading font-thin text-5xl md:text-6xl z-10 top-8 w-full px-4 md:px-8 flex flex-col items-center text-center gap-3">
@@ -39,7 +49,7 @@ export default function Testimonials({ title, testimonials }: { title?: string; 
                 <Image
                   className="absolute inset-0 object-cover object-center"
                   src={urlFor(testimonial.image).url()!}
-                  alt={testimonial.image.alt || "Connecticut Wedding Photography Testimonial"}
+                  alt={testimonial.image.alt || photosAltText || "Connecticut Wedding Photography Testimonial"}
                   fill sizes="100vw"
                   unoptimized
                 />

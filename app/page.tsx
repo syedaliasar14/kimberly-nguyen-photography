@@ -20,28 +20,34 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Home() {
-  const homeContent = (await sanityFetch({query: HOME_PAGE_QUERY, params: {}}))?.data.homeContent;
+  const pageData = (await sanityFetch({query: HOME_PAGE_QUERY, params: {}}))?.data as Page;
+  const homeContent = pageData.homeContent;
+  const photosAltText = pageData.seo?.photosAltText
 
   return (
     <>
       <HeroSection 
         tagline={homeContent?.heroSection?.tagline}
         images={homeContent?.heroSection?.images}
+        photosAltText={photosAltText}
       />
       <WeddingSection1
         title={homeContent?.weddingSection1?.title}
         text={homeContent?.weddingSection1?.text}
         images={homeContent?.weddingSection1?.images}
         keywords={homeContent?.weddingSection1?.keywords}
+        photosAltText={photosAltText}
       />
       <WeddingSection2 
         title={homeContent?.weddingSection2?.title}
         text={homeContent?.weddingSection2?.text}
         images={homeContent?.weddingSection2?.images}
+        photosAltText={photosAltText}
       />
       <Testimonials 
         title={homeContent?.testimonialsSection?.title}
         testimonials={homeContent?.testimonialsSection?.testimonials}
+        photosAltText={photosAltText}
       />
       <OtherServices 
         title={homeContent?.otherServices?.title}

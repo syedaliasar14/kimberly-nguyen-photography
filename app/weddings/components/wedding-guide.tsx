@@ -8,7 +8,7 @@ import Image from 'next/image';
 import { ImageWithAlt } from '@/sanity/lib/types';
 import { urlFor } from '@/sanity/lib/image';
 
-export default function WeddingGuide({ title, subtitle, images, pdf }: { title?: string; subtitle?: string; images?: ImageWithAlt[]; pdf?: { asset: any } }) {
+export default function WeddingGuide({ title, subtitle, images, pdf, photosAltText }: { title?: string; subtitle?: string; images?: ImageWithAlt[]; pdf?: { asset: any }; photosAltText?: string }) {
   const handleDownload = () => {
     if (pdf?.asset?.url) {
       const link = document.createElement('a');
@@ -60,7 +60,7 @@ export default function WeddingGuide({ title, subtitle, images, pdf }: { title?:
               <div className="swiper-zoom-container w-full h-full flex items-center justify-center">
                 <Image
                   src={urlFor(img.asset).url()!}
-                  alt={img.alt || `Connecticut Wedding Photographer`}
+                  alt={img.alt || photosAltText || `Connecticut Wedding Photographer`}
                   width={1200}
                   height={1200}
                   className="object-cover"

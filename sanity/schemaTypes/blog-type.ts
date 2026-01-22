@@ -19,6 +19,12 @@ export const blogType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'photosAltText',
+      title: 'Photos Alt Text',
+      type: 'string',
+      description: 'Alternative text for photos used across the page for accessibility and SEO',
+    }),
+    defineField({
       name: 'image',
       title: 'Featured Image',
       type: 'image',

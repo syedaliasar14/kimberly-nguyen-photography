@@ -15,7 +15,7 @@ interface Package {
   bonus?: string;
 }
 
-export default function PackagesSection({ title, subtitle, packages }: { title?: string; subtitle?: string; packages?: Package[] }) {
+export default function PackagesSection({ title, subtitle, packages, photosAltText }: { title?: string; subtitle?: string; packages?: Package[]; photosAltText?: string }) {
   return (
     <section className="py-20 relative overflow-hidden bg-primary" id="packages">
       <Image
@@ -55,7 +55,7 @@ export default function PackagesSection({ title, subtitle, packages }: { title?:
               <div className="mb-6 overflow-hidden z-10 relative">
                 {pkg.image && <Image
                   src={urlFor(pkg.image).url()!}
-                  alt={pkg.image.alt || `${pkg.name} package`}
+                  alt={pkg.image.alt || photosAltText || `${pkg.name} Wedding Photography Pricing Package`}
                   className={`w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300`}
                   loading="lazy"
                   width={400} height={300}

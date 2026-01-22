@@ -10,7 +10,7 @@ export const homeContent = defineType({
       title: 'Hero Section',
       type: 'object',
       fields: [
-        {name: 'tagline', title: 'Tagline', type: 'text'},
+        {name: 'tagline', title: 'Tagline', type: 'string'},
         {
           name: 'images',
           title: 'Images',
@@ -137,7 +137,7 @@ export const homeContent = defineType({
               type: 'object',
               fields: [
                 {name: 'service', title: 'Service Name', type: 'string', validation: (rule) => rule.required()},
-                {name: 'description', title: 'Description', type: 'text'},
+                {name: 'description', title: 'Description', type: 'string'},
                 {
                   name: 'image',
                   title: 'Image',

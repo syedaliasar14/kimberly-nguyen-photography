@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export const portfolioType = defineType({
   name: 'portfolio',
@@ -15,7 +15,7 @@ export const portfolioType = defineType({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      options: {source: 'title'},
+      options: { source: 'title' },
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -35,6 +35,12 @@ export const portfolioType = defineType({
       title: 'Season',
       type: 'string',
       description: 'Season or category (e.g., Spring 2024, Summer)',
+    }),
+    defineField({
+      name: 'photosAltText',
+      title: 'Photos Alt Text',
+      type: 'string',
+      description: 'Alternative text for photos used across the page for accessibility and SEO',
     }),
     defineField({
       name: 'thumbnail',
@@ -82,7 +88,7 @@ export const portfolioType = defineType({
       subtitle: 'publishedAt',
     },
     prepare(selection) {
-      const {title, media, subtitle} = selection
+      const { title, media, subtitle } = selection
       return {
         title: title,
         media: media,

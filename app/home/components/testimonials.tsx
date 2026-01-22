@@ -10,7 +10,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ImageWithAlt } from "@/sanity/lib/types";
 import { urlFor } from "@/sanity/lib/image";
 
-export default function Testimonials({ title, testimonials }: { title?: string; testimonials?: { quote: string; name: string, image?: ImageWithAlt }[] }) {
+export default function Testimonials({ title, testimonials, photosAltText }: { title?: string; testimonials?: { quote: string; name: string, image?: ImageWithAlt }[]; photosAltText?: string }) {
   return (
     <section className="py-40 overflow-hidden bg-background relative" id="testimonials">
       <Image
@@ -52,7 +52,7 @@ export default function Testimonials({ title, testimonials }: { title?: string; 
                       <div className="absolute -top-2 -left-2 right-4 bottom-4 bg-accent" />
 
                       <Image src={urlFor(testimonial.image).url()!}
-                        alt={testimonial.image.alt || "Connecticut Wedding Photography Testimonial"}
+                        alt={testimonial.image.alt || photosAltText || "Connecticut Wedding Photography Testimonial"}
                         width={1000} height={1000}
                         className="relative z-10 object-cover w-full aspect-[5/6] border border-accent"
                         unoptimized

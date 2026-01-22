@@ -12,6 +12,7 @@ export interface Page {
     metaTitle?: string
     metaDescription?: string
     ogImage?: SanityImageSource
+    photosAltText?: string
   }
   homeContent?: HomeContent
   weddingsContent?: WeddingsContent
@@ -158,6 +159,7 @@ export interface PortfolioItem {
   slug: {
     current: string
   }
+  photosAltText?: string
   thumbnail?: ImageWithAlt
   publishedAt: string
   order?: number
@@ -169,6 +171,7 @@ export interface Blog {
   slug: {
     current: string
   }
+  photosAltText?: string
   image?: ImageWithAlt
   content: PortableTextBlock[]
   publishedAt: string
@@ -190,6 +193,7 @@ export interface OtherWorksItem {
   slug: {
     current: string
   }
+  photosAltText?: string
   thumbnail?: ImageWithAlt
   publishedAt: string
   order?: number

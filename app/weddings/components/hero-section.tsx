@@ -10,7 +10,7 @@ import 'swiper/css/zoom';
 import { ImageWithAlt } from "@/sanity/lib/types";
 import { urlFor } from "@/sanity/lib/image";
 
-export default function HeroSection({ title, text, images }: { title?: string; text?: string; images?: ImageWithAlt[] }) {
+export default function HeroSection({ title, text, images, photosAltText }: { title?: string; text?: string; images?: ImageWithAlt[]; photosAltText?: string }) {
 
   return (
     <section className="min-h-screen flex items-center bg-gradient-to-b from-secondary via-secondary to-secondary/30 text-white pt-14 relative">
@@ -72,7 +72,7 @@ export default function HeroSection({ title, text, images }: { title?: string; t
                 <div className="swiper-zoom-container w-full h-full flex items-center justify-center">
                   <Image
                     src={urlFor(img.asset).url()!}
-                    alt={img.alt || `Wedding Photo ${i + 1}`}
+                    alt={img.alt || photosAltText || `Wedding Photo ${i + 1}`}
                     width={1200}
                     height={1200}
                     className="object-cover"

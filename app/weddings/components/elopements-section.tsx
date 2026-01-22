@@ -3,7 +3,7 @@ import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { ImageWithAlt } from "@/sanity/lib/types";
 
-export default function ElopementsSection({ title, text, image }: { title?: string; text?: string; image?: ImageWithAlt }) {
+export default function ElopementsSection({ title, text, image, photosAltText }: { title?: string; text?: string; image?: ImageWithAlt; photosAltText?: string }) {
   return (
     <section className="py-32 bg-white relative overflow-hidden">
       {/* Background Image */}
@@ -35,7 +35,7 @@ export default function ElopementsSection({ title, text, image }: { title?: stri
         <div className="relative md:w-1/3 w-full aspect-[5/6] overflow-hidden shadow-2xl">
           {image && <Image
             src={urlFor(image).url()!}
-            alt={image.alt || "Elopement Photography"}
+            alt={image.alt || photosAltText || "Elopement Photography"}
             width={1000} height={1000}
             className="object-cover w-full h-full flex-shrink-0"
             unoptimized

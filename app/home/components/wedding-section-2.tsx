@@ -13,7 +13,7 @@ import { ImageWithAlt } from '@/sanity/lib/types';
 import { urlFor } from '@/sanity/lib/image';
 import { useState, useRef, useEffect } from 'react';
 
-export default function WeddingSection2({ title, text, images }: { title?: string; text?: string; images?: ImageWithAlt[] }) {
+export default function WeddingSection2({ title, text, images, photosAltText }: { title?: string; text?: string; images?: ImageWithAlt[]; photosAltText?: string }) {
   const [isVisible, setIsVisible] = useState(true);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -47,7 +47,7 @@ export default function WeddingSection2({ title, text, images }: { title?: strin
               <Image
                 className="fixed inset-0 object-cover object-center"
                 src={urlFor(img.asset).url()!}
-                alt={img.alt || `Connecticut Wedding Photographer`}
+                alt={img.alt || photosAltText || `Connecticut Wedding Photographer`}
                 fill sizes="(max-width: 768px) 300vw, 100vw"
                 unoptimized
               />

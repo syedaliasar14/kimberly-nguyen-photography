@@ -66,7 +66,7 @@ export default async function OtherWorksDetailPage({ params }: { params: Promise
       </section>
 
       {/* Interactive Gallery */}
-      <ImagesGrid portfolio={otherWork} />
+      <ImagesGrid portfolio={otherWork} photosAltText={otherWork.photosAltText} />
 
       {/* Call to Action */}
       <section className="py-20 bg-gradient-to-b from-background to-secondary/20">

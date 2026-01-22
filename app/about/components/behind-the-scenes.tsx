@@ -8,14 +8,12 @@ interface BehindTheScenesProps {
   text?: string;
   image?: ImageWithAlt;
   image2?: ImageWithAlt;
+  photosAltText?: string;
 }
 
-export default function BehindTheScenes({ title, text, image, image2 }: BehindTheScenesProps) {
+export default function BehindTheScenes({ title, text, image, image2, photosAltText }: BehindTheScenesProps) {
   const imageUrl = image?.asset ? urlFor(image.asset).width(1000).height(1000).url() : "/kim/1.png";
-  const imageAlt = image?.alt || "Kimberly Nguyen Photography";
-
   const image2Url = image2?.asset ? urlFor(image2.asset).width(1000).height(1200).url() : null;
-  const image2Alt = image2?.alt || "Kimberly Nguyen Photography";
 
   const defaultTitle = "Behind the Scenes";
   const defaultText = `I believe the best wedding photography happens when couples feel completely comfortable and natural. That's why I spend time getting to know you before your wedding day—understanding your story, your vision, and what matters most to you.
@@ -44,7 +42,7 @@ After your wedding, I carefully curate and edit your images, ensuring each photo
           <div className="md:mr-8 md:-mt-10 mb-6 w-full md:w-1/3 relative flex-shrink-0">
             <div className="relative mr-8 aspect-[5/6] flex-shrink-0">
               <Image
-                src={imageUrl} alt={imageAlt}
+                src={imageUrl} alt={image?.alt || photosAltText || "Kimberly Nguyen Photography"}
                 width={1000} height={1200}
                 className="w-full h-full object-cover flex-shrink-0"
                 unoptimized
@@ -54,7 +52,7 @@ After your wedding, I carefully curate and edit your images, ensuring each photo
             {image2Url && (
               <div className="ml-8 -mt-20 aspect-[5/6] shadow-lg relative">
                 <Image
-                  src={image2Url} alt={image2Alt}
+                  src={image2Url} alt={image2?.alt || photosAltText || "Kimberly Nguyen Photography"}
                   width={1000} height={1200}
                   className="w-full h-full object-cover"
                   unoptimized
