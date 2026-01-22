@@ -18,8 +18,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     : undefined;
 
   return {
-    title: `${otherWork?.title} - Other Works - Kimberly Nguyen Photography Connecticut`,
-    description: `View the ${otherWork?.title} gallery from our other works collection.`,
+    title: `${otherWork?.title} - Other Moments - Kimberly Nguyen Photography Connecticut`,
+    description: `View the ${otherWork?.title} gallery from our other moments collection.`,
     openGraph: ogImage ? {
       images: [{
         url: ogImage,
@@ -40,7 +40,7 @@ export default async function OtherWorksDetailPage({ params }: { params: Promise
         <div className="text-center">
           <h1 className="font-heading font-thin text-2xl text-primary mb-4">Work Not Found</h1>
           <Link href="/other-works" className="text-accent hover:underline font-sans">
-            ← Back to Other Works
+            ← Back to Other Moments
           </Link>
         </div>
       </div>
@@ -54,7 +54,7 @@ export default async function OtherWorksDetailPage({ params }: { params: Promise
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <Link href="/other-works" className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors duration-300 my-8">
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Other Works
+            Back to Other Moments
           </Link>
 
           <div className="text-center">

@@ -11,7 +11,7 @@ const NAV_LINKS = [
   { href: '/', label: 'Home' },
   { href: '/weddings', label: 'Weddings' },
   { href: '/portfolio', label: 'Portfolio' },
-  { href: '/other-works', label: 'Other Works' },
+  { href: '/other-works', label: 'Other Moments' },
   { href: '/blog', label: 'Blog' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
