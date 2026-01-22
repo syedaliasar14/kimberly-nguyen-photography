@@ -9,7 +9,7 @@ import { allura, canela, instrumentSerif, jost, montserrat, moontime } from "@/f
 
 export const metadata: Metadata = {
   title: "Kimberly Nguyen Photography LLC",
-  description: "Wedding Photographer for Connecticut, New York and Massachusetts. Clean, beautiful photography for weddings, engagements, couples, and more.",
+  description: "Wedding Photographer for Connecticut, New York, Boston and Destination. Beautiful photography for weddings, engagements, couples, and more.",
 };
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

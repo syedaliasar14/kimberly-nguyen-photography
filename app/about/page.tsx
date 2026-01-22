@@ -12,7 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const pageData = (await sanityFetch({query: ABOUT_PAGE_QUERY, params: {}}))?.data as Page;
   return generatePageMetadata(pageData) || {
     title: "About | Kimberly Nguyen Photography",
-    description: "Meet Kimberly Nguyen, a wedding photographer who believes in capturing love stories with flow, balance, and heart, celebrating diversity and community.",
+    description: "Meet Kimberly Nguyen, a wedding photographer who believes in capturing love stories authentically and beautifully.",
   };
 }
 

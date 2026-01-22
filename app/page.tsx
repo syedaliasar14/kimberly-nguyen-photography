@@ -13,7 +13,10 @@ import { Page } from "@/sanity/lib/types";
 
 export async function generateMetadata(): Promise<Metadata> {
   const pageData = (await sanityFetch({query: HOME_PAGE_QUERY, params: {}}))?.data as Page;
-  return generatePageMetadata(pageData);
+  return generatePageMetadata(pageData) || {
+    title: "Kimberly Nguyen Photography LLC",
+    description: "Wedding Photographer for Connecticut, New York, Boston and Destination. Beautiful photography for weddings, engagements, graduation photos, and more.",
+  };
 }
 
 export default async function Home() {

@@ -15,7 +15,10 @@ import WeddingGuide from "./components/wedding-guide";
 
 export async function generateMetadata(): Promise<Metadata> {
   const pageData = (await sanityFetch({ query: WEDDINGS_PAGE_QUERY, params: {} }))?.data as Page;
-  return generatePageMetadata(pageData);
+  return generatePageMetadata(pageData) || {
+    title: "Weddings | Kimberly Nguyen Photography",
+    description: "Explore wedding photography services by Kimberly Nguyen Photography, capturing authentic love stories in Connecticut, New York, Boston and Destination.",
+  };
 }
 
 export default async function Weddings() {

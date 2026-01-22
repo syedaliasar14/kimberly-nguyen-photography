@@ -2,12 +2,7 @@ import { Page } from './types'
 import { urlFor } from './image'
 
 export function generatePageMetadata(page: Page | null) {
-  if (!page) {
-    return {
-      title: 'Page Not Found',
-      description: 'The requested page could not be found.',
-    }
-  }
+  if (!page) return null
 
   return {
     title: page.seo?.metaTitle || page.title,
