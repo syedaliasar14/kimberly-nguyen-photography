@@ -40,7 +40,7 @@ export const portfolioType = defineType({
       name: 'photosAltText',
       title: 'Photos Alt Text',
       type: 'string',
-      description: 'Alternative text for photos used across the page for accessibility and SEO',
+      description: 'Default Alt text for all photos used in this page',
     }),
     defineField({
       name: 'thumbnail',
