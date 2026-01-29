@@ -20,7 +20,6 @@ export default function HeroSection({ title, text, images, photosAltText }: { ti
           alt="Wedding Photography Background"
           fill priority
           className="object-cover object-center absolute inset-0 opacity-25 w-full h-full"
-          unoptimized
         />
       </div>
 

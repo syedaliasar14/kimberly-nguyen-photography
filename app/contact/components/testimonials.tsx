@@ -51,7 +51,6 @@ export default function Testimonials({ title, testimonials, photosAltText }: Pro
                   src={urlFor(testimonial.image).url()!}
                   alt={testimonial.image.alt || photosAltText || "Connecticut Wedding Photography Testimonial"}
                   fill sizes="100vw"
-                  unoptimized
                 />
               )}
 

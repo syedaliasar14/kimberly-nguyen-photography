@@ -38,7 +38,6 @@ export default function ElopementsSection({ title, text, image, photosAltText }:
             alt={image.alt || photosAltText || "Elopement Photography"}
             width={1000} height={1000}
             className="object-cover w-full h-full flex-shrink-0"
-            unoptimized
           />}
         </div>
       </div>

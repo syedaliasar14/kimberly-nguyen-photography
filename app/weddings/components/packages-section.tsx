@@ -59,7 +59,6 @@ export default function PackagesSection({ title, subtitle, packages, photosAltTe
                   className={`w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300`}
                   loading="lazy"
                   width={400} height={300}
-                  unoptimized
                 />}
                 <div className="absolute inset-2 border border-white" />
               </div>

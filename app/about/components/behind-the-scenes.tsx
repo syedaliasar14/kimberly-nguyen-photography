@@ -45,7 +45,6 @@ After your wedding, I carefully curate and edit your images, ensuring each photo
                 src={imageUrl} alt={image?.alt || photosAltText || "Kimberly Nguyen Photography"}
                 width={1000} height={1200}
                 className="w-full h-full object-cover flex-shrink-0"
-                unoptimized
               />
             </div>
 
@@ -55,7 +54,6 @@ After your wedding, I carefully curate and edit your images, ensuring each photo
                   src={image2Url} alt={image2?.alt || photosAltText || "Kimberly Nguyen Photography"}
                   width={1000} height={1200}
                   className="w-full h-full object-cover"
-                  unoptimized
                 />
               </div>
             )}

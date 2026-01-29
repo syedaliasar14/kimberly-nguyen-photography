@@ -59,7 +59,6 @@ export default function WeddingSection1({ title, text, images, keywords, photosA
                   width={1200}
                   height={1200}
                   className="object-cover"
-                  unoptimized
                 />
               </div>
             </SwiperSlide>

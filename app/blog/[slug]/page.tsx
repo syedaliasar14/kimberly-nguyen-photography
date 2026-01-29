@@ -37,7 +37,6 @@ const portableTextComponents: PortableTextComponents = {
             width={1200}
             height={800}
             className="w-full h-auto"
-            unoptimized
           />
           {value?.caption && (
             <figcaption className="text-center text-sm text-muted-foreground mt-2">
@@ -146,7 +145,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
               fill
               className="object-cover"
               priority
-              unoptimized
             />
           </div>
         </section>
